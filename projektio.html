@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vektoriprojektio &#8212; Lineaarialgebra</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Suuntakulmat ja napakoordinaattiesitys" href="napa.html" />
+    <link rel="prev" title="Pistetulo" href="pistetulo.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lineaarialgebra</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Lineaarialgebra
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vektorilaskentaa
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_perus.html">
+   Vektorit: perusteita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_laskut.html">
+   Vektorien peruslaskutoimitukset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pistetulo.html">
+   Pistetulo
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Vektoriprojektio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="napa.html">
+   Suuntakulmat ja napakoordinaattiesitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ristitulo.html">
+   Ristitulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="geometriaa.html">
+   Geometriaa vektoreilla
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Matriisit
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_perus.html">
+   Matriisit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_laskut.html">
+   Matriisien peruslaskutoimitukset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisitulo.html">
+   Matriisitulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="determinantti.html">
+   Determinantti
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kaanteismatriisi.html">
+   Käänteismatriisi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisiyhtalot.html">
+   Matriisiyhtälöt
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat.html">
+   Yhtälöryhmät
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_geometria.html">
+   Geometriaa matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_muut.html">
+   Sovelluksia
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/projektio.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fprojektio.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Vektoriprojektio</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="vektoriprojektio">
+<h1>Vektoriprojektio<a class="headerlink" href="#vektoriprojektio" title="Permalink to this headline">¶</a></h1>
+<p>Vektoriprojektio tai vektorin projektio on tärkeä käsite sellaisessa sovelluksissa, joissa etsitään lyhintä etäisyyttä suoralta johonkin pisteeseen. Vektoriprojektio laskemalla saadaan muodostettua projektiovektori. Se on olemassa aina kahden vektorin välillä: voidaan laskea vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{b}\)</span> tai vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{a}\)</span>. Ensimmäistä tapausta merkitään <span class="math notranslate nohighlight">\(\vec{a_b}\)</span> ja jälkimmäistä <span class="math notranslate nohighlight">\(\vec{b_a}\)</span>.</p>
+<p>Seuraavan kuvan avulla voidaan esittää vektoriprojektiolle (tai projektiovektorille) määritelmä: Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{b}\)</span> eli <span class="math notranslate nohighlight">\(\vec{a_b}\)</span> on vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> alkupisteestä alkava vektori, joka on</p>
+<ul class="simple">
+<li><p>yhdensuuntainen vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> kanssa</p></li>
+<li><p>pituudeltaan sellainen, että piirtämällä kyseisen projektiovektorin kärjestä kohtisuora vektori päästään vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> loppupisteeseen.</p></li>
+</ul>
+<p><img alt="Vektoriprojektio" src="_images/projektio.png" /></p>
+<p>Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span>, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla <span class="math notranslate nohighlight">\(\vec{a_b}=p\vec{b}\)</span>, missä tekijä <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|}^2\)</span> on nimeltään skalaariprojektio. Skalaariprojektio on se luku, jolla vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärkeen.</p>
+<p><strong>Huom!</strong> Pistetulon määritelmän mukaisesti <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot \vec{b}}{|\vec{b}|^2} = \frac{|\vec{a}||\vec{b}| \cos{\alpha}}{|b|^2} = \frac{|\vec{a}|}{|\vec{b}|} \cos{\alpha}\)</span>.</p>
+<p>Tuloksena on siis <span class="math notranslate nohighlight">\(p\vec{b}=|\vec{a}| \cos{\alpha⁡} \frac{\vec{b}}{|\vec{b}|} = |\vec{a}| \cos{\alpha⁡} \cdot \vec{b}^0\)</span>, eli <span class="math notranslate nohighlight">\(\vec{b}\)</span>:n suuntainen yksikkövektori kerrottuna luvulla <span class="math notranslate nohighlight">\(|\vec{a}|\cos{\alpha}\)</span>.</p>
+<p>Vektorin projektiota vastaan kohtisuora komponentti <span class="math notranslate nohighlight">\(\vec{a_{\perp}}\)</span> saadaan vähentämällä vektorista sen projektio, siis <span class="math notranslate nohighlight">\(\vec{a_{\perp}}=\vec{a}-\vec{a_b}\)</span>. Tämän vektorin pituus on lyhin etäisyys vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärjen ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> määrittämän suoran välillä. Ylläoleva kuva auttanee hahmottamaan tämän laskutoimituksen perustelua.</p>
+<p><strong>Esim.</strong></p>
+<p>a) Laske vektorin <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{b}=\vec{i}+\vec{j}\)</span>.</p>
+<p>b) Laske vektoriprojektio <span class="math notranslate nohighlight">\(\vec{a_b}\)</span>, kun <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}-5\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=-6\vec{i}+2\vec{j}\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>a) <span class="math notranslate nohighlight">\(\vec{a_b}=\frac{\vec{a}\cdot \vec{b}}{|\vec{b}|^2} \cdot \vec{b} = \frac{4\cdot 1 + 0\cdot 1}{1^2+1^2} \cdot (\vec{i}+\vec{j}) = \frac{4}{2} (\vec{i}+\vec{j})=2\vec{i}+2\vec{j}\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(\vec{a_b}= \frac{4\cdot (-6)+(-5)\cdot 2}{(-6)^2+2^2} \cdot (-6 \vec{i}+2\vec{j}) =\frac{-24-10}{40}\cdot (-6 \vec{i}+2\vec{j})\)</span></p>
+<p><span class="math notranslate nohighlight">\(=-\frac{34}{40} \cdot (-6 \vec{i})-\frac{34}{40} \cdot 2 \vec{j}= \frac{204}{40} \vec{i}-\frac{68}{40} \vec{j} \approx 5.1 \vec{i}-1.7 \vec{j}\)</span></p>
+</div>
+<p><strong>Esim.</strong> Olkoot vektorit <span class="math notranslate nohighlight">\(\vec{A}=8\vec{i}+6\vec{j}-\vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{B}=3\vec{i}-4\vec{j}+2\vec{k}\)</span>. Laske</p>
+<p>a) vektorin <span class="math notranslate nohighlight">\(\vec{A}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p>
+<p>b) vektorin <span class="math notranslate nohighlight">\(\vec{A}\)</span> vektoria <span class="math notranslate nohighlight">\(\vec{B}\)</span> vastaan kohtisuora komponentti.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>a) <span class="math notranslate nohighlight">\(\vec{A_B}=\frac{8\cdot 3+6 \cdot (-4)-1\cdot 2\{3^2+(-4)^2+2^2}\cdot (3\vec{i}-4\vec{j}+2\vec{k})\)</span></p>
+<p><span class="math notranslate nohighlight">\(= \frac{24-24-2}{9+16+4} \cdot (3\vec{i}-4\vec{j}+2\vec{k})=-\frac{2}{29}\cdot(3\vec{i}-4\vec{j}+2\vec{k})\)</span></p>
+<p><span class="math notranslate nohighlight">\(=-\frac{6}{29} \vec{i}+\frac{8}{29} \vec{j}-\frac{4}{29} \vec{k}\approx -0.207 \vec{i}+0.275\vec{j}-0.138\vec{k}\)</span></p>
+<p>Tarkistus WolframAlphan komennolla: projection[{8,6,-1},{3,-4,2}]</p>
+<p>b) <span class="math notranslate nohighlight">\(\vec{A_{\perp}}=\vec{A}-\vec{A_B}=8\vec{i}+6\vec{j}-\vec{k}-(-0.207 \vec{i}+0.275 \vec{j}-0.138 \vec{k})\)</span></p>
+<p><span class="math notranslate nohighlight">\(= (8+0.207) \vec{i}+(6-0.275) \vec{j}+(-1+0.138) \vec{k}=8.207 \vec{i} +5.725 \vec{j}-0.862 \vec{k}\)</span></p>
+</div>
+<p><strong>Esim.</strong> Jaa vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> kahteen komponenttiin, joista toinen on vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> suuntainen ja toinen sitä vastaan kohtisuorassa, kun vektorit ovat seuraavat:</p>
+<p>a) <span class="math notranslate nohighlight">\(\vec{a}=1.5\vec{i}+0.5\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=2\vec{i}+2\vec{j}\)</span>,</p>
+<p>b) <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}+2\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=2\vec{i}+\vec{j}\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>a) <span class="math notranslate nohighlight">\(\vec{a_b}=\frac{1.5\cdot 2+0.5 \cdot 2}{2^2+2^2} \cdot (2 \vec{i}+2 \vec{j})=\frac{4}{8}\cdot (2 \vec{i}+2\vec{j})=\vec{i}+\vec{j}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{a_{\perp}}=\vec{a}-\vec{a_b}=1.5 \vec{i}+0.5\vec{j}-(\vec{i}+\vec{j})=1.5\vec{i}+0.5\vec{j}-\vec{i}-\vec{j}=0.5\vec{i}-0.5\vec{j}\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(\vec{a_b}=\frac{4\cdot 2+2\cdot 1}{2^2+1^2}\cdot (2\vec{i}+\vec{j})=\frac{10}{5} \cdot (2\vec{i}+\vec{j})=4\vec{i}+2\vec{j}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{a_{\perp}}=\vec{a}-\vec{a_b}=4\vec{i}+2\vec{j}-(4\vec{i}+2\vec{j})=0\vec{i}+0\vec{j}\)</span></p>
+<p>Miksi kohtisuoraa komponenttia ei ole olemassa? Huomataan, että vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> saadaan kertomalla vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> luvulla <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>. Vektorit ovat siis samansuuntaisia.</p>
+</div>
+<p><strong>Esim.</strong> Joki virtaa pisteestä <span class="math notranslate nohighlight">\(A=(700,100)\)</span> suoraan pisteeseen <span class="math notranslate nohighlight">\(B=(1500,150)\)</span>. Joen vieressä pisteessä <span class="math notranslate nohighlight">\(C=(1000,50)\)</span> on talo, josta halutaan tehdä lyhin mahdollinen polku joen rantaan pisteeseen <span class="math notranslate nohighlight">\(D\)</span>. Kuinka pitkä on kyseinen polku?</p>
+<p><img alt="Joki ja talo" src="_images/joki.png" /></p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Muodostetaan aluksi pisteiden väliset vektorit:</p>
+<p>Jokea kuvaava vektori on <span class="math notranslate nohighlight">\(\vec{AB}=(1500-700,150-100) = (800,50) = 800 \vec{i} + 50\vec{j}\)</span></p>
+<p>Joen alkupisteestä talolle vie vektori <span class="math notranslate nohighlight">\(\vec{AC}=(1000-700,50-100) = (300,-50) = 300\vec{i} – 50\vec{j}\)</span></p>
+<p>Lyhimmän reitin löytämiseksi on laskettava vektorin <span class="math notranslate nohighlight">\(\vec{AC}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{AB}\)</span>, jonka jälkeen saadaan vektoria <span class="math notranslate nohighlight">\(\vec{AB}\)</span> vastaan kohtisuora vektori <span class="math notranslate nohighlight">\(\vec{DC}\)</span>.</p>
+<p>Skalaariprojektio on <span class="math notranslate nohighlight">\(p=\frac{\vec{AC}\cdot \vec{AB}}{|\vec{AB}|^2} = \frac{800\cdot 300-50\cdot 50}{800^2+50^2} \approx 0.37\)</span>.</p>
+<p>Projektiovektori on <span class="math notranslate nohighlight">\(\vec{AC_{AB}}=p\vec{AB}=0.37\cdot 800 \vec{i}+0.37\cdot 50\vec{j}=296 \vec{i}+18.5 \vec{j}\)</span>.</p>
+<p>Polkua kuvaava vektori on <span class="math notranslate nohighlight">\(\vec{CD}=\vec{AC}-\vec{AC_{AB}}=(300-296) \vec{i}+(-50-18.5) \vec{j} = 4 \vec{i}-68.5 \vec{j}\)</span>.</p>
+<p>Polun pituudeksi saadaan <span class="math notranslate nohighlight">\(|\vec{CD}|=\sqrt{4^2+(-68.5^2} \approx 68.6\)</span>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="pistetulo.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Pistetulo</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="napa.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Suuntakulmat ja napakoordinaattiesitys</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Minna Korhonen<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
