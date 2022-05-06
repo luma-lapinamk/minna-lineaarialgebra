@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Vektorilaskentaa
+    chapters:
+    - file: vektorit_perus
+    - file: vektorit_laskut
+    - file: pistetulo
+    - file: projektio
+    - file: napa
+    - file: ristitulo
+    - file: geometriaa
+  - caption: Matriisit
+    chapters:
+    - file: matriisit_perus
+    - file: matriisit_laskut
+    - file: matriisitulo
+    - file: determinantti
+    - file: kaanteismatriisi
+    - file: matriisiyhtalot
+    - file: yhtaloryhmat
+    - file: matriisit_geometria
+    - file: matriisit_muut
