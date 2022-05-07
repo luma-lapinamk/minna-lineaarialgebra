@@ -80,6 +80,8 @@ Tarkastellaan siirtymää kaksiulotteisessa koordinaatistossa. Valitaan vektorei
 
 Nyt esimerkiksi pisteestä $(0,0)$ pääsee pisteeseen $(3,1)$ liikkumalla $\sqrt{2}$ askelta vektorin $\vec{v_1}$ suunnassa ja $2\sqrt{2}$ askelta vektorin $v_2$ suunnassa:
 
-$0 \vec{i} + 0 \vec{j} + \sqrt{2} \left(\frac{1}{\sqrt{2}}\vec{i}-\frac{1}{\sqrt{2}}\vec{j}\right) + 2\sqrt{2}\left(\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}\right) = \vec{i} - \vec{j} + 2 \vec{i} + 2\vec{j} = 3 \vec{i} + \vec{j}$.
+$0 \vec{i} + 0 \vec{j} + \sqrt{2} \left(\frac{1}{\sqrt{2}}\vec{i}-\frac{1}{\sqrt{2}}\vec{j}\right) + 2\sqrt{2}\left(\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}\right)$
+
+$= \vec{i} - \vec{j} + 2 \vec{i} + 2\vec{j} = 3 \vec{i} + \vec{j}$.
 
 :::
