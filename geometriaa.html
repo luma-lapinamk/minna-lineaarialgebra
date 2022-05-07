@@ -337,10 +337,6 @@
 <h2>Suunnikkaan ja kolmion ala<a class="headerlink" href="#suunnikkaan-ja-kolmion-ala" title="Permalink to this headline">¶</a></h2>
 <p>Suunnikkaan ala <span class="math notranslate nohighlight">\(S\)</span> lasketaan ilman vektoreita sivun pituuden <span class="math notranslate nohighlight">\(x\)</span> ja korkeuden <span class="math notranslate nohighlight">\(h\)</span> tulona: <span class="math notranslate nohighlight">\(S=hx\)</span>. Jos kärkipisteet tiedetään, ala saadaan myös vektorilaskennan avulla. Tällä tavalla laskettuna ala on suorakulmion sivuvektorien <span class="math notranslate nohighlight">\(\vec{AB}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AD}\)</span> ristitulon pituus, kuvan tapauksessa <span class="math notranslate nohighlight">\(S=|\vec{AB}\times \vec{AD}|\)</span>.</p>
 <p><img alt="Suunnikkaan pinta-ala" src="_images/suunnikkaan_ala.png" /></p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Perustelu</p>
-<p>Täydennä tähän</p>
-</div>
 <p>Sivuvektorit lähtevät samasta kärkipisteestä suunnikkaan kahteen muuhun kärkipisteeseen. Ylläolevassa kuvassa sivuvektoreiksi käyvät
 <span class="math notranslate nohighlight">\(\vec{AB}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AD}\)</span>; <span class="math notranslate nohighlight">\(\vec{BA}\)</span> ja <span class="math notranslate nohighlight">\(\vec{BC}\)</span>; <span class="math notranslate nohighlight">\(\vec{CD}\)</span> ja <span class="math notranslate nohighlight">\(\vec{CB}\)</span>; <span class="math notranslate nohighlight">\(\vec{DA}\)</span> ja <span class="math notranslate nohighlight">\(\vec{DC}\)</span>. Ristitulo voidaan laskea vain kolmialkioisille vektoreille. Tarvittaessa lisätään sivuvektoreihin kolmas alkio siten, että sen kerroin on 0.</p>
 <div class="tip dropdown admonition">
@@ -350,7 +346,8 @@
 \vec{i} &amp; \vec{j} &amp; \vec{k} \\
 a_x &amp; a_y &amp; 0\\
 b_x &amp; b_y &amp; 0
-\end{Vmatrix} = (a_y\cdot 0 -b_y \cdot 0) \vec{i} - (a_x \cdot 0 -b_x \cdot 0) \vec{j} + (a_x b_y - b_x a_y) \vec{k} = (a_x b_y - b_x a_y) \vec{k}\)</span>.</p>
+\end{Vmatrix} \)</span></p>
+<p><span class="math notranslate nohighlight">\(= (a_y\cdot 0 -b_y \cdot 0) \vec{i} - (a_x \cdot 0 -b_x \cdot 0) \vec{j} + (a_x b_y - b_x a_y) \vec{k} = (a_x b_y - b_x a_y) \vec{k}\)</span>.</p>
 </div>
 <p><strong>Esim.</strong> Erään suunnikkaan kärkipisteiden koordinaatit ovat <span class="math notranslate nohighlight">\(A=(1,1.5), B=(3,1.5), C=(4,3), D=(2,3)\)</span>. Laske suunnikkaan pinta-ala.</p>
 <p><img alt="Suunnikkaan ala, esimerkki" src="_images/suunnikkaan_ala_esim.png" /></p>
@@ -363,7 +360,8 @@ Kolmialkioisiksi täydennettynä vektorit ovat <span class="math notranslate noh
 \vec{i} &amp; \vec{j} &amp; \vec{k} \\
 2 &amp; 0 &amp; 0\\
 1 &amp; 1.5 &amp; 0
-\end{Vmatrix} = |(0\cdot 0-0\cdot 1.5) \vec{i}-(2\cdot 0-1\cdot 0)\vec{j}+(2\cdot 1.5-0\cdot 1) \vec{k}|=|3 \vec{k}|=3\)</span>.</p>
+\end{Vmatrix} \)</span></p>
+<p><span class="math notranslate nohighlight">\(= |(0\cdot 0-0\cdot 1.5) \vec{i}-(2\cdot 0-1\cdot 0)\vec{j}+(2\cdot 1.5-0\cdot 1) \vec{k}|=|3 \vec{k}|=3\)</span>.</p>
 <p>Huomaa kahdet itseisarvomerkit taulukon ympärillä. Sisemmät merkit kuvaavat ristitulon laskemista, uloimmat kuvaavat ristitulosta tulokseksi saadun vektorin pituutta.</p>
 </div>
 <p>Kolmion ala <span class="math notranslate nohighlight">\(K\)</span> saadaan laskettua jakamalla vastaavan suunnikkaan ala kahdella. Kuvan tapauksessa <span class="math notranslate nohighlight">\(K=\frac{1}{2} |\vec{AD}\times \vec{AB}|\)</span>.</p>
@@ -382,15 +380,7 @@ Kolmialkioisiksi täydennettynä vektorit ovat <span class="math notranslate noh
 <div class="section" id="suuntaissarmion-tilavuus">
 <h2>Suuntaissärmiön tilavuus<a class="headerlink" href="#suuntaissarmion-tilavuus" title="Permalink to this headline">¶</a></h2>
 <p>Tilavuuksia voidaan laskea ns. skalaarikolmitulon avulla. Jos <span class="math notranslate nohighlight">\(\vec{a}, \vec{b}\)</span> ja <span class="math notranslate nohighlight">\(\vec{c}\)</span> ovat vektoreita, niin skalaarikolmitulo määritellään <span class="math notranslate nohighlight">\((\vec{a}\times \vec{b}) \cdot \vec{c}\)</span>. Laskun tuloksena on luku (=skalaari) eikä vektori.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Skalaarikolmitulon laskusääntöjä</p>
-<p>täydennä tähän</p>
-</div>
 <p>Tilavuuslaskuissa <span class="math notranslate nohighlight">\(\vec{a}, \vec{b}\)</span> ja <span class="math notranslate nohighlight">\(\vec{c}\)</span> ovat suuntaissärmiön sivuvektoreita, eli vektoreita suuntaissärmiön jostakin nurkasta muihin nurkkiin. Suuntaissärmiön tilavuus on skalaarikolmitulon itseisarvo.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Perustelu</p>
-<p>Täydennä tähän</p>
-</div>
 <p><strong>Esim.</strong> Oheisessa suuntaissärmiössä kärkipisteiden koordinaatit ovat <span class="math notranslate nohighlight">\(A=(1,1,1), B=(5,1,2), C=(3,7,4)\)</span> ja <span class="math notranslate nohighlight">\(D=(2,2,9)\)</span>. Laske kappaleen tilavuus.</p>
 <p><img alt="Suuntaissärmiö" src="_images/suuntaissarmio.png" /></p>
 <div class="tip dropdown admonition">
@@ -402,7 +392,9 @@ Kolmialkioisiksi täydennettynä vektorit ovat <span class="math notranslate noh
     4 &amp; 0 &amp; 1 \\
     2 &amp; 6 &amp; 3 
   \end{vmatrix}= \vec{i}-10\vec{j}+24\vec{k}\)</span>.</p>
-<p>Skalaarikolmitulo, eli kappaleen tilavuus, on <span class="math notranslate nohighlight">\((\vec{AB}\times \vec{AC})\cdot \vec{AD}=(-6 \vec{i}-10 \vec{j} +24 \vec{k})\cdot (\vec{i}+\vec{j}+8\vec{k})=-6\cdot 1-10\cdot 1+24\cdot 8=176\)</span>.</p>
+<p>Skalaarikolmitulo, eli kappaleen tilavuus, on</p>
+<p><span class="math notranslate nohighlight">\((\vec{AB}\times \vec{AC})\cdot \vec{AD}=(-6 \vec{i}-10 \vec{j} +24 \vec{k})\cdot (\vec{i}+\vec{j}+8\vec{k}) \)</span></p>
+<p><span class="math notranslate nohighlight">\(= -6\cdot 1-10\cdot 1+24\cdot 8=176\)</span>.</p>
 <p>Lasku onnistuisi WolframAlpha-komennolla: ((4,0,1)*(2,6,3)).(1,1,8) jossa alkuosa ((4,0,1)*(2,6,3)) laskee kahden sivuvektorin ristitulon, ja loppuosa .(1,1,8) laskee ristitulovektorin ja kolmannen sivuvektorin pistetulon.</p>
 </div>
 </div>

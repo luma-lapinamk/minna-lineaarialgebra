@@ -353,10 +353,12 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Alkutilanteessa ei sada, eli tilanne on <span class="math notranslate nohighlight">\(p_0=\begin{bmatrix}0 \\1 \end{bmatrix}\)</span>. Merkitään sadetta tapahtumana <span class="math notranslate nohighlight">\(A\)</span> ja poutaa tapahtumana <span class="math notranslate nohighlight">\(B\)</span>.</p>
-<p>Tilansiirtomatriisiin saadaan helposti todennäköisyydet <span class="math notranslate nohighlight">\(P_{AA}\)</span> ja <span class="math notranslate nohighlight">\(P_{BA}\)</span>: <span class="math notranslate nohighlight">\(T=\begin{bmatrix} 0.6 &amp; 0.3 \\ P_{AB} &amp; P_{BB} \end{bmatrix}\)</span></p>
+<p>Tilansiirtomatriisiin saadaan helposti todennäköisyydet <span class="math notranslate nohighlight">\(P_{AA}\)</span> ja <span class="math notranslate nohighlight">\(P_{BA}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(T=\begin{bmatrix} 0.6 &amp; 0.3 \\ P_{AB} &amp; P_{BB} \end{bmatrix}\)</span></p>
 <p>Alariville voidaan päätellä todennäköisyydet <span class="math notranslate nohighlight">\(P_{AB}=1-0.6=0.4\)</span> ja <span class="math notranslate nohighlight">\(P_{BB}=1-0.3=0.7\)</span>.</p>
 <p>Tilansiirtomatriisi on siis <span class="math notranslate nohighlight">\(T=\begin{bmatrix} 0.6 &amp; 0.3 \\ 0.4 &amp; 0.7 \end{bmatrix}\)</span>.</p>
-<p>Huomisen sääennuste on tällöin <span class="math notranslate nohighlight">\(p_1=Tp_0 = \begin{bmatrix}0.6 &amp; 0.3 \\ 0.4 &amp; 0.7\end{bmatrix} \begin{bmatrix}0 \\ 1\end{bmatrix} = \begin{bmatrix} 0.3 \\ 0.7 \end{bmatrix}\)</span>.</p>
+<p>Huomisen sääennuste on tällöin</p>
+<p><span class="math notranslate nohighlight">\(p_1=Tp_0 = \begin{bmatrix}0.6 &amp; 0.3 \\ 0.4 &amp; 0.7\end{bmatrix} \begin{bmatrix}0 \\ 1\end{bmatrix} = \begin{bmatrix} 0.3 \\ 0.7 \end{bmatrix}\)</span>.</p>
 <p>Ylihuomisen ennuste saadaan kertomalla tämä uusi alkutilanne jälleen tilansiirtomatriisilla:</p>
 <p><span class="math notranslate nohighlight">\(p_2=Tp_1 = \begin{bmatrix}0.6 &amp; 0.3 \\ 0.4 &amp; 0.7\end{bmatrix} \begin{bmatrix}0.3 \\ 0.7\end{bmatrix} = \begin{bmatrix} 0.39 \\ 0.61 \end{bmatrix}\)</span>.</p>
 <p>Sama vastaus saadaan suoraan laskemalla <span class="math notranslate nohighlight">\(p_2=T^2 p_0\)</span>.</p>
@@ -369,10 +371,12 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
 <p class="admonition-title">Ratkaisu</p>
 <p><img alt="Muuttoliikkeen tilansiirtomatriisi" src="_images/muutto.png" /></p>
 <p>Muodostetaan tilansiirtomatriisi kuvan avulla: <span class="math notranslate nohighlight">\(T=\begin{bmatrix}0.95&amp;0.03\\0.05&amp;0.97\end{bmatrix}\)</span></p>
-<p>Kerätään alkutilannetta kuvaavaan matriisiin nykyiset asukasmäärät: <span class="math notranslate nohighlight">\(p_0=\begin{bmatrix}100 000\\150 000\end{bmatrix}\)</span></p>
+<p>Kerätään alkutilannetta kuvaavaan matriisiin nykyiset asukasmäärät:</p>
+<p><span class="math notranslate nohighlight">\(p_0=\begin{bmatrix}100 000\\150 000\end{bmatrix}\)</span></p>
 <p>a) <span class="math notranslate nohighlight">\(p_1=Tp_0=\begin{bmatrix} 0.95\cdot 100 000+0.03 \cdot 150 000 \\ 0.05\cdot 100 000+0.97\cdot 150 000 \end{bmatrix}=\begin{bmatrix}99 500 \\ 150 500 \end{bmatrix}\)</span></p>
 <p>b) Koska <span class="math notranslate nohighlight">\(p_1=Tp_0\)</span>, niin <span class="math notranslate nohighlight">\(p_2=Tp_1=TTp_0=T^2p_0\)</span>, <span class="math notranslate nohighlight">\(p_3=T^3p_0\)</span> jne. ja edelleen <span class="math notranslate nohighlight">\(p_{10}=T^{10} p_0\)</span>.</p>
-<p>Siis 10 vuoden kuluttua <span class="math notranslate nohighlight">\(p_{10}=\begin{bmatrix} 0.95&amp;0.03 \\ 0.05&amp;0.97\end{bmatrix}^{10} \begin{bmatrix}100 000 \\ 150 000\end{bmatrix}=\begin{bmatrix} 96 465 \\ 153 540 \end{bmatrix}\)</span>.</p>
+<p>Siis 10 vuoden kuluttua</p>
+<p><span class="math notranslate nohighlight">\(p_{10}=\begin{bmatrix} 0.95&amp;0.03 \\ 0.05&amp;0.97\end{bmatrix}^{10} \begin{bmatrix}100 000 \\ 150 000\end{bmatrix}=\begin{bmatrix} 96 465 \\ 153 540 \end{bmatrix}\)</span>.</p>
 <p>Lasku <span class="math notranslate nohighlight">\(T^{10}\)</span> on suoritettu tietokoneella.</p>
 </div>
 </div>
@@ -420,7 +424,8 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
 <p>Kahden vuoden kuluttua eläimiä on</p>
 <p><span class="math notranslate nohighlight">\(LE=\begin{bmatrix} 0&amp;0.5&amp;1.1&amp;1.3&amp;0.8&amp;0.4 \\ 0.7&amp;0&amp;0&amp;0&amp;0&amp;0 \\ 0&amp;0.9&amp;0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0.8&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0.7&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0&amp;0.3&amp;0 \end{bmatrix} \begin{bmatrix} 0\\40\\0\\0\\0\\0 \end{bmatrix} = \begin{bmatrix} 0.5\cdot 40 \\ 0 \\ 0.9⋅40 \\ 0 \\0 \\ 0 \end{bmatrix} = \begin{bmatrix} 20\\0\\36\\0\\0\\0 \end{bmatrix}\)</span>.</p>
 <p>Siis 40 alkuperäistä otusta on tuottanut 20 poikasta ikäryhmään 0-2 v, ja lisäksi 90 % eli 36 kpl alkuperäisistä eläimistä on siirtynyt seuraavaan ikäryhmään.</p>
-<p>Tilanne kymmenen vuoden kuluttua saadaan laskemalla (tietokoneella) <span class="math notranslate nohighlight">\(L^5 E \approx \begin{bmatrix} 58 \\ 31 \\ 28 \\ 20 \\ 7 \\0\end{bmatrix}\)</span>.</p>
+<p>Tilanne kymmenen vuoden kuluttua saadaan laskemalla (tietokoneella)</p>
+<p><span class="math notranslate nohighlight">\(L^5 E \approx \begin{bmatrix} 58 \\ 31 \\ 28 \\ 20 \\ 7 \\0\end{bmatrix}\)</span>.</p>
 <p>Tässä tietysti on oletettu, että eläimiä ei alkuhankinnan jälkeen ole ostettu tai myytykään. Huomaa myös, että tässä ikäluokkia käsitellään kahden vuoden jaksoina; siksi kymmenen vuotta vastaa viidenteen potenssiin korotusta.</p>
 </div>
 </div>

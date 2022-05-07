@@ -32,10 +32,6 @@ WolframAlphalla lasku onnistuisi komennolla (3,2,-1)\*(-5,3,1).
 
 :::
 
-:::{admonition} Ristitulon laskusääntöjä
-:class: tip, dropdown
-Täydennä tähän!
-:::
 
 ## Laskeminen determinanttien avulla
 
@@ -104,9 +100,4 @@ WolframAlpha-komento cross([1,2,0],[2,1,1]) antaa tuloksen [2,-1,-3] ja lisäksi
 :::
 
 **Huom!** Edellisessä ohjeessa ristitulo laskettiin ”ensimmäisen rivin suhteen”. Sen voi kuitenkin laskea taulukon minkä tahansa rivin sai sarakkeen suhteen. Jos taulukossa on paljon nollia tai muita helppoja lukuja, niitä voi hyödyntää valitsemalla sopiva tapa ristitulon laskemiseen. Lopputulos on joka tavalla laskettuna sama.
-
-
-## Ristitulon toinen määritelmä
-
-JATKUU!
 

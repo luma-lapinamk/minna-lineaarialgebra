@@ -26,7 +26,9 @@ Toisaalta vektoreitakin voidaan ajatella matriiseina. Jos vektorissa on $n$ komp
 
 Matriisi $A$ on tyyppiä $2\times3$ ja matriisi $B$ on tyyppiä $3 \times 3$, joten matriisi voidaan laskea. Lopputuloksen tyypin pitäisi olla $2 \times 3$.
 
-$AB=\begin{bmatrix}2\cdot 0+3\cdot 3+1\cdot 1 & 2\cdot 2+3\cdot 1+1\cdot 0 & 2\cdot 1+3\cdot 2+1\cdot 2 \\ 0\cdot 0+4\cdot 3+2\cdot 1 & 0\cdot 2+4\cdot 1+2\cdot 0 & 0\cdot 1+4\cdot 2+2\cdot 2\end{bmatrix}=\begin{bmatrix}10&7&10\\14&4&12\end{bmatrix}$.
+$AB=\begin{bmatrix}2\cdot 0+3\cdot 3+1\cdot 1 & 2\cdot 2+3\cdot 1+1\cdot 0 & 2\cdot 1+3\cdot 2+1\cdot 2 \\ 0\cdot 0+4\cdot 3+2\cdot 1 & 0\cdot 2+4\cdot 1+2\cdot 0 & 0\cdot 1+4\cdot 2+2\cdot 2\end{bmatrix} $
+
+$AB=\begin{bmatrix}10&7&10\\14&4&12\end{bmatrix}$
 
 :::
 
@@ -42,11 +44,13 @@ $H=\begin{bmatrix}1 &0.60 &2.50 \\ 1.29 &0.35 &2.19\end{bmatrix}$
 
 Muodostetaan matriisi $K$ tuotteiden kulutuksille lettutaikinassa. Alkiot vastaavat maidon, jauhojen ja munien kulutusta (yksiköinä litra, kilogramma ja kenno).
 
-$K=\begin{bmatrix}2 \\ 0.4 \\0.5\end{bmatrix}$.
+$K=\begin{bmatrix}2 \\ 0.4 \\0.5\end{bmatrix}$
 
 Lasketaan matriisi $HK$. Matriisin $H$ tyyppi on $2 \times 3$ ja matriisin $K$ tyyppi on $3 \times 1$, joten matriisitulo $HK$ voidaan laskea, ja tuloksena olevan matriisin tyyppi on $2 \times 1$. Matriisit alkiot kuvaavat taikinan aineksien hintaa: ylärivilla hinta Artun kaupasta ostettuna, ja alarivillä hinta Bertan kaupasta ostettuna.
 
-$HK=\begin{bmatrix}1\cdot2+0.60\cdot0.4+2.50\cdot0.5\\ 1.29\cdot 2+0.35\cdot 0.4+2.19\cdot 0.5\end{bmatrix}=\begin{bmatrix}2+0.24+1.25 \\2.58+0.14+1.095\end{bmatrix}=\begin{bmatrix} 3.49 \\ 3.815\end{bmatrix}$.
+$HK=\begin{bmatrix}1\cdot2+0.60\cdot0.4+2.50\cdot0.5\\ 1.29\cdot 2+0.35\cdot 0.4+2.19\cdot 0.5\end{bmatrix} $
+
+$ HK =\begin{bmatrix}2+0.24+1.25 \\2.58+0.14+1.095\end{bmatrix}=\begin{bmatrix} 3.49 \\ 3.815\end{bmatrix}$.
 
 Tällaisen ongelman toki ratkaisee helpommin ilman matriiseja kuin matriiseja hyödyntämällä. Toivottavasti kuitenkin matriisilaskennalle aukenee myöhemmin jotain hyötykäyttöä!
 

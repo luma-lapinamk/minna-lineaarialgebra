@@ -337,13 +337,14 @@
 </ul>
 <p>Merkkikaavio on <span class="math notranslate nohighlight">\(\hspace{2cm}\begin{matrix}+ &amp; - &amp; + \\ - &amp; + &amp; - \\ + &amp; - &amp; + \end{matrix}\)</span></p>
 <p>Determinantti voidaan kehittää minkä tahansa rivin tai sarakkeen suhteen. Voidaan siis liikkua mitä tahansa riviä tai saraketta pitkin. Determinantin arvo on sama riippumatta siitä, minkä rivin tai sarakkeen suhteen se lasketaan.</p>
-<p><strong>Esim.</strong> Kehitetään determinantti matriisille <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1&amp;4&amp;2\\0&amp;0&amp;2\\5&amp;1&amp;3\end{bmatrix}\)</span>
-a) ensimmäisen rivin suhteen, b) toisen rivin suhteen.</p>
+<p><strong>Esim.</strong> Kehitetään determinantti matriisille <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1&amp;4&amp;2\\0&amp;0&amp;2\\5&amp;1&amp;3\end{bmatrix}\)</span></p>
+<p>a) ensimmäisen rivin suhteen, b) toisen rivin suhteen.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p>a) <span class="math notranslate nohighlight">\(\text{det}⁡ A = 1\cdot (0\cdot 3-2\cdot 1)-4\cdot (0\cdot 3-5\cdot 2)+2\cdot (0\cdot 1-0\cdot 5) \)</span>
-<span class="math notranslate nohighlight">\(= 1\cdot (-2)-4\cdot (-10)+2\cdot 0=38\)</span></p>
-<p>b) <span class="math notranslate nohighlight">\(\text{det} ⁡A = -0\cdot (4\cdot 3-2\cdot 1)+0\cdot (1\cdot 3-2\cdot 5)-2\cdot (1\cdot 1-4\cdot 5) = -2\cdot (-19)=38\)</span></p>
+<p>a) <span class="math notranslate nohighlight">\(\text{det}⁡ A = 1\cdot (0\cdot 3-2\cdot 1)-4\cdot (0\cdot 3-5\cdot 2)+2\cdot (0\cdot 1-0\cdot 5) \)</span></p>
+<p><span class="math notranslate nohighlight">\(\text{det}⁡ A= 1\cdot (-2)-4\cdot (-10)+2\cdot 0=38\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(\text{det} ⁡A = -0\cdot (4\cdot 3-2\cdot 1)+0\cdot (1\cdot 3-2\cdot 5)-2\cdot (1\cdot 1-4\cdot 5) \)</span></p>
+<p><span class="math notranslate nohighlight">\(\text{det}⁡ A= -2\cdot (-19)=38\)</span></p>
 </div>
 <p>Yleisesti: Kun lasketaan determinanttia <span class="math notranslate nohighlight">\(n \times n\)</span> –tyyppiselle matriisille, saadaan ensin <span class="math notranslate nohighlight">\(n\)</span> kappaletta <span class="math notranslate nohighlight">\((n-1) \times (n-1)\)</span> –tyyppisiä alideterminantteja. Näistä jokaisesta saadaan edelleen <span class="math notranslate nohighlight">\(n-1\)</span> kappaletta <span class="math notranslate nohighlight">\((n-2) \times (n-2)\)</span> –tyypin alideterminantteja. Edelleen saadaan pienempiä alideterminantteja. Lopputulos saadaan, kun alideterminantit ovat kutistuneet kokoon <span class="math notranslate nohighlight">\(2 \times 2\)</span>. Laskemalla nämä yhteen kertoimet huomioituna saadaan lopulta koko <span class="math notranslate nohighlight">\(n \times n\)</span> –tyyppisen matriisin determinantti.</p>
 <p>Octavella minkä tahansa kokoisen neliömatriisin <span class="math notranslate nohighlight">\(A\)</span> determinantti lasketaan komennolla det(A).</p>

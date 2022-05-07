@@ -192,8 +192,14 @@ Vektori on $\frac{2 \vec{i}-\vec{j}}{|2\vec{i}-\vec{j}|}=\frac{2\vec{i}-\vec{j}}
 :::{admonition} Ratkaisu
 :class: tip, dropdown
 
-Pisteiden välinen vektori on $(3-20)\vec{i}+(1-6)\vec{j}+(10-2)\vec{k}=-17\vec{i}-5\vec{j}-8\vec{k}$, ja vektorin pituus on $\sqrt{(-17)^2+(-5)^2+(-8)^2}=\sqrt{378}$. 
+Pisteiden välinen vektori on 
 
-Yksikkövektori on siis $\frac{-17}{\sqrt{378}} \vec{i}- \frac{5}{\sqrt{378}} \vec{j}-\frac{8}{\sqrt{378}} \vec{k} \approx -0.87 \vec{i}-0.26 \vec{j}-0.41 \vec{k}$.               
+$(3-20)\vec{i}+(1-6)\vec{j}+(10-2)\vec{k}=-17\vec{i}-5\vec{j}-8\vec{k}$, 
+
+ja vektorin pituus on $\sqrt{(-17)^2+(-5)^2+(-8)^2}=\sqrt{378}$. 
+
+Yksikkövektori on siis
+
+$\frac{-17}{\sqrt{378}} \vec{i}- \frac{5}{\sqrt{378}} \vec{j}-\frac{8}{\sqrt{378}} \vec{k} \approx -0.87 \vec{i}-0.26 \vec{j}-0.41 \vec{k}$.               
 
 :::

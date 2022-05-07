@@ -387,7 +387,7 @@
 <p>Jos esimerkiksi ratkaistaan ylemmästä yhtälöstä ensin <span class="math notranslate nohighlight">\(x=2+y\)</span> ja sijoitetaan se alempaan yhtälöön, saadaan</p>
 <p><span class="math notranslate nohighlight">\(2(2+y)+3y=9 \leftrightarrow  4+2y+3y=9 \leftrightarrow 5y=5 \leftrightarrow y=1\)</span>.</p>
 <p>Tämän avulla voidaan ratkaista vielä ensimmäisestä yhtälöstä <span class="math notranslate nohighlight">\(x=2+y=2+1=3\)</span>.</p>
-<p>Kaikilla muillakin esitetyillä tavoilla vastaukseksi tulee <span class="math notranslate nohighlight">\(x=3,y=1\)</span>. Jos et usko, kokeile.</p>
+<p>Kaikilla muillakin esitetyillä tavoilla vastaukseksi tulee <span class="math notranslate nohighlight">\(x=3,y=1\)</span>.</p>
 </div>
 </div>
 <div class="section" id="eliminaatiomenetelma">
@@ -425,7 +425,8 @@
 <p><strong>Esim.</strong> Ratkaise yhtälöpari <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 2x+y=5 \\ 4x+y=11 \end{cases} \end{equation}\)</span> eliminaatiomenetelmällä.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p>Jälleen ylemmästä yhtälöstä saadaan luvulla kertomalla <span class="math notranslate nohighlight">\(-4x-2y=-10\)</span>. Kun lasketaan se yhteen alemman yhtälön kanssa, saadaan:</p>
+<p>Jälleen ylemmästä yhtälöstä saadaan luvulla kertomalla <span class="math notranslate nohighlight">\(-4x-2y=-10\)</span>.</p>
+<p>Kun lasketaan se yhteen alemman yhtälön kanssa, saadaan:</p>
 <p><span class="math notranslate nohighlight">\(-4x-2y+4x+2y=-10+11 \leftrightarrow  0\cdot x=1\)</span>.</p>
 <p>Yhtälö ei toteudu millään luvulla <span class="math notranslate nohighlight">\(x\)</span>. Yhtälöparilla ei ole ratkaisua.</p>
 </div>
@@ -434,18 +435,27 @@
 <h2>Determinanttimenetelmä (Cramerin sääntö)<a class="headerlink" href="#determinanttimenetelma-cramerin-saanto" title="Permalink to this headline">¶</a></h2>
 <p>Jos yhtälöpari on muotoa <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} ax+by=e \\ cx+dy=f \end{cases} \end{equation}\)</span> niin ratkaisut saadaan <span class="math notranslate nohighlight">\(2 \times 2\)</span> –tyyppisten determinanttien avulla.</p>
 <p>Tällöin yhtälöpari esitetään muodossa <span class="math notranslate nohighlight">\(\begin{bmatrix} a&amp;b \\ c&amp;d \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix}e \\ f\end{bmatrix}\)</span>.</p>
-<p>Ensimmäisen muuttujan <span class="math notranslate nohighlight">\(x\)</span> ratkaisemiseksi muokataan kerroinmatriisia korvaamalla ensimmäinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan <span class="math notranslate nohighlight">\(\begin{bmatrix} e&amp;b \\ f&amp;d \end{bmatrix}\)</span>.</p>
-<p>Lasketaan tästä determinantti <span class="math notranslate nohighlight">\(D_x=\begin{vmatrix} e&amp;b\\f&amp;d\end{vmatrix}=de-bf\)</span> ja jaetaan vielä kerroinmatriisin determinantilla <span class="math notranslate nohighlight">\(D=\begin{vmatrix}a&amp;b\\c&amp;d\end{vmatrix}=ad-bc\)</span>, jolloin saadaan vastaus: <span class="math notranslate nohighlight">\(x=\frac{D_x}{D}=\frac{de-bf}{ad-bc}\)</span>.</p>
-<p>Toisen muuttujan ratkaisemiseksi muokataan kerroinmatriisia korvaamalla toinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan <span class="math notranslate nohighlight">\(\begin{bmatrix} a&amp;e \\ c&amp;f \end{bmatrix}\)</span>.</p>
-<p>Lasketaan tästä determinantti <span class="math notranslate nohighlight">\(D_y = \begin{vmatrix} a&amp;e \\ c&amp;f \end{vmatrix}=af-ec\)</span> ja jaetaan vielä kerroinmatriisin determinantilla <span class="math notranslate nohighlight">\(D=\begin{vmatrix} a&amp;b \\ c&amp;d \end{vmatrix}=ad-bc\)</span>, jolloin saadaan vastaus: <span class="math notranslate nohighlight">\(y=\frac{D_y}{D}=\frac{af-ec}{ad-bc}\)</span>.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Perustelu</p>
-<p>Täydentyy.</p>
-</div>
+<p>Ensimmäisen muuttujan <span class="math notranslate nohighlight">\(x\)</span> ratkaisemiseksi muokataan kerroinmatriisia korvaamalla ensimmäinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan matriisi</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix} e&amp;b \\ f&amp;d \end{bmatrix}\)</span>.</p>
+<p>Lasketaan tästä determinantti</p>
+<p><span class="math notranslate nohighlight">\(D_x=\begin{vmatrix} e&amp;b\\f&amp;d\end{vmatrix}=de-bf\)</span></p>
+<p>ja jaetaan vielä kerroinmatriisin determinantilla</p>
+<p><span class="math notranslate nohighlight">\(D=\begin{vmatrix}a&amp;b\\c&amp;d\end{vmatrix}=ad-bc\)</span>,</p>
+<p>jolloin saadaan vastaus: <span class="math notranslate nohighlight">\(x=\frac{D_x}{D}=\frac{de-bf}{ad-bc}\)</span>.</p>
+<p>Toisen muuttujan ratkaisemiseksi muokataan kerroinmatriisia korvaamalla toinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix} a&amp;e \\ c&amp;f \end{bmatrix}\)</span>.</p>
+<p>Lasketaan tästä determinantti</p>
+<p><span class="math notranslate nohighlight">\(D_y = \begin{vmatrix} a&amp;e \\ c&amp;f \end{vmatrix}=af-ec\)</span></p>
+<p>ja jaetaan vielä kerroinmatriisin determinantilla</p>
+<p><span class="math notranslate nohighlight">\(D=\begin{vmatrix} a&amp;b \\ c&amp;d \end{vmatrix}=ad-bc\)</span>,</p>
+<p>jolloin saadaan vastaus: <span class="math notranslate nohighlight">\(y=\frac{D_y}{D}=\frac{af-ec}{ad-bc}\)</span>.</p>
 <p><strong>Esim.</strong> Ratkaistaan yhtälöpari <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 3x+2y=-1 \\ 2x+y=3\end{cases} \end{equation}\)</span> Cramerin menetelmällä.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p>Lasketaan tarvittavat determinantit: <span class="math notranslate nohighlight">\(D_x=\begin{vmatrix}-1&amp;2\\3&amp;1\end{vmatrix}=-1-6=-7,  D_y=\begin{vmatrix}3&amp;-1\\2&amp;3\end{vmatrix}=9-(-2)=11, D=\begin{vmatrix}3&amp;2\\2&amp;1\end{vmatrix}=3-4=-1\)</span>.</p>
+<p>Lasketaan tarvittavat determinantit:</p>
+<p><span class="math notranslate nohighlight">\(D_x=\begin{vmatrix}-1&amp;2\\3&amp;1\end{vmatrix}=-1-6=-7\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(D_y=\begin{vmatrix}3&amp;-1\\2&amp;3\end{vmatrix}=9-(-2)=11\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(D=\begin{vmatrix}3&amp;2\\2&amp;1\end{vmatrix}=3-4=-1\)</span>.</p>
 <p>Vastauksiksi saadaan <span class="math notranslate nohighlight">\(x=\frac{-7}{-1}=7, y=-\frac{11}{1}=-11\)</span>.</p>
 </div>
 </div>
@@ -462,7 +472,7 @@ a_{m1} x_1+a_{m2} x_2+ \ldots +a_{mn} x_n=b_m \end{cases} \end{equation}\)</span
 <p>sillä matriisien kertolaskun määritelmän perusteella pätee</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation} \begin{cases}
 a_{11}x_1+a_{12} x_2+ \ldots +a_{1n} x_n=b_1 \\ a_{21} x_1+a_{22} x_2+ \ldots +a_{2n} x_n=b_2 \\ \vdots \\ a_{m1} x_1+a_{m2} x_2+ \ldots +a_{mn} x_n=b_m \end{cases} \end{equation} \leftrightarrow AX=B\)</span>.</p>
-<p>Jos yhtälöitä ja tuntemattomia ei ole yhtä paljon (<span class="math notranslate nohighlight">\(m\neq n\)</span>), niin yhtälöryhmällä ei yleensä ole yksikäsitteistä ratkaisua. Jos taas yhtälöitä ja tuntemattomia on yhtä paljon (<span class="math notranslate nohighlight">\(m=n\)</span>), niin yhtälöryhmällä on yksikäsitteinen ratkaisu.</p>
+<p>Jos yhtälöitä ja tuntemattomia ei ole yhtä paljon (<span class="math notranslate nohighlight">\(m\neq n\)</span>), niin yhtälöryhmällä ei yleensä ole yksikäsitteistä ratkaisua. Jos taas yhtälöitä ja tuntemattomia on yhtä paljon (<span class="math notranslate nohighlight">\(m=n\)</span>), niin yhtälöryhmällä on yleensä, mutta ei kuitenkaan aina, yksikäsitteinen ratkaisu.</p>
 <p>Koska <span class="math notranslate nohighlight">\(A^{-1}A=I\)</span> ja <span class="math notranslate nohighlight">\(A^{-1}AX=IX=X\)</span>, niin tuntemattomat sisältävä matriisi saadaan kertomalla yhtälö <span class="math notranslate nohighlight">\(AX=B\)</span> puolittain vasemmalta matriisilla <span class="math notranslate nohighlight">\(A^{-1}\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(AX=B \leftrightarrow A^{-1}AX=A^{-1}B \leftrightarrow X=A^{-1}B\)</span>.</p>
 <p>Ratkaisu on olemassa jos ja vain jos kerroinmatriisilla <span class="math notranslate nohighlight">\(A\)</span> on olemassa käänteismatriisi, toisin sanoen <span class="math notranslate nohighlight">\(\text{det}~A =|A| \neq 0\)</span>.</p>
