@@ -43,3 +43,11 @@ Matriisin $A$ **transpoosia** merkitään $A^T$. Transpoosin sarakkeet vastaavat
 **Esim.** Matriisin $B=\begin{bmatrix}1 &2 \\ 2 & 4 \\ 3 & 1 \\ 6 & 0\end{bmatrix}$ transpoosi on $B^T=\begin{bmatrix}1 & 2 & 3 & 6 \\ 2 & 4 & 1 & 0\end{bmatrix}$.
 
 Matriisin $B^T=\begin{bmatrix}1 & 2 & 3 & 6 \\ 2 & 4 & 1 & 0\end{bmatrix}$ transpoosi on $(B^T)^T = \begin{bmatrix}1 &2 \\ 2 & 4 \\ 3 & 1 \\ 6 & 0\end{bmatrix} = B$.
+
+### Vektori matriisina
+
+Vektoreita voi näppärästi käsitellä samoilla laskutoimituksilla kuin matriiseja, kun ne tulkitaan matriiseiksi, joilla on joko yksi rivi tai yksi sarake. Esimerkiksi vektori $2\vec{i}+4\vec{j}-\vec{k}$ voitaisiin ajatella
+
+joko $3\times 1$ -tyyppiseksi matriisiksi $\begin{bmatrix} 2 \\ 4 \\ -1\end{bmatrix}$ tai $1\times 3$ -tyyppiseksi matriisiksi $\begin{bmatrix} 2 & 4 & -1 \end{bmatrix}$.  
+
+Tällöin vektorien laskutoimitukset muuttuvat matriisien laskutoimituksiksi; esimerkiksi vektorin pistetulo tarkoittaa vektoria vastaavan matrisin kertolaskua oman transpoosinsa kanssa. Usein matriisilaskennan sovelluksissa vektoreilla tarkoitetaan jotakin muuta kuin paikkavektoreita. Näihin sovelluksiin palataan myöhemmin tässä oppimateriaalissa.

@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Ominaisarvot ja -vektorit &#8212; Lineaarialgebra</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Geometriaa matriiseilla" href="matriisit_geometria.html" />
+    <link rel="prev" title="Yhtälöryhmät" href="yhtaloryhmat.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lineaarialgebra</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Lineaarialgebra
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vektorilaskentaa
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_perus.html">
+   Vektorit: perusteita
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_laskut.html">
+   Vektorien peruslaskutoimitukset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pistetulo.html">
+   Pistetulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="projektio.html">
+   Vektoriprojektio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="napa.html">
+   Suuntakulmat ja napakoordinaattiesitys
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ristitulo.html">
+   Ristitulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="geometriaa.html">
+   Geometriaa vektoreilla
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Matriisit
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_perus.html">
+   Matriisit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_laskut.html">
+   Matriisien peruslaskutoimitukset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisitulo.html">
+   Matriisitulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="determinantti.html">
+   Determinantti
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kaanteismatriisi.html">
+   Käänteismatriisi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisiyhtalot.html">
+   Matriisiyhtälöt
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat.html">
+   Yhtälöryhmät
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Ominaisarvot ja -vektorit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_geometria.html">
+   Geometriaa matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_muut.html">
+   Sovelluksia
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href="https://jupyterbook.org">Jupyter Book</a> voimaa
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/luma-lapinamk/minna-lineaarialgebra"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ominaisarvot.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ominaisarvoyhtalo">
+   Ominaisarvoyhtälö
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ominaisarvot ja -vektorit</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ominaisarvoyhtalo">
+   Ominaisarvoyhtälö
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="ominaisarvot-ja-vektorit">
+<h1>Ominaisarvot ja -vektorit<a class="headerlink" href="#ominaisarvot-ja-vektorit" title="Permalink to this headline">#</a></h1>
+<p>Jos tyyppiä <span class="math notranslate nohighlight">\(n \times n\)</span> oleva matriisi <span class="math notranslate nohighlight">\(A\)</span> kerrotaan <span class="math notranslate nohighlight">\(n \times 1\)</span> -tyyppisellä vektorilla <span class="math notranslate nohighlight">\(\vec{v}\)</span> ja tulokseksi saadaan sama vektori kerrottuna jollakin luvulla <span class="math notranslate nohighlight">\(\lambda\)</span>, sanotaan että <span class="math notranslate nohighlight">\(\lambda\)</span> on matriisin <span class="math notranslate nohighlight">\(A\)</span> ominaisarvo ja <span class="math notranslate nohighlight">\(\vec{v}\)</span> matriisin <span class="math notranslate nohighlight">\(A\)</span> ominaisvektori. Yhtälönä tämä ilmaistaan seuraavasti: <span class="math notranslate nohighlight">\(A\vec{v}=\lambda\vec{v}\)</span>.</p>
+<p>Neliömatriisilla, jonka koko on <span class="math notranslate nohighlight">\(n \times \)</span>, on <span class="math notranslate nohighlight">\(n\)</span> ominaisarvoa. Jokaista ominaisarvoa vastaa ääretön määrä ominaisvektoreita. Ominaisarvoja ja ominaisvektoreita voidaan myöhemmin hyödyntää mm. differentiaaliyhtälöiden ratkaisuissa. Tällä sivulla esitetään, miten ominaisarvot ja -vektorit lasketaan.</p>
+<section id="ominaisarvoyhtalo">
+<h2>Ominaisarvoyhtälö<a class="headerlink" href="#ominaisarvoyhtalo" title="Permalink to this headline">#</a></h2>
+<p>Matriisin ominaisarvo ja ominaisvektori löytyvät ratkaisemalla yhtälö <span class="math notranslate nohighlight">\(A\vec{v}=\lambda\vec{v}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(A\vec{v}-\lambda\vec{v}=\vec{0} \leftrightarrow A\vec{v}-\lambda I_n \vec{v}=\vec{0} \leftrightarrow (A-\lambda I_n)\vec{v}=\vec{0}\)</span></p>
+<p>Tälle yhtälölle on olemassa triviaaliratkaisu <span class="math notranslate nohighlight">\(\vec{n}=\vec{0}\)</span>, sillä nollavektori kerrottuna millä tahansa sopivan kokoisella matriisilla tuottaa nollavektorin. Tässä tapauksessa emme ole kiinnostuneita tästä ratkaisusta. Toisena vaihtoehtona on selvittää äärettömän monta ratkaisua, joilla <span class="math notranslate nohighlight">\(\vec{n} \neq \vec{0}\)</span>. Yleisesti matriisiyhtälölle <span class="math notranslate nohighlight">\(M \vec{x} = \vec{y}\)</span>, missä <span class="math notranslate nohighlight">\(M\)</span> on <span class="math notranslate nohighlight">\(n \times n\)</span> -tyyppinen matriisi ja <span class="math notranslate nohighlight">\(\vec{x}\)</span> ja <span class="math notranslate nohighlight">\(\vec{y}\)</span> ovat <span class="math notranslate nohighlight">\(n \times 1\)</span> -tyyppisiä vektoreita, on ratkaisuja ääretön määrä silloin, kun kerroinmatriisin <span class="math notranslate nohighlight">\(M\)</span> determinantti on nolla. Tässä tapauksessa on siis ratkaistava yhtälö <span class="math notranslate nohighlight">\(\text{det}(A-\lambda I_n)=0\)</span>. Kyseisen yhtälön vasemmasta puolesta muodostuu matriisin <em>karakteristinen polynomi</em>. Käytännössä yhtälöstä tulee <span class="math notranslate nohighlight">\(n\)</span>. asteen yhtälö, jonka tuntemattomana on ominaisarvo <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p><strong>Esim.</strong> Laske matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix}\)</span> ominaisarvot.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Ratkaistaan yhtälö <span class="math notranslate nohighlight">\(\text{det} (A-\lambda I_2) = 0\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\text{det} \left(\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix} - \lambda \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1\end{bmatrix}\right) = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\text{det} \left(\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix} - \begin{bmatrix} \lambda &amp; 0 \\ 0 &amp; \lambda\end{bmatrix}\right) = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\text{det} \begin{bmatrix} 2-\lambda &amp; 5 \\ 3 &amp; 4-\lambda\end{bmatrix} = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\((2-\lambda)(4-\lambda)-5\cdot 3 = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(8-2\lambda-4\lambda + \lambda^2 -15 = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\lambda^2 - 6\lambda -7 = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\lambda = \frac{-(-6) \pm \sqrt{(-6)^2-4\cdot 1 \cdot (-7)}}{2\cdot 1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\lambda = \frac{6\pm\sqrt{64}}{2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\lambda = \frac{6\pm 8}{2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\lambda_1 = \frac{6+8}{2}=7, \lambda_2=\frac{6-8}{2}=-1\)</span>.</p>
+<p>Matriisin <span class="math notranslate nohighlight">\(A\)</span> ominaisarvot ovat siis <span class="math notranslate nohighlight">\(\lambda_1=7\)</span> ja <span class="math notranslate nohighlight">\(\lambda_2=-1\)</span>.</p>
+</div>
+<p>Kun matriisin ominaisarvot on löydetty, lasketaan ominaisarvoja vastaavat ominaisvektorit. Tämä onnistuu ratkaisemalla yhtälö <span class="math notranslate nohighlight">\((A-\lambda I_n) \vec{v} = \vec{0}\)</span>. Tästä matriisiyhtälöstä muodostuu yhtälöryhmä, josta voidaan ratkaista ominaisvektorin komponentit.</p>
+<p><strong>Esim.</strong> Laske matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix}\)</span> ominaisvektorit. Matriisin <span class="math notranslate nohighlight">\(A\)</span> ominaisarvot ovat <span class="math notranslate nohighlight">\(7\)</span> ja <span class="math notranslate nohighlight">\(-1\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Merkitään ominaisarvoa <span class="math notranslate nohighlight">\(\lambda_1=7\)</span> vastaavaa ominaisvektoria <span class="math notranslate nohighlight">\(\vec{v_1}=\begin{bmatrix} v_{11} \\ v_{12} \end{bmatrix}\)</span>. Ratkaistaan yhtälö <span class="math notranslate nohighlight">\(A-\lambda \vec{v} = \vec{0}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\left(\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix} - 7 \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \right) \begin{bmatrix} v_{11 } \\ v_{12} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\left(\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix} - \begin{bmatrix} 7 &amp; 0 \\ 0 &amp; 7 \end{bmatrix} \right) \begin{bmatrix} v_{11}  \\ v_{12} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix} 2-7 &amp; 5 \\ 3 &amp; 4-7\end{bmatrix} \begin{bmatrix} v_{11}  \\ v_{12} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix} -5 &amp; 5 \\ 3 &amp; -3\end{bmatrix} \begin{bmatrix} v_{11}  \\ v_{12} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span></p>
+<p>Huomataan, että vasemmanpuoleisen matriisin determinantti on <span class="math notranslate nohighlight">\(-5\cdot (-3) - 5\cdot 3 = 15-15=0\)</span>. Tällöin yhtälöä ei voi ratkaista kyseisen matriisin käänteismatriisilla kertomalla. Ratkaisua ei löydy tällä tavalla, sillä ominaisvektoreita on ääretön määrä. Matriisitulon määritelmän avulla voidaan kuitenkin muodostaa yhtälöpari:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} -5 v_{11} + 5 v_{12} = 0 \\ 3 v_{11} -3 v_{12} = 0 \end{cases} \end{equation}\)</span></p>
+<p>Kummasta tahansa yhtälöstä huomataan, että <span class="math notranslate nohighlight">\(v_{11}=v_{12}\)</span>. Toisin sanoen ominaisarvoa <span class="math notranslate nohighlight">\(7\)</span> vastaavia ominaisvektoreita ovat kaikki vektorit, joissa komponenttien kertoimet ovat yhtä suuret, esimerkiksi</p>
+<p><span class="math notranslate nohighlight">\(\vec{v_1}=\begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span> tai yksikkövektori <span class="math notranslate nohighlight">\(\vec{v_1}=\begin{bmatrix} 1/\sqrt{2} \\ 1\sqrt{2} \end{bmatrix}\)</span>.</p>
+<p>Ominaisarvoa <span class="math notranslate nohighlight">\(\lambda_2=-1\)</span> vastaava ominaisvektori <span class="math notranslate nohighlight">\(\vec{v_2}=\begin{bmatrix} v_{21} \\ v_{22} \end{bmatrix}\)</span> saadaan seuraavasti:</p>
+<p><span class="math notranslate nohighlight">\(\left(\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix} - (-1) \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \right) \begin{bmatrix} v_{21}  \\ v_{22} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix} 3 &amp; 5 \\ 3 &amp; 5\end{bmatrix} \begin{bmatrix} v_{21}  \\ v_{22} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(v_{22}=\frac{3}{5} v_{21}\)</span></p>
+<p>Toisin sanoen ominaisvektoreita ovat kaikki ne vektorit, joissa jälkimmäinen komponentti on suuruudeltaan <span class="math notranslate nohighlight">\(-3/5\)</span> ensimmäisestä, esimerkiksi</p>
+<p><span class="math notranslate nohighlight">\(\vec{v_2}=\begin{bmatrix} 5 \\ -3 \end{bmatrix}\)</span> tai yksikkövektori <span class="math notranslate nohighlight">\(\vec{v_2}=\begin{bmatrix} 5/\sqrt{34} \\ -3\sqrt{34} \end{bmatrix}\)</span>.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="yhtaloryhmat.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Yhtälöryhmät</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="matriisit_geometria.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Geometriaa matriiseilla</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By LUMA-tiimi, Lapin AMK / Minna Korhonen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
