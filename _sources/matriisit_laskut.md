@@ -1,7 +1,7 @@
  
 # Matriisien peruslaskutoimitukset
 
-Matriisien peruslaskutoimituksiin kuuluvat matriisien yhteen- ja vähennyslasku sekä matriisin kertominen luvulla. Aivan kuten vektorienkin tapauksessa, matriisien kertominen toisella matriisilla on monimutkaisempi laskutoimitus ja käsitellään erikseen. Matriisien laskutoimitukset sujuvat helposti matriisilaskentaan erikoistuneella Octave-laskentaohjelmalla, johon myös tässä luvussa tutustaan.
+Matriisien peruslaskutoimituksiin kuuluvat matriisien yhteen- ja vähennyslasku sekä matriisin kertominen luvulla. Aivan kuten vektorienkin tapauksessa, matriisien kertominen toisella matriisilla on monimutkaisempi laskutoimitus ja käsitellään erikseen. Matriisien laskutoimitukset sujuvat helposti matriisilaskentaan erikoistuneella Octave-laskentaohjelmalla, johon myös tässä luvussa tutustutaan hieman. Laskentaan voi toki hyvin käyttää myös esimerkiksi Pythonin lineaarialgebran työkaluja.
 
 ## Laskutoimituksia
 
@@ -33,7 +33,7 @@ $A \circ B=\begin{bmatrix}2\cdot 1 & -3\cdot 7 & 5\cdot 2\\0\cdot 3 & 2\cdot(-2)
 
 ## Matriisien käsittely tietokoneella
 
-Tällä opintojaksolla tutustutaan [Octave](https://octave-online.net/)-laskentaympäristöön. Octavea voi käyttää selaimessa tai sen voi asentaa omalle tietokoneelle. Octaven käyttö on ilmaista. Se noudattaa pääosin samoja komentoja kuin erittäin laajasti käytetty [Matlab](https://se.mathworks.com/products/matlab.html). Nykyään tosin matriisienkin käsittelyssä ollaan siirrytty enemmän Python-ohjelmointikieleen.
+Tässä osiossa tutustutaan lyhyesti [Octave](https://octave-online.net/)-laskentaympäristöön. Octavea voi käyttää selaimessa tai sen voi asentaa omalle tietokoneelle. Octaven käyttö on ilmaista. Se noudattaa pääosin samoja komentoja kuin erittäin laajasti käytetty [Matlab](https://se.mathworks.com/products/matlab.html). **Opintojakson aikana harjoitellaan myös Pythonin käyttöä laskennan välineenä.**
 
 Octaveen voi syöttää matriiseja siten, että matriisin alkiot kirjoitetaan hakasulkuihin. Matriisin riviä vaihdetaan puolipisteellä. Samalla rivillä olevien alkioiden väliin laitetaan pilkku tai välilyönti. Matriisin transpoosi saadaan kirjoittamalla matriisin nimen perään merkin ', esimerkiksi matriisin $A$ transpoosin $A^T$ saa komennolla A'. Kun matriisille antaa jonkin nimen, sitä voi käyttää nimellä kutsumalla laskutoimituksissa. Jos matriisien tyypit eivät ole keskenään yhteensopivia ja laskua ei voida suorittaa, Octave antaa virheilmotuksen. 
 
@@ -51,4 +51,4 @@ Lasketaan $B^T-A$ ja tallennetaan laskun tulos matriisiksi $C$ komennolla: C=B'-
 
 Matriisit tallentuvat Octaven käytön ajaksi muistiin. Jos haluaa poistaa jonkin matriisin, se tapahtuu komennolla clear, esimerkiksi "clear a" poistaa matriisin $a$. Komento "clear" tai "clear all" poistaa muistista kaiken. Jos haluaa pyyhkiä taulun, jolla aiemmat laskutoimitukset näkyvät, se tapahtuu komennolla "clc". Lähtökohtaisesti Octave tulostaa kaiken näkyviin. Jos haluaa vaikkapa tallentaa ison matriisin ilman, että se sotkee koko ruutua, tulee komennon perään laittaa puolipiste ; . 
 
-Octavessa voi kirjoittaa komentosarjoja ottamalla käyttöön tekstieditorin. Se onnistuu kirjautumalla käyttäjäksi esim. Google-tilin kautta. Tällöin voi ensin kirjoittaa kaikki haluamansa laskutoimituksen selkeäksi dokumentiksi, jonka sitten lopuksi suorittaa kerralla. Vaativampi laskenta ja datan käsittely tapahtuukin juuri tällä tavalla
+Octavessa voi kirjoittaa komentosarjoja ottamalla käyttöön tekstieditorin. Se onnistuu kirjautumalla käyttäjäksi esim. Google-tilin kautta. Tällöin voi ensin kirjoittaa kaikki haluamansa laskutoimituksen selkeäksi dokumentiksi, jonka sitten lopuksi suorittaa kerralla. Vaativampi laskenta ja datan käsittely kannattaa suorittaa juuri tällä tavalla.

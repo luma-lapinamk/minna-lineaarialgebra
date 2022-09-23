@@ -1,6 +1,8 @@
 # Ominaisarvot ja -vektorit
 
-Jos tyyppiä $n \times n$ oleva matriisi $A$ kerrotaan $n \times 1$ -tyyppisellä vektorilla $\vec{v}$ ja tulokseksi saadaan sama vektori kerrottuna jollakin luvulla $\lambda$, sanotaan että $\lambda$ on matriisin $A$ ominaisarvo ja $\vec{v}$ matriisin $A$ ominaisvektori. Yhtälönä tämä ilmaistaan seuraavasti: $A\vec{v}=\lambda\vec{v}$.
+Jos tyyppiä $n \times n$ oleva matriisi $A$ kerrotaan $n \times 1$ -tyyppisellä vektorilla $\vec{v}$ ja tulokseksi saadaan sama vektori kerrottuna jollakin luvulla $\lambda$, sanotaan että $\lambda$ on matriisin $A$ ominaisarvo ja $\vec{v}$ matriisin $A$ ominaisvektori. Yhtälönä tämä ilmaistaan seuraavasti: 
+
+$A\vec{v}=\lambda\vec{v}$.
 
 Neliömatriisilla, jonka koko on $n \times $, on $n$ ominaisarvoa. Jokaista ominaisarvoa vastaa ääretön määrä ominaisvektoreita. Ominaisarvoja ja ominaisvektoreita voidaan myöhemmin hyödyntää mm. differentiaaliyhtälöiden ratkaisuissa. Tällä sivulla esitetään, miten ominaisarvot ja -vektorit lasketaan.
 
@@ -10,7 +12,9 @@ Matriisin ominaisarvo ja ominaisvektori löytyvät ratkaisemalla yhtälö $A\vec
 
 $A\vec{v}-\lambda\vec{v}=\vec{0} \leftrightarrow A\vec{v}-\lambda I_n \vec{v}=\vec{0} \leftrightarrow (A-\lambda I_n)\vec{v}=\vec{0}$
 
-Tälle yhtälölle on olemassa triviaaliratkaisu $\vec{n}=\vec{0}$, sillä nollavektori kerrottuna millä tahansa sopivan kokoisella matriisilla tuottaa nollavektorin. Tässä tapauksessa emme ole kiinnostuneita tästä ratkaisusta. Toisena vaihtoehtona on selvittää äärettömän monta ratkaisua, joilla $\vec{n} \neq \vec{0}$. Yleisesti matriisiyhtälölle $M \vec{x} = \vec{y}$, missä $M$ on $n \times n$ -tyyppinen matriisi ja $\vec{x}$ ja $\vec{y}$ ovat $n \times 1$ -tyyppisiä vektoreita, on ratkaisuja ääretön määrä silloin, kun kerroinmatriisin $M$ determinantti on nolla. Tässä tapauksessa on siis ratkaistava yhtälö $\text{det}(A-\lambda I_n)=0$. Kyseisen yhtälön vasemmasta puolesta muodostuu matriisin _karakteristinen polynomi_. Käytännössä yhtälöstä tulee $n$. asteen yhtälö, jonka tuntemattomana on ominaisarvo $\lambda$. 
+Tälle yhtälölle on olemassa triviaaliratkaisu $\vec{n}=\vec{0}$, sillä nollavektori kerrottuna millä tahansa sopivan kokoisella matriisilla tuottaa nollavektorin. Tässä tapauksessa emme ole kiinnostuneita tästä ratkaisusta. Toisena vaihtoehtona on selvittää äärettömän monta ratkaisua, joilla $\vec{n} \neq \vec{0}$.
+
+Yleisesti matriisiyhtälölle $M \vec{x} = \vec{y}$, missä $M$ on $n \times n$ -tyyppinen matriisi ja $\vec{x}$ ja $\vec{y}$ ovat $n \times 1$ -tyyppisiä vektoreita, on ratkaisuja ääretön määrä silloin, kun kerroinmatriisin $M$ determinantti on nolla. Tässä tapauksessa on siis ratkaistava yhtälö $\text{det}(A-\lambda I_n)=0$. Kyseisen yhtälön vasemmasta puolesta muodostuu matriisin _karakteristinen polynomi_. Käytännössä yhtälöstä tulee $n$. asteen yhtälö, jonka tuntemattomana on ominaisarvo $\lambda$. 
 
 **Esim.** Laske matriisin $A=\begin{bmatrix} 2 & 5 \\ 3 & 4\end{bmatrix}$ ominaisarvot.
 
@@ -66,7 +70,7 @@ $\begin{equation} \begin{cases} -5 v_{11} + 5 v_{12} = 0 \\ 3 v_{11} -3 v_{12} =
 
 Kummasta tahansa yhtälöstä huomataan, että $v_{11}=v_{12}$. Toisin sanoen ominaisarvoa $7$ vastaavia ominaisvektoreita ovat kaikki vektorit, joissa komponenttien kertoimet ovat yhtä suuret, esimerkiksi
 
-$\vec{v_1}=\begin{bmatrix} 1 \\ 1 \end{bmatrix}$ tai yksikkövektori $\vec{v_1}=\begin{bmatrix} 1/\sqrt{2} \\ 1\sqrt{2} \end{bmatrix}$.  
+$\vec{v_1}=\begin{bmatrix} 1 \\ 1 \end{bmatrix}$ tai yksikkövektori $\vec{v_1}=\begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}$.  
 
 Ominaisarvoa $\lambda_2=-1$ vastaava ominaisvektori $\vec{v_2}=\begin{bmatrix} v_{21} \\ v_{22} \end{bmatrix}$ saadaan seuraavasti:
 
@@ -78,6 +82,6 @@ $v_{22}=\frac{3}{5} v_{21}$
 
 Toisin sanoen ominaisvektoreita ovat kaikki ne vektorit, joissa jälkimmäinen komponentti on suuruudeltaan $-3/5$ ensimmäisestä, esimerkiksi 
 
-$\vec{v_2}=\begin{bmatrix} 5 \\ -3 \end{bmatrix}$ tai yksikkövektori $\vec{v_2}=\begin{bmatrix} 5/\sqrt{34} \\ -3\sqrt{34} \end{bmatrix}$.  
+$\vec{v_2}=\begin{bmatrix} 5 \\ -3 \end{bmatrix}$ tai yksikkövektori $\vec{v_2}=\begin{bmatrix} 5/\sqrt{34} \\ -3/\sqrt{34} \end{bmatrix}$.  
 
 :::

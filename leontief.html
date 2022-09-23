@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Geometriaa vektoreilla &#8212; Lineaarialgebra</title>
+    <title>Leontiefin panos-tuotos-malli &#8212; Lineaarialgebra</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Matriisit" href="matriisit_perus.html" />
-    <link rel="prev" title="Ristitulo" href="ristitulo.html" />
+    <link rel="next" title="Lisää sovelluksia" href="matriisit_muut.html" />
+    <link rel="prev" title="Geometriaa matriiseilla" href="matriisit_geometria.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
   Vektorilaskentaa
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="vektorit_perus.html">
    Vektorit: perusteita
@@ -151,8 +151,8 @@ const thebe_selector_output = ".output, .cell_output"
    Ristitulo
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="geometriaa.html">
    Geometriaa vektoreilla
   </a>
  </li>
@@ -162,10 +162,10 @@ const thebe_selector_output = ".output, .cell_output"
   Matriisit
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit
+   Matriisit: perusteita
   </a>
  </li>
  <li class="toctree-l1">
@@ -213,14 +213,14 @@ const thebe_selector_output = ".output, .cell_output"
    Geometriaa matriiseilla
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="matriisit_muut.html">
-   Sovelluksia
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Leontiefin panos-tuotos-malli
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+  <a class="reference internal" href="matriisit_muut.html">
+   Lisää sovelluksia
   </a>
  </li>
 </ul>
@@ -309,7 +309,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/geometriaa.md"
+        <a href="_sources/leontief.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -369,13 +369,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#suunnikkaan-ja-kolmion-ala">
-   Suunnikkaan ja kolmion ala
+  <a class="reference internal nav-link" href="#suljettu-malli">
+   Suljettu malli
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#suuntaissarmion-tilavuus">
-   Suuntaissärmiön tilavuus
+  <a class="reference internal nav-link" href="#avoin-malli">
+   Avoin malli
   </a>
  </li>
 </ul>
@@ -387,7 +387,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Geometriaa vektoreilla</h1>
+                <h1>Leontiefin panos-tuotos-malli</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -398,13 +398,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#suunnikkaan-ja-kolmion-ala">
-   Suunnikkaan ja kolmion ala
+  <a class="reference internal nav-link" href="#suljettu-malli">
+   Suljettu malli
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#suuntaissarmion-tilavuus">
-   Suuntaissärmiön tilavuus
+  <a class="reference internal nav-link" href="#avoin-malli">
+   Avoin malli
   </a>
  </li>
 </ul>
@@ -417,73 +417,76 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="geometriaa-vektoreilla">
-<h1>Geometriaa vektoreilla<a class="headerlink" href="#geometriaa-vektoreilla" title="Permalink to this headline">#</a></h1>
-<p>Vektorien piste- ja ristituloa voidaan hyödyntää geometrisissa ongelmissa. Ilman vektoreita on helppoa laskea esimerkiksi suorakulmaisen särmiön muotoisen linnunpöntön tilavuus, jos sivujen pituudet ovat tiedossa. Vektoreilla onnistuu kuitenkin myös sellaisten ongelmien käsittely, joissa kappaleista on tiedossa vain kärkipisteet ja joissa kappaleet voivat sijaita kolmiulotteisessa avaruudessa muutenkin kuin koordinaattiakselien suuntaisina.</p>
-<section id="suunnikkaan-ja-kolmion-ala">
-<h2>Suunnikkaan ja kolmion ala<a class="headerlink" href="#suunnikkaan-ja-kolmion-ala" title="Permalink to this headline">#</a></h2>
-<p>Suunnikkaan ala <span class="math notranslate nohighlight">\(S\)</span> lasketaan ilman vektoreita sivun pituuden <span class="math notranslate nohighlight">\(x\)</span> ja korkeuden <span class="math notranslate nohighlight">\(h\)</span> tulona: <span class="math notranslate nohighlight">\(S=hx\)</span>. Jos kärkipisteet tiedetään, ala saadaan myös vektorilaskennan avulla. Tällä tavalla laskettuna ala on suorakulmion sivuvektorien <span class="math notranslate nohighlight">\(\vec{AB}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AD}\)</span> ristitulon pituus, kuvan tapauksessa <span class="math notranslate nohighlight">\(S=|\vec{AB}\times \vec{AD}|\)</span>.</p>
-<p><img alt="Suunnikkaan pinta-ala" src="_images/suunnikkaan_ala.png" /></p>
-<p>Sivuvektorit lähtevät samasta kärkipisteestä suunnikkaan kahteen muuhun kärkipisteeseen. Ylläolevassa kuvassa sivuvektoreiksi käyvät
-<span class="math notranslate nohighlight">\(\vec{AB}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AD}\)</span>; <span class="math notranslate nohighlight">\(\vec{BA}\)</span> ja <span class="math notranslate nohighlight">\(\vec{BC}\)</span>; <span class="math notranslate nohighlight">\(\vec{CD}\)</span> ja <span class="math notranslate nohighlight">\(\vec{CB}\)</span>; <span class="math notranslate nohighlight">\(\vec{DA}\)</span> ja <span class="math notranslate nohighlight">\(\vec{DC}\)</span>. Ristitulo voidaan laskea vain kolmialkioisille vektoreille. Tarvittaessa lisätään sivuvektoreihin kolmas alkio siten, että sen kerroin on 0.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Huomautus</p>
-<p>Ristitulovektori on aina kohtisuorassa molempia ristitulon laskussa käytettyjä vektoreita vastaan. Niinpä <span class="math notranslate nohighlight">\((x,y)\)</span> -tasossa olevien vektorien ristitulo on aina <span class="math notranslate nohighlight">\(z\)</span>-akselin suuntainen. Tämä voidaan perustella yleisesti:</p>
-<p><span class="math notranslate nohighlight">\(|\vec{a}\times\vec{b}|=\begin{Vmatrix}
-\vec{i} &amp; \vec{j} &amp; \vec{k} \\
-a_x &amp; a_y &amp; 0\\
-b_x &amp; b_y &amp; 0
-\end{Vmatrix} \)</span></p>
-<p><span class="math notranslate nohighlight">\(= (a_y\cdot 0 -b_y \cdot 0) \vec{i} - (a_x \cdot 0 -b_x \cdot 0) \vec{j} + (a_x b_y - b_x a_y) \vec{k} = (a_x b_y - b_x a_y) \vec{k}\)</span>.</p>
-</div>
-<p><strong>Esim.</strong> Erään suunnikkaan kärkipisteiden koordinaatit ovat <span class="math notranslate nohighlight">\(A=(1,1.5), B=(3,1.5), C=(4,3), D=(2,3)\)</span>. Laske suunnikkaan pinta-ala.</p>
-<p><img alt="Suunnikkaan ala, esimerkki" src="_images/suunnikkaan_ala_esim.png" /></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="leontiefin-panos-tuotos-malli">
+<h1>Leontiefin panos-tuotos-malli<a class="headerlink" href="#leontiefin-panos-tuotos-malli" title="Permalink to this headline">#</a></h1>
+<p>Eräs esimerkki matriisilaskennan sovelluksista on Leontiefin panos-tuotos-malli. Tämä taloustieteiden malli liittyy eri toimijoiden tuotantoon ja resurssien kulutukseen.</p>
+<section id="suljettu-malli">
+<h2>Suljettu malli<a class="headerlink" href="#suljettu-malli" title="Permalink to this headline">#</a></h2>
+<p>Tarkastellaan mallia seuraavan esimerkin avulla: Eräällä seudulla toimii kolme alaa <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> ja <span class="math notranslate nohighlight">\(C\)</span> (nämä voisivat olla esimerkiksi maatalous, teollisuus ja matkailuala). Kunkin alan tuotannosta osa menee alan omiin tarpeisiin ja osa kahden muun alan käyttöön. Alla olevan taulukon sarakkeissa on esitetty eri alojen tuotannon jakaantuminen näiden alojen kesken.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>panos/tuotos</p></th>
+<th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>C</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>0.3</p></td>
+<td><p>0.1</p></td>
+<td><p>0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>0.2</p></td>
+<td><p>0.8</p></td>
+<td><p>0.2</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>0.5</p></td>
+<td><p>0.1</p></td>
+<td><p>0.2</p></td>
+</tr>
+</tbody>
+</table>
+<p>Sarakkeita sanotaan eri alojen panoksiksi. Jokaisen sarakkeen summa on 1, sillä mallissa oletetaan, että tuotteille ei ole muita käyttäjiä kuin taulukossa mainitut toimialat. Kun tehdään tällainen oletus, puhutaan suljetusta mallista.</p>
+<p>Taulukon vaakarivejä sanotaan tuotoksiksi. Ne kuvaavat sitä, kuinka paljon kunkin alan tuotantoa tarvitaan joko alan itsensä tai muiden alojen tuotannossa. Esimerkiksi ylimmältä riviltä nähdään, että alan <span class="math notranslate nohighlight">\(A\)</span> tuotantoa tarvitaan yhden tuotantoyksikön tuotannossa alalla <span class="math notranslate nohighlight">\(A\)</span> 0.3 yksikköä, alalla <span class="math notranslate nohighlight">\(B\)</span> 0.1 yksikköä ja alalla <span class="math notranslate nohighlight">\(C\)</span> 0.6 yksikköä.</p>
+<p>Esimerkin taulukko voidaan esittää myös matriisina, josta käytetään nimitystä vaihtomatriisi. Tässä tapauksessa vaihtomatriisi on siis</p>
+<p><span class="math notranslate nohighlight">\(V=\begin{bmatrix}0.3 &amp; 0.1 &amp; 0.6 \\ 0.2 &amp; 0.8 &amp; 0.2 \\ 0.5 &amp; 0.1 &amp; 0.2\end{bmatrix}\)</span>.</p>
+<p>Vaihtomatriisin avulla voidaan selvittää, kuinka suurta pitää eri alojen tuotannon olla toisiinsa verrattuna, jotta kysyntä ja tarjonta pysyvät tasapainossa. Oletetaan, että alan <span class="math notranslate nohighlight">\(A\)</span> tuotanto on <span class="math notranslate nohighlight">\(a\)</span> yksikköä, alan <span class="math notranslate nohighlight">\(B\)</span> tuotanto <span class="math notranslate nohighlight">\(b\)</span> yksikköä ja alan <span class="math notranslate nohighlight">\(C\)</span> tuotanto <span class="math notranslate nohighlight">\(c\)</span> yksikköä. Jotta jokainen ala saa käyttöönsä riittävästi resursseja, niin vaihtomatriisien rivien avulla voidaan muodostaa yhtälöryhmä:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases} 0.3 a + 0.1 b + 0.6 c = a \\ 0.2 a + 0.8 b + 0.2 c = b \\ 0.5 a + 0.1 b + 0.1 c = c\end{cases}\end{equation}\)</span></p>
+<p>Esitetään yhtälöryhmä vielä homogeenisena eli siten, että oikealle puolelle jää vain nollia:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases} -0.7 a + 0.1 b + 0.6 c = 0 \\ 0.2 a - 0.2 b + 0.2 c = 0 \\ 0.5 a + 0.1 b - 0.8 c = 0\end{cases}\end{equation}\)</span></p>
+<p>Vaihdetaan lopuksi merkit (kertomalla yhtälöt puolittain luvulla <span class="math notranslate nohighlight">\(-1\)</span>):</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases} 0.7 a - 0.1 b - 0.6 c = 0 \\ -0.2 a + 0.2 b - 0.2 c = 0 \\ -0.5 a - 0.1 b + 0.8 c = 0\end{cases}\end{equation}\)</span></p>
+<p>Kun yllä esitetyn yhtälöryhmän vasemman puolen kertoimet kerätään matriisiksi, todetaan että kyseinen matriisi on <span class="math notranslate nohighlight">\(I-V\)</span>. Jos eri alojen tuotantomääriä kuvataan vektorilla</p>
+<p><span class="math notranslate nohighlight">\(X=\begin{bmatrix} a \\ b \\ c\end{bmatrix}\)</span>,</p>
+<p>niin ratkaistavaksi tulee yhtälö, tai oikeastaan yhtälöryhmä, <span class="math notranslate nohighlight">\((I-V)X=0\)</span>.</p>
+<p>Yhtälö voidaan ratkaista esimerkiksi Gauss-Jordan -eliminaatiolla. Tällaisen ratkaisun yksityiskohdat on esitetty alla.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p>Valitaan sivuvektoreiksi <span class="math notranslate nohighlight">\(\vec{AB}=(3-1)\vec{i}+(1.5-1.5)\vec{j}=2\vec{i}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AD}=(2-1) \vec{i}+(3-1.5) \vec{j}=\vec{i}+1.5 \vec{j}\)</span>.
-Kolmialkioisiksi täydennettynä vektorit ovat <span class="math notranslate nohighlight">\(\vec{AB}=2\vec{i}+0\vec{j}+0\vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AD}=\vec{i}+1.5\vec{j}+0\vec{k}\)</span>.</p>
-<p>Suunnikkaan ala on</p>
-<p><span class="math notranslate nohighlight">\(|\vec{AB}\times\vec{AD}|=\begin{Vmatrix}
-\vec{i} &amp; \vec{j} &amp; \vec{k} \\
-2 &amp; 0 &amp; 0\\
-1 &amp; 1.5 &amp; 0
-\end{Vmatrix} \)</span></p>
-<p><span class="math notranslate nohighlight">\(= |(0\cdot 0-0\cdot 1.5) \vec{i}-(2\cdot 0-1\cdot 0)\vec{j}+(2\cdot 1.5-0\cdot 1) \vec{k}|=|3 \vec{k}|=3\)</span>.</p>
-<p>Huomaa kahdet itseisarvomerkit taulukon ympärillä. Sisemmät merkit kuvaavat ristitulon laskemista, uloimmat kuvaavat ristitulosta tulokseksi saadun vektorin pituutta.</p>
-</div>
-<p>Kolmion ala <span class="math notranslate nohighlight">\(K\)</span> saadaan laskettua jakamalla vastaavan suunnikkaan ala kahdella. Kuvan tapauksessa <span class="math notranslate nohighlight">\(K=\frac{1}{2} |\vec{AD}\times \vec{AB}|\)</span>.</p>
-<p><img alt="Kolmion pinta-ala" src="_images/kolmion_ala.png" /></p>
-<p><strong>Esim.</strong> Kolmion kärkipisteet ovat <span class="math notranslate nohighlight">\(A=(0.5,2), B=(1.5,0.5), C=(3.5,1.5)\)</span>. Laske kolmion ala.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>Valitaan sivuvektoreiksi <span class="math notranslate nohighlight">\(\vec{AB}=(1.5-0.5) \vec{i} + (0.5-2) \vec{j} + 0 \vec{k}=\vec{i} -1.5 \vec{j} + 0 \vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AC}=(3.5-0.5) \vec{i} + (1.5-2) \vec{j} + 0 \vec{k} = 3 \vec{i} -0.5 \vec{j} + 0 \vec{k}\)</span>.</p>
-<p>Kolmion ala on</p>
-<p><span class="math notranslate nohighlight">\(\frac{1}{2} \begin{Vmatrix}
-\vec{i} &amp; \vec{j} &amp; \vec{k} \\
-1 &amp; -1.5 &amp; 3 \\
-3 &amp; -0.5 &amp; 0\end{Vmatrix} = \frac{1}{2} |(1\cdot (-0.5)-3\cdot (-1.5)) \vec{k}|=\frac{1}{2} |4 \vec{k}|= \frac{1}{2}\cdot 4 = 2\)</span>.</p>
+<p>Yhtälöryhmää vastaava täydennetty kerroinmatriisi on</p>
+<p><span class="math notranslate nohighlight">\(A=\begin{bmatrix}0.7 &amp; -0.1 &amp; -0.6 &amp; 0 \\ -0.2 &amp; 0.1 &amp; -0.2 &amp; 0 \\ -0.5 &amp; -0.1 &amp; 0.8 &amp; 0 \end{bmatrix}\)</span>,</p>
+<p>joka saadaan alkeismuunnoksilla (tai sopivalla komennolla tietokoneella, esimerkiksi Octavella rref-komennolla) pelkistettyyn porrasmuotoon</p>
+<p><span class="math notranslate nohighlight">\(A=\begin{bmatrix}1 &amp; 0 &amp; -1.1667 &amp; 0 \\ 0 &amp; 1 &amp; -2.1667 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}\)</span>.</p>
+<p>Pelkistetystä porrasmuodosta alimmalta riviltä voidaan lukea: muuttujalle <span class="math notranslate nohighlight">\(c\)</span> voidaan valita arvo vapaasti, siis <span class="math notranslate nohighlight">\(c=t \in \Re\)</span>. Toiselta riviltä nähdään, että <span class="math notranslate nohighlight">\(b=2.1667 t\)</span>, ja ylimmältä riviltä nähdään, että <span class="math notranslate nohighlight">\(a=1.1667 t\)</span>. Toisin sanoen mitkä tahansa luvut <span class="math notranslate nohighlight">\(a, b, c\)</span> käyvät, kunhan niiden suhde on <span class="math notranslate nohighlight">\(a:b:c = 1.1667:2.1667:1\)</span>.</p>
 </div>
 </section>
-<section id="suuntaissarmion-tilavuus">
-<h2>Suuntaissärmiön tilavuus<a class="headerlink" href="#suuntaissarmion-tilavuus" title="Permalink to this headline">#</a></h2>
-<p>Tilavuuksia voidaan laskea ns. skalaarikolmitulon avulla. Jos <span class="math notranslate nohighlight">\(\vec{a}, \vec{b}\)</span> ja <span class="math notranslate nohighlight">\(\vec{c}\)</span> ovat vektoreita, niin skalaarikolmitulo määritellään <span class="math notranslate nohighlight">\((\vec{a}\times \vec{b}) \cdot \vec{c}\)</span>. Laskun tuloksena on luku (=skalaari) eikä vektori.</p>
-<p>Tilavuuslaskuissa <span class="math notranslate nohighlight">\(\vec{a}, \vec{b}\)</span> ja <span class="math notranslate nohighlight">\(\vec{c}\)</span> ovat suuntaissärmiön sivuvektoreita, eli vektoreita suuntaissärmiön jostakin nurkasta muihin nurkkiin. Suuntaissärmiön tilavuus on skalaarikolmitulon itseisarvo.</p>
-<p><strong>Esim.</strong> Oheisessa suuntaissärmiössä kärkipisteiden koordinaatit ovat <span class="math notranslate nohighlight">\(A=(1,1,1), B=(5,1,2), C=(3,7,4)\)</span> ja <span class="math notranslate nohighlight">\(D=(2,2,9)\)</span>. Laske kappaleen tilavuus.</p>
-<p><img alt="Suuntaissärmiö" src="_images/suuntaissarmio.png" /></p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>Valitaan sivuvektoreiksi <span class="math notranslate nohighlight">\(\vec{AB}=4\vec{i}+0\vec{j}+\vec{k}\)</span>, <span class="math notranslate nohighlight">\(\vec{AC}=2\vec{i}+6\vec{j}+3\vec{k}\)</span>, <span class="math notranslate nohighlight">\(\vec{AD}=\vec{i}+\vec{j}+8\vec{k}\)</span>.</p>
-<p>Lasketaan skalaarikolmituloa <span class="math notranslate nohighlight">\((\vec{AB}\times \vec{AC})\cdot \vec{AD}\)</span> varten ristitulo <span class="math notranslate nohighlight">\(\vec{AB}\times \vec{AC}\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(\vec{AB}\times\vec{AC}=\begin{vmatrix}
-    \vec{i} &amp; \vec{j}  &amp; \vec{k} \\
-    4 &amp; 0 &amp; 1 \\
-    2 &amp; 6 &amp; 3 
-  \end{vmatrix}= \vec{i}-10\vec{j}+24\vec{k}\)</span>.</p>
-<p>Skalaarikolmitulo, eli kappaleen tilavuus, on</p>
-<p><span class="math notranslate nohighlight">\((\vec{AB}\times \vec{AC})\cdot \vec{AD}=(-6 \vec{i}-10 \vec{j} +24 \vec{k})\cdot (\vec{i}+\vec{j}+8\vec{k}) \)</span></p>
-<p><span class="math notranslate nohighlight">\(= -6\cdot 1-10\cdot 1+24\cdot 8=176\)</span>.</p>
-<p>Lasku onnistuisi WolframAlpha-komennolla: ((4,0,1)*(2,6,3)).(1,1,8) jossa alkuosa ((4,0,1)*(2,6,3)) laskee kahden sivuvektorin ristitulon, ja loppuosa .(1,1,8) laskee ristitulovektorin ja kolmannen sivuvektorin pistetulon.</p>
-</div>
+<section id="avoin-malli">
+<h2>Avoin malli<a class="headerlink" href="#avoin-malli" title="Permalink to this headline">#</a></h2>
+<p>Edellä esitetty malli muuttuu hieman monimutkaisemmaksi, kun sallitaan se mahdollisuus, että tuotantoa siirtyy myös järjestelmän ulkopuolelle. Toisin sanoen edellisen esimerkin tuotantoalueista esimerkiksi maatalouden tuotantoa voitaisiin myydä myös muille kuin maatalouden omaan käyttöön, teollisuuteen tai matkailualalle. Muualle, ns. avoimelle sektorille, myyty tuotanto ei enää ole minkään näiden tuotannonalojen käytettävissä.</p>
+<p>Matemaattisesti erona suljettuun malliin on, että vaihtomatriisin pystyrivien summien ei enää tarvitse olla tasan yksi. Tällöin vaihtomatriisin nimityskin muuttuu kulutusmatriisiksi. Esimerkiksi kulutusmatriisissa</p>
+<p><span class="math notranslate nohighlight">\(K=\begin{bmatrix}0.5 &amp; 0.4 &amp; 0.2 \\ 0.2 &amp; 0.3 &amp; 0.1 \\ 0.1 &amp; 0.1 &amp; 0.3 \end{bmatrix}\)</span></p>
+<p>ensimmäinen sarake esittää tilannetta, jossa tuotannonalan <span class="math notranslate nohighlight">\(A\)</span> tuotannosta 50 % menee alan omaan käyttöön, 20 % tuotannonalalle <span class="math notranslate nohighlight">\(B\)</span> ja 10 % tuotannonalalle <span class="math notranslate nohighlight">\(C\)</span>, ja loput 20 % myydään avoimelle sektorille.</p>
+<p>Merkitään jälleen tuotannonalojen tuotantomääriä <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> ja <span class="math notranslate nohighlight">\(c\)</span> vektorina</p>
+<p><span class="math notranslate nohighlight">\(X=\begin{bmatrix} a \\ b \\ c\end{bmatrix}\)</span>,</p>
+<p>jolloin tuotannon tarpeisiin riittävien resurssien määrä on <span class="math notranslate nohighlight">\(KX\)</span>. Kerätään avoimelle sektorille jäävät tuotantomäärät <span class="math notranslate nohighlight">\(a'\)</span>, <span class="math notranslate nohighlight">\(b'\)</span> ja <span class="math notranslate nohighlight">\(c'\)</span> vektoriin</p>
+<p><span class="math notranslate nohighlight">\(Y=\begin{bmatrix} a' \\ b' \\ c'\end{bmatrix}\)</span>.</p>
+<p>Avoimelle sektorille jää se osuus tuotannosta, jota ei tarvita alojen <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> ja <span class="math notranslate nohighlight">\(C\)</span> omiin tarpeisiin. Tämä voidaan kirjoittaa muodossa <span class="math notranslate nohighlight">\(Y=X-CX\)</span> eli <span class="math notranslate nohighlight">\(Y=(I-C)X\)</span>. Oletetaan, että avoimella sektorilla on omat tarpeensa eri alojen tuotannoille. Merkitään nämä eri tuotteiden kysynnät <span class="math notranslate nohighlight">\(a''\)</span>, <span class="math notranslate nohighlight">\(b''\)</span> ja <span class="math notranslate nohighlight">\(c''\)</span> vektoriin</p>
+<p><span class="math notranslate nohighlight">\(Z=\begin{bmatrix} a'' \\ b'' \\ c''\end{bmatrix}\)</span>.</p>
+<p>Tuotanto on tasapainossa silloin, kun eri aloilta avoimelle sektorille jäävien tuotteiden määrät ovat yhtä suuret kuin avoimen sektorin kysyntä näille tuotteille. Toisin sanoen</p>
+<p><span class="math notranslate nohighlight">\((I-C)X=Z\)</span>.</p>
+<p>Yhtälön ratkaisu onnistuu samalla tavalla kuin suljetun mallin tapauksessa.</p>
 </section>
 </section>
 
@@ -514,17 +517,17 @@ Kolmialkioisiksi täydennettynä vektorit ovat <span class="math notranslate noh
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ristitulo.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="matriisit_geometria.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Ristitulo</p>
+            <p class="prev-next-title">Geometriaa matriiseilla</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="matriisit_perus.html" title="next page">
+    <a class='right-next' id="next-link" href="matriisit_muut.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Matriisit</p>
+        <p class="prev-next-title">Lisää sovelluksia</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
