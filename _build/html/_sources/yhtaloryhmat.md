@@ -37,7 +37,7 @@ $2(2+y)+3y=9 \leftrightarrow  4+2y+3y=9 \leftrightarrow 5y=5 \leftrightarrow y=1
 
 Tämän avulla voidaan ratkaista vielä ensimmäisestä yhtälöstä $x=2+y=2+1=3$.
 
-Kaikilla muillakin esitetyillä tavoilla vastaukseksi tulee $x=3,y=1$. Jos et usko, kokeile.
+Kaikilla muillakin esitetyillä tavoilla vastaukseksi tulee $x=3,y=1$.
 
 :::
 
@@ -103,7 +103,9 @@ Huomataan, että mikä tahansa $x$:n arvo toteuttaa yhtälön. Muuttujan $x$ til
 :::{admonition} Ratkaisu
 :class: tip, dropdown
 
-Jälleen ylemmästä yhtälöstä saadaan luvulla kertomalla $-4x-2y=-10$. Kun lasketaan se yhteen alemman yhtälön kanssa, saadaan: 
+Jälleen ylemmästä yhtälöstä saadaan luvulla kertomalla $-4x-2y=-10$. 
+
+Kun lasketaan se yhteen alemman yhtälön kanssa, saadaan: 
 
 $-4x-2y+4x+2y=-10+11 \leftrightarrow  0\cdot x=1$.
 
@@ -117,25 +119,46 @@ Jos yhtälöpari on muotoa $\begin{equation} \begin{cases} ax+by=e \\ cx+dy=f \e
 
 Tällöin yhtälöpari esitetään muodossa $\begin{bmatrix} a&b \\ c&d \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix}e \\ f\end{bmatrix}$.
 
-Ensimmäisen muuttujan $x$ ratkaisemiseksi muokataan kerroinmatriisia korvaamalla ensimmäinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan $\begin{bmatrix} e&b \\ f&d \end{bmatrix}$.
+Ensimmäisen muuttujan $x$ ratkaisemiseksi muokataan kerroinmatriisia korvaamalla ensimmäinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan matriisi
 
-Lasketaan tästä determinantti $D_x=\begin{vmatrix} e&b\\f&d\end{vmatrix}=de-bf$ ja jaetaan vielä kerroinmatriisin determinantilla $D=\begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc$, jolloin saadaan vastaus: $x=\frac{D_x}{D}=\frac{de-bf}{ad-bc}$.
+$\begin{bmatrix} e&b \\ f&d \end{bmatrix}$.
 
-Toisen muuttujan ratkaisemiseksi muokataan kerroinmatriisia korvaamalla toinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan $\begin{bmatrix} a&e \\ c&f \end{bmatrix}$. 
+Lasketaan tästä determinantti 
 
-Lasketaan tästä determinantti $D_y = \begin{vmatrix} a&e \\ c&f \end{vmatrix}=af-ec$ ja jaetaan vielä kerroinmatriisin determinantilla $D=\begin{vmatrix} a&b \\ c&d \end{vmatrix}=ad-bc$, jolloin saadaan vastaus: $y=\frac{D_y}{D}=\frac{af-ec}{ad-bc}$.
+$D_x=\begin{vmatrix} e&b\\f&d\end{vmatrix}=de-bf$
 
-:::{admonition} Perustelu
-:class: tip, dropdown
-Täydentyy.
-:::
+ja jaetaan vielä kerroinmatriisin determinantilla
+
+$D=\begin{vmatrix}a&b\\c&d\end{vmatrix}=ad-bc$,
+
+jolloin saadaan vastaus: $x=\frac{D_x}{D}=\frac{de-bf}{ad-bc}$.
+
+Toisen muuttujan ratkaisemiseksi muokataan kerroinmatriisia korvaamalla toinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan
+
+$\begin{bmatrix} a&e \\ c&f \end{bmatrix}$. 
+
+Lasketaan tästä determinantti
+
+$D_y = \begin{vmatrix} a&e \\ c&f \end{vmatrix}=af-ec$ 
+
+ja jaetaan vielä kerroinmatriisin determinantilla
+
+$D=\begin{vmatrix} a&b \\ c&d \end{vmatrix}=ad-bc$,
+
+jolloin saadaan vastaus: $y=\frac{D_y}{D}=\frac{af-ec}{ad-bc}$.
 
 **Esim.** Ratkaistaan yhtälöpari $\begin{equation} \begin{cases} 3x+2y=-1 \\ 2x+y=3\end{cases} \end{equation}$ Cramerin menetelmällä.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
 
-Lasketaan tarvittavat determinantit: $D_x=\begin{vmatrix}-1&2\\3&1\end{vmatrix}=-1-6=-7,  D_y=\begin{vmatrix}3&-1\\2&3\end{vmatrix}=9-(-2)=11, D=\begin{vmatrix}3&2\\2&1\end{vmatrix}=3-4=-1$.
+Lasketaan tarvittavat determinantit: 
+
+$D_x=\begin{vmatrix}-1&2\\3&1\end{vmatrix}=-1-6=-7$,
+
+$D_y=\begin{vmatrix}3&-1\\2&3\end{vmatrix}=9-(-2)=11$,
+
+$D=\begin{vmatrix}3&2\\2&1\end{vmatrix}=3-4=-1$.
 
 Vastauksiksi saadaan $x=\frac{-7}{-1}=7, y=-\frac{11}{1}=-11$.
 
@@ -160,7 +183,7 @@ sillä matriisien kertolaskun määritelmän perusteella pätee
 $\begin{equation} \begin{cases}
 a_{11}x_1+a_{12} x_2+ \ldots +a_{1n} x_n=b_1 \\ a_{21} x_1+a_{22} x_2+ \ldots +a_{2n} x_n=b_2 \\ \vdots \\ a_{m1} x_1+a_{m2} x_2+ \ldots +a_{mn} x_n=b_m \end{cases} \end{equation} \leftrightarrow AX=B$.
 
-Jos yhtälöitä ja tuntemattomia ei ole yhtä paljon ($m\neq n$), niin yhtälöryhmällä ei yleensä ole yksikäsitteistä ratkaisua. Jos taas yhtälöitä ja tuntemattomia on yhtä paljon ($m=n$), niin yhtälöryhmällä on yksikäsitteinen ratkaisu.
+Jos yhtälöitä ja tuntemattomia ei ole yhtä paljon ($m\neq n$), niin yhtälöryhmällä ei yleensä ole yksikäsitteistä ratkaisua. Jos taas yhtälöitä ja tuntemattomia on yhtä paljon ($m=n$), niin yhtälöryhmällä on yleensä, mutta ei kuitenkaan aina, yksikäsitteinen ratkaisu.
 
 Koska $A^{-1}A=I$ ja $A^{-1}AX=IX=X$, niin tuntemattomat sisältävä matriisi saadaan kertomalla yhtälö $AX=B$ puolittain vasemmalta matriisilla $A^{-1}$:
 

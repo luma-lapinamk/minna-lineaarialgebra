@@ -55,7 +55,7 @@ Sievennetään vasen puoli: $A^{-1}AX=IX=X$, jonka jälkeen yhtälö on muotoa $
 
 Yhtälö $XB=A^{-1}C$ on kerrottava puolittain oikealta $B$:n käänteismatriisilla, siis: $XBB^{-1}=A^{-1}CB^{-1}$.
 
-Sievennetään vasen puoli: $XBB^{-1}=XI=X$, jonka jälkeen yhtälö on muodossa $X=A^{-1}CB^{-1}.
+Sievennetään vasen puoli: $XBB^{-1}=XI=X$, jonka jälkeen yhtälö on muodossa $X=A^{-1}CB^{-1}$.
 
 Lasketaan nyt A:n ja B:n käänteismatriisit menetelmällä $Z=\begin{bmatrix}a&b\\c&d\end{bmatrix} \rightarrow Z^{-1}=\frac{1}{ad-bc} \begin{bmatrix}d&-b\\-c&a\end{bmatrix}$.
 
@@ -67,9 +67,11 @@ Nyt saadaan
 
 $X=A^{-1}CB^{-1}=\begin{bmatrix}-1&1\\1&-\frac{1}{2}\end{bmatrix} \begin{bmatrix}10&1\\100&2\end{bmatrix} \begin{bmatrix}-\frac{3}{2}&\frac{1}{2}\\1&0\end{bmatrix}$
 
-$X=\begin{bmatrix}-1&1\\1&-\frac{1}{2}\end{bmatrix} \begin{bmatrix} 10\cdot(-\frac{3}{2})+1\cdot 1&10\cdot \frac{1}{2}+1\cdot 0 \\ 100\cdot (-\frac{3}{2})+2\cdot 1&100\cdot \frac{1}{2}+2\cdot 0\end{bmatrix}=\begin{bmatrix}-1&1\\1&-\frac{1}{2}\end{bmatrix} \begin{bmatrix}-14&5\\-148&50\end{bmatrix}$
+$X=\begin{bmatrix}-1&1\\1&-\frac{1}{2}\end{bmatrix} \begin{bmatrix} 10\cdot(-\frac{3}{2})+1\cdot 1&10\cdot \frac{1}{2}+1\cdot 0 \\ 100\cdot (-\frac{3}{2})+2\cdot 1&100\cdot \frac{1}{2}+2\cdot 0\end{bmatrix}$
 
-$X=\begin{bmatrix}-1&1\\1&-\frac{1}{2}\end{bmatrix} \begin{bmatrix}-14&5\\-148&50\end{bmatrix}=\begin{bmatrix}-1\cdot (-14)+1\cdot (-148)&-1\cdot 5+1\cdot 50\\ 1\cdot (-14)+(-\frac{1}{2}\cdot (-148)&1\cdot 5-\frac{1}{2}\cdot 50\end{bmatrix}$
+$X=\begin{bmatrix}-1&1\\1&-\frac{1}{2}\end{bmatrix} \begin{bmatrix}-14&5\\-148&50\end{bmatrix}$
+
+$X = \begin{bmatrix}-1\cdot (-14)+1\cdot (-148)&-1\cdot 5+1\cdot 50\\ 1\cdot (-14)+(-\frac{1}{2}\cdot (-148)&1\cdot 5-\frac{1}{2}\cdot 50\end{bmatrix}$
 
 $X=\begin{bmatrix}-134&45\\60&-20\end{bmatrix}$
 
@@ -125,7 +127,7 @@ $S=CA=\begin{bmatrix}1&2&0\\2&3&1\\3&0&2\end{bmatrix} \begin{bmatrix}6&2&14\\8&1
 
 Tämä matriisi on nyt salattu viesti, joka voidaan lähettää eteenpäin.
 
-Vastaanottajalla on oltava hallussaan kirjainten ja numeroiden vastaavuustaulukko ja salausmatriisi $C$. Salausmatriisi, numeromuotoinen viesti ja salattu viesti muodostavat siis yhtälön $CA=S$, josta vastaanottaja tuntee $C$:n ja $S$:n ja haluaa ratkaista $A$:n.
+Vastaanottajalla on oltava hallussaan kirjainten ja numeroiden vastaavuustaulukko ja salausmatriisi $C$. Salausmatriisi, numeromuotoinen viesti ja salattu viesti muodostavat siis yhtälön $CA=S$, josta vastaanottaja tuntee matriisit $C$ ja $S$ ja haluaa ratkaista $A$:n.
 
 Koska käänteismatriisilla on ominaisuus $C^{-1}C=I$, niin matriisi $A$ saadaan ratkaistua matriisista $CA$ eli $S$ kertomalla se vasemmalta salausmatriisin $C$ käänteismatriisilla:
 

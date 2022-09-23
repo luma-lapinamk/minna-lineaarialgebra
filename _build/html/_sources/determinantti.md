@@ -25,15 +25,19 @@ Merkkikaavio on $\hspace{2cm}\begin{matrix}+ & - & + \\ - & + & - \\ + & - & + \
 Determinantti voidaan kehittää minkä tahansa rivin tai sarakkeen suhteen. Voidaan siis liikkua mitä tahansa riviä tai saraketta pitkin. Determinantin arvo on sama riippumatta siitä, minkä rivin tai sarakkeen suhteen se lasketaan.
 
 **Esim.** Kehitetään determinantti matriisille $A=\begin{bmatrix}1&4&2\\0&0&2\\5&1&3\end{bmatrix}$
+
 a) ensimmäisen rivin suhteen, b) toisen rivin suhteen.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
 
 a) $\text{det}⁡ A = 1\cdot (0\cdot 3-2\cdot 1)-4\cdot (0\cdot 3-5\cdot 2)+2\cdot (0\cdot 1-0\cdot 5) $
-$= 1\cdot (-2)-4\cdot (-10)+2\cdot 0=38$
 
-b) $\text{det} ⁡A = -0\cdot (4\cdot 3-2\cdot 1)+0\cdot (1\cdot 3-2\cdot 5)-2\cdot (1\cdot 1-4\cdot 5) = -2\cdot (-19)=38$
+$\text{det}⁡ A= 1\cdot (-2)-4\cdot (-10)+2\cdot 0=38$
+
+b) $\text{det} ⁡A = -0\cdot (4\cdot 3-2\cdot 1)+0\cdot (1\cdot 3-2\cdot 5)-2\cdot (1\cdot 1-4\cdot 5) $
+
+$\text{det}⁡ A= -2\cdot (-19)=38$
 :::
 
 Yleisesti: Kun lasketaan determinanttia $n \times n$ –tyyppiselle matriisille, saadaan ensin $n$ kappaletta $(n-1) \times (n-1)$ –tyyppisiä alideterminantteja. Näistä jokaisesta saadaan edelleen $n-1$ kappaletta $(n-2) \times (n-2)$ –tyypin alideterminantteja. Edelleen saadaan pienempiä alideterminantteja. Lopputulos saadaan, kun alideterminantit ovat kutistuneet kokoon $2 \times 2$. Laskemalla nämä yhteen kertoimet huomioituna saadaan lopulta koko $n \times n$ –tyyppisen matriisin determinantti.

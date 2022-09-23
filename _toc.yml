@@ -22,5 +22,6 @@ parts:
     - file: kaanteismatriisi
     - file: matriisiyhtalot
     - file: yhtaloryhmat
+    - file: ominaisarvot
     - file: matriisit_geometria
     - file: matriisit_muut

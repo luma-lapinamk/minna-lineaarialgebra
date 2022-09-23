@@ -15,6 +15,7 @@ Pistetulon voi laskea [WolframAlphalla](https://wolframalpha.com) merkitsemäll�
 Jos vektorien pistetulo on nolla, vektorit ovat toisiaan vastaan kohtisuorassa. Perustelu tähän saadaan hieman myöhemmin pistetulon toisen määritelmän avulla. Sääntö toimii myös kolmiulotteisen koordinaatiston vektoreille.
 
 **Esim.** Laske kuvan vektorien väliset pistetulot. Ovatko annetut vektorit kohtisuorassa toisiaan vastaan?
+
 ![Vektorien pistetulo](pistetuloesim.png "Esimerkki pistetulosta")
 
 a) $\vec{AB}=4\vec{i}+4\vec{j}$ ja $\vec{AC}=8\vec{i}-2\vec{j}$ 
@@ -67,11 +68,6 @@ b) Pistetulo on $\vec{a}\cdot \vec{b}=1\cdot s+2\cdot 1+1\cdot (-1)=s+1$, joten 
 ## Vektorien välinen kulma
 
 Vektorien pistetulolle on olemassa myös ns. geometrinen määritelmä $\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}| \cos{\alpha}$, missä $\alpha$ on vektorien $\vec{a}$ ja $\vec{b}$ välinen kulma.
-
-:::{admonition} Perustelu
-:class: tip, dropdown
-Tätä en kyllä nyt muista
-:::
 
 **Esim.** 
 

@@ -1,13 +1,13 @@
 # Vektorit: perusteita
 
-Tällä opintojaksolla otetaan matematiikan uudeksi työvälineeksi vektorit. Vektoreita voi käyttää ainakin kahdesta näkökulmasta. Fysiikassa kuvaa suuretta suuretta, jolla on sekä suuruus että suunta. Esimerkiksi kun autolla ajetaan nopeudella 80 km/h itään, niin nopeuden suuruus (vauhti) on 80 km/h ja suunta itään. Vektoreilla käsitellään myös monimutkaisempia fysiikan käsitteitä, esimerkiksi maapallon oman magneettikentän suuruus ja suunta vaihtelevat eri puolilla maapalloa ja myös ajallisesti.
+Tällä opintojaksolla otetaan matematiikan uudeksi työvälineeksi vektorit. Fysiikassa vektorilla voidaan kuvata suuretta, jolla on sekä suuruus että suunta. Esimerkiksi kun autolla ajetaan nopeudella 80 km/h itään, niin nopeuden suuruus (vauhti) on 80 km/h ja suunta itään. Vektoreilla käsitellään myös monimutkaisempia fysiikan käsitteitä, esimerkiksi maapallon oman magneettikentän suuruus ja suunta vaihtelevat eri puolilla maapalloa ja myös ajallisesti.
 
 Matematiikassa vektoreita käytetään usein apuna geometrian ongelmissa. Tällöin vektorien ajatellaan olevan tason tai avaruuden pisteiden välisiä janoja. Tällaisen vektorin pituus on sama kuin lyhin etäisyys kyseisten pisteiden välillä. Vektorin suunta määritellään suhteessa käytössä olevaan koordinaatistoon, esimerkiksi kulmana $(x,y)$-koordinaatiston $x$-akselista mitattuna.
 
 
 ## Merkintätapoja
 
-Vektoria merkitään jollakin kirjaimella siten, että merkinnän päällä on viiva tai nuoli, esim. $\vec{v}$. Tässä oppimateriaalissa merkintänä toimii nuoli, mutta käsin laskettaessa viiva on helpompi ja aivan yhtä hyvä merkintätapa. Vektorin merkkinä voi olla myös lihavointi, esim. vektori $\mathbf{v}$.
+Vektoria merkitään jollakin kirjaimella siten, että merkinnän päällä on viiva tai nuoli, esim. $\vec{v}$. Tässä oppimateriaalissa merkintänä toimii nuoli, mutta käsin laskettaessa viiva on helpompi ja yhtä hyvä merkintätapa. Vektorin merkkinä voi olla myös lihavointi, esim. vektori $\mathbf{v}$.
 
 Jos vektori yhdistää jotkin tason tai avaruuden pisteet, niin vektoria usein merkitään sen alku- ja loppupisteen kirjaimilla, esim. pisteiden $A$ ja $B$ välillä on vektori $\vec{AB}$ tai $\mathbf{AB}$.
 
@@ -74,12 +74,14 @@ Päätepisteen koordinaatit ovat siis $B=(466,345)$.
 :::{admonition} Huomautus
 :class: tip, dropdown
 
-Kantavektoreina ei ole pakko käyttää vektoreita $\vec{i}$, $\vec{j}$ ja $\vec{k}$. Kantavektorit voidaan muodostaa myös niiden yhdistelmistä. Oleellista on, että kantavektorit ovat toisiaan vastaan kohtisuorassa. Millä tahansa sopivasti valituilla kantavektoreilla pääsee siirtymään mistä tahansa suorakulmaisen koordinaatiston pisteestä mihin tahansa toiseen pisteeseen.
+Vektoreista $\vec{i}$, $\vec{j}$ ja $\vec{k}$ voidaan muodostaa yhdistelmiä, joilla pääsee siirtymään mistä tahansa suorakulmaisen koordinaatiston pisteestä mihin tahansa toiseen pisteeseen. 
 
-Tarkastellaan siirtymää kaksiulotteisessa koordinaatistossa. Valitaan kantavektoreiksi esimerkiksi $\vec{v_1}=\frac{1}{\sqrt{2}}\vec{i}-\frac{1}{\sqrt{2}}\vec{j}$ ja $\vec{v_2}=\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}$. 
+Tarkastellaan siirtymää kaksiulotteisessa koordinaatistossa. Valitaan vektoreiksi, joiden avulla liikutaan, $\vec{v_1}=\frac{1}{\sqrt{2}}\vec{i}-\frac{1}{\sqrt{2}}\vec{j}$ ja $\vec{v_2}=\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}$. 
 
 Nyt esimerkiksi pisteestä $(0,0)$ pääsee pisteeseen $(3,1)$ liikkumalla $\sqrt{2}$ askelta vektorin $\vec{v_1}$ suunnassa ja $2\sqrt{2}$ askelta vektorin $v_2$ suunnassa:
 
-$0 \vec{i} + 0 \vec{j} + \sqrt{2} \left(\frac{1}{\sqrt{2}}\vec{i}-\frac{1}{\sqrt{2}}\vec{j}\right) + 2\sqrt{2}\left(\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}\right) = \vec{i} - \vec{j} + 2 \vec{i} + 2\vec{j} = 3 \vec{i} + \vec{j}$.
+$0 \vec{i} + 0 \vec{j} + \sqrt{2} \left(\frac{1}{\sqrt{2}}\vec{i}-\frac{1}{\sqrt{2}}\vec{j}\right) + 2\sqrt{2}\left(\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}\right)$
+
+$= \vec{i} - \vec{j} + 2 \vec{i} + 2\vec{j} = 3 \vec{i} + \vec{j}$.
 
 :::

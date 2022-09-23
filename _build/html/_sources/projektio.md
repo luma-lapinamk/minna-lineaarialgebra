@@ -96,9 +96,13 @@ Lyhimmän reitin löytämiseksi on laskettava vektorin $\vec{AC}$ projektio vekt
 
 Skalaariprojektio on $p=\frac{\vec{AC}\cdot \vec{AB}}{|\vec{AB}|^2} = \frac{800\cdot 300-50\cdot 50}{800^2+50^2} \approx 0.37$.
 
-Projektiovektori on $\vec{AC_{AB}}=p\vec{AB}=0.37\cdot 800 \vec{i}+0.37\cdot 50\vec{j}=296 \vec{i}+18.5 \vec{j}$.
+Projektiovektori on 
 
-Polkua kuvaava vektori on $\vec{CD}=\vec{AC}-\vec{AC_{AB}}=(300-296) \vec{i}+(-50-18.5) \vec{j} = 4 \vec{i}-68.5 \vec{j}$.
+$\vec{AC_{AB}}=p\vec{AB}=0.37\cdot 800 \vec{i}+0.37\cdot 50\vec{j}=296 \vec{i}+18.5 \vec{j}$.
+
+Polkua kuvaava vektori on
+
+$\vec{CD}=\vec{AC}-\vec{AC_{AB}}=(300-296) \vec{i}+(-50-18.5) \vec{j} = 4 \vec{i}-68.5 \vec{j}$.
 
 Polun pituudeksi saadaan $|\vec{CD}|=\sqrt{4^2+(-68.5^2} \approx 68.6$.
 

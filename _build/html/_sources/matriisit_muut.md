@@ -33,13 +33,17 @@ Ketjun seuraava tilanne saadaan laskemalla $p_1=T p_0$. Yleisesti, kun siirtymä
 
 Alkutilanteessa ei sada, eli tilanne on $p_0=\begin{bmatrix}0 \\1 \end{bmatrix}$. Merkitään sadetta tapahtumana $A$ ja poutaa tapahtumana $B$.
 
-Tilansiirtomatriisiin saadaan helposti todennäköisyydet $P_{AA}$ ja $P_{BA}$: $T=\begin{bmatrix} 0.6 & 0.3 \\ P_{AB} & P_{BB} \end{bmatrix}$
+Tilansiirtomatriisiin saadaan helposti todennäköisyydet $P_{AA}$ ja $P_{BA}$:
+
+$T=\begin{bmatrix} 0.6 & 0.3 \\ P_{AB} & P_{BB} \end{bmatrix}$
 
 Alariville voidaan päätellä todennäköisyydet $P_{AB}=1-0.6=0.4$ ja $P_{BB}=1-0.3=0.7$. 
 
 Tilansiirtomatriisi on siis $T=\begin{bmatrix} 0.6 & 0.3 \\ 0.4 & 0.7 \end{bmatrix}$.
 
-Huomisen sääennuste on tällöin $p_1=Tp_0 = \begin{bmatrix}0.6 & 0.3 \\ 0.4 & 0.7\end{bmatrix} \begin{bmatrix}0 \\ 1\end{bmatrix} = \begin{bmatrix} 0.3 \\ 0.7 \end{bmatrix}$.
+Huomisen sääennuste on tällöin
+
+$p_1=Tp_0 = \begin{bmatrix}0.6 & 0.3 \\ 0.4 & 0.7\end{bmatrix} \begin{bmatrix}0 \\ 1\end{bmatrix} = \begin{bmatrix} 0.3 \\ 0.7 \end{bmatrix}$.
 
 Ylihuomisen ennuste saadaan kertomalla tämä uusi alkutilanne jälleen tilansiirtomatriisilla:
 
@@ -64,13 +68,17 @@ b) 10 vuoden kuluttua?
 
 Muodostetaan tilansiirtomatriisi kuvan avulla: $T=\begin{bmatrix}0.95&0.03\\0.05&0.97\end{bmatrix}$
 
-Kerätään alkutilannetta kuvaavaan matriisiin nykyiset asukasmäärät: $p_0=\begin{bmatrix}100 000\\150 000\end{bmatrix}$
+Kerätään alkutilannetta kuvaavaan matriisiin nykyiset asukasmäärät:
+
+$p_0=\begin{bmatrix}100 000\\150 000\end{bmatrix}$
 
 a) $p_1=Tp_0=\begin{bmatrix} 0.95\cdot 100 000+0.03 \cdot 150 000 \\ 0.05\cdot 100 000+0.97\cdot 150 000 \end{bmatrix}=\begin{bmatrix}99 500 \\ 150 500 \end{bmatrix}$
 
 b) Koska $p_1=Tp_0$, niin $p_2=Tp_1=TTp_0=T^2p_0$, $p_3=T^3p_0$ jne. ja edelleen $p_{10}=T^{10} p_0$.
 
-Siis 10 vuoden kuluttua $p_{10}=\begin{bmatrix} 0.95&0.03 \\ 0.05&0.97\end{bmatrix}^{10} \begin{bmatrix}100 000 \\ 150 000\end{bmatrix}=\begin{bmatrix} 96 465 \\ 153 540 \end{bmatrix}$.
+Siis 10 vuoden kuluttua
+
+$p_{10}=\begin{bmatrix} 0.95&0.03 \\ 0.05&0.97\end{bmatrix}^{10} \begin{bmatrix}100 000 \\ 150 000\end{bmatrix}=\begin{bmatrix} 96 465 \\ 153 540 \end{bmatrix}$.
 
 Lasku $T^{10}$ on suoritettu tietokoneella.
 
@@ -103,6 +111,8 @@ $LE=\begin{bmatrix} 0&0.5&1.1&1.3&0.8&0.4 \\ 0.7&0&0&0&0&0 \\ 0&0.9&0&0&0&0 \\ 0
 
 Siis 40 alkuperäistä otusta on tuottanut 20 poikasta ikäryhmään 0-2 v, ja lisäksi 90 % eli 36 kpl alkuperäisistä eläimistä on siirtynyt seuraavaan ikäryhmään.
 
-Tilanne kymmenen vuoden kuluttua saadaan laskemalla (tietokoneella) $L^5 E \approx \begin{bmatrix} 58 \\ 31 \\ 28 \\ 20 \\ 7 \\0\end{bmatrix}$.
+Tilanne kymmenen vuoden kuluttua saadaan laskemalla (tietokoneella)
+
+$L^5 E \approx \begin{bmatrix} 58 \\ 31 \\ 28 \\ 20 \\ 7 \\0\end{bmatrix}$.
 
 Tässä tietysti on oletettu, että eläimiä ei alkuhankinnan jälkeen ole ostettu tai myytykään. Huomaa myös, että tässä ikäluokkia käsitellään kahden vuoden jaksoina; siksi kymmenen vuotta vastaa viidenteen potenssiin korotusta.
