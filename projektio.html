@@ -111,7 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Lineaarialgebra
+                    Alkusanat
                 </a>
             </li>
         </ul>
@@ -165,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit
+   Matriisit: perusteita
   </a>
  </li>
  <li class="toctree-l1">
@@ -214,13 +214,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="matriisit_muut.html">
-   Sovelluksia
+  <a class="reference internal" href="leontief.html">
+   Leontiefin panos-tuotos-malli
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+  <a class="reference internal" href="matriisit_muut.html">
+   Lisää sovelluksia
   </a>
  </li>
 </ul>
@@ -379,10 +379,24 @@ title="Print to PDF"
 <li><p>pituudeltaan sellainen, että piirtämällä kyseisen projektiovektorin kärjestä kohtisuora vektori päästään vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> loppupisteeseen.</p></li>
 </ul>
 <p><img alt="Vektoriprojektio" src="_images/projektio.png" /></p>
-<p>Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span>, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla <span class="math notranslate nohighlight">\(\vec{a_b}=p\vec{b}\)</span>, missä tekijä <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|}^2\)</span> on nimeltään skalaariprojektio. Skalaariprojektio on se luku, jolla vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärkeen.</p>
-<p><strong>Huom!</strong> Pistetulon määritelmän mukaisesti <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot \vec{b}}{|\vec{b}|^2} = \frac{|\vec{a}||\vec{b}| \cos{\alpha}}{|b|^2} = \frac{|\vec{a}|}{|\vec{b}|} \cos{\alpha}\)</span>.</p>
-<p>Tuloksena on siis <span class="math notranslate nohighlight">\(p\vec{b}=|\vec{a}| \cos{\alpha⁡} \frac{\vec{b}}{|\vec{b}|} = |\vec{a}| \cos{\alpha⁡} \cdot \vec{b}^0\)</span>, eli <span class="math notranslate nohighlight">\(\vec{b}\)</span>:n suuntainen yksikkövektori kerrottuna luvulla <span class="math notranslate nohighlight">\(|\vec{a}|\cos{\alpha}\)</span>.</p>
-<p>Vektorin projektiota vastaan kohtisuora komponentti <span class="math notranslate nohighlight">\(\vec{a_{\perp}}\)</span> saadaan vähentämällä vektorista sen projektio, siis <span class="math notranslate nohighlight">\(\vec{a_{\perp}}=\vec{a}-\vec{a_b}\)</span>. Tämän vektorin pituus on lyhin etäisyys vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärjen ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> määrittämän suoran välillä. Ylläoleva kuva auttanee hahmottamaan tämän laskutoimituksen perustelua.</p>
+<p>Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span>, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla <span class="math notranslate nohighlight">\(\vec{a_b}=p\vec{b}\)</span>, missä tekijä <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}\)</span> on nimeltään skalaariprojektio. Se voidaan kirjoittaa myös muodossa <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}\)</span>. Skalaariprojektio on se luku, jolla vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärkeen.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Skalaariprojektion laskukaavan perustelu</p>
+<p>Vektoreista <span class="math notranslate nohighlight">\(\vec{b}\)</span> ja $<span class="math notranslate nohighlight">\(\vec{a_b}=p\vec{b}\)</span> sekä vektoria <span class="math notranslate nohighlight">\(p\vec{b}\)</span> vastaan kohtisuorasta vektorista muodostuu suorakulmainen kulmio. Sovelletaan siihen suorakulmaisen kolmion trigonometriaa:</p>
+<p><span class="math notranslate nohighlight">\(\text{cos}~\alpha = \frac{|p\vec{b}|}{|\vec{a}|}\)</span></p>
+<p>Vektorin <span class="math notranslate nohighlight">\(p\vec{b}\)</span> pituus on <span class="math notranslate nohighlight">\(|p\vec{b}|=p|\vec{b}\)</span>|, joten</p>
+<p><span class="math notranslate nohighlight">\(\text{cos}~\alpha = \frac{p|\vec{b}|}{|\vec{a}|}\)</span>,</p>
+<p>josta voidaan ratkaista</p>
+<p><span class="math notranslate nohighlight">\(p=\frac{|\vec{a}|}{|\vec{b}|}\text{cos}\alpha\)</span>.</p>
+<p>Toisaalta pistetulon yhteydessä todettin, että <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b} = |\vec{a}||\vec{b}|\text{cos}\alpha\)</span>, josta voidaan ratkaista</p>
+<p><span class="math notranslate nohighlight">\(\text{cos}\alpha = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}\)</span></p>
+<p>Sijoitetaan tämä kaavaan <span class="math notranslate nohighlight">\(p=\frac{|\vec{a}|}{|\vec{b}|}\text{cos}\alpha\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(p=\frac{|\vec{a}|}{|\vec{b}|}\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}\)</span></p>
+<p>Yhtälö sievenee muotoon</p>
+<p><span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot \vec{b}}{|\vec{b}|^2}\)</span></p>
+<p>Lisäksi pistetulon määritelmän mukaisesti <span class="math notranslate nohighlight">\(|\vec{b}|^2=\vec{b}\cdot \vec{b}\)</span>, joten  <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}\)</span>.</p>
+</div>
+<p>Vektorin projektiota vastaan kohtisuora komponentti <span class="math notranslate nohighlight">\(\vec{a_{\perp}}\)</span> saadaan vähentämällä vektorista sen projektio, siis <span class="math notranslate nohighlight">\(\vec{a_{\perp}}=\vec{a}-\vec{a_b}\)</span>. Tämän vektorin pituus on lyhin etäisyys vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärjen ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> määrittämän suoran välillä.</p>
 <p><strong>Esim.</strong></p>
 <p>a) Laske vektorin <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{b}=\vec{i}+\vec{j}\)</span>.</p>
 <p>b) Laske vektoriprojektio <span class="math notranslate nohighlight">\(\vec{a_b}\)</span>, kun <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}-5\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=-6\vec{i}+2\vec{j}\)</span>.</p>
@@ -397,7 +411,7 @@ title="Print to PDF"
 <p>b) vektorin <span class="math notranslate nohighlight">\(\vec{A}\)</span> vektoria <span class="math notranslate nohighlight">\(\vec{B}\)</span> vastaan kohtisuora komponentti.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p>a) <span class="math notranslate nohighlight">\(\vec{A_B}=\frac{8\cdot 3+6 \cdot (-4)-1\cdot 2\{3^2+(-4)^2+2^2}\cdot (3\vec{i}-4\vec{j}+2\vec{k})\)</span></p>
+<p>a) <span class="math notranslate nohighlight">\(\vec{A_B}=\frac{8\cdot 3+6 \cdot (-4)-1\cdot 2}{3^2+(-4)^2+2^2}\cdot (3\vec{i}-4\vec{j}+2\vec{k})\)</span></p>
 <p><span class="math notranslate nohighlight">\(= \frac{24-24-2}{9+16+4} \cdot (3\vec{i}-4\vec{j}+2\vec{k})=-\frac{2}{29}\cdot(3\vec{i}-4\vec{j}+2\vec{k})\)</span></p>
 <p><span class="math notranslate nohighlight">\(=-\frac{6}{29} \vec{i}+\frac{8}{29} \vec{j}-\frac{4}{29} \vec{k}\approx -0.207 \vec{i}+0.275\vec{j}-0.138\vec{k}\)</span></p>
 <p>Tarkistus WolframAlphan komennolla: projection[{8,6,-1},{3,-4,2}]</p>
@@ -420,15 +434,15 @@ title="Print to PDF"
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Muodostetaan aluksi pisteiden väliset vektorit:</p>
-<p>Jokea kuvaava vektori on <span class="math notranslate nohighlight">\(\vec{AB}=(1500-700,150-100) = (800,50) = 800 \vec{i} + 50\vec{j}\)</span></p>
-<p>Joen alkupisteestä talolle vie vektori <span class="math notranslate nohighlight">\(\vec{AC}=(1000-700,50-100) = (300,-50) = 300\vec{i} – 50\vec{j}\)</span></p>
+<p>Jokea kuvaava vektori on <span class="math notranslate nohighlight">\(\vec{AB}=(1500-700)\vec{i}+(150-100)\vec{j} = 800 \vec{i} + 50\vec{j}\)</span></p>
+<p>Joen alkupisteestä talolle vie vektori <span class="math notranslate nohighlight">\(\vec{AC}=(1000-700)\vec{i}+(50-100)\vec{j} = 300\vec{i} – 50\vec{j}\)</span></p>
 <p>Lyhimmän reitin löytämiseksi on laskettava vektorin <span class="math notranslate nohighlight">\(\vec{AC}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{AB}\)</span>, jonka jälkeen saadaan vektoria <span class="math notranslate nohighlight">\(\vec{AB}\)</span> vastaan kohtisuora vektori <span class="math notranslate nohighlight">\(\vec{DC}\)</span>.</p>
 <p>Skalaariprojektio on <span class="math notranslate nohighlight">\(p=\frac{\vec{AC}\cdot \vec{AB}}{|\vec{AB}|^2} = \frac{800\cdot 300-50\cdot 50}{800^2+50^2} \approx 0.37\)</span>.</p>
 <p>Projektiovektori on</p>
 <p><span class="math notranslate nohighlight">\(\vec{AC_{AB}}=p\vec{AB}=0.37\cdot 800 \vec{i}+0.37\cdot 50\vec{j}=296 \vec{i}+18.5 \vec{j}\)</span>.</p>
 <p>Polkua kuvaava vektori on</p>
 <p><span class="math notranslate nohighlight">\(\vec{CD}=\vec{AC}-\vec{AC_{AB}}=(300-296) \vec{i}+(-50-18.5) \vec{j} = 4 \vec{i}-68.5 \vec{j}\)</span>.</p>
-<p>Polun pituudeksi saadaan <span class="math notranslate nohighlight">\(|\vec{CD}|=\sqrt{4^2+(-68.5^2} \approx 68.6\)</span>.</p>
+<p>Polun pituudeksi saadaan <span class="math notranslate nohighlight">\(|\vec{CD}|=\sqrt{4^2+(-68.5)^2} \approx 68.6\)</span>.</p>
 </div>
 </section>
 

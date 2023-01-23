@@ -67,7 +67,57 @@ b) Pistetulo on $\vec{a}\cdot \vec{b}=1\cdot s+2\cdot 1+1\cdot (-1)=s+1$, joten 
 
 ## Vektorien välinen kulma
 
-Vektorien pistetulolle on olemassa myös ns. geometrinen määritelmä $\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}| \cos{\alpha}$, missä $\alpha$ on vektorien $\vec{a}$ ja $\vec{b}$ välinen kulma.
+Vektorien pistetulolle on olemassa myös ns. geometrinen määritelmä $\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}| \cos{\alpha}$, missä $\alpha$ on vektorien $\vec{a}$ ja $\vec{b}$ välinen kulma. Kaavan voi perustella kosinilauseen avulla.
+
+:::{admonition} Kaavan perustelu
+:class: tip, dropdown
+
+![Pistetulon laskukaavan perustelu](pistetulo_perustelu.png)
+
+Kuvan kolmiossa kulman $\alpha$ kyljet ovat vektorit $\vec{a}$ ja $\vec{b}$. Kulmaa vastapäätä oleva sivu saadaan esitettyä näillä vektoreilla muodossa $\vec{a}-\vec{b}$. Kolmion sivujen pituudet ovat näiden vektorien avulla ilmaistuna $|\vec{a}|$, $|\vec{b}|$ ja $|\vec{a}-\vec{b}|$. Kirjoitetaan näitä merkintöjä käyttäen kosinilause:
+
+$|\vec{a}-\vec{b}|^2 =|\vec{a}|^2 + |\vec{b}|^2 - 2 |\vec{a}| |\vec{b}| \text{cos}~\alpha$
+
+Seuraavaksi johdetaan toinen esitysmuoto yhtälön vasemmalle puolelle $|\vec{a}-\vec{b}|^2$. Esitetään vektorit kantavektorien avulla, siis $\vec{a}=a_x \vec{i} + a_y \vec{j} + a_z \vec{k}$ ja $\vec{b}=b_x \vec{i} + b_y \vec{j} + b_z \vec{k}$. 
+
+Vektorien erotus on tällöin $\vec{a}-\vec{b}=(a_x-b_x) \vec{i} + (a_y-b_y) \vec{j} + (a_z-b_z) \vec{k}$. Tämän vektorin pituuden toinen potenssi on $|\vec{a}-\vec{b}| = (a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2$. Oikea puoli voidaan potenssilukujen laskusääntöjen mukaisesti sieventää seuraavasti:
+
+$(a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = \dots $
+
+$ = a_x^2-2 a_x b_x + b_x^2 + a_y^2-2 a_y b_y + b_y^2 + a_z^2 + 2 a_z b_z + b_z^2$
+
+Järjestellään oikean puolen termejä:
+
+$(a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = \dots $
+
+$ = a_x^2+a_y^2+a_z^2 + b_x^2 + b_y ^2 + b_z^2 - 2a_x b_x -2 a_y b_y -2 a_z b_z$
+
+Huomataan, että oikealta puolelta löytyy vektorien pituuksien neliöt:
+
+$(a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2a_x b_x -2 a_y b_y -2 a_z b_z$
+
+Yhtälön oikean puolen viimeiset termit voidaan ryhmitellä seuraavasti:
+
+$(a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2(a_x b_x+ a_y b_y + a_z b_z)$
+
+eli pistetulon määritelmän mukaan
+
+$(a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2 \vec{a} \cdot \vec{b}$
+
+Saatiin siis tulos: 
+
+$|\vec{a}-\vec{b}|^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2 \vec{a} \cdot \vec{b}$
+
+Näin ollen kosinilauseen voi kirjoittaa muodossa:
+
+$|\vec{a}|^2 + |\vec{b}|^2 - 2 \vec{a} \cdot \vec{b} = |\vec{a}|^2 + |\vec{b}|^2 - 2 |\vec{a}| |\vec{b}| \text{cos}~\alpha$
+
+Tämä sievenee muotoon
+
+$ \vec{a} \cdot \vec{b} =  |\vec{a}| |\vec{b}| \text{cos}~\alpha$
+
+:::
+
 
 **Esim.** 
 
