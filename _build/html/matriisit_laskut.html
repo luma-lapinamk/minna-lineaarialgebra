@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Matriisitulo" href="matriisitulo.html" />
-    <link rel="prev" title="Matriisit" href="matriisit_perus.html" />
+    <link rel="prev" title="Matriisit: perusteita" href="matriisit_perus.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -165,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit
+   Matriisit: perusteita
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -199,6 +199,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Gaussin eliminaatio
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="ominaisarvot.html">
    Ominaisarvot ja -vektorit
   </a>
@@ -209,8 +214,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="leontief.html">
+   Leontiefin panos-tuotos-malli
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
-   Sovelluksia
+   Lisää sovelluksia
   </a>
  </li>
 </ul>
@@ -409,7 +419,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="matriisien-peruslaskutoimitukset">
 <h1>Matriisien peruslaskutoimitukset<a class="headerlink" href="#matriisien-peruslaskutoimitukset" title="Permalink to this headline">#</a></h1>
-<p>Matriisien peruslaskutoimituksiin kuuluvat matriisien yhteen- ja vähennyslasku sekä matriisin kertominen luvulla. Aivan kuten vektorienkin tapauksessa, matriisien kertominen toisella matriisilla on monimutkaisempi laskutoimitus ja käsitellään erikseen. Matriisien laskutoimitukset sujuvat helposti matriisilaskentaan erikoistuneella Octave-laskentaohjelmalla, johon myös tässä luvussa tutustaan.</p>
+<p>Matriisien peruslaskutoimituksiin kuuluvat matriisien yhteen- ja vähennyslasku sekä matriisin kertominen luvulla. Aivan kuten vektorienkin tapauksessa, matriisien kertominen toisella matriisilla on monimutkaisempi laskutoimitus ja käsitellään erikseen. Matriisien laskutoimitukset sujuvat helposti matriisilaskentaan erikoistuneella Octave-laskentaohjelmalla, johon myös tässä luvussa tutustutaan hieman. Laskentaan voi toki hyvin käyttää myös esimerkiksi Pythonin lineaarialgebran työkaluja.</p>
 <section id="laskutoimituksia">
 <h2>Laskutoimituksia<a class="headerlink" href="#laskutoimituksia" title="Permalink to this headline">#</a></h2>
 <p>Matriiseja voidaan laskea yhteen tai vähentää toisistaan, jos ne ovat samaa tyyppiä. Laskutoimitukset tehdään vastinalkioittain. Matriisien <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> summan <span class="math notranslate nohighlight">\(C=A+B\)</span> alkio <span class="math notranslate nohighlight">\(C_{ij}\)</span> on matriisien <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> vastaavien alkioiden summa, <span class="math notranslate nohighlight">\(C_{ij}=A_{ij}+B_{ij}\)</span>. Vastaavasti erotukselle <span class="math notranslate nohighlight">\(C=A-B\)</span> pätee <span class="math notranslate nohighlight">\(C_{ij}=A_{ij}-B_{ij}\)</span>.</p>
@@ -429,7 +439,7 @@ title="Print to PDF"
 </section>
 <section id="matriisien-kasittely-tietokoneella">
 <h2>Matriisien käsittely tietokoneella<a class="headerlink" href="#matriisien-kasittely-tietokoneella" title="Permalink to this headline">#</a></h2>
-<p>Tällä opintojaksolla tutustutaan <a class="reference external" href="https://octave-online.net/">Octave</a>-laskentaympäristöön. Octavea voi käyttää selaimessa tai sen voi asentaa omalle tietokoneelle. Octaven käyttö on ilmaista. Se noudattaa pääosin samoja komentoja kuin erittäin laajasti käytetty <a class="reference external" href="https://se.mathworks.com/products/matlab.html">Matlab</a>. Nykyään tosin matriisienkin käsittelyssä ollaan siirrytty enemmän Python-ohjelmointikieleen.</p>
+<p>Tässä osiossa tutustutaan lyhyesti <a class="reference external" href="https://octave-online.net/">Octave</a>-laskentaympäristöön. Octavea voi käyttää selaimessa tai sen voi asentaa omalle tietokoneelle. Octaven käyttö on ilmaista. Se noudattaa pääosin samoja komentoja kuin erittäin laajasti käytetty <a class="reference external" href="https://se.mathworks.com/products/matlab.html">Matlab</a>. <strong>Opintojakson aikana harjoitellaan myös Pythonin käyttöä laskennan välineenä.</strong></p>
 <p>Octaveen voi syöttää matriiseja siten, että matriisin alkiot kirjoitetaan hakasulkuihin. Matriisin riviä vaihdetaan puolipisteellä. Samalla rivillä olevien alkioiden väliin laitetaan pilkku tai välilyönti. Matriisin transpoosi saadaan kirjoittamalla matriisin nimen perään merkin ‘, esimerkiksi matriisin <span class="math notranslate nohighlight">\(A\)</span> transpoosin <span class="math notranslate nohighlight">\(A^T\)</span> saa komennolla A’. Kun matriisille antaa jonkin nimen, sitä voi käyttää nimellä kutsumalla laskutoimituksissa. Jos matriisien tyypit eivät ole keskenään yhteensopivia ja laskua ei voida suorittaa, Octave antaa virheilmotuksen.</p>
 <p><strong>Esim.</strong> Matriisien <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1 &amp; 2 \\ 4 &amp; 1\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(B=\begin{bmatrix}6 &amp; 5 \\ 1 &amp; 3\end{bmatrix}\)</span> laskutoimituksia:</p>
 <p>Syötetään Octaveen matriisit komennolla: A=[1 2;4 1], B=[6 5;1 3]</p>
@@ -438,7 +448,7 @@ title="Print to PDF"
 <p><img alt="Octaven käyttö" src="_images/octave.png" /></p>
 <p><strong>Huom!</strong> Alkioittainen tulo <span class="math notranslate nohighlight">\(A\circ B\)</span> saadaan komennolla A.*B ja varsinainen matriisien kertolasku tapahtuu komennolla A*B</p>
 <p>Matriisit tallentuvat Octaven käytön ajaksi muistiin. Jos haluaa poistaa jonkin matriisin, se tapahtuu komennolla clear, esimerkiksi “clear a” poistaa matriisin <span class="math notranslate nohighlight">\(a\)</span>. Komento “clear” tai “clear all” poistaa muistista kaiken. Jos haluaa pyyhkiä taulun, jolla aiemmat laskutoimitukset näkyvät, se tapahtuu komennolla “clc”. Lähtökohtaisesti Octave tulostaa kaiken näkyviin. Jos haluaa vaikkapa tallentaa ison matriisin ilman, että se sotkee koko ruutua, tulee komennon perään laittaa puolipiste ; .</p>
-<p>Octavessa voi kirjoittaa komentosarjoja ottamalla käyttöön tekstieditorin. Se onnistuu kirjautumalla käyttäjäksi esim. Google-tilin kautta. Tällöin voi ensin kirjoittaa kaikki haluamansa laskutoimituksen selkeäksi dokumentiksi, jonka sitten lopuksi suorittaa kerralla. Vaativampi laskenta ja datan käsittely tapahtuukin juuri tällä tavalla</p>
+<p>Octavessa voi kirjoittaa komentosarjoja ottamalla käyttöön tekstieditorin. Se onnistuu kirjautumalla käyttäjäksi esim. Google-tilin kautta. Tällöin voi ensin kirjoittaa kaikki haluamansa laskutoimituksen selkeäksi dokumentiksi, jonka sitten lopuksi suorittaa kerralla. Vaativampi laskenta ja datan käsittely kannattaa suorittaa juuri tällä tavalla.</p>
 </section>
 </section>
 
@@ -473,7 +483,7 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Matriisit</p>
+            <p class="prev-next-title">Matriisit: perusteita</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="matriisitulo.html" title="next page">

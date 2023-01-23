@@ -1,6 +1,6 @@
-# Sovelluksia
+# Lisää sovelluksia
 
-Matriiseja voidaan soveltaa monenlaisissa ongelmissa. Tarkastellaan tässä todennäköisyyslaskentaan liittyviä tilansiirtomatriiseja sekä populaatioennusteisiin liittyviä Leslien matriiseja.
+Matriiseja voidaan soveltaa monenlaisissa ennusteissa. Tarkastellaan tässä todennäköisyyslaskentaan liittyviä tilansiirtomatriiseja sekä populaatioennusteisiin liittyviä Leslien matriiseja.
 
 ## Tilansiirtomatriisit
 

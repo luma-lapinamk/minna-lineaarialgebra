@@ -77,7 +77,7 @@ Vektori voidaan siis esittää muodossa $\vec{d}=5.13 \angle 327.43^{\circ}$.
 
 :::
 
-**Esim.** Samassa tasossa olevien vektorien \vec{a}, \vec{b}, \vec{c} ja \vec{d} väliset kulmat ovat: $(\vec{a},\vec{b})=81.4^{\circ},(\vec{b},\vec{c})=62.8^{\circ}$ ja $(\vec{c},\vec{d})=121.7^{\circ}$, ja vektorien pituudet ovat: $|\vec{a}|=6.45,|\vec{b}|=7.11,|\vec{c}|=4.82$ ja $|\vec{d}|=6.90$. Mikä on vektorien summa?
+**Esim.** Samassa tasossa olevien vektorien $\vec{a}$, $\vec{b}$, $\vec{c}$ ja $\vec{d}$ väliset kulmat ovat: $(\vec{a},\vec{b})=81.4^{\circ},(\vec{b},\vec{c})=62.8^{\circ}$ ja $(\vec{c},\vec{d})=121.7^{\circ}$, ja vektorien pituudet ovat: $|\vec{a}|=6.45,|\vec{b}|=7.11,|\vec{c}|=4.82$ ja $|\vec{d}|=6.90$. Mikä on vektorien summa?
 
 ![Vektorit tasossa](voimanuolet.png "Vektorit tasossa")
 

@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Geometriaa matriiseilla" href="matriisit_geometria.html" />
-    <link rel="prev" title="Yhtälöryhmät" href="yhtaloryhmat.html" />
+    <link rel="prev" title="Gaussin eliminaatio" href="gauss.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -165,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit
+   Matriisit: perusteita
   </a>
  </li>
  <li class="toctree-l1">
@@ -198,6 +198,11 @@ const thebe_selector_output = ".output, .cell_output"
    Yhtälöryhmät
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Gaussin eliminaatio
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Ominaisarvot ja -vektorit
@@ -209,8 +214,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="leontief.html">
+   Leontiefin panos-tuotos-malli
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
-   Sovelluksia
+   Lisää sovelluksia
   </a>
  </li>
 </ul>
@@ -399,13 +409,15 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="ominaisarvot-ja-vektorit">
 <h1>Ominaisarvot ja -vektorit<a class="headerlink" href="#ominaisarvot-ja-vektorit" title="Permalink to this headline">#</a></h1>
-<p>Jos tyyppiä <span class="math notranslate nohighlight">\(n \times n\)</span> oleva matriisi <span class="math notranslate nohighlight">\(A\)</span> kerrotaan <span class="math notranslate nohighlight">\(n \times 1\)</span> -tyyppisellä vektorilla <span class="math notranslate nohighlight">\(\vec{v}\)</span> ja tulokseksi saadaan sama vektori kerrottuna jollakin luvulla <span class="math notranslate nohighlight">\(\lambda\)</span>, sanotaan että <span class="math notranslate nohighlight">\(\lambda\)</span> on matriisin <span class="math notranslate nohighlight">\(A\)</span> ominaisarvo ja <span class="math notranslate nohighlight">\(\vec{v}\)</span> matriisin <span class="math notranslate nohighlight">\(A\)</span> ominaisvektori. Yhtälönä tämä ilmaistaan seuraavasti: <span class="math notranslate nohighlight">\(A\vec{v}=\lambda\vec{v}\)</span>.</p>
+<p>Jos tyyppiä <span class="math notranslate nohighlight">\(n \times n\)</span> oleva matriisi <span class="math notranslate nohighlight">\(A\)</span> kerrotaan <span class="math notranslate nohighlight">\(n \times 1\)</span> -tyyppisellä vektorilla <span class="math notranslate nohighlight">\(\vec{v}\)</span> ja tulokseksi saadaan sama vektori kerrottuna jollakin luvulla <span class="math notranslate nohighlight">\(\lambda\)</span>, sanotaan että <span class="math notranslate nohighlight">\(\lambda\)</span> on matriisin <span class="math notranslate nohighlight">\(A\)</span> ominaisarvo ja <span class="math notranslate nohighlight">\(\vec{v}\)</span> matriisin <span class="math notranslate nohighlight">\(A\)</span> ominaisvektori. Yhtälönä tämä ilmaistaan seuraavasti:</p>
+<p><span class="math notranslate nohighlight">\(A\vec{v}=\lambda\vec{v}\)</span>.</p>
 <p>Neliömatriisilla, jonka koko on <span class="math notranslate nohighlight">\(n \times \)</span>, on <span class="math notranslate nohighlight">\(n\)</span> ominaisarvoa. Jokaista ominaisarvoa vastaa ääretön määrä ominaisvektoreita. Ominaisarvoja ja ominaisvektoreita voidaan myöhemmin hyödyntää mm. differentiaaliyhtälöiden ratkaisuissa. Tällä sivulla esitetään, miten ominaisarvot ja -vektorit lasketaan.</p>
 <section id="ominaisarvoyhtalo">
 <h2>Ominaisarvoyhtälö<a class="headerlink" href="#ominaisarvoyhtalo" title="Permalink to this headline">#</a></h2>
 <p>Matriisin ominaisarvo ja ominaisvektori löytyvät ratkaisemalla yhtälö <span class="math notranslate nohighlight">\(A\vec{v}=\lambda\vec{v}\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(A\vec{v}-\lambda\vec{v}=\vec{0} \leftrightarrow A\vec{v}-\lambda I_n \vec{v}=\vec{0} \leftrightarrow (A-\lambda I_n)\vec{v}=\vec{0}\)</span></p>
-<p>Tälle yhtälölle on olemassa triviaaliratkaisu <span class="math notranslate nohighlight">\(\vec{n}=\vec{0}\)</span>, sillä nollavektori kerrottuna millä tahansa sopivan kokoisella matriisilla tuottaa nollavektorin. Tässä tapauksessa emme ole kiinnostuneita tästä ratkaisusta. Toisena vaihtoehtona on selvittää äärettömän monta ratkaisua, joilla <span class="math notranslate nohighlight">\(\vec{n} \neq \vec{0}\)</span>. Yleisesti matriisiyhtälölle <span class="math notranslate nohighlight">\(M \vec{x} = \vec{y}\)</span>, missä <span class="math notranslate nohighlight">\(M\)</span> on <span class="math notranslate nohighlight">\(n \times n\)</span> -tyyppinen matriisi ja <span class="math notranslate nohighlight">\(\vec{x}\)</span> ja <span class="math notranslate nohighlight">\(\vec{y}\)</span> ovat <span class="math notranslate nohighlight">\(n \times 1\)</span> -tyyppisiä vektoreita, on ratkaisuja ääretön määrä silloin, kun kerroinmatriisin <span class="math notranslate nohighlight">\(M\)</span> determinantti on nolla. Tässä tapauksessa on siis ratkaistava yhtälö <span class="math notranslate nohighlight">\(\text{det}(A-\lambda I_n)=0\)</span>. Kyseisen yhtälön vasemmasta puolesta muodostuu matriisin <em>karakteristinen polynomi</em>. Käytännössä yhtälöstä tulee <span class="math notranslate nohighlight">\(n\)</span>. asteen yhtälö, jonka tuntemattomana on ominaisarvo <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>Tälle yhtälölle on olemassa triviaaliratkaisu <span class="math notranslate nohighlight">\(\vec{n}=\vec{0}\)</span>, sillä nollavektori kerrottuna millä tahansa sopivan kokoisella matriisilla tuottaa nollavektorin. Tässä tapauksessa emme ole kiinnostuneita tästä ratkaisusta. Toisena vaihtoehtona on selvittää äärettömän monta ratkaisua, joilla <span class="math notranslate nohighlight">\(\vec{n} \neq \vec{0}\)</span>.</p>
+<p>Yleisesti matriisiyhtälölle <span class="math notranslate nohighlight">\(M \vec{x} = \vec{y}\)</span>, missä <span class="math notranslate nohighlight">\(M\)</span> on <span class="math notranslate nohighlight">\(n \times n\)</span> -tyyppinen matriisi ja <span class="math notranslate nohighlight">\(\vec{x}\)</span> ja <span class="math notranslate nohighlight">\(\vec{y}\)</span> ovat <span class="math notranslate nohighlight">\(n \times 1\)</span> -tyyppisiä vektoreita, on ratkaisuja ääretön määrä silloin, kun kerroinmatriisin <span class="math notranslate nohighlight">\(M\)</span> determinantti on nolla. Tässä tapauksessa on siis ratkaistava yhtälö <span class="math notranslate nohighlight">\(\text{det}(A-\lambda I_n)=0\)</span>. Kyseisen yhtälön vasemmasta puolesta muodostuu matriisin <em>karakteristinen polynomi</em>. Käytännössä yhtälöstä tulee <span class="math notranslate nohighlight">\(n\)</span>. asteen yhtälö, jonka tuntemattomana on ominaisarvo <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <p><strong>Esim.</strong> Laske matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix}\)</span> ominaisarvot.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
@@ -434,13 +446,13 @@ title="Print to PDF"
 <p>Huomataan, että vasemmanpuoleisen matriisin determinantti on <span class="math notranslate nohighlight">\(-5\cdot (-3) - 5\cdot 3 = 15-15=0\)</span>. Tällöin yhtälöä ei voi ratkaista kyseisen matriisin käänteismatriisilla kertomalla. Ratkaisua ei löydy tällä tavalla, sillä ominaisvektoreita on ääretön määrä. Matriisitulon määritelmän avulla voidaan kuitenkin muodostaa yhtälöpari:</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} -5 v_{11} + 5 v_{12} = 0 \\ 3 v_{11} -3 v_{12} = 0 \end{cases} \end{equation}\)</span></p>
 <p>Kummasta tahansa yhtälöstä huomataan, että <span class="math notranslate nohighlight">\(v_{11}=v_{12}\)</span>. Toisin sanoen ominaisarvoa <span class="math notranslate nohighlight">\(7\)</span> vastaavia ominaisvektoreita ovat kaikki vektorit, joissa komponenttien kertoimet ovat yhtä suuret, esimerkiksi</p>
-<p><span class="math notranslate nohighlight">\(\vec{v_1}=\begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span> tai yksikkövektori <span class="math notranslate nohighlight">\(\vec{v_1}=\begin{bmatrix} 1/\sqrt{2} \\ 1\sqrt{2} \end{bmatrix}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\vec{v_1}=\begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span> tai yksikkövektori <span class="math notranslate nohighlight">\(\vec{v_1}=\begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}\)</span>.</p>
 <p>Ominaisarvoa <span class="math notranslate nohighlight">\(\lambda_2=-1\)</span> vastaava ominaisvektori <span class="math notranslate nohighlight">\(\vec{v_2}=\begin{bmatrix} v_{21} \\ v_{22} \end{bmatrix}\)</span> saadaan seuraavasti:</p>
 <p><span class="math notranslate nohighlight">\(\left(\begin{bmatrix} 2 &amp; 5 \\ 3 &amp; 4\end{bmatrix} - (-1) \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \right) \begin{bmatrix} v_{21}  \\ v_{22} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\begin{bmatrix} 3 &amp; 5 \\ 3 &amp; 5\end{bmatrix} \begin{bmatrix} v_{21}  \\ v_{22} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(v_{22}=\frac{3}{5} v_{21}\)</span></p>
 <p>Toisin sanoen ominaisvektoreita ovat kaikki ne vektorit, joissa jälkimmäinen komponentti on suuruudeltaan <span class="math notranslate nohighlight">\(-3/5\)</span> ensimmäisestä, esimerkiksi</p>
-<p><span class="math notranslate nohighlight">\(\vec{v_2}=\begin{bmatrix} 5 \\ -3 \end{bmatrix}\)</span> tai yksikkövektori <span class="math notranslate nohighlight">\(\vec{v_2}=\begin{bmatrix} 5/\sqrt{34} \\ -3\sqrt{34} \end{bmatrix}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\vec{v_2}=\begin{bmatrix} 5 \\ -3 \end{bmatrix}\)</span> tai yksikkövektori <span class="math notranslate nohighlight">\(\vec{v_2}=\begin{bmatrix} 5/\sqrt{34} \\ -3/\sqrt{34} \end{bmatrix}\)</span>.</p>
 </div>
 </section>
 </section>
@@ -472,11 +484,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="yhtaloryhmat.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="gauss.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Yhtälöryhmät</p>
+            <p class="prev-next-title">Gaussin eliminaatio</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="matriisit_geometria.html" title="next page">

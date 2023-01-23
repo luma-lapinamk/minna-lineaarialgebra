@@ -1,4 +1,4 @@
-# Matriisit
+# Matriisit: perusteita
 
 Matriisi on riveihin ja sarakkeisiin järjestelty lukujen joukko. Kuitenkaan se ei ole aivan samanlainen olio kuin esimerkiksi taulukkolaskentaohjelmaan syötetty taulukko kuukausittaisista tuloista ja menoista. Matriisit voivat olla hyvinkin pieniä, mutta silti matemaattisesti tehokkaita. Esimerkiksi karttojen koordinaattimuutoksiin riittää neljä lukua sisältävä matriisi. Toisaalta matriisit voivat olla valtavan suuriakin, esim. tavallinen digitaalinen valokuva tallennetaan matriisina, jossa voi olla kymmeniä tuhansia lukuja.
 

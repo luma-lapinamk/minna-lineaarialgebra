@@ -12,11 +12,10 @@ $\vec{a} \times \vec{b}=(a_y b_z-a_z b_y) \vec{i}-(a_x b_z-a_z b_x) \vec{j}+(a_x
 
 missä $a_x,a_y,a_z$ ovat vektorin $\vec{a}$ komponenttien kertoimet ja $b_x,b_y,b_z$ vektorin $\vec{b}$ komponenttien kertoimet.
 
-Jos vektorissa on vain kaksi komponenttia, niin kolmannen komponentin kertoimeksi asetetaan 0, siis esimerkiksi vektoria $2 \vec{i} + 3 \vec{j}$ voi käyttää ristituloa vaativissa laskuissa, kun sen esittää muodossa $2 \vec{i} + 3 \vec{j} 0 \vec{k}$.
+Jos vektorissa on vain kaksi komponenttia, niin kolmannen komponentin kertoimeksi asetetaan 0, siis esimerkiksi vektoria $2 \vec{i} + 3 \vec{j}$ voi käyttää ristituloa vaativissa laskuissa, kun sen esittää muodossa $2 \vec{i} + 3 \vec{j} + 0 \vec{k}$.
 
 [WolframAlphalla](https://wolframalpha.com) ristitulo lasketaan kertomerkillä \*, siis (vektori1)\*(vektori2) tai komennolla cross\[(vektori1), (vektori2)\].
  
-
 **Esim.** Laske vektorien $\vec{a}=3 \vec{i}+2 \vec{j}-\vec{k}$ ja $\vec{b}=-5\vec{i}+3\vec{j}+\vec{k}$ ristitulo.
 
 :::{admonition} Ratkaisu
@@ -58,7 +57,9 @@ Laskeminen taulukon avulla:
  
 ![Ristitulon laskuesimerkki](ristitulo_esim.png "Ristitulo, laskuesimerkki")
 
-$\vec{a}\times \vec{b}=[(-1)(-2)-(1\cdot 1)] \vec{i}-[1\cdot (-2)-1\cdot 0]\vec{j}+[1\cdot 1-(-1\cdot 0)] \vec{k}= \vec{i}+2\vec{j}+\vec{k}$
+$\vec{a}\times \vec{b}=[(-1)(-2)-(1\cdot 1)] \vec{i}-[1\cdot (-2)-1\cdot 0]\vec{j}+[1\cdot 1-(-1\cdot 0)] \vec{k} $  
+
+$ = \vec{i}+2\vec{j}+\vec{k}$
 
 :::
 
@@ -93,7 +94,9 @@ b) $\vec{a}\times\vec{b} =
     2 & 1 & 1 \\
   \end{vmatrix}$
 
-$=(2\cdot 1-0\cdot 1) \vec{i}-(1\cdot 1-0\cdot 2) \vec{j} + (1\cdot 1-2 \cdot 2) \vec{k} = 2 \vec{i}-\vec{j}-3\vec{k}$.
+$=(2\cdot 1-0\cdot 1) \vec{i}-(1\cdot 1-0\cdot 2) \vec{j} + (1\cdot 1-2 \cdot 2) \vec{k}$  
+
+$= 2 \vec{i}-\vec{j}-3\vec{k}$.
 
 WolframAlpha-komento cross([1,2,0],[2,1,1]) antaa tuloksen [2,-1,-3] ja lisäksi voidaan laskea $(\vec{a}\times \vec{b})\cdot \vec{a}=1\cdot 2+2\cdot (-1)+0\cdot (-3)=0$.
 
