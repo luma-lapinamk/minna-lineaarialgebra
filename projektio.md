@@ -10,13 +10,40 @@ Seuraavan kuvan avulla voidaan esittää vektoriprojektiolle (tai projektiovekto
 
 ![Vektoriprojektio](projektio.png "Vektoriprojektion määritelmä")
 
-Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori $\vec{b}$, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla $\vec{a_b}=p\vec{b}$, missä tekijä $p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|}^2$ on nimeltään skalaariprojektio. Skalaariprojektio on se luku, jolla vektori $\vec{b}$ pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin $\vec{a}$ kärkeen.
+Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori $\vec{b}$, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla $\vec{a_b}=p\vec{b}$, missä tekijä $p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}$ on nimeltään skalaariprojektio. Se voidaan kirjoittaa myös muodossa $p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}$. Skalaariprojektio on se luku, jolla vektori $\vec{b}$ pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin $\vec{a}$ kärkeen.
 
-**Huom!** Pistetulon määritelmän mukaisesti $p=\frac{\vec{a}\cdot \vec{b}}{|\vec{b}|^2} = \frac{|\vec{a}||\vec{b}| \cos{\alpha}}{|b|^2} = \frac{|\vec{a}|}{|\vec{b}|} \cos{\alpha}$.
+:::{admonition} Skalaariprojektion laskukaavan perustelu
+:class: tip, dropdown
 
-Tuloksena on siis $p\vec{b}=|\vec{a}| \cos{\alpha⁡} \frac{\vec{b}}{|\vec{b}|} = |\vec{a}| \cos{\alpha⁡} \cdot \vec{b}^0$, eli $\vec{b}$:n suuntainen yksikkövektori kerrottuna luvulla $|\vec{a}|\cos{\alpha}$.
+Vektoreista $\vec{b}$ ja $$\vec{a_b}=p\vec{b}$ sekä vektoria $p\vec{b}$ vastaan kohtisuorasta vektorista muodostuu suorakulmainen kulmio. Sovelletaan siihen suorakulmaisen kolmion trigonometriaa:
 
-Vektorin projektiota vastaan kohtisuora komponentti $\vec{a_{\perp}}$ saadaan vähentämällä vektorista sen projektio, siis $\vec{a_{\perp}}=\vec{a}-\vec{a_b}$. Tämän vektorin pituus on lyhin etäisyys vektorin $\vec{a}$ kärjen ja vektorin $\vec{b}$ määrittämän suoran välillä. Ylläoleva kuva auttanee hahmottamaan tämän laskutoimituksen perustelua.
+$\text{cos}~\alpha = \frac{|p\vec{b}|}{|\vec{a}|}$
+
+Vektorin $p\vec{b}$ pituus on $|p\vec{b}|=p|\vec{b}$|, joten
+
+$\text{cos}~\alpha = \frac{p|\vec{b}|}{|\vec{a}|}$,
+
+josta voidaan ratkaista
+
+$p=\frac{|\vec{a}|}{|\vec{b}|}\text{cos}\alpha$.
+
+Toisaalta pistetulon yhteydessä todettin, että $\vec{a}\cdot \vec{b} = |\vec{a}||\vec{b}|\text{cos}\alpha$, josta voidaan ratkaista
+
+$\text{cos}\alpha = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$
+
+Sijoitetaan tämä kaavaan $p=\frac{|\vec{a}|}{|\vec{b}|}\text{cos}\alpha$:
+
+$p=\frac{|\vec{a}|}{|\vec{b}|}\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$
+
+Yhtälö sievenee muotoon
+
+$p=\frac{\vec{a}\cdot \vec{b}}{|\vec{b}|^2}$
+
+Lisäksi pistetulon määritelmän mukaisesti $|\vec{b}|^2=\vec{b}\cdot \vec{b}$, joten  $p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}$.
+
+:::
+
+Vektorin projektiota vastaan kohtisuora komponentti $\vec{a_{\perp}}$ saadaan vähentämällä vektorista sen projektio, siis $\vec{a_{\perp}}=\vec{a}-\vec{a_b}$. Tämän vektorin pituus on lyhin etäisyys vektorin $\vec{a}$ kärjen ja vektorin $\vec{b}$ määrittämän suoran välillä.
 
 **Esim.**  
 
@@ -44,7 +71,7 @@ b) vektorin $\vec{A}$ vektoria $\vec{B}$ vastaan kohtisuora komponentti.
 :::{admonition} Ratkaisu
 :class: tip, dropdown
 
-a) $\vec{A_B}=\frac{8\cdot 3+6 \cdot (-4)-1\cdot 2\{3^2+(-4)^2+2^2}\cdot (3\vec{i}-4\vec{j}+2\vec{k})$
+a) $\vec{A_B}=\frac{8\cdot 3+6 \cdot (-4)-1\cdot 2}{3^2+(-4)^2+2^2}\cdot (3\vec{i}-4\vec{j}+2\vec{k})$
 
 $= \frac{24-24-2}{9+16+4} \cdot (3\vec{i}-4\vec{j}+2\vec{k})=-\frac{2}{29}\cdot(3\vec{i}-4\vec{j}+2\vec{k})$
 
@@ -88,9 +115,9 @@ Miksi kohtisuoraa komponenttia ei ole olemassa? Huomataan, että vektori $\vec{b
 
 Muodostetaan aluksi pisteiden väliset vektorit: 
 
-Jokea kuvaava vektori on $\vec{AB}=(1500-700,150-100) = (800,50) = 800 \vec{i} + 50\vec{j}$
+Jokea kuvaava vektori on $\vec{AB}=(1500-700)\vec{i}+(150-100)\vec{j} = 800 \vec{i} + 50\vec{j}$
 
-Joen alkupisteestä talolle vie vektori $\vec{AC}=(1000-700,50-100) = (300,-50) = 300\vec{i} – 50\vec{j}$
+Joen alkupisteestä talolle vie vektori $\vec{AC}=(1000-700)\vec{i}+(50-100)\vec{j} = 300\vec{i} – 50\vec{j}$
 
 Lyhimmän reitin löytämiseksi on laskettava vektorin $\vec{AC}$ projektio vektorille $\vec{AB}$, jonka jälkeen saadaan vektoria $\vec{AB}$ vastaan kohtisuora vektori $\vec{DC}$.
 
@@ -104,6 +131,6 @@ Polkua kuvaava vektori on
 
 $\vec{CD}=\vec{AC}-\vec{AC_{AB}}=(300-296) \vec{i}+(-50-18.5) \vec{j} = 4 \vec{i}-68.5 \vec{j}$.
 
-Polun pituudeksi saadaan $|\vec{CD}|=\sqrt{4^2+(-68.5^2} \approx 68.6$.
+Polun pituudeksi saadaan $|\vec{CD}|=\sqrt{4^2+(-68.5)^2} \approx 68.6$.
 
 :::

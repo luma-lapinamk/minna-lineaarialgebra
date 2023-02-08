@@ -111,7 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Lineaarialgebra
+                    Alkusanat
                 </a>
             </li>
         </ul>
@@ -165,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit
+   Matriisit: perusteita
   </a>
  </li>
  <li class="toctree-l1">
@@ -214,13 +214,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="matriisit_muut.html">
-   Sovelluksia
+  <a class="reference internal" href="leontief.html">
+   Leontiefin panos-tuotos-malli
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+  <a class="reference internal" href="matriisit_muut.html">
+   Lisää sovelluksia
   </a>
  </li>
 </ul>
@@ -457,7 +457,32 @@ title="Print to PDF"
 </section>
 <section id="vektorien-valinen-kulma">
 <h2>Vektorien välinen kulma<a class="headerlink" href="#vektorien-valinen-kulma" title="Permalink to this headline">#</a></h2>
-<p>Vektorien pistetulolle on olemassa myös ns. geometrinen määritelmä <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}| \cos{\alpha}\)</span>, missä <span class="math notranslate nohighlight">\(\alpha\)</span> on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma.</p>
+<p>Vektorien pistetulolle on olemassa myös ns. geometrinen määritelmä <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}| \cos{\alpha}\)</span>, missä <span class="math notranslate nohighlight">\(\alpha\)</span> on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma. Kaavan voi perustella kosinilauseen avulla.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Kaavan perustelu</p>
+<p><img alt="Pistetulon laskukaavan perustelu" src="_images/pistetulo_perustelu.png" /></p>
+<p>Kuvan kolmiossa kulman <span class="math notranslate nohighlight">\(\alpha\)</span> kyljet ovat vektorit <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span>. Kulmaa vastapäätä oleva sivu saadaan esitettyä näillä vektoreilla muodossa <span class="math notranslate nohighlight">\(\vec{a}-\vec{b}\)</span>. Kolmion sivujen pituudet ovat näiden vektorien avulla ilmaistuna <span class="math notranslate nohighlight">\(|\vec{a}|\)</span>, <span class="math notranslate nohighlight">\(|\vec{b}|\)</span> ja <span class="math notranslate nohighlight">\(|\vec{a}-\vec{b}|\)</span>. Kirjoitetaan näitä merkintöjä käyttäen kosinilause:</p>
+<p><span class="math notranslate nohighlight">\(|\vec{a}-\vec{b}|^2 =|\vec{a}|^2 + |\vec{b}|^2 - 2 |\vec{a}| |\vec{b}| \text{cos}~\alpha\)</span></p>
+<p>Seuraavaksi johdetaan toinen esitysmuoto yhtälön vasemmalle puolelle <span class="math notranslate nohighlight">\(|\vec{a}-\vec{b}|^2\)</span>. Esitetään vektorit kantavektorien avulla, siis <span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i} + a_y \vec{j} + a_z \vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=b_x \vec{i} + b_y \vec{j} + b_z \vec{k}\)</span>.</p>
+<p>Vektorien erotus on tällöin <span class="math notranslate nohighlight">\(\vec{a}-\vec{b}=(a_x-b_x) \vec{i} + (a_y-b_y) \vec{j} + (a_z-b_z) \vec{k}\)</span>. Tämän vektorin pituuden toinen potenssi on <span class="math notranslate nohighlight">\(|\vec{a}-\vec{b}| = (a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2\)</span>. Oikea puoli voidaan potenssilukujen laskusääntöjen mukaisesti sieventää seuraavasti:</p>
+<p><span class="math notranslate nohighlight">\((a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = \dots \)</span></p>
+<p><span class="math notranslate nohighlight">\( = a_x^2-2 a_x b_x + b_x^2 + a_y^2-2 a_y b_y + b_y^2 + a_z^2 + 2 a_z b_z + b_z^2\)</span></p>
+<p>Järjestellään oikean puolen termejä:</p>
+<p><span class="math notranslate nohighlight">\((a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = \dots \)</span></p>
+<p><span class="math notranslate nohighlight">\( = a_x^2+a_y^2+a_z^2 + b_x^2 + b_y ^2 + b_z^2 - 2a_x b_x -2 a_y b_y -2 a_z b_z\)</span></p>
+<p>Huomataan, että oikealta puolelta löytyy vektorien pituuksien neliöt:</p>
+<p><span class="math notranslate nohighlight">\((a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2a_x b_x -2 a_y b_y -2 a_z b_z\)</span></p>
+<p>Yhtälön oikean puolen viimeiset termit voidaan ryhmitellä seuraavasti:</p>
+<p><span class="math notranslate nohighlight">\((a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2(a_x b_x+ a_y b_y + a_z b_z)\)</span></p>
+<p>eli pistetulon määritelmän mukaan</p>
+<p><span class="math notranslate nohighlight">\((a_x-b_x)^2 + (a_y-b_y)^2 + (a_z-b_z)^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2 \vec{a} \cdot \vec{b}\)</span></p>
+<p>Saatiin siis tulos:</p>
+<p><span class="math notranslate nohighlight">\(|\vec{a}-\vec{b}|^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2 \vec{a} \cdot \vec{b}\)</span></p>
+<p>Näin ollen kosinilauseen voi kirjoittaa muodossa:</p>
+<p><span class="math notranslate nohighlight">\(|\vec{a}|^2 + |\vec{b}|^2 - 2 \vec{a} \cdot \vec{b} = |\vec{a}|^2 + |\vec{b}|^2 - 2 |\vec{a}| |\vec{b}| \text{cos}~\alpha\)</span></p>
+<p>Tämä sievenee muotoon</p>
+<p><span class="math notranslate nohighlight">\( \vec{a} \cdot \vec{b} =  |\vec{a}| |\vec{b}| \text{cos}~\alpha\)</span></p>
+</div>
 <p><strong>Esim.</strong></p>
 <p>a) Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituus on 65 ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> pituus on 20. Vektorien välinen kulma on 30 astetta.
 Mikä on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulo?</p>
