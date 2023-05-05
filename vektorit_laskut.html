@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Vektorien peruslaskutoimitukset &#8212; Lineaarialgebra</title>
+    <title>Vektorien venyttelyä &#8212; Lineaarialgebra</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Pistetulo" href="pistetulo.html" />
-    <link rel="prev" title="Vektorit: perusteita" href="vektorit_perus.html" />
+    <link rel="next" title="Kahden vektorin pistetulo" href="pistetulo.html" />
+    <link rel="prev" title="Mitä vektorit ovat?" href="vektorit_perus.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Lineaarialgebra
+                    Alkusanat
                 </a>
             </li>
         </ul>
@@ -123,27 +123,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="vektorit_perus.html">
-   Vektorit: perusteita
+   Mitä vektorit ovat?
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Vektorien peruslaskutoimitukset
+   Vektorien venyttelyä
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pistetulo.html">
-   Pistetulo
+   Kahden vektorin pistetulo
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="projektio.html">
-   Vektoriprojektio
+   Vektoriprojektio ja projektiovektori
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="napa.html">
-   Suuntakulmat ja napakoordinaattiesitys
+   Mittaustuloksista vektoreiksi
   </a>
  </li>
  <li class="toctree-l1">
@@ -165,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit
+   Matriisit: perusteita
   </a>
  </li>
  <li class="toctree-l1">
@@ -214,13 +214,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="matriisit_muut.html">
-   Sovelluksia
+  <a class="reference internal" href="leontief.html">
+   Leontiefin panos-tuotos-malli
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+  <a class="reference internal" href="matriisit_muut.html">
+   Lisää sovelluksia
   </a>
  </li>
 </ul>
@@ -397,7 +397,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Vektorien peruslaskutoimitukset</h1>
+                <h1>Vektorien venyttelyä</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -437,24 +437,22 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="vektorien-peruslaskutoimitukset">
-<h1>Vektorien peruslaskutoimitukset<a class="headerlink" href="#vektorien-peruslaskutoimitukset" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="vektorien-venyttelya">
+<h1>Vektorien venyttelyä<a class="headerlink" href="#vektorien-venyttelya" title="Permalink to this headline">#</a></h1>
 <p>Vektorien yhteen- ja vähennyslasku tapahtuu komponenteittain, kuten esitettiin vektorien perusteiden yhteydessä. Muita helppoja vektorien laskutoimituksia ovat vektorin pituuden laskeminen ja vektorin kertominen reaaliluvulla. Nämä kaksi laskutoimitusta yhdistämällä voidaan muodostaa eräs erityinen vektori, yksikkövektori. Myöhemmin opetellaan myös muita laskutoimituksia: pistetulo ja ristitulo.</p>
 <section id="vektorin-pituuden-laskeminen">
 <h2>Vektorin pituuden laskeminen<a class="headerlink" href="#vektorin-pituuden-laskeminen" title="Permalink to this headline">#</a></h2>
 <p>Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituutta merkitään itseisarvomerkeillä, siis <span class="math notranslate nohighlight">\(|\vec{a}|\)</span>. Kahta pistettä yhdistävän vektorin pituus on lyhin etäisyys kyseisten pisteiden välillä.</p>
 <p>Jos vektorissa <span class="math notranslate nohighlight">\(\vec{a}\)</span> on vain yksi komponentti, niin vektorin pituus on sama kuin komponentin kertoimen itseisarvo. Esimerkiksi vektorin <span class="math notranslate nohighlight">\(3\vec{j}\)</span> pituus on 3 ja vektorin <span class="math notranslate nohighlight">\(-2 \vec{k}\)</span> pituus on <span class="math notranslate nohighlight">\(|-2|=2\)</span>.</p>
 <p>Yleisesti vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituuden <span class="math notranslate nohighlight">\(|\vec{a}|\)</span> laskeminen perustuu Pythagoraan lauseeseen. Tarkastellaan aluksi kaksiulotteista tapausta. Kaksiulotteinen vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> on hypotenuusa suorakulmaisessa kolmiossa, jonka kateetit ovat yksikkövektorit <span class="math notranslate nohighlight">\(\vec{i}\)</span> ja <span class="math notranslate nohighlight">\(\vec{j}\)</span> kertoimineen, siis <span class="math notranslate nohighlight">\(a_x \vec{i}\)</span> ja <span class="math notranslate nohighlight">\( a_y\vec{j}\)</span>. Tällöin vektorin pituus saadaan yhtälöstä</p>
-<p><span class="math notranslate nohighlight">\(|\vec{a}|^2 = |a_x \vec{i}|^2 + |a_y \vec{j}|^2\)</span></p>
-<p>eli</p>
-<p><span class="math notranslate nohighlight">\(|\vec{a}|^2 = |a_x|^2 + |a_y|^2\)</span>.</p>
-<p>Itseisarvomerkit voidaan poistaa yhtälön oikealta puolelta, sillä luvun toinen potenssi on positiivinen riippumatta siitä, onko potenssiin korotettava luku positiivinen vai negatiivinen. Siis saadaan yhtälö</p>
-<p><span class="math notranslate nohighlight">\(|\vec{a}|^2 = a_x^2 + a_y^2\)</span>,</p>
-<p>josta voidaan ratkaista</p>
-<p><span class="math notranslate nohighlight">\(|\vec{a}| = \sqrt{a_x^2 + a_y^2}\)</span>.</p>
-<p><strong>Esim.</strong> Vektorin <span class="math notranslate nohighlight">\(\vec{AB}=3 \vec{i} + 2\vec{j}\)</span> pituus on <span class="math notranslate nohighlight">\(|\vec{AB}|=\sqrt{3^2+2^2}=\sqrt{13}\)</span>.</p>
-<p>Kolmessa ulottuvuudessa vektorin pituuden laskukaavaksi voidaan johtaa vastaavasti <span class="math notranslate nohighlight">\(|\vec{a}| = \sqrt{a_x^2 + a_y^2 + a_z^2}\)</span>.</p>
-<p><strong>Esim.</strong> Laske vektorien pituus.</p>
+<p><span class="math notranslate nohighlight">\(|\vec{a}|^2 = |a_x \vec{i}|^2 + |a_y \vec{j}|^2\)</span> eli <span class="math notranslate nohighlight">\(|\vec{a}|^2 = |a_x|^2 + |a_y|^2\)</span>, josta voidaan ratkaista <span class="math notranslate nohighlight">\(|\vec{a}| = \sqrt{|a_x|^2 + |a_y|^2}\)</span>.</p>
+<p>Vektorin suunta ei siis vaikuta vektorin pituuteen. Seuraavan kuvan vektorit <span class="math notranslate nohighlight">\(\vec{a}=4 \vec{i} +3 \vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=4 \vec{i} - 3 \vec{j}\)</span> ovat yhtä pitkiä, vaikka vektorissa <span class="math notranslate nohighlight">\(\vec{b}\)</span> on negatiivinen kerroin. Kummankin pituus on <span class="math notranslate nohighlight">\(\sqrt{4^2+3^2}=5\)</span>. Saman pituisia ovat myös vektorit <span class="math notranslate nohighlight">\(-4 \vec{i} + 3 \vec{j}\)</span> ja <span class="math notranslate nohighlight">\(-4 \vec{i} - 3 \vec{j}\)</span>.</p>
+<p><img alt="Vektorin pituus" src="_images/vektorin_pituus.png" /></p>
+<p>Kolmessa ulottuvuudessa vektorin pituuden laskukaavaksi voidaan johtaa vastaavasti <span class="math notranslate nohighlight">\(|\vec{a}| = \sqrt{a_x^2 + a_y^2 + a_z^2}\)</span>. Tässä huomioitavaa on, että vaikka komponentteja on kolme, eksponenttina potenssiinkorotuksissa on edelleen luku 2, ja lopuksi pitää laskea neliöjuuri eikä kuutiojuurta.</p>
+<p><a class="reference external" href="https://www.wolframalpha.com/">WolframAlphalla</a> vektorin pituuden saa komennolla norm, jonka perään tulee sulut ja niiden sisään hakasuluissa vektorien komponentit. Esimerkiksi vektorin <span class="math notranslate nohighlight">\(3\vec{i}-8\vec{j}+4\vec{k}\)</span> pituuden saa kirjoittamalla norm([3,-8,4]).</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Laske vektorien pituus.</p>
 <p>a) <span class="math notranslate nohighlight">\(8 \vec{i} + 6 \vec{j}\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(-4 \vec{i} + 3 \vec{j}\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(2 \vec{i} + 6 \vec{j} - 3 \vec{k}\)</span></p>
@@ -464,12 +462,14 @@ title="Print to PDF"
 <p>b) <span class="math notranslate nohighlight">\(|-4 \vec{i}+3\vec{j}|=\sqrt{(-4)^2+3^2}=\sqrt{16+9}=\sqrt{25}=5\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(|2 \vec{i}+6\vec{j}-3\vec{k}|=\sqrt{2^2+6^2+(-3)^2}=\sqrt{49}=7\)</span></p>
 </div>
-<p><strong>Esim.</strong></p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
 <p>a) Määritä luvulle <span class="math notranslate nohighlight">\(t\)</span> sellainen arvo, että vektorin <span class="math notranslate nohighlight">\(\vec{a}=-2\vec{i}+t\vec{j}\)</span> pituus on 5.</p>
 <p>b) Määritä luvulle <span class="math notranslate nohighlight">\(s\)</span> sellainen arvo, että vektorin <span class="math notranslate nohighlight">\(\vec{b}=s\vec{i}+3s\vec{j}\)</span> pituus on 130.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p>a) Vektorin pituus on <span class="math notranslate nohighlight">\(|\vec{a}|=\sqrt{(-2)^2+t^2}=\sqrt{(4+t^2}\)</span>.</p>
+<p>a) Vektorin pituus on <span class="math notranslate nohighlight">\(|\vec{a}|=\sqrt{(-2)^2+t^2}=\sqrt{4+t^2}\)</span>.</p>
 <p>Ratkaistaan yhtälö:</p>
 <p><span class="math notranslate nohighlight">\(\sqrt{4+t^2}=5\)</span></p>
 <p><span class="math notranslate nohighlight">\(4+t^2=25\)</span></p>
@@ -482,11 +482,16 @@ title="Print to PDF"
 <p><span class="math notranslate nohighlight">\(s^2=\frac{130^2}{10}\)</span></p>
 <p><span class="math notranslate nohighlight">\(s=\pm \sqrt{\frac{130^2}{10}}\)</span></p>
 </div>
+</div>
 </section>
 <section id="vektorin-kertominen-luvulla">
 <h2>Vektorin kertominen luvulla<a class="headerlink" href="#vektorin-kertominen-luvulla" title="Permalink to this headline">#</a></h2>
 <p>Vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> voidaan kertoa reaaliluvulla <span class="math notranslate nohighlight">\(p\)</span> siten, että jokaisen komponentin kerroin kerrotaan kyseisellä luvulla.</p>
 <p>Jos <span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i}+a_y \vec{j}+a_x \vec{k}\)</span>, niin <span class="math notranslate nohighlight">\(p\vec{a}=pa_x \vec{i}+pa_y \vec{j}+pa_z \vec{k}\)</span>.</p>
+<p><a class="reference external" href="https://www.wolframalpha.com/">WolframAlphalla</a> kertominen tapahtuu tähtimerkillä *. Esimerkiksi lasku <span class="math notranslate nohighlight">\(2\vec{a}\)</span>, missä  <span class="math notranslate nohighlight">\(\vec{a}=3\vec{i}-8\vec{j}+4\vec{k}\)</span>, onnistuu komennolla 2*[3,-8,4].</p>
+<p>Vektorin voi jakaakin luvulla. Tällöin vektorin jokaisen komponentin kerroin jaetaan kyseisellä luvulla. Laskua merkitään kuitenkin yleensä siten, että vektori kerrotaan tämän luvun käänteisluvulla.</p>
+<p>Esimerkiksi vektori <span class="math notranslate nohighlight">\(8 \vec{i}-12 \vec{j}\)</span> jaetaan luvulla 4 suorittamalla laskutoimitus</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{4}(8 \vec{i} - 12 \vec{j}) = \frac{8}{4} \vec{i} -\frac{12}{4} \vec{j} = 2 \vec{i} -3 \vec{j}\)</span>.</p>
 <p>Luvulla kerrottaessa vektorin suunta ja pituus voi muuttua:</p>
 <ul class="simple">
 <li><p>jos <span class="math notranslate nohighlight">\(0 &lt; p &lt; 1\)</span>, vektorin suunta säilyy samana, mutta vektori lyhenee</p></li>
@@ -494,14 +499,19 @@ title="Print to PDF"
 <li><p>jos <span class="math notranslate nohighlight">\(-1 &lt; p &lt; 0\)</span>, vektori kääntyy toisin päin ja lyhenee</p></li>
 <li><p>jos <span class="math notranslate nohighlight">\(p &lt; -1\)</span>, vektori kääntyy toisin päin ja sen pituus kasvaa</p></li>
 </ul>
-<p><strong>Esim.</strong> Olkoon eräs vektori <span class="math notranslate nohighlight">\(\vec{a}=\frac{1}{2} \vec{i}+3 \vec{j}\)</span>. Mitä on</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Olkoon eräs vektori <span class="math notranslate nohighlight">\(\vec{a}=\frac{1}{2} \vec{i}+3 \vec{j}\)</span>. Mitä on</p>
 <p>a) <span class="math notranslate nohighlight">\(3\vec{a}\)</span>, b) <span class="math notranslate nohighlight">\(-2\vec{a}\)</span> ?</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>a) <span class="math notranslate nohighlight">\(3 \vec{a} =3\left(\frac{1}{2} \vec{i} + 3 \vec{j} \right)= 3 \cdot \frac{1}{2} \vec{i} + 3\cdot 3 \vec{j} = 1.5 \vec{i}+9\vec{j}\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(-2 \vec{a}=-2\left(\frac{1}{2} \vec{i}+3 \vec{j}\right)=-2\cdot \frac{1}{2} \vec{i}+(-2)\cdot 3 \vec{j}=-\vec{i}-6\vec{j}\)</span></p>
 </div>
-<p><strong>Esim.</strong> Olkoot vektorit <span class="math notranslate nohighlight">\(\vec{A}=2\vec{i}+8\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{B}=-3 \vec{i}+\vec{j}\)</span>. Tee seuraavat laskutoimitukset:</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Olkoot vektorit <span class="math notranslate nohighlight">\(\vec{A}=2\vec{i}+8\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{B}=-3 \vec{i}+\vec{j}\)</span>. Tee seuraavat laskutoimitukset:</p>
 <p>a) <span class="math notranslate nohighlight">\(\vec{A}+\vec{B}\)</span>, b) <span class="math notranslate nohighlight">\(2\vec{A}-\vec{B}\)</span>, c) <span class="math notranslate nohighlight">\(|3\vec{A}|\)</span>, d) <span class="math notranslate nohighlight">\(|\vec{A}-\vec{B}|\)</span></p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
@@ -512,7 +522,10 @@ title="Print to PDF"
 <p>d) <span class="math notranslate nohighlight">\(|\vec{A}-\vec{B}|=|(2—3) \vec{i}+(8-1) \vec{j}|=|5 \vec{i} +7 \vec{j}|=\sqrt{5^2+7^2}=\sqrt{74} \approx 8.6\)</span></p>
 <p>Huom! Vektorien erotuksen pituus ei ole sama kuin vektorien pituuksien erotus!</p>
 </div>
-<p><strong>Esim.</strong> Millä luvulla <span class="math notranslate nohighlight">\(p\)</span> vektori <span class="math notranslate nohighlight">\(\vec{a}=3 \vec{i}+5 \vec{j}\)</span> pitää kertoa, jotta vektorin <span class="math notranslate nohighlight">\(p\vec{a}\)</span> pituus olisi 30?</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Millä luvulla <span class="math notranslate nohighlight">\(p\)</span> vektori <span class="math notranslate nohighlight">\(\vec{a}=3 \vec{i}+5 \vec{j}\)</span> pitää kertoa, jotta vektorin <span class="math notranslate nohighlight">\(p\vec{a}\)</span> pituus olisi 30?</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Kirjoitetaan vektorin <span class="math notranslate nohighlight">\(p\vec{a}\)</span> eli <span class="math notranslate nohighlight">\(3p\vec{i}+5p\vec{j}\)</span> pituus:</p>
@@ -526,26 +539,41 @@ title="Print to PDF"
 <p><span class="math notranslate nohighlight">\(p = \pm \frac{30}{\sqrt{34}}\)</span></p>
 <p><span class="math notranslate nohighlight">\(p \approx \pm 5.14\)</span></p>
 </div>
+</div>
 </section>
 <section id="vektorien-yhdensuuntaisuus">
 <h2>Vektorien yhdensuuntaisuus<a class="headerlink" href="#vektorien-yhdensuuntaisuus" title="Permalink to this headline">#</a></h2>
-<p>Vektorit <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> ovat yhdensuuntaiset, jos vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> saadaan kertomalla vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> jollakin luvulla <span class="math notranslate nohighlight">\(p\)</span>, siis <span class="math notranslate nohighlight">\(\vec{b}=p\vec{a}\)</span>. Yhdensuuntaiset vektorit ovat samansuuntaiset, jos <span class="math notranslate nohighlight">\(p &gt; 0\)</span>. Tällöin ne osoittavat samaan suuntaan, mutta voivat olla eri pituiset. Yhdensuuntaiset vektorit ovat vastakkaissuuntaiset, jos <span class="math notranslate nohighlight">\(p &lt; 0\)</span>. Tällöin vektorit osoittavat vastakkaisiin suuntiin ja voivat olla eri pituiset.</p>
-<p><strong>Esim.</strong> Millä luvun <span class="math notranslate nohighlight">\(a_x\)</span> arvolla vektorit <span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i} + 2 \vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=3 \vec{i} + 8 \vec{j}\)</span> ovat samansuuntaiset?</p>
+<p>Vektorit <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> ovat yhdensuuntaiset, jos vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> saadaan kertomalla vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> jollakin luvulla <span class="math notranslate nohighlight">\(p\)</span>, siis <span class="math notranslate nohighlight">\(\vec{b}=p\vec{a}\)</span>.</p>
+<ul class="simple">
+<li><p>Yhdensuuntaiset vektorit ovat samansuuntaiset, jos <span class="math notranslate nohighlight">\(p &gt; 0\)</span>. Tällöin ne osoittavat samaan suuntaan, mutta voivat olla eri pituiset.</p></li>
+<li><p>Yhdensuuntaiset vektorit ovat vastakkaissuuntaiset, jos <span class="math notranslate nohighlight">\(p &lt; 0\)</span>. Tällöin vektorit osoittavat vastakkaisiin suuntiin ja voivat olla eri pituiset.</p></li>
+</ul>
+<p>Kuvassa vektorit <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{c}\)</span> ovat samansuuntaiset, sillä <span class="math notranslate nohighlight">\(\vec{c}=3\vec{a}\)</span>. Vektorit <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> ovat vastakkaissuuntaiset, sillä <span class="math notranslate nohighlight">\(\vec{b}=-2\vec{a}\)</span>. Kaikki kuvan vektorit <span class="math notranslate nohighlight">\(\vec{a}, \vec{b}\)</span> ja <span class="math notranslate nohighlight">\(\vec{c}\)</span> ovat keskenään yhdensuuntaisia.</p>
+<p><img alt="Yhdensuuntaisia vektoreita" src="_images/yhdensuuntaiset_vektorit.png" /></p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Millä luvun <span class="math notranslate nohighlight">\(a_x\)</span> arvolla vektorit <span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i} + 2 \vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=3 \vec{i} + 8 \vec{j}\)</span> ovat samansuuntaiset?</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Kun vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> kerrotaan luvulla <span class="math notranslate nohighlight">\(p\)</span>, tuloksena on <span class="math notranslate nohighlight">\(p\vec{a}=pa_x \vec{i} + 2p \vec{j}\)</span>. Tämän tulee olla sama kuin <span class="math notranslate nohighlight">\(3\vec{i} + 8 \vec{j}\)</span>. Yhtäsuuruus pätee vektorien komponenteille yksitellen: tulee olla <span class="math notranslate nohighlight">\(pa_x = 3\)</span> ja <span class="math notranslate nohighlight">\(2p=8\)</span>. Jälkimmäisestä ehdosta voidaan ratkaista, että <span class="math notranslate nohighlight">\(p=4\)</span>. Nyt voidaan ratkaista <span class="math notranslate nohighlight">\(a_x\)</span> yhtälöstä <span class="math notranslate nohighlight">\(4a_x=3\)</span>, siis <span class="math notranslate nohighlight">\(a_x=\frac{3}{4}\)</span>.</p>
 <p>Huomaa, että saatu vastaus ei ole ainoa mahdollinen ratkaisu. Esimerkiksi vektori <span class="math notranslate nohighlight">\(\frac{3}{2} \vec{i} + 4\vec{j}\)</span> on myös samansuuntainen vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> kanssa, sillä vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> saadaan kertomalla kyseinen vektori luvulla 2. Oleellista on, että vektorissa <span class="math notranslate nohighlight">\(\vec{a}\)</span> komponenttien kertoimien suhde on sama kuin ratkaisuksi saadussa vektorissa.</p>
 </div>
+</div>
 </section>
 <section id="yksikkovektori">
 <h2>Yksikkövektori<a class="headerlink" href="#yksikkovektori" title="Permalink to this headline">#</a></h2>
 <p>Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> suuntainen yksikkövektori <span class="math notranslate nohighlight">\(\vec{a}^0\)</span> määritellään <span class="math notranslate nohighlight">\(\vec{a}^0=\frac{\vec{a}}{|\vec{a}|}\)</span>. Yksikkövektorin pituus on nimensä mukaisesti 1. Yksikkövektoreita tarvitaan myöhemmin mm. vektoriprojektioiden laskemisessa. Yksikkövektori voidaan laskea sekä kaksi- että kolmiulotteisen koordinaatiston vektoreille. Yksikkövektorille käytetään myös merkintätapaa <span class="math notranslate nohighlight">\(\hat{\mathbf{a}}\)</span>.</p>
-<p><strong>Esim.</strong> Määritä vektorin <span class="math notranslate nohighlight">\(2\vec{i}-\vec{j}\)</span> suuntainen yksikkövektori.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Määritä vektorin <span class="math notranslate nohighlight">\(2\vec{i}-\vec{j}\)</span> suuntainen yksikkövektori.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Vektori on <span class="math notranslate nohighlight">\(\frac{2 \vec{i}-\vec{j}}{|2\vec{i}-\vec{j}|}=\frac{2\vec{i}-\vec{j}}{\sqrt{2^2+(-1)^2}}=\frac{2\vec{i}-\vec{j}}{\sqrt{5}}=\frac{2}{\sqrt{5}} \vec{i}-\frac{1}{\sqrt{5}} \vec{j}\)</span>.</p>
 </div>
-<p><strong>Esim.</strong> Määritä yksikkövektori, joka on pisteiden <span class="math notranslate nohighlight">\((20,6,2)\)</span> ja <span class="math notranslate nohighlight">\((3,1,10)\)</span> välisen vektorin suuntainen.</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Määritä yksikkövektori, joka on pisteiden <span class="math notranslate nohighlight">\((20,6,2)\)</span> ja <span class="math notranslate nohighlight">\((3,1,10)\)</span> välisen vektorin suuntainen.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Pisteiden välinen vektori on</p>
@@ -553,6 +581,7 @@ title="Print to PDF"
 <p>ja vektorin pituus on <span class="math notranslate nohighlight">\(\sqrt{(-17)^2+(-5)^2+(-8)^2}=\sqrt{378}\)</span>.</p>
 <p>Yksikkövektori on siis</p>
 <p><span class="math notranslate nohighlight">\(\frac{-17}{\sqrt{378}} \vec{i}- \frac{5}{\sqrt{378}} \vec{j}-\frac{8}{\sqrt{378}} \vec{k} \approx -0.87 \vec{i}-0.26 \vec{j}-0.41 \vec{k}\)</span>.</p>
+</div>
 </div>
 </section>
 </section>
@@ -588,13 +617,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Vektorit: perusteita</p>
+            <p class="prev-next-title">Mitä vektorit ovat?</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="pistetulo.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Pistetulo</p>
+        <p class="prev-next-title">Kahden vektorin pistetulo</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
