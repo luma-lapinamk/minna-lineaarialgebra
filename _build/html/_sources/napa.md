@@ -71,9 +71,9 @@ Vektori voidaan siis esittää muodossa $\vec{c}=5.17 \angle 209.5^{\circ}$.
 
 d) Vektorin pituus on $\sqrt{2.76^2+(-4.32)^2} \approx 5.13$.
 
-Kuvasta nähdään, että suuntakulma on $270^{\circ}+\arctan{\delta'}=270^{\circ}+\arctan{\frac{4.32}{2.76}}\approx 327.4^{\circ}$.
+Kuvasta nähdään, että suuntakulma on $270^{\circ}+\arctan{\delta'}=270^{\circ}+\arctan{\frac{2.76}{4.32}}\approx 302.6^{\circ}$.
 
-Vektori voidaan siis esittää muodossa $\vec{d}=5.13 \angle 327.43^{\circ}$.
+Vektori voidaan siis esittää muodossa $\vec{d}=5.13 \angle 302.6^{\circ}$.
 
 :::
 
