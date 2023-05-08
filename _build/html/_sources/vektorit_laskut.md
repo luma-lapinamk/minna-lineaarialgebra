@@ -1,4 +1,4 @@
-# Vektorien peruslaskutoimitukset
+# Vektorien venyttelyä
 
 Vektorien yhteen- ja vähennyslasku tapahtuu komponenteittain, kuten esitettiin vektorien perusteiden yhteydessä. Muita helppoja vektorien laskutoimituksia ovat vektorin pituuden laskeminen ja vektorin kertominen reaaliluvulla. Nämä kaksi laskutoimitusta yhdistämällä voidaan muodostaa eräs erityinen vektori, yksikkövektori. Myöhemmin opetellaan myös muita laskutoimituksia: pistetulo ja ristitulo.
 
@@ -10,25 +10,19 @@ Jos vektorissa $\vec{a}$ on vain yksi komponentti, niin vektorin pituus on sama 
 
 Yleisesti vektorin $\vec{a}$ pituuden $|\vec{a}|$ laskeminen perustuu Pythagoraan lauseeseen. Tarkastellaan aluksi kaksiulotteista tapausta. Kaksiulotteinen vektori $\vec{a}$ on hypotenuusa suorakulmaisessa kolmiossa, jonka kateetit ovat yksikkövektorit $\vec{i}$ ja $\vec{j}$ kertoimineen, siis $a_x \vec{i}$ ja $ a_y\vec{j}$. Tällöin vektorin pituus saadaan yhtälöstä
 
-$|\vec{a}|^2 = |a_x \vec{i}|^2 + |a_y \vec{j}|^2$ 
+$|\vec{a}|^2 = |a_x \vec{i}|^2 + |a_y \vec{j}|^2$ eli $|\vec{a}|^2 = |a_x|^2 + |a_y|^2$, josta voidaan ratkaista $|\vec{a}| = \sqrt{|a_x|^2 + |a_y|^2}$.
 
-eli
+Vektorin suunta ei siis vaikuta vektorin pituuteen. Seuraavan kuvan vektorit $\vec{a}=4 \vec{i} +3 \vec{j}$ ja $\vec{b}=4 \vec{i} - 3 \vec{j}$ ovat yhtä pitkiä, vaikka vektorissa $\vec{b}$ on negatiivinen kerroin. Kummankin pituus on $\sqrt{4^2+3^2}=5$. Saman pituisia ovat myös vektorit $-4 \vec{i} + 3 \vec{j}$ ja $-4 \vec{i} - 3 \vec{j}$.
 
-$|\vec{a}|^2 = |a_x|^2 + |a_y|^2$.
+![Vektorin pituus](vektorin_pituus.png "Vektorin pituus")
 
-Itseisarvomerkit voidaan poistaa yhtälön oikealta puolelta, sillä luvun toinen potenssi on positiivinen riippumatta siitä, onko potenssiin korotettava luku positiivinen vai negatiivinen. Siis saadaan yhtälö
+Kolmessa ulottuvuudessa vektorin pituuden laskukaavaksi voidaan johtaa vastaavasti $|\vec{a}| = \sqrt{a_x^2 + a_y^2 + a_z^2}$. Tässä huomioitavaa on, että vaikka komponentteja on kolme, eksponenttina potenssiinkorotuksissa on edelleen luku 2, ja lopuksi pitää laskea neliöjuuri eikä kuutiojuurta.
 
-$|\vec{a}|^2 = a_x^2 + a_y^2$,
+[WolframAlphalla](https://www.wolframalpha.com/) vektorin pituuden saa komennolla norm, jonka perään tulee sulut ja niiden sisään hakasuluissa vektorien komponentit. Esimerkiksi vektorin $3\vec{i}-8\vec{j}+4\vec{k}$ pituuden saa kirjoittamalla norm([3,-8,4]).
 
-josta voidaan ratkaista
+::::{admonition} Esimerkki
 
-$|\vec{a}| = \sqrt{a_x^2 + a_y^2}$.
-
-**Esim.** Vektorin $\vec{AB}=3 \vec{i} + 2\vec{j}$ pituus on $|\vec{AB}|=\sqrt{3^2+2^2}=\sqrt{13}$.
-
-Kolmessa ulottuvuudessa vektorin pituuden laskukaavaksi voidaan johtaa vastaavasti $|\vec{a}| = \sqrt{a_x^2 + a_y^2 + a_z^2}$.
-
-**Esim.** Laske vektorien pituus.
+Laske vektorien pituus.
 
 a) $8 \vec{i} + 6 \vec{j}$
 
@@ -47,7 +41,9 @@ c) $|2 \vec{i}+6\vec{j}-3\vec{k}|=\sqrt{2^2+6^2+(-3)^2}=\sqrt{49}=7$
 
 :::
 
-**Esim.**
+::::
+
+::::{admonition} Esimerkki
 
 a) Määritä luvulle $t$ sellainen arvo, että vektorin $\vec{a}=-2\vec{i}+t\vec{j}$ pituus on 5. 
 
@@ -56,7 +52,7 @@ b) Määritä luvulle $s$ sellainen arvo, että vektorin $\vec{b}=s\vec{i}+3s\ve
 :::{admonition} Ratkaisu
 :class: tip, dropdown
 
-a) Vektorin pituus on $|\vec{a}|=\sqrt{(-2)^2+t^2}=\sqrt{(4+t^2}$.
+a) Vektorin pituus on $|\vec{a}|=\sqrt{(-2)^2+t^2}=\sqrt{4+t^2}$.
 
 Ratkaistaan yhtälö:
 
@@ -81,12 +77,22 @@ $s^2=\frac{130^2}{10}$
 $s=\pm \sqrt{\frac{130^2}{10}}$
 
 :::
+
+::::
   
 ## Vektorin kertominen luvulla
 
 Vektori $\vec{a}$ voidaan kertoa reaaliluvulla $p$ siten, että jokaisen komponentin kerroin kerrotaan kyseisellä luvulla. 
 
 Jos $\vec{a}=a_x \vec{i}+a_y \vec{j}+a_x \vec{k}$, niin $p\vec{a}=pa_x \vec{i}+pa_y \vec{j}+pa_z \vec{k}$.
+
+[WolframAlphalla](https://www.wolframalpha.com/) kertominen tapahtuu tähtimerkillä \*. Esimerkiksi lasku $2\vec{a}$, missä  $\vec{a}=3\vec{i}-8\vec{j}+4\vec{k}$, onnistuu komennolla 2*[3,-8,4].
+
+Vektorin voi jakaakin luvulla. Tällöin vektorin jokaisen komponentin kerroin jaetaan kyseisellä luvulla. Laskua merkitään kuitenkin yleensä siten, että vektori kerrotaan tämän luvun käänteisluvulla. 
+
+Esimerkiksi vektori $8 \vec{i}-12 \vec{j}$ jaetaan luvulla 4 suorittamalla laskutoimitus 
+
+$\frac{1}{4}(8 \vec{i} - 12 \vec{j}) = \frac{8}{4} \vec{i} -\frac{12}{4} \vec{j} = 2 \vec{i} -3 \vec{j}$.
 
 Luvulla kerrottaessa vektorin suunta ja pituus voi muuttua:
 
@@ -98,7 +104,9 @@ Luvulla kerrottaessa vektorin suunta ja pituus voi muuttua:
 
 - jos $p < -1$, vektori kääntyy toisin päin ja sen pituus kasvaa
 
-**Esim.** Olkoon eräs vektori $\vec{a}=\frac{1}{2} \vec{i}+3 \vec{j}$. Mitä on 
+::::{admonition} Esimerkki
+
+Olkoon eräs vektori $\vec{a}=\frac{1}{2} \vec{i}+3 \vec{j}$. Mitä on 
 
 a) $3\vec{a}$, b) $-2\vec{a}$ ?
 
@@ -111,7 +119,11 @@ b) $-2 \vec{a}=-2\left(\frac{1}{2} \vec{i}+3 \vec{j}\right)=-2\cdot \frac{1}{2} 
 
 :::
 
-**Esim.** Olkoot vektorit $\vec{A}=2\vec{i}+8\vec{j}$ ja $\vec{B}=-3 \vec{i}+\vec{j}$. Tee seuraavat laskutoimitukset:
+::::
+
+::::{admonition} Esimerkki
+
+Olkoot vektorit $\vec{A}=2\vec{i}+8\vec{j}$ ja $\vec{B}=-3 \vec{i}+\vec{j}$. Tee seuraavat laskutoimitukset:
 
 a) $\vec{A}+\vec{B}$, b) $2\vec{A}-\vec{B}$, c) $|3\vec{A}|$, d) $|\vec{A}-\vec{B}|$
 
@@ -132,7 +144,11 @@ Huom! Vektorien erotuksen pituus ei ole sama kuin vektorien pituuksien erotus!
 
 :::
 
-**Esim.** Millä luvulla $p$ vektori $\vec{a}=3 \vec{i}+5 \vec{j}$ pitää kertoa, jotta vektorin $p\vec{a}$ pituus olisi 30?
+::::
+
+::::{admonition} Esimerkki
+
+Millä luvulla $p$ vektori $\vec{a}=3 \vec{i}+5 \vec{j}$ pitää kertoa, jotta vektorin $p\vec{a}$ pituus olisi 30?
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -159,11 +175,21 @@ $p \approx \pm 5.14$
 
 :::
 
+::::
+
 ## Vektorien yhdensuuntaisuus
 
-Vektorit $\vec{a}$ ja $\vec{b}$ ovat yhdensuuntaiset, jos vektori $\vec{b}$ saadaan kertomalla vektori $\vec{a}$ jollakin luvulla $p$, siis $\vec{b}=p\vec{a}$. Yhdensuuntaiset vektorit ovat samansuuntaiset, jos $p > 0$. Tällöin ne osoittavat samaan suuntaan, mutta voivat olla eri pituiset. Yhdensuuntaiset vektorit ovat vastakkaissuuntaiset, jos $p < 0$. Tällöin vektorit osoittavat vastakkaisiin suuntiin ja voivat olla eri pituiset.
+Vektorit $\vec{a}$ ja $\vec{b}$ ovat yhdensuuntaiset, jos vektori $\vec{b}$ saadaan kertomalla vektori $\vec{a}$ jollakin luvulla $p$, siis $\vec{b}=p\vec{a}$. 
+- Yhdensuuntaiset vektorit ovat samansuuntaiset, jos $p > 0$. Tällöin ne osoittavat samaan suuntaan, mutta voivat olla eri pituiset.
+- Yhdensuuntaiset vektorit ovat vastakkaissuuntaiset, jos $p < 0$. Tällöin vektorit osoittavat vastakkaisiin suuntiin ja voivat olla eri pituiset.
 
-**Esim.** Millä luvun $a_x$ arvolla vektorit $\vec{a}=a_x \vec{i} + 2 \vec{j}$ ja $\vec{b}=3 \vec{i} + 8 \vec{j}$ ovat samansuuntaiset?
+Kuvassa vektorit $\vec{a}$ ja $\vec{c}$ ovat samansuuntaiset, sillä $\vec{c}=3\vec{a}$. Vektorit $\vec{a}$ ja $\vec{b}$ ovat vastakkaissuuntaiset, sillä $\vec{b}=-2\vec{a}$. Kaikki kuvan vektorit $\vec{a}, \vec{b}$ ja $\vec{c}$ ovat keskenään yhdensuuntaisia.
+
+![Yhdensuuntaisia vektoreita](yhdensuuntaiset_vektorit.png "Yhdensuuntaisia vektoreita")
+
+::::{admonition} Esimerkki
+
+Millä luvun $a_x$ arvolla vektorit $\vec{a}=a_x \vec{i} + 2 \vec{j}$ ja $\vec{b}=3 \vec{i} + 8 \vec{j}$ ovat samansuuntaiset?
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -174,11 +200,15 @@ Huomaa, että saatu vastaus ei ole ainoa mahdollinen ratkaisu. Esimerkiksi vekto
 
 :::
 
+::::
+
 ## Yksikkövektori
 
 Vektorin $\vec{a}$ suuntainen yksikkövektori $\vec{a}^0$ määritellään $\vec{a}^0=\frac{\vec{a}}{|\vec{a}|}$. Yksikkövektorin pituus on nimensä mukaisesti 1. Yksikkövektoreita tarvitaan myöhemmin mm. vektoriprojektioiden laskemisessa. Yksikkövektori voidaan laskea sekä kaksi- että kolmiulotteisen koordinaatiston vektoreille. Yksikkövektorille käytetään myös merkintätapaa $\hat{\mathbf{a}}$.
 
-**Esim.** Määritä vektorin $2\vec{i}-\vec{j}$ suuntainen yksikkövektori.
+::::{admonition} Esimerkki
+
+Määritä vektorin $2\vec{i}-\vec{j}$ suuntainen yksikkövektori.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -187,7 +217,11 @@ Vektori on $\frac{2 \vec{i}-\vec{j}}{|2\vec{i}-\vec{j}|}=\frac{2\vec{i}-\vec{j}}
 
 :::
 
-**Esim.** Määritä yksikkövektori, joka on pisteiden $(20,6,2)$ ja $(3,1,10)$ välisen vektorin suuntainen.
+::::
+
+::::{admonition} Esimerkki
+
+Määritä yksikkövektori, joka on pisteiden $(20,6,2)$ ja $(3,1,10)$ välisen vektorin suuntainen.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -201,5 +235,6 @@ ja vektorin pituus on $\sqrt{(-17)^2+(-5)^2+(-8)^2}=\sqrt{378}$.
 Yksikkövektori on siis
 
 $\frac{-17}{\sqrt{378}} \vec{i}- \frac{5}{\sqrt{378}} \vec{j}-\frac{8}{\sqrt{378}} \vec{k} \approx -0.87 \vec{i}-0.26 \vec{j}-0.41 \vec{k}$.               
-
 :::
+
+::::

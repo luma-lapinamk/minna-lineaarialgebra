@@ -1,4 +1,4 @@
-# Vektoriprojektio
+# Vektoriprojektio ja projektiovektori
 
 Vektoriprojektio tai vektorin projektio on tärkeä käsite sellaisessa sovelluksissa, joissa etsitään lyhintä etäisyyttä suoralta johonkin pisteeseen. Vektoriprojektio laskemalla saadaan muodostettua projektiovektori. Se on olemassa aina kahden vektorin välillä: voidaan laskea vektorin $\vec{a}$ projektio vektorille $\vec{b}$ tai vektorin $\vec{b}$ projektio vektorille $\vec{a}$. Ensimmäistä tapausta merkitään $\vec{a_b}$ ja jälkimmäistä $\vec{b_a}$.
 
@@ -6,16 +6,24 @@ Seuraavan kuvan avulla voidaan esittää vektoriprojektiolle (tai projektiovekto
 
 - yhdensuuntainen vektorin $\vec{b}$ kanssa
 
-- pituudeltaan sellainen, että piirtämällä kyseisen projektiovektorin kärjestä kohtisuora vektori päästään vektorin $\vec{a}$ loppupisteeseen.
+- pituudeltaan sellainen, että piirtämällä kyseisen projektiovektorin kärjestä kohtisuora vektori $\vec{a}_{\perp}$ päästään vektorin $\vec{a}$ loppupisteeseen.
 
 ![Vektoriprojektio](projektio.png "Vektoriprojektion määritelmä")
 
-Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori $\vec{b}$, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla $\vec{a_b}=p\vec{b}$, missä tekijä $p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}$ on nimeltään skalaariprojektio. Se voidaan kirjoittaa myös muodossa $p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}$. Skalaariprojektio on se luku, jolla vektori $\vec{b}$ pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin $\vec{a}$ kärkeen.
+Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori $\vec{b}$, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla 
+
+$\vec{a_b}=p\vec{b}$, 
+
+missä kerroin 
+
+$p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}$ tai toisin ilmaistuna $p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}$
+
+on nimeltään skalaariprojektio. Skalaariprojektio on se luku, jolla vektori $\vec{b}$ pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin $\vec{a}$ kärkeen.
 
 :::{admonition} Skalaariprojektion laskukaavan perustelu
 :class: tip, dropdown
 
-Vektoreista $\vec{b}$ ja $$\vec{a_b}=p\vec{b}$ sekä vektoria $p\vec{b}$ vastaan kohtisuorasta vektorista muodostuu suorakulmainen kulmio. Sovelletaan siihen suorakulmaisen kolmion trigonometriaa:
+Vektoreista $\vec{b}$ ja $\vec{a_b}=p\vec{b}$ sekä vektoria $p\vec{b}$ vastaan kohtisuorasta vektorista muodostuu suorakulmainen kulmio. Sovelletaan siihen suorakulmaisen kolmion trigonometriaa:
 
 $\text{cos}~\alpha = \frac{|p\vec{b}|}{|\vec{a}|}$
 
@@ -45,7 +53,7 @@ Lisäksi pistetulon määritelmän mukaisesti $|\vec{b}|^2=\vec{b}\cdot \vec{b}$
 
 Vektorin projektiota vastaan kohtisuora komponentti $\vec{a_{\perp}}$ saadaan vähentämällä vektorista sen projektio, siis $\vec{a_{\perp}}=\vec{a}-\vec{a_b}$. Tämän vektorin pituus on lyhin etäisyys vektorin $\vec{a}$ kärjen ja vektorin $\vec{b}$ määrittämän suoran välillä.
 
-**Esim.**  
+::::{admonition} Esimerkki
 
 a) Laske vektorin $\vec{a}=4\vec{i}$ projektio vektorille $\vec{b}=\vec{i}+\vec{j}$. 
 
@@ -62,7 +70,11 @@ $=-\frac{34}{40} \cdot (-6 \vec{i})-\frac{34}{40} \cdot 2 \vec{j}= \frac{204}{40
 
 :::
 
-**Esim.** Olkoot vektorit $\vec{A}=8\vec{i}+6\vec{j}-\vec{k}$ ja $\vec{B}=3\vec{i}-4\vec{j}+2\vec{k}$. Laske
+::::
+
+::::{admonition} Esimerkki
+
+Olkoot vektorit $\vec{A}=8\vec{i}+6\vec{j}-\vec{k}$ ja $\vec{B}=3\vec{i}-4\vec{j}+2\vec{k}$. Laske
 
 a) vektorin $\vec{A}$ projektio vektorille $\vec{B}$.
 
@@ -85,7 +97,11 @@ $= (8+0.207) \vec{i}+(6-0.275) \vec{j}+(-1+0.138) \vec{k}=8.207 \vec{i} +5.725 \
 
 :::
 
-**Esim.** Jaa vektori $\vec{a}$ kahteen komponenttiin, joista toinen on vektorin $\vec{b}$ suuntainen ja toinen sitä vastaan kohtisuorassa, kun vektorit ovat seuraavat: 
+::::
+
+::::{admonition} Esimerkki
+
+Jaa vektori $\vec{a}$ kahteen komponenttiin, joista toinen on vektorin $\vec{b}$ suuntainen ja toinen sitä vastaan kohtisuorassa, kun vektorit ovat seuraavat: 
 
 a) $\vec{a}=1.5\vec{i}+0.5\vec{j}$ ja $\vec{b}=2\vec{i}+2\vec{j}$,
 
@@ -106,7 +122,33 @@ Miksi kohtisuoraa komponenttia ei ole olemassa? Huomataan, että vektori $\vec{b
 
 :::
 
-**Esim.** Joki virtaa pisteestä $A=(700,100)$ suoraan pisteeseen $B=(1500,150)$. Joen vieressä pisteessä $C=(1000,50)$ on talo, josta halutaan tehdä lyhin mahdollinen polku joen rantaan pisteeseen $D$. Kuinka pitkä on kyseinen polku?
+::::
+
+## Projektiovektorin sovellus
+
+Projektiovektorin avulla voi selvittää lyhyimmän mahdollisen reitin jostakin pisteestä suoralle. Oletetaan, että suora kulkee kuvan mukaisesti pisteestä $A=(a_x,a_y)$ pisteeseen $B=(b_x,b_y)$, ja suoran lähistöllä on piste $C=(c_x,c_y)$.
+
+![Projektion sovellus](projektio_sovellus.png "Projektion sovellus")
+
+Muodostetaan seuraavat vektorit: 
+- suoraa kuvaa vektori $\vec{AB} = (b_x-a_x) \vec{i} + (b_y-a_y) \vec{j}$
+- pisteiden $A$ ja $C$ välillä on vektori $\vec{AC} = (c_x-a_x) \vec{i} + (c_y-a_y) \vec{j}$
+
+Lyhin etäisyys pisteestä $C$ vektorille $\vec{AB}$ on nyt $\vec{AC_{\perp}}$. Se saadaan projektiovektorin avulla: 
+
+$\vec{AC_{\perp}}=\vec{AC}-\vec{AC_{AB}}$.
+
+Lopuksi voidaan selvittää, mihin suoran $AB$ pisteeseen $D$ pisteestä $C$ on lyhin matka. Pisteen $D$ paikkavektorin $\vec{OD}$ saa lisäämällä pisteen $A$ paikkavektoriin $\vec{OA}$ projektiovektorin $\vec{AC_{AB}}$: 
+
+$\vec{OD}=\vec{OA}+\vec{AC_{AB}}$
+
+ja pisteen $D$ koordinaatit saa suoraan paikkavektorista $\vec{OD}$.
+
+Tässä lasku on yksinkertaisuuden takia esitetty tason vektoreilla. Samat laskukaavat toimivat myös kolmessa ulottuvuudessa.
+
+::::{admonition} Esimerkki
+
+Joki virtaa pisteestä $A=(700,100)$ suoraan pisteeseen $B=(1500,150)$. Joen vieressä pisteessä $C=(1000,50)$ on talo, josta halutaan tehdä lyhin mahdollinen polku joen rantaan pisteeseen $D$. Kuinka pitkä on kyseinen polku?
 
 ![Joki ja talo](joki.png "Joki ja talo")
 
@@ -134,3 +176,5 @@ $\vec{CD}=\vec{AC}-\vec{AC_{AB}}=(300-296) \vec{i}+(-50-18.5) \vec{j} = 4 \vec{i
 Polun pituudeksi saadaan $|\vec{CD}|=\sqrt{4^2+(-68.5)^2} \approx 68.6$.
 
 :::
+
+::::

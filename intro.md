@@ -1,6 +1,6 @@
 # Alkusanat
 
-Oppikirja sisältää aineistoa opintojaksolle Lineaarialgebra (laaja matematiikka). Käsiteltävät aiheet ovat vektorit ja matriisit. Materiaali täydentyy vielä, ja virheitä korjaillaan sitä mukaa kun niitä huomataan.
+Oppikirja sisältää aineistoa lineaarialgebran opiskeluun. Käsiteltävät aiheet ovat vektorit ja matriisit. Materiaali täydentyy vielä, ja virheitä korjaillaan sitä mukaa kun niitä huomataan. Materiaalia voi käyttää tukena insinöörikoulutuksen opintojaksoilla Lineaarialgebra sekä Lineaarialgebra (laaja).
 
 Kirjassa esiintyvät matemaattiset merkinnät saa näkymään suurempana (ainakin Chrome- ja Edge- selaimilla) seuraavasti:
 - klikkaa merkintää hiiren 2. napilla

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Vektoriprojektio &#8212; Lineaarialgebra</title>
+    <title>Vektoriprojektio ja projektiovektori &#8212; Lineaarialgebra</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Suuntakulmat ja napakoordinaattiesitys" href="napa.html" />
-    <link rel="prev" title="Pistetulo" href="pistetulo.html" />
+    <link rel="next" title="Mittaustuloksista vektoreiksi" href="napa.html" />
+    <link rel="prev" title="Kahden vektorin pistetulo" href="pistetulo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -123,27 +123,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="vektorit_perus.html">
-   Vektorit: perusteita
+   Mitä vektorit ovat?
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="vektorit_laskut.html">
-   Vektorien peruslaskutoimitukset
+   Vektorien venyttelyä
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pistetulo.html">
-   Pistetulo
+   Kahden vektorin pistetulo
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Vektoriprojektio
+   Vektoriprojektio ja projektiovektori
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="napa.html">
-   Suuntakulmat ja napakoordinaattiesitys
+   Mittaustuloksista vektoreiksi
   </a>
  </li>
  <li class="toctree-l1">
@@ -346,23 +346,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#projektiovektorin-sovellus">
+   Projektiovektorin sovellus
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Vektoriprojektio</h1>
+                <h1>Vektoriprojektio ja projektiovektori</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#projektiovektorin-sovellus">
+   Projektiovektorin sovellus
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -370,19 +407,23 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="vektoriprojektio">
-<h1>Vektoriprojektio<a class="headerlink" href="#vektoriprojektio" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="vektoriprojektio-ja-projektiovektori">
+<h1>Vektoriprojektio ja projektiovektori<a class="headerlink" href="#vektoriprojektio-ja-projektiovektori" title="Permalink to this headline">#</a></h1>
 <p>Vektoriprojektio tai vektorin projektio on tärkeä käsite sellaisessa sovelluksissa, joissa etsitään lyhintä etäisyyttä suoralta johonkin pisteeseen. Vektoriprojektio laskemalla saadaan muodostettua projektiovektori. Se on olemassa aina kahden vektorin välillä: voidaan laskea vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{b}\)</span> tai vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{a}\)</span>. Ensimmäistä tapausta merkitään <span class="math notranslate nohighlight">\(\vec{a_b}\)</span> ja jälkimmäistä <span class="math notranslate nohighlight">\(\vec{b_a}\)</span>.</p>
 <p>Seuraavan kuvan avulla voidaan esittää vektoriprojektiolle (tai projektiovektorille) määritelmä: Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{b}\)</span> eli <span class="math notranslate nohighlight">\(\vec{a_b}\)</span> on vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> alkupisteestä alkava vektori, joka on</p>
 <ul class="simple">
 <li><p>yhdensuuntainen vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> kanssa</p></li>
-<li><p>pituudeltaan sellainen, että piirtämällä kyseisen projektiovektorin kärjestä kohtisuora vektori päästään vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> loppupisteeseen.</p></li>
+<li><p>pituudeltaan sellainen, että piirtämällä kyseisen projektiovektorin kärjestä kohtisuora vektori <span class="math notranslate nohighlight">\(\vec{a}_{\perp}\)</span> päästään vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> loppupisteeseen.</p></li>
 </ul>
 <p><img alt="Vektoriprojektio" src="_images/projektio.png" /></p>
-<p>Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span>, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla <span class="math notranslate nohighlight">\(\vec{a_b}=p\vec{b}\)</span>, missä tekijä <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}\)</span> on nimeltään skalaariprojektio. Se voidaan kirjoittaa myös muodossa <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}\)</span>. Skalaariprojektio on se luku, jolla vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärkeen.</p>
+<p>Edellisten ehtojen mukaisesti vektoriprojektioon tarvitaan vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span>, jota kerrotaan sopivalla kertoimella. Projektio lasketaankin kaavalla</p>
+<p><span class="math notranslate nohighlight">\(\vec{a_b}=p\vec{b}\)</span>,</p>
+<p>missä kerroin</p>
+<p><span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}\)</span> tai toisin ilmaistuna <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}\)</span></p>
+<p>on nimeltään skalaariprojektio. Skalaariprojektio on se luku, jolla vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> pitää kertoa, jotta sen kärjestä pääsee suorassa kulmassa vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärkeen.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Skalaariprojektion laskukaavan perustelu</p>
-<p>Vektoreista <span class="math notranslate nohighlight">\(\vec{b}\)</span> ja $<span class="math notranslate nohighlight">\(\vec{a_b}=p\vec{b}\)</span> sekä vektoria <span class="math notranslate nohighlight">\(p\vec{b}\)</span> vastaan kohtisuorasta vektorista muodostuu suorakulmainen kulmio. Sovelletaan siihen suorakulmaisen kolmion trigonometriaa:</p>
+<p>Vektoreista <span class="math notranslate nohighlight">\(\vec{b}\)</span> ja <span class="math notranslate nohighlight">\(\vec{a_b}=p\vec{b}\)</span> sekä vektoria <span class="math notranslate nohighlight">\(p\vec{b}\)</span> vastaan kohtisuorasta vektorista muodostuu suorakulmainen kulmio. Sovelletaan siihen suorakulmaisen kolmion trigonometriaa:</p>
 <p><span class="math notranslate nohighlight">\(\text{cos}~\alpha = \frac{|p\vec{b}|}{|\vec{a}|}\)</span></p>
 <p>Vektorin <span class="math notranslate nohighlight">\(p\vec{b}\)</span> pituus on <span class="math notranslate nohighlight">\(|p\vec{b}|=p|\vec{b}\)</span>|, joten</p>
 <p><span class="math notranslate nohighlight">\(\text{cos}~\alpha = \frac{p|\vec{b}|}{|\vec{a}|}\)</span>,</p>
@@ -397,7 +438,8 @@ title="Print to PDF"
 <p>Lisäksi pistetulon määritelmän mukaisesti <span class="math notranslate nohighlight">\(|\vec{b}|^2=\vec{b}\cdot \vec{b}\)</span>, joten  <span class="math notranslate nohighlight">\(p=\frac{\vec{a}\cdot\vec{b}}{\vec{b}\cdot\vec{b}}\)</span>.</p>
 </div>
 <p>Vektorin projektiota vastaan kohtisuora komponentti <span class="math notranslate nohighlight">\(\vec{a_{\perp}}\)</span> saadaan vähentämällä vektorista sen projektio, siis <span class="math notranslate nohighlight">\(\vec{a_{\perp}}=\vec{a}-\vec{a_b}\)</span>. Tämän vektorin pituus on lyhin etäisyys vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> kärjen ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> määrittämän suoran välillä.</p>
-<p><strong>Esim.</strong></p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
 <p>a) Laske vektorin <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{b}=\vec{i}+\vec{j}\)</span>.</p>
 <p>b) Laske vektoriprojektio <span class="math notranslate nohighlight">\(\vec{a_b}\)</span>, kun <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}-5\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=-6\vec{i}+2\vec{j}\)</span>.</p>
 <div class="tip dropdown admonition">
@@ -406,7 +448,10 @@ title="Print to PDF"
 <p>b) <span class="math notranslate nohighlight">\(\vec{a_b}= \frac{4\cdot (-6)+(-5)\cdot 2}{(-6)^2+2^2} \cdot (-6 \vec{i}+2\vec{j}) =\frac{-24-10}{40}\cdot (-6 \vec{i}+2\vec{j})\)</span></p>
 <p><span class="math notranslate nohighlight">\(=-\frac{34}{40} \cdot (-6 \vec{i})-\frac{34}{40} \cdot 2 \vec{j}= \frac{204}{40} \vec{i}-\frac{68}{40} \vec{j} \approx 5.1 \vec{i}-1.7 \vec{j}\)</span></p>
 </div>
-<p><strong>Esim.</strong> Olkoot vektorit <span class="math notranslate nohighlight">\(\vec{A}=8\vec{i}+6\vec{j}-\vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{B}=3\vec{i}-4\vec{j}+2\vec{k}\)</span>. Laske</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Olkoot vektorit <span class="math notranslate nohighlight">\(\vec{A}=8\vec{i}+6\vec{j}-\vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{B}=3\vec{i}-4\vec{j}+2\vec{k}\)</span>. Laske</p>
 <p>a) vektorin <span class="math notranslate nohighlight">\(\vec{A}\)</span> projektio vektorille <span class="math notranslate nohighlight">\(\vec{B}\)</span>.</p>
 <p>b) vektorin <span class="math notranslate nohighlight">\(\vec{A}\)</span> vektoria <span class="math notranslate nohighlight">\(\vec{B}\)</span> vastaan kohtisuora komponentti.</p>
 <div class="tip dropdown admonition">
@@ -418,7 +463,10 @@ title="Print to PDF"
 <p>b) <span class="math notranslate nohighlight">\(\vec{A_{\perp}}=\vec{A}-\vec{A_B}=8\vec{i}+6\vec{j}-\vec{k}-(-0.207 \vec{i}+0.275 \vec{j}-0.138 \vec{k})\)</span></p>
 <p><span class="math notranslate nohighlight">\(= (8+0.207) \vec{i}+(6-0.275) \vec{j}+(-1+0.138) \vec{k}=8.207 \vec{i} +5.725 \vec{j}-0.862 \vec{k}\)</span></p>
 </div>
-<p><strong>Esim.</strong> Jaa vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> kahteen komponenttiin, joista toinen on vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> suuntainen ja toinen sitä vastaan kohtisuorassa, kun vektorit ovat seuraavat:</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Jaa vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> kahteen komponenttiin, joista toinen on vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> suuntainen ja toinen sitä vastaan kohtisuorassa, kun vektorit ovat seuraavat:</p>
 <p>a) <span class="math notranslate nohighlight">\(\vec{a}=1.5\vec{i}+0.5\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=2\vec{i}+2\vec{j}\)</span>,</p>
 <p>b) <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}+2\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=2\vec{i}+\vec{j}\)</span>.</p>
 <div class="tip dropdown admonition">
@@ -429,7 +477,25 @@ title="Print to PDF"
 <p><span class="math notranslate nohighlight">\(\vec{a_{\perp}}=\vec{a}-\vec{a_b}=4\vec{i}+2\vec{j}-(4\vec{i}+2\vec{j})=0\vec{i}+0\vec{j}\)</span></p>
 <p>Miksi kohtisuoraa komponenttia ei ole olemassa? Huomataan, että vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> saadaan kertomalla vektori <span class="math notranslate nohighlight">\(\vec{a}\)</span> luvulla <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>. Vektorit ovat siis samansuuntaisia.</p>
 </div>
-<p><strong>Esim.</strong> Joki virtaa pisteestä <span class="math notranslate nohighlight">\(A=(700,100)\)</span> suoraan pisteeseen <span class="math notranslate nohighlight">\(B=(1500,150)\)</span>. Joen vieressä pisteessä <span class="math notranslate nohighlight">\(C=(1000,50)\)</span> on talo, josta halutaan tehdä lyhin mahdollinen polku joen rantaan pisteeseen <span class="math notranslate nohighlight">\(D\)</span>. Kuinka pitkä on kyseinen polku?</p>
+</div>
+<section id="projektiovektorin-sovellus">
+<h2>Projektiovektorin sovellus<a class="headerlink" href="#projektiovektorin-sovellus" title="Permalink to this headline">#</a></h2>
+<p>Projektiovektorin avulla voi selvittää lyhyimmän mahdollisen reitin jostakin pisteestä suoralle. Oletetaan, että suora kulkee kuvan mukaisesti pisteestä <span class="math notranslate nohighlight">\(A=(a_x,a_y)\)</span> pisteeseen <span class="math notranslate nohighlight">\(B=(b_x,b_y)\)</span>, ja suoran lähistöllä on piste <span class="math notranslate nohighlight">\(C=(c_x,c_y)\)</span>.</p>
+<p><img alt="Projektion sovellus" src="_images/projektio_sovellus.png" /></p>
+<p>Muodostetaan seuraavat vektorit:</p>
+<ul class="simple">
+<li><p>suoraa kuvaa vektori <span class="math notranslate nohighlight">\(\vec{AB} = (b_x-a_x) \vec{i} + (b_y-a_y) \vec{j}\)</span></p></li>
+<li><p>pisteiden <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(C\)</span> välillä on vektori <span class="math notranslate nohighlight">\(\vec{AC} = (c_x-a_x) \vec{i} + (c_y-a_y) \vec{j}\)</span></p></li>
+</ul>
+<p>Lyhin etäisyys pisteestä <span class="math notranslate nohighlight">\(C\)</span> vektorille <span class="math notranslate nohighlight">\(\vec{AB}\)</span> on nyt <span class="math notranslate nohighlight">\(\vec{AC_{\perp}}\)</span>. Se saadaan projektiovektorin avulla:</p>
+<p><span class="math notranslate nohighlight">\(\vec{AC_{\perp}}=\vec{AC}-\vec{AC_{AB}}\)</span>.</p>
+<p>Lopuksi voidaan selvittää, mihin suoran <span class="math notranslate nohighlight">\(AB\)</span> pisteeseen <span class="math notranslate nohighlight">\(D\)</span> pisteestä <span class="math notranslate nohighlight">\(C\)</span> on lyhin matka. Pisteen <span class="math notranslate nohighlight">\(D\)</span> paikkavektorin <span class="math notranslate nohighlight">\(\vec{OD}\)</span> saa lisäämällä pisteen <span class="math notranslate nohighlight">\(A\)</span> paikkavektoriin <span class="math notranslate nohighlight">\(\vec{OA}\)</span> projektiovektorin <span class="math notranslate nohighlight">\(\vec{AC_{AB}}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\vec{OD}=\vec{OA}+\vec{AC_{AB}}\)</span></p>
+<p>ja pisteen <span class="math notranslate nohighlight">\(D\)</span> koordinaatit saa suoraan paikkavektorista <span class="math notranslate nohighlight">\(\vec{OD}\)</span>.</p>
+<p>Tässä lasku on yksinkertaisuuden takia esitetty tason vektoreilla. Samat laskukaavat toimivat myös kolmessa ulottuvuudessa.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Joki virtaa pisteestä <span class="math notranslate nohighlight">\(A=(700,100)\)</span> suoraan pisteeseen <span class="math notranslate nohighlight">\(B=(1500,150)\)</span>. Joen vieressä pisteessä <span class="math notranslate nohighlight">\(C=(1000,50)\)</span> on talo, josta halutaan tehdä lyhin mahdollinen polku joen rantaan pisteeseen <span class="math notranslate nohighlight">\(D\)</span>. Kuinka pitkä on kyseinen polku?</p>
 <p><img alt="Joki ja talo" src="_images/joki.png" /></p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
@@ -444,6 +510,8 @@ title="Print to PDF"
 <p><span class="math notranslate nohighlight">\(\vec{CD}=\vec{AC}-\vec{AC_{AB}}=(300-296) \vec{i}+(-50-18.5) \vec{j} = 4 \vec{i}-68.5 \vec{j}\)</span>.</p>
 <p>Polun pituudeksi saadaan <span class="math notranslate nohighlight">\(|\vec{CD}|=\sqrt{4^2+(-68.5)^2} \approx 68.6\)</span>.</p>
 </div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -477,13 +545,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Pistetulo</p>
+            <p class="prev-next-title">Kahden vektorin pistetulo</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="napa.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Suuntakulmat ja napakoordinaattiesitys</p>
+        <p class="prev-next-title">Mittaustuloksista vektoreiksi</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

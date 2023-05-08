@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Pistetulo &#8212; Lineaarialgebra</title>
+    <title>Kahden vektorin pistetulo &#8212; Lineaarialgebra</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Vektoriprojektio" href="projektio.html" />
-    <link rel="prev" title="Vektorien peruslaskutoimitukset" href="vektorit_laskut.html" />
+    <link rel="next" title="Vektoriprojektio ja projektiovektori" href="projektio.html" />
+    <link rel="prev" title="Vektorien venyttelyä" href="vektorit_laskut.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -123,27 +123,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="vektorit_perus.html">
-   Vektorit: perusteita
+   Mitä vektorit ovat?
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="vektorit_laskut.html">
-   Vektorien peruslaskutoimitukset
+   Vektorien venyttelyä
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Pistetulo
+   Kahden vektorin pistetulo
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="projektio.html">
-   Vektoriprojektio
+   Vektoriprojektio ja projektiovektori
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="napa.html">
-   Suuntakulmat ja napakoordinaattiesitys
+   Mittaustuloksista vektoreiksi
   </a>
  </li>
  <li class="toctree-l1">
@@ -378,6 +378,11 @@ title="Print to PDF"
    Vektorien välinen kulma
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pistetulon-merkitys">
+   Pistetulon merkitys
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -387,7 +392,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Pistetulo</h1>
+                <h1>Kahden vektorin pistetulo</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -407,6 +412,11 @@ title="Print to PDF"
    Vektorien välinen kulma
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pistetulon-merkitys">
+   Pistetulon merkitys
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -417,17 +427,19 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="pistetulo">
-<h1>Pistetulo<a class="headerlink" href="#pistetulo" title="Permalink to this headline">#</a></h1>
-<p>Pistetulon avulla voidaan selvittää vektorien välisiä kulmia, ja sitä tarvitaan myös myöhemmin matriisien laskutoimituksissa. Vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulossa <span class="math notranslate nohighlight">\(\vec{a}\cdot\vec{b}\)</span> vektorien samojen komponenttien kertoimet kerrotaan keskenään, ja tulot lasketaan yhteen.</p>
-<p>Pistetulon tuloksena on aina luku, ei vektori. Pistetulon toinen nimi, skalaaritulo, korostaakin juuri sitä että tulos on skalaariarvoinen eli luku. Pistetulo merkitään laskuihin pisteellä <span class="math notranslate nohighlight">\(\cdot\)</span>. Rasti <span class="math notranslate nohighlight">\(\times\)</span> on varattu toiseen laskutoimitukseen.</p>
-<p>Laskukaava: Jos <span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i}+a_y \vec{j}+a_z \vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=b_x \vec{i}+b_y \vec{j}+b_z \vec{k}\)</span>, niin <span class="math notranslate nohighlight">\(\vec{a}\cdot\vec{b}=a_x b_x+a_y b_y+a_z b_z\)</span>.</p>
-<p>Pistetulon voi laskea <a class="reference external" href="https://wolframalpha.com">WolframAlphalla</a> merkitsemällä vektorien komponenttien kertoimet sulkuihin ja kirjoittamalla vektorien väliin pisteen, kuten kuvassa.</p>
-<p><img alt="Vektorien pistetulo" src="_images/pistetulowa.png" /></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="kahden-vektorin-pistetulo">
+<h1>Kahden vektorin pistetulo<a class="headerlink" href="#kahden-vektorin-pistetulo" title="Permalink to this headline">#</a></h1>
+<p>Pistetulon avulla voidaan selvittää vektorien välisiä kulmia, ja sitä tarvitaan myös myöhemmin matriisien laskutoimituksissa. Vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulossa <span class="math notranslate nohighlight">\(\vec{a}\cdot\vec{b}\)</span> vektorien samojen komponenttien kertoimet kerrotaan keskenään, ja tulot lasketaan yhteen. Kuvassa on havainnollistettu vektorien <span class="math notranslate nohighlight">\(\vec{a}=4\vec{i}+2\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=3\vec{i}-\vec{j}\)</span> pistetuloa <span class="math notranslate nohighlight">\(4\cdot 3 + 2 \cdot (-1)=12-2=10\)</span>.</p>
+<p>Laskukaava pistetulolle on seuraava: Jos <span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i}+a_y \vec{j}+a_z \vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=b_x \vec{i}+b_y \vec{j}+b_z \vec{k}\)</span>, niin <span class="math notranslate nohighlight">\(\vec{a}\cdot\vec{b}=a_x b_x+a_y b_y+a_z b_z\)</span>.</p>
+<p><img alt="Pistetulo kuvana" src="_images/pistetulo_kuvana.png" /></p>
+<p>Pistetulon tuloksena on aina luku, ei vektori. Pistetulon toinen nimi, skalaaritulo, korostaakin juuri sitä että tulos on skalaariarvoinen eli luku. Pistetulo merkitään laskuihin pisteellä <span class="math notranslate nohighlight">\(\cdot\)</span> sillä rasti <span class="math notranslate nohighlight">\(\times\)</span> on varattu toiseen laskutoimitukseen.</p>
+<p>Pistetulon voi laskea <a class="reference external" href="https://wolframalpha.com">WolframAlphalla</a> merkitsemällä vektorien komponenttien kertoimet sulkuihin tai hakasulkuihin ja kirjoittamalla vektorien väliin pisteen. Edellisen esimerkin pistetulosta saataisiin komennolla [4,2].[3,-1] tulos 10.</p>
 <section id="pistetulo-ja-kohtisuoruus">
 <h2>Pistetulo ja kohtisuoruus<a class="headerlink" href="#pistetulo-ja-kohtisuoruus" title="Permalink to this headline">#</a></h2>
-<p>Jos vektorien pistetulo on nolla, vektorit ovat toisiaan vastaan kohtisuorassa. Perustelu tähän saadaan hieman myöhemmin pistetulon toisen määritelmän avulla. Sääntö toimii myös kolmiulotteisen koordinaatiston vektoreille.</p>
-<p><strong>Esim.</strong> Laske kuvan vektorien väliset pistetulot. Ovatko annetut vektorit kohtisuorassa toisiaan vastaan?</p>
+<p>Jos vektorien pistetulo on nolla, vektorit ovat toisiaan vastaan kohtisuorassa. Perustelu tähän saadaan hieman myöhemmin pistetulon geometrisen määritelmän avulla. Sääntö toimii myös kolmiulotteisen koordinaatiston vektoreille.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Laske kuvan vektorien väliset pistetulot. Ovatko annetut vektorit kohtisuorassa toisiaan vastaan?</p>
 <p><img alt="Vektorien pistetulo" src="_images/pistetuloesim.png" /></p>
 <p>a) <span class="math notranslate nohighlight">\(\vec{AB}=4\vec{i}+4\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AC}=8\vec{i}-2\vec{j}\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(\vec{AD}=4\vec{i}-8\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AE}=2\vec{i}+\vec{j}\)</span></p>
@@ -436,7 +448,10 @@ title="Print to PDF"
 <p>a) Pistetulo on <span class="math notranslate nohighlight">\(4\cdot 8+4\cdot (-2)=32-8=24\)</span>. Vektorit eivät ole toisiaan vastaan kohtisuorassa.</p>
 <p>b) Pistetulo on <span class="math notranslate nohighlight">\(4\cdot 2-8\cdot 1=0\)</span>. Vektorit ovat toisiaan vastaan kohtisuorassa.</p>
 </div>
-<p><strong>Esim.</strong> Laske vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulo. Ovatko vektorit kohtisuorassa toisiaan vastaan?</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Laske vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulo. Ovatko vektorit kohtisuorassa toisiaan vastaan?</p>
 <p>a) <span class="math notranslate nohighlight">\(\vec{a}=2\vec{i}+6\vec{j}, \vec{b}=-3\vec{i}-\vec{j}\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(\vec{a}=7\vec{i}-\vec{j}, \vec{b}=2\vec{j}+\vec{k}\)</span></p>
 <p>c) <span class="math notranslate nohighlight">\(\vec{a}=2\vec{i}-3\vec{j}+\vec{k}, \vec{b}=4\vec{i}+\vec{j}-\vec{k}\)</span></p>
@@ -446,7 +461,10 @@ title="Print to PDF"
 <p>b) <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=7\cdot 0+(-1)\cdot 2+0\cdot 1=-2 \neq 0\)</span>, joten eivät ole kohtisuorassa.</p>
 <p>c) <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=2\cdot 4+(-3)\cdot 1+1\cdot (-1)=0\)</span>, joten <span class="math notranslate nohighlight">\(\vec{a} \perp \vec{b}\)</span>.</p>
 </div>
-<p><strong>Esim.</strong> Mikä tulee luvun <span class="math notranslate nohighlight">\(s\)</span> olla, jotta vektorit <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> olisivat kohtisuorassa toisiaan vastaan?</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Mikä tulee luvun <span class="math notranslate nohighlight">\(s\)</span> olla, jotta vektorit <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> olisivat kohtisuorassa toisiaan vastaan?</p>
 <p>a) <span class="math notranslate nohighlight">\(\vec{a}=100 \vec{i}+75\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=s\vec{i}-2\vec{j}\)</span></p>
 <p>b) <span class="math notranslate nohighlight">\(\vec{a}=\vec{i}+2\vec{j}+\vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=s\vec{i}+\vec{j}-\vec{k}\)</span></p>
 <div class="tip dropdown admonition">
@@ -454,10 +472,12 @@ title="Print to PDF"
 <p>a) Pistetulo on <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=100\cdot s+75\cdot (-2)=100s-150\)</span>. Koska toisiaan vastaan kohtisuorien vektorien pistetulo on nolla, niin ratkaistaan yhtälö <span class="math notranslate nohighlight">\(100s-150=0\)</span>. Tästä saadaan helposti <span class="math notranslate nohighlight">\(s=1.5\)</span>.</p>
 <p>b) Pistetulo on <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=1\cdot s+2\cdot 1+1\cdot (-1)=s+1\)</span>, joten tulee olla <span class="math notranslate nohighlight">\(s+1=0\)</span> eli <span class="math notranslate nohighlight">\(s=-1\)</span>.</p>
 </div>
+</div>
 </section>
 <section id="vektorien-valinen-kulma">
 <h2>Vektorien välinen kulma<a class="headerlink" href="#vektorien-valinen-kulma" title="Permalink to this headline">#</a></h2>
 <p>Vektorien pistetulolle on olemassa myös ns. geometrinen määritelmä <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}| \cos{\alpha}\)</span>, missä <span class="math notranslate nohighlight">\(\alpha\)</span> on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma. Kaavan voi perustella kosinilauseen avulla.</p>
+<p><img alt="Vektorien välinen kulma" src="_images/vektorien_valinen_kulma.png" /></p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Kaavan perustelu</p>
 <p><img alt="Pistetulon laskukaavan perustelu" src="_images/pistetulo_perustelu.png" /></p>
@@ -483,17 +503,11 @@ title="Print to PDF"
 <p>Tämä sievenee muotoon</p>
 <p><span class="math notranslate nohighlight">\( \vec{a} \cdot \vec{b} =  |\vec{a}| |\vec{b}| \text{cos}~\alpha\)</span></p>
 </div>
-<p><strong>Esim.</strong></p>
-<p>a) Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituus on 65 ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> pituus on 20. Vektorien välinen kulma on 30 astetta.
-Mikä on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulo?</p>
-<p>b) Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituus on 12 ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> pituus on 4. Vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulo on 16.
-Mikä on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma?</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>a) <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}| \cos{\alpha} = 65\cdot 20 \cdot \cos{30^{\circ}} \approx 1125.83\)</span></p>
-<p>b) Pistetulon geometrisesta määritelmästä saadaan ratkaistua: <span class="math notranslate nohighlight">\(\cos{\alpha} = \frac{\vec{a}\cdot \vec{b}}{|\vec{a}||\vec{b}|}\)</span>, joten tässä tapauksessa kulman kosini on <span class="math notranslate nohighlight">\(\cos{\alpha} = \frac{16}{2\cdot 4}=\frac{16}{48}=\frac{1}{3}\)</span>. Kulmaksi saadaan <span class="math notranslate nohighlight">\(\alpha = \arccos{\frac{1}{3}} \approx 70.53^{\circ}\)</span>.</p>
-</div>
-<p><strong>Esim.</strong> Laske vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma, kun vektorit ovat seuraavat:</p>
+<p>Edellisestä kaavasta saadaan ratkaistua <span class="math notranslate nohighlight">\(\text{cos}~\alpha=\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}\)</span>. Kulma <span class="math notranslate nohighlight">\((\alpha\)</span> saadaan edellisen laskun tuloksesta arkuskosinin avulla: <span class="math notranslate nohighlight">\(\alpha=\text{acos}~\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}\)</span>.</p>
+<p>Laskun tuloksen voi tarkistaa WolframAlphan komennolla angle between. Esimerkiksi vektorien <span class="math notranslate nohighlight">\(3\vec{i}+2\vec{j}-4\vec{k}\) ja \(\vec{i}-\vec{j}+5\vec{k}\)</span> välisen kulman saa komennolla angle between ([3,2,-4],[1,-1,5]).</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Laske vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma, kun vektorit ovat seuraavat:</p>
 <p>a) <span class="math notranslate nohighlight">\(\vec{a}=31 \vec{i}-26\vec{j},\vec{b}=91\vec{i}+42\vec{j}\)</span>,</p>
 <p>b) <span class="math notranslate nohighlight">\(\vec{a}=3\vec{i}-\vec{j}+7\vec{k}, \vec{b}=-3\vec{i}+4\vec{j}+2\vec{k}\)</span>.</p>
 <div class="tip dropdown admonition">
@@ -503,7 +517,22 @@ Mikä on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span>
 <p>b) <span class="math notranslate nohighlight">\(\cos{\alpha} = \frac{(3\cdot (-3)-1\cdot 4+7\cdot 2}{\sqrt{3^2+(-1)^2+7^2}\sqrt{(-3)^2+4^2+2^2}}\approx 0.0242\)</span>, joten <span class="math notranslate nohighlight">\(\alpha =\arccos{⁡0.0242} \approx 88.6^{\circ}\)</span>.</p>
 <p>Ratkaisu WolframAlphalla: angle between [3,-1,7],[-3,4,2] tai (3*(-3)-1*4+7*\2)/(sqrt(3^2+1^2+7^2)*sqrt((-3)^2+4^2+2^2))</p>
 </div>
-<p><strong>Esim.</strong> Tie haarautuu pisteessä (150,200) kahdeksi suoraksi tieksi siten, että toinen haara päätyy pisteeseen (220,350) ja toinen pisteeseen (240,100).</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>a) Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituus on 65 ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> pituus on 20. Vektorien välinen kulma on 30 astetta.
+Mikä on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulo?</p>
+<p>b) Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituus on 12 ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> pituus on 4. Vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pistetulo on 16.
+Mikä on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma?</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>a) <span class="math notranslate nohighlight">\(\vec{a}\cdot \vec{b}=|\vec{a}||\vec{b}| \cos{\alpha} = 65\cdot 20 \cdot \cos{30^{\circ}} \approx 1125.83\)</span></p>
+<p>b) Pistetulon geometrisesta määritelmästä saadaan ratkaistua: <span class="math notranslate nohighlight">\(\cos{\alpha} = \frac{\vec{a}\cdot \vec{b}}{|\vec{a}||\vec{b}|}\)</span>, joten tässä tapauksessa kulman kosini on <span class="math notranslate nohighlight">\(\cos{\alpha} = \frac{16}{2\cdot 4}=\frac{16}{48}=\frac{1}{3}\)</span>. Kulmaksi saadaan <span class="math notranslate nohighlight">\(\alpha = \arccos{\frac{1}{3}} \approx 70.53^{\circ}\)</span>.</p>
+</div>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Tie haarautuu pisteessä (150,200) kahdeksi suoraksi tieksi siten, että toinen haara päätyy pisteeseen (220,350) ja toinen pisteeseen (240,100).</p>
 <p>a) Muodosta kaksi vektoria, jotka kuvaavat risteyksestä lähteviä teitä.</p>
 <p>b) Laske pistetulon avulla teiden välinen kulma.</p>
 <div class="tip dropdown admonition">
@@ -511,6 +540,24 @@ Mikä on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span>
 <p>Vektorit ovat <span class="math notranslate nohighlight">\((220-150) \vec{i}+(350-200) \vec{j}=70 \vec{i}+150 \vec{j}\)</span> ja <span class="math notranslate nohighlight">\((240-150) \vec{i} +(100-200) \vec{j}=90 \vec{i}-100\vec{j}\)</span>.</p>
 <p>Kulman kosini on <span class="math notranslate nohighlight">\(\cos{\alpha}=\frac{70\cdot 90+150\cdot (-100}{\sqrt{70^2+150^2}\sqrt{90^2+(-100)^2}} \approx -0.391\)</span>, joten kulmaksi saadaan <span class="math notranslate nohighlight">\(\alpha = \arccos{-0.391} = 113^{\circ}\)</span>.</p>
 </div>
+</div>
+</section>
+<section id="pistetulon-merkitys">
+<h2>Pistetulon merkitys<a class="headerlink" href="#pistetulon-merkitys" title="Permalink to this headline">#</a></h2>
+<p>Laskemalla pistetulo saadaan jokin luku. Mitä luvusta oikein voi päätellä? Pistetulon <span class="math notranslate nohighlight">\(\vec{a}\cdot\vec{b}\)</span> arvo riippuu kahdesta asiasta:</p>
+<ul class="simple">
+<li><p>vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> pituuksista</p></li>
+<li><p>vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> suunnista toisiinsa nähden</p></li>
+</ul>
+<p>Pistetulon merkki kertoo vektorien suunnista toisiinsa nähden seuraavan kuvan mukaisesti. Pelkästään sen perusteella, onko pistetulo positiivinen vai negatiivinen, voidaan päätellä, osoittavatko vektorit suunnilleen samaan suuntaan, vai eri suuntiin. Merkki kertoo suunnista seuraavasti:</p>
+<ul class="simple">
+<li><p>jos  <span class="math notranslate nohighlight">\(\vec{a}\cdot\vec{b} &gt; 0\)</span>, niin vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma on terävä</p></li>
+<li><p>jos  <span class="math notranslate nohighlight">\(\vec{a}\cdot\vec{b} = 0\)</span>, niin vektorit <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> ovat kohtisuorassa toisiaan vastaan</p></li>
+<li><p>jos  <span class="math notranslate nohighlight">\(\vec{a}\cdot\vec{b} &lt; 0\)</span>, niin vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span> välinen kulma on tylppä</p></li>
+</ul>
+<p><img alt="Pistetulon merkki ja vektorien suunnat" src="_images/merkki_ja_suunnat.png" /></p>
+<p>Eräs tapa hahmottaa pistetulon merkitystä on seuraavassa kuvassa esitetty vertaus sateella ämpäriin kertyvästä vedestä. Ajatellaan, että vesisade vastaa vektoria <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja ämpäri vektoria <span class="math notranslate nohighlight">\(\vec{b}\)</span>. Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituus kuvaa vesisateen voimakkuutta ja vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> pituus ämpärin suuruutta. Ajatellaan tässä vektorien suunnat niin, että vesisade ja ämpäri osoittavat samaan suuntaan silloin, kun ämpärin aukko on kohti taivasta. Eniten vettä kertyy ämpäriin, kun ämpäri on pystyssä, ja hieman vähemmän silloin, kun ämpäri on vinossa. Jos ämpäri on kyljellään, vettä ei kerry sinne lisää, mutta ei valu poiskaan. Jos ämpärin suu osoittaa alaviistoon tai suoraan alaspäin, vettä valuu ämpäristä pois.</p>
+<p><img alt="Pistetulo, ämpäri ja vesisade" src="_images/pistetulo_vesisade.png" /></p>
 </section>
 </section>
 
@@ -545,13 +592,13 @@ Mikä on vektorien <span class="math notranslate nohighlight">\(\vec{a}\)</span>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Vektorien peruslaskutoimitukset</p>
+            <p class="prev-next-title">Vektorien venyttelyä</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="projektio.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Vektoriprojektio</p>
+        <p class="prev-next-title">Vektoriprojektio ja projektiovektori</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
