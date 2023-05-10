@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Leontiefin panos-tuotos-malli" href="leontief.html" />
+    <link rel="next" title="Taloustiedettä matriiseilla" href="leontief.html" />
     <link rel="prev" title="Ominaisarvot ja -vektorit" href="ominaisarvot.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -199,8 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="yhtaloryhmat.html">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1">
@@ -220,12 +230,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+   Taloustiedettä matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
-   Lisää sovelluksia
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -427,25 +442,30 @@ title="Print to PDF"
 <p>Matriisilaskentaa voidaan hyödyntää geometriassa. Tätä varten tarvitaan myös vektorilaskentaa. Jos vektorit ovat suunnikkaan sivuvektoreita, niistä voidaan muodostaa matriisi, jonka determinantti kertoo suunnikkaan koon. Toinen sovellus on koordinaatiston kierto. Tällöin koordinaatiston pistettä kuvaava vektori kerrotaan matriisilla, jonka alkiot määrittelevät kierron suunnan ja suuruuden.</p>
 <section id="pinta-alojen-laskeminen">
 <h2>Pinta-alojen laskeminen<a class="headerlink" href="#pinta-alojen-laskeminen" title="Permalink to this headline">#</a></h2>
-<p>Vektorilaskennasta muistetaan, että jos suunnikkaan sivuvektorit ovat <span class="math notranslate nohighlight">\(\vec{AB}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AD}\)</span>, niin suunnikkaan ala on <span class="math notranslate nohighlight">\(S=|\vec{AB}\times \vec{AD}|\)</span> ja vastaavan kolmion ala <span class="math notranslate nohighlight">\(K=\frac{1}{2} S\)</span>. Matriisilaskennan lähestymistapa asiaan on seuraava:</p>
-<p>Jos suunnikkaan sivuvektorit ovat <span class="math notranslate nohighlight">\(\vec{AB}=x_1 \vec{i}+y_1 \vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AC}=x_2 \vec{i}+ y_2 \vec{j}\)</span> ja ne täydennetään kolmialkioisiksi ja lasketaan ristitulo, saadaan</p>
-<p><span class="math notranslate nohighlight">\(\vec{AB}\times \vec{A} = \begin{vmatrix} \vec{i} &amp; \vec{j} &amp; \vec{k} \\ x_1 &amp; y_1 &amp; 0 \\ x_2 &amp; y_2 &amp; 0 \end{vmatrix} = (y_1\cdot 0 -y_2 \cdot 0) \vec{i} - (x_1 \cdot 0 -x_2 \cdot 0) \vec{j} + (x_1 y_2 -x_2 y_1) \vec{k}\)</span>.</p>
-<p>Determinantin määritelmän perusteella voidaan kirjoittaa <span class="math notranslate nohighlight">\(\vec{AB}\times {AC} = \begin{vmatrix} x_1&amp;y_1\\x_2&amp;y_2\end{vmatrix} \vec{k}\)</span>.</p>
-<p>Suunnikkaan ala <span class="math notranslate nohighlight">\(S\)</span> on ristitulon itseisarvo, siis</p>
-<p><span class="math notranslate nohighlight">\(S=\left|\begin{vmatrix}x_1&amp;y_1\\x_2&amp;y_2\end{vmatrix} \vec{k}\right|=\left|\begin {vmatrix} x_1&amp;y_1\\x_2&amp;y_2\end{vmatrix}\right|\)</span>,</p>
+<p>Vektorilaskennasta muistetaan, että jos suunnikkaan sivuvektorit ovat <span class="math notranslate nohighlight">\(\vec{a}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}\)</span>, niin suunnikkaan ala on <span class="math notranslate nohighlight">\(A_s=|\vec{a}\times \vec{b}|\)</span> ja vastaavan kolmion ala <span class="math notranslate nohighlight">\(A_k=\frac{1}{2} A_s\)</span>. Matriisilaskennan lähestymistapa asiaan on seuraava:</p>
+<p>Jos suunnikkaan sivuvektorit ovat <span class="math notranslate nohighlight">\(\vec{a}=x_1 \vec{i}+y_1 \vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=x_2 \vec{i}+ y_2 \vec{j}\)</span> ja ne täydennetään kolmialkioisiksi ja lasketaan ristitulo, saadaan</p>
+<p><span class="math notranslate nohighlight">\(\vec{a}\times \vec{b} = \begin{vmatrix} \vec{i} &amp; \vec{j} &amp; \vec{k} \\ x_1 &amp; y_1 &amp; 0 \\ x_2 &amp; y_2 &amp; 0 \end{vmatrix} = (y_1\cdot 0 -y_2 \cdot 0) \vec{i} - (x_1 \cdot 0 -x_2 \cdot 0) \vec{j} + (x_1 y_2 -x_2 y_1) \vec{k}\)</span>.</p>
+<p>Determinantin määritelmän perusteella voidaan kirjoittaa <span class="math notranslate nohighlight">\(\vec{a}\times {b} = \begin{vmatrix} x_1&amp;y_1\\x_2&amp;y_2\end{vmatrix} \vec{k}\)</span>.</p>
+<p>Suunnikkaan ala <span class="math notranslate nohighlight">\(A_s\)</span> on ristitulon itseisarvo, siis</p>
+<p><span class="math notranslate nohighlight">\(A_s=\left|\begin{vmatrix}x_1&amp;y_1\\x_2&amp;y_2\end{vmatrix} \vec{k}\right|=\left|\begin {vmatrix} x_1&amp;y_1\\x_2&amp;y_2\end{vmatrix}\right|\)</span>,</p>
 <p>ja kolmion ala on</p>
-<p><span class="math notranslate nohighlight">\(K=\frac{1}{2} S = \frac{1}{2} \left|\begin{vmatrix}x_1&amp;y_1\\x_2&amp;y_2\end{vmatrix}\right|\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(A_k=\frac{1}{2} S = \frac{1}{2} \left|\begin{vmatrix}x_1&amp;y_1\\x_2&amp;y_2\end{vmatrix}\right|\)</span>.</p>
 <p>Pinta-alat saadaan siis laskemalla determinantti matriisista, jonka riveillä ovat suunnikkaan sivuvektorien komponenttien kertoimet.</p>
-<p><strong>Esim.</strong> Kolmion kärkipisteet ovat <span class="math notranslate nohighlight">\(A=(0.5,2)\)</span>, <span class="math notranslate nohighlight">\(B=(1.5,0.5)\)</span> ja <span class="math notranslate nohighlight">\(C=(3.5,1.5)\)</span>. Laske kolmion ala.
-<img alt="Kolmio" src="_images/kolmio_geogebra.png" /></p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Kolmion kärkipisteet ovat <span class="math notranslate nohighlight">\(A=(0.5,2)\)</span>, <span class="math notranslate nohighlight">\(B=(1.5,0.5)\)</span> ja <span class="math notranslate nohighlight">\(C=(3.5,1.5)\)</span>. Laske kolmion ala.</p>
+<p><img alt="Kolmio" src="_images/kolmio_geogebra.png" /></p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Kun sivuvektoreiksi valitaan <span class="math notranslate nohighlight">\(\vec{BA}=-\vec{i}+1.5\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{BC}=2\vec{i}+\vec{j}\)</span>, niin kolmion alaksi saadaan</p>
-<p><span class="math notranslate nohighlight">\(K=\frac{1}{2} |\begin{vmatrix}-1&amp;1.5\\2&amp;1\end{vmatrix}|= \frac{1}{2} |-1\cdot 1-2\cdot 1.5|=\frac{1}{2}\cdot 4=2\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(A_k=\frac{1}{2} |\begin{vmatrix}-1&amp;1.5\\2&amp;1\end{vmatrix}|= \frac{1}{2} |-1\cdot 1-2\cdot 1.5|=\frac{1}{2}\cdot 4=2\)</span>.</p>
 <p>Sama tulos saataisiin myös, jos valittaisiin sivuvektoreiksi <span class="math notranslate nohighlight">\(\vec{AB}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AC}\)</span>.</p>
 </div>
-<p>Epäsäännöllisen alueen pinta-alan määrittäminen onnistuu jakamalla alue useiksi kolmioiksi ja laskemalla kolmioiden pinta-alat edellisellä menetelmällä.</p>
-<p><strong>Esim.</strong> Lammen ympäriltä on mitattu koordinaattipisteet A = (810, 80); B = (500, 60); C = (550, 350) ; D =(820, 550); E =(1070, 530); F = (1090, 70). Arvioi lammen ala saadaan kolmioiden ABC, ACD, ADE ja AEF alojen summana.</p>
+</div>
+<p>Epäsäännöllisen alueen pinta-alan määrittäminen onnistuu jakamalla alue useiksi kolmioiksi ja laskemalla kolmioiden pinta-alat edellisellä menetelmällä. Tästä syystä laskumenetelmää kutsutaan myös nimellä “maanmittarien kaava”.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Lammen ympäriltä on mitattu koordinaattipisteet A = (810, 80); B = (500, 60); C = (550, 350) ; D =(820, 550); E =(1070, 530); F = (1090, 70). Arvioi lammen ala saadaan kolmioiden ABC, ACD, ADE ja AEF alojen summana.</p>
 <p><img alt="Lammen pinta-ala" src="_images/lampi.png" /></p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
@@ -464,6 +484,8 @@ title="Print to PDF"
 <p>AB=[-310 -20], AC=[-260 270], AD=[10 470], AE=[260 450], AF=[280 -10]</p>
 <p>M1=[AB;AC], M2=[AC;AD], M3=[AD;AE], M4=[AE;AF]</p>
 <p>ala=0.5*(abs(det(M1))+abs(det(M2))+abs(det(M3))+abs(det(M4)))</p>
+<p>Lasku voidaan myös automatisoida siten, että mittauspisteiden määrää ei edes tarvitse tietää, vaan matriiseja muodostuu automaattisesti oikea määrä. Tällaista ohjelmointia voidaan harjoitella oppitunneilla. Koodeja täydennetään myös tänne myöhemmin.</p>
+</div>
 </div>
 </section>
 <section id="kiertomatriisit-ja-koordinaattimuunnokset">
@@ -526,7 +548,7 @@ title="Print to PDF"
     <a class='right-next' id="next-link" href="leontief.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Leontiefin panos-tuotos-malli</p>
+        <p class="prev-next-title">Taloustiedettä matriiseilla</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -4,25 +4,28 @@ Matriisilaskentaa voidaan hyödyntää geometriassa. Tätä varten tarvitaan my�
 
 ## Pinta-alojen laskeminen
 
-Vektorilaskennasta muistetaan, että jos suunnikkaan sivuvektorit ovat $\vec{AB}$ ja $\vec{AD}$, niin suunnikkaan ala on $S=|\vec{AB}\times \vec{AD}|$ ja vastaavan kolmion ala $K=\frac{1}{2} S$. Matriisilaskennan lähestymistapa asiaan on seuraava:
+Vektorilaskennasta muistetaan, että jos suunnikkaan sivuvektorit ovat $\vec{a}$ ja $\vec{b}$, niin suunnikkaan ala on $A_s=|\vec{a}\times \vec{b}|$ ja vastaavan kolmion ala $A_k=\frac{1}{2} A_s$. Matriisilaskennan lähestymistapa asiaan on seuraava:
 
-Jos suunnikkaan sivuvektorit ovat $\vec{AB}=x_1 \vec{i}+y_1 \vec{j}$ ja $\vec{AC}=x_2 \vec{i}+ y_2 \vec{j}$ ja ne täydennetään kolmialkioisiksi ja lasketaan ristitulo, saadaan 
+Jos suunnikkaan sivuvektorit ovat $\vec{a}=x_1 \vec{i}+y_1 \vec{j}$ ja $\vec{b}=x_2 \vec{i}+ y_2 \vec{j}$ ja ne täydennetään kolmialkioisiksi ja lasketaan ristitulo, saadaan 
 
-$\vec{AB}\times \vec{A} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ x_1 & y_1 & 0 \\ x_2 & y_2 & 0 \end{vmatrix} = (y_1\cdot 0 -y_2 \cdot 0) \vec{i} - (x_1 \cdot 0 -x_2 \cdot 0) \vec{j} + (x_1 y_2 -x_2 y_1) \vec{k}$.
+$\vec{a}\times \vec{b} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ x_1 & y_1 & 0 \\ x_2 & y_2 & 0 \end{vmatrix} = (y_1\cdot 0 -y_2 \cdot 0) \vec{i} - (x_1 \cdot 0 -x_2 \cdot 0) \vec{j} + (x_1 y_2 -x_2 y_1) \vec{k}$.
 
-Determinantin määritelmän perusteella voidaan kirjoittaa $\vec{AB}\times {AC} = \begin{vmatrix} x_1&y_1\\x_2&y_2\end{vmatrix} \vec{k}$.
+Determinantin määritelmän perusteella voidaan kirjoittaa $\vec{a}\times {b} = \begin{vmatrix} x_1&y_1\\x_2&y_2\end{vmatrix} \vec{k}$.
 
-Suunnikkaan ala $S$ on ristitulon itseisarvo, siis 
+Suunnikkaan ala $A_s$ on ristitulon itseisarvo, siis 
 
-$S=\left|\begin{vmatrix}x_1&y_1\\x_2&y_2\end{vmatrix} \vec{k}\right|=\left|\begin {vmatrix} x_1&y_1\\x_2&y_2\end{vmatrix}\right|$, 
+$A_s=\left|\begin{vmatrix}x_1&y_1\\x_2&y_2\end{vmatrix} \vec{k}\right|=\left|\begin {vmatrix} x_1&y_1\\x_2&y_2\end{vmatrix}\right|$, 
 
 ja kolmion ala on
 
-$K=\frac{1}{2} S = \frac{1}{2} \left|\begin{vmatrix}x_1&y_1\\x_2&y_2\end{vmatrix}\right|$. 
+$A_k=\frac{1}{2} S = \frac{1}{2} \left|\begin{vmatrix}x_1&y_1\\x_2&y_2\end{vmatrix}\right|$. 
 
 Pinta-alat saadaan siis laskemalla determinantti matriisista, jonka riveillä ovat suunnikkaan sivuvektorien komponenttien kertoimet.
 
-**Esim.** Kolmion kärkipisteet ovat $A=(0.5,2)$, $B=(1.5,0.5)$ ja $C=(3.5,1.5)$. Laske kolmion ala.
+::::{admonition} Esimerkki
+
+Kolmion kärkipisteet ovat $A=(0.5,2)$, $B=(1.5,0.5)$ ja $C=(3.5,1.5)$. Laske kolmion ala.
+
 ![Kolmio](kolmio_geogebra.png "Kolmion alan laskeminen")
 
 :::{admonition} Ratkaisu
@@ -30,15 +33,19 @@ Pinta-alat saadaan siis laskemalla determinantti matriisista, jonka riveillä ov
 
 Kun sivuvektoreiksi valitaan $\vec{BA}=-\vec{i}+1.5\vec{j}$ ja $\vec{BC}=2\vec{i}+\vec{j}$, niin kolmion alaksi saadaan
 
-$K=\frac{1}{2} |\begin{vmatrix}-1&1.5\\2&1\end{vmatrix}|= \frac{1}{2} |-1\cdot 1-2\cdot 1.5|=\frac{1}{2}\cdot 4=2$.
+$A_k=\frac{1}{2} |\begin{vmatrix}-1&1.5\\2&1\end{vmatrix}|= \frac{1}{2} |-1\cdot 1-2\cdot 1.5|=\frac{1}{2}\cdot 4=2$.
 
 Sama tulos saataisiin myös, jos valittaisiin sivuvektoreiksi $\vec{AB}$ ja $\vec{AC}$.
 
 :::
 
-Epäsäännöllisen alueen pinta-alan määrittäminen onnistuu jakamalla alue useiksi kolmioiksi ja laskemalla kolmioiden pinta-alat edellisellä menetelmällä.
+::::
 
-**Esim.** Lammen ympäriltä on mitattu koordinaattipisteet A = (810, 80); B = (500, 60); C = (550, 350) ; D =(820, 550); E =(1070, 530); F = (1090, 70). Arvioi lammen ala saadaan kolmioiden ABC, ACD, ADE ja AEF alojen summana. 
+Epäsäännöllisen alueen pinta-alan määrittäminen onnistuu jakamalla alue useiksi kolmioiksi ja laskemalla kolmioiden pinta-alat edellisellä menetelmällä. Tästä syystä laskumenetelmää kutsutaan myös nimellä "maanmittarien kaava".
+
+::::{admonition} Esimerkki
+
+Lammen ympäriltä on mitattu koordinaattipisteet A = (810, 80); B = (500, 60); C = (550, 350) ; D =(820, 550); E =(1070, 530); F = (1090, 70). Arvioi lammen ala saadaan kolmioiden ABC, ACD, ADE ja AEF alojen summana. 
 
 ![Lammen pinta-ala](lampi.png "Epäsäännöllisen alueen pinta-alan määrittäminen")
 
@@ -75,7 +82,11 @@ M1=[AB;AC], M2=[AC;AD], M3=[AD;AE], M4=[AE;AF]
 
 ala=0.5*(abs(det(M1))+abs(det(M2))+abs(det(M3))+abs(det(M4)))
 
+Lasku voidaan myös automatisoida siten, että mittauspisteiden määrää ei edes tarvitse tietää, vaan matriiseja muodostuu automaattisesti oikea määrä. Tällaista ohjelmointia voidaan harjoitella oppitunneilla. Koodeja täydennetään myös tänne myöhemmin.
+
 :::
+
+::::
 
 ## Kiertomatriisit ja koordinaattimuunnokset
 

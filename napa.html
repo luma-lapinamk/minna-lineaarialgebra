@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -199,8 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="yhtaloryhmat.html">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1">
@@ -220,12 +230,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+   Taloustiedettä matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
-   Lisää sovelluksia
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -449,7 +464,7 @@ title="Print to PDF"
 <p>Vektorin muuttaminen komponenttimuodosta napakoordinaattimuotoon kannattaa aloittaa hahmottelemalla, missä koordinaatiston neljänneksessä vektorin kärki on, kun se piirretään alkamaan origosta. Koordinatiston neljännekset on määritelty seuraavan kuvan mukaisesti siten, että 1. neljännes on koordinaatiston alueella, jossa sekä <span class="math notranslate nohighlight">\(x\)</span>:n että <span class="math notranslate nohighlight">\(y\)</span>:n arvot ovat positiivisia, ja muut neljännekset seuraavat kiertämällä koordinaatistossa vastapäivään.</p>
 <p><img alt="Koordinaatiston neljännekset" src="_images/neljannekset.png" /></p>
 <p>Jos vektorin <span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i}+a_y \vec{j}\)</span> ja <span class="math notranslate nohighlight">\(x\)</span>-akselin välinen kulma on alle 90 astetta, eli vektorin kärki sijaitsee koordinaatiston 1. neljänneksessä, niin suuntakulma on <span class="math notranslate nohighlight">\(\alpha=\arctan{\frac{a_y}{a_x}}\)</span>. Esimerkiksi seuraavan kuvan vektorin <span class="math notranslate nohighlight">\(\vec{AB}=3\vec{i}+2\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(x\)</span>-akselin välinen kulma <span class="math notranslate nohighlight">\(\alpha\)</span> saadaan ratkaistua seuraavasti:</p>
-<p><span class="math notranslate nohighlight">\(\tan{\alpha}=\frac{2}{3} \leftrightarrow \alpha=\arctan⁡{\frac{2}{3}} \leftrightarrow \alpha \approx 33.69^{\circ}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\tan{\alpha}=\frac{2}{3} \Leftrightarrow \alpha=\arctan⁡{\frac{2}{3}} \Leftrightarrow \alpha \approx 33.69^{\circ}\)</span>.</p>
 <p><img alt="Yksinkertaisin napakoordinaattimuunnos" src="_images/napa1.png" /></p>
 <p>Napakoordinaattimuotoon tarvitaan lisäksi vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> pituus, joka on <span class="math notranslate nohighlight">\(|\vec{a}|=\sqrt{3^2+2^2}=\sqrt{13}\)</span>. Vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> napakoordinaattiesitys on siis <span class="math notranslate nohighlight">\(\vec{a}=\sqrt{13} \angle 33.69^{\circ}\)</span>.</p>
 <p>Jos vektorin kärki on koordinaatiston jossakin muussa kuin 1. neljänneksessä, muunnoksessa tarvitaan sopivia apukulmia. Esimerkkejä erilaisista tilanteista on seuraavana. Tarkista lopuksi, että laskemasi suuntakulma sopii siihen koordinaatiston neljännekseen, jossa vektorin päätepiste on.</p>

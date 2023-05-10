@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -199,8 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="yhtaloryhmat.html">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1">
@@ -220,12 +230,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+   Taloustiedettä matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
-   Lisää sovelluksia
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -414,22 +429,45 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="determinantti">
 <h1>Determinantti<a class="headerlink" href="#determinantti" title="Permalink to this headline">#</a></h1>
-<p>Determinantti on eräänlainen mitta matriisin ”tilavuudelle”. Determinantin arvolla on merkitystä mm. kun myöhemmin ratkaistaan yhtälöryhmiä. Lisäksi sitä tarvitaan ainakin tietokoneohjelmoinnissa, esim. 3D-grafiikan muunnosmatriiseissa.</p>
+<p>Determinantti on lukuarvo, joka voidaan laskea neliömatriiseille. Jokaisella neliömatriisilla on siis olemassa determinantti. Sen arvolla on merkitystä, kun myöhemmin muodostetaan käänteismatriiseja ja ratkaistaan yhtälöryhmiä. Yleensä kuitenkin riittää tietää pelkästään se, onko determinantti nolla vai jotakin muuta kuin nolla!</p>
+<p>Determinanttia tarvitaan myös, kun ratkaistaan eräitä erityisiä matriisiin liittyviä lukuja, ns. ominaisarvoja. Tällaistä käyttöä matriiseilla voi olla differentiaaliyhtälöissä. Näitä asioita käsitellään vain laajan matematiikan opintojaksoilla.</p>
 <section id="determinantin-laskeminen">
 <h2>Determinantin laskeminen<a class="headerlink" href="#determinantin-laskeminen" title="Permalink to this headline">#</a></h2>
-<p>Matriisille <span class="math notranslate nohighlight">\(A=\begin{bmatrix}a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22}\end{bmatrix}\)</span>, joka on tyyppiä <span class="math notranslate nohighlight">\(2 \times 2\)</span>, voidaan määritellä determinantti <span class="math notranslate nohighlight">\(\text{det} A\)</span> seuraavasti:</p>
-<p><span class="math notranslate nohighlight">\(\text{det}⁡ A = |A|= \begin{vmatrix}a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \end{vmatrix}= a_{11}a_{22}-a_{21}a_{12}\)</span>.</p>
-<p><strong>Esim.</strong> Matriisin <span class="math notranslate nohighlight">\(\begin{bmatrix} 3&amp;4 \\ 5&amp;6\end{bmatrix}\)</span> determinantti on <span class="math notranslate nohighlight">\(\begin{vmatrix} 3&amp;4 \\ 5&amp;6\end{vmatrix}=3\cdot 6-4\cdot 5=18-20=-2\)</span>.</p>
-<p>Vektorien ristitulon yhteydessä tutustuttiin jo kolmiriviseen determinanttiin. Tyyppiä <span class="math notranslate nohighlight">\(3 \times 3\)</span> oleville matriiseille determinantti lasketaan vastaavalla tavalla kuin kahden kolmialkioiden vektorin ristitulo:</p>
+<p>Determinantti on siis yksittäiseen matriisiin liittyvä lukuarvo. Matriisin <span class="math notranslate nohighlight">\(A\)</span> determinanttia merkitään <span class="math notranslate nohighlight">\(\det{A}\)</span>, <span class="math notranslate nohighlight">\(\det{(A)}\)</span> tai <span class="math notranslate nohighlight">\(|A|\)</span>. Sen laskeminen onnistuu matriisin tyypistä riippuen ainakin kolmella tavalla:</p>
+<p><strong>1) Jos matriisi on tyyppiä <span class="math notranslate nohighlight">\(2\times 2\)</span>, determinantille on suora laskukaava.</strong></p>
+<p>Matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22}\end{bmatrix}\)</span> determinantti on <span class="math notranslate nohighlight">\(\det{A} = a_{11}a_{22}-a_{21}a_{12}\)</span>.</p>
+<p>Matriisin päälävistäjän alkioiden tulosta siis vähennetään kahden jäljelle jäävän alkion tulo.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Laske matriisin <span class="math notranslate nohighlight">\(M=\begin{bmatrix} 3&amp;4 \\ 5&amp;6\end{bmatrix}\)</span> determinantti.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Determinantti on <span class="math notranslate nohighlight">\(\det{M} = 3\cdot 6-4\cdot 5=18-20=-2\)</span>.</p>
+</div>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Millä luvun <span class="math notranslate nohighlight">\(x\)</span> arvolla matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1&amp;x\\3 &amp;2\end{bmatrix}\)</span> determinantti on nolla?</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Matriisin determinantti on <span class="math notranslate nohighlight">\(\det{A}=1\cdot 2-x\cdot 3=2-3x\)</span>.</p>
+<p>Ratkaistaan yhtälö <span class="math notranslate nohighlight">\(2-3x=0 \Leftrightarrow -3x=-2 \Leftrightarrow x=\frac{2}{3}\)</span>.</p>
+</div>
+</div>
+<p><strong>2) Jos matriisi on tyyppiä <span class="math notranslate nohighlight">\(3 \times 3\)</span>, determinantti lasketaan kuten vektorien ristitulo.</strong></p>
+<p>Vektorien ristitulon yhteydessä tutustuttiin jo kolmiriviseen determinanttiin. Tyyppiä <span class="math notranslate nohighlight">\(3 \times 3\)</span> oleville matriiseille determinantti lasketaan vastaavalla tavalla kuin kahden kolmialkioisen vektorin ristitulo:</p>
 <ul class="simple">
 <li><p>peitetään jokin rivi ja jokin sarake</p></li>
 <li><p>lasketaan näkyviin jäävistä alkioista ristikkäisten alkioiden tulojen erotus</p></li>
 <li><p>kerrotaan kyseinen tulo peitetyn rivin ja sarakkeen risteyskohtaan jäävällä alkiolla</p></li>
-<li><p>tuloista muodostetaan summa siten, että merkki valitaan risteyskohtaan jäävän alkion perusteella merkkikaaviosta.</p></li>
+<li><p>tuloista muodostetaan summa siten, että merkki valitaan risteyskohtaan jäävän alkion perusteella merkkikaaviosta</p></li>
 </ul>
 <p>Merkkikaavio on <span class="math notranslate nohighlight">\(\hspace{2cm}\begin{matrix}+ &amp; - &amp; + \\ - &amp; + &amp; - \\ + &amp; - &amp; + \end{matrix}\)</span></p>
-<p>Determinantti voidaan kehittää minkä tahansa rivin tai sarakkeen suhteen. Voidaan siis liikkua mitä tahansa riviä tai saraketta pitkin. Determinantin arvo on sama riippumatta siitä, minkä rivin tai sarakkeen suhteen se lasketaan.</p>
-<p><strong>Esim.</strong> Kehitetään determinantti matriisille <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1&amp;4&amp;2\\0&amp;0&amp;2\\5&amp;1&amp;3\end{bmatrix}\)</span></p>
+<p>Determinantti voidaan kehittää minkä tahansa rivin suhteen. Voidaan siis pitää mikä tahansa rivi peitettynä ja liikkua sarakkeita pitkin. Determinantin arvo on sama riippumatta siitä, minkä rivin tai sarakkeen suhteen se lasketaan. Jos valitsee peitetyksi riviksi sellainen rivin, jossa on nollia, välttyy monelta laskutoimitukselta.</p>
+<p>Determinantti voidaan laskea myös niin, että peittääkin jonkin sarakkeen, ja sitten vuorollaan jokaisen rivin. Tällöin sanotaan, että determinantti kehitetään jonkin sarakkeen suhteen. Tällaisia laskuja ei käsitellä tässä materiaalissa.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Kehitetään determinantti matriisille <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1&amp;4&amp;2\\0&amp;0&amp;2\\5&amp;1&amp;3\end{bmatrix}\)</span></p>
 <p>a) ensimmäisen rivin suhteen, b) toisen rivin suhteen.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
@@ -438,8 +476,34 @@ title="Print to PDF"
 <p>b) <span class="math notranslate nohighlight">\(\text{det} ⁡A = -0\cdot (4\cdot 3-2\cdot 1)+0\cdot (1\cdot 3-2\cdot 5)-2\cdot (1\cdot 1-4\cdot 5) \)</span></p>
 <p><span class="math notranslate nohighlight">\(\text{det}⁡ A= -2\cdot (-19)=38\)</span></p>
 </div>
-<p>Yleisesti: Kun lasketaan determinanttia <span class="math notranslate nohighlight">\(n \times n\)</span> –tyyppiselle matriisille, saadaan ensin <span class="math notranslate nohighlight">\(n\)</span> kappaletta <span class="math notranslate nohighlight">\((n-1) \times (n-1)\)</span> –tyyppisiä alideterminantteja. Näistä jokaisesta saadaan edelleen <span class="math notranslate nohighlight">\(n-1\)</span> kappaletta <span class="math notranslate nohighlight">\((n-2) \times (n-2)\)</span> –tyypin alideterminantteja. Edelleen saadaan pienempiä alideterminantteja. Lopputulos saadaan, kun alideterminantit ovat kutistuneet kokoon <span class="math notranslate nohighlight">\(2 \times 2\)</span>. Laskemalla nämä yhteen kertoimet huomioituna saadaan lopulta koko <span class="math notranslate nohighlight">\(n \times n\)</span> –tyyppisen matriisin determinantti.</p>
-<p>Octavella minkä tahansa kokoisen neliömatriisin <span class="math notranslate nohighlight">\(A\)</span> determinantti lasketaan komennolla det(A).</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Huomautus vektorien ristitulosta</p>
+<p>Vektorien ristitulossa peittoon jäävät alkiot olivat kantavektoreita <span class="math notranslate nohighlight">\(\vec{i}\)</span>, <span class="math notranslate nohighlight">\(\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{k}\)</span>. Ristituloa ei kuitenkaan ole pakko laskea sillä tavalla, vaan peitettäväksi voi valita minkä tahansa muunkin rivin.</p>
+<p>Aiemmin laskettiin esimerkkinä vektorien <span class="math notranslate nohighlight">\(\vec{a}=\vec{i}+2\vec{j}\)</span> ja  <span class="math notranslate nohighlight">\(\vec{b}=2\vec{i}+\vec{j}+\vec{k}\)</span> ristitulo seuraavasti:</p>
+<p><span class="math notranslate nohighlight">\(\vec{a}\times\vec{b} =
+  \begin{vmatrix}
+    \vec{i} &amp; \vec{j} &amp; \vec{k} \\
+    1 &amp; 2 &amp; 0 \\
+    2 &amp; 1 &amp; 1 \\
+  \end{vmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(=(2\cdot 1-0\cdot 1) \vec{i}-(1\cdot 1-0\cdot 2) \vec{j} + (1\cdot 1-2 \cdot 2) \vec{k}\)</span></p>
+<p><span class="math notranslate nohighlight">\(= 2 \vec{i}-\vec{j}-3\vec{k}\)</span>.</p>
+<p>Ristitulon voi kuitenkin laskea myös siten, että peitetään keskimmäinen rivi ja suoritetaan sitten kerto- ja vähennyslaskut kuten matriisin determinanttia laskettaessa. Kertoimille pitää muistaa ottaa merkkikaaviosta oikea merkki. Keskimmäisellä rivillä viimeisenä alkiona on nolla, joten laskutoimituksia tarvitaan vähemmän:</p>
+<p><span class="math notranslate nohighlight">\(\vec{a}\times\vec{b} =
+  \begin{vmatrix}
+    \vec{i} &amp; \vec{j} &amp; \vec{k} \\
+    1 &amp; 2 &amp; 0 \\
+    2 &amp; 1 &amp; 1 \\
+  \end{vmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(=-1\cdot (1\cdot \vec{j}-1\cdot \vec{k}) + 2 \cdot (1\cdot \vec{i} -2\cdot \vec{k}) - 0 (1\cdot \vec{i}-2 \vec{j})\)</span></p>
+<p><span class="math notranslate nohighlight">\(= -1(\vec{j}-\vec{k})+2(\vec{i}-2\vec{k})\)</span></p>
+<p><span class="math notranslate nohighlight">\(= -\vec{j}+\vec{k}+2\vec{i}-4\vec{k}\)</span></p>
+<p><span class="math notranslate nohighlight">\(= 2 \vec{i} -\vec{j}-3\vec{k}\)</span>.</p>
+</div>
+<p><strong>3) Minkä tahansa kokoiselle voi laskea neliömatriisin tietokoneella.</strong></p>
+<p>Octavella minkä tahansa kokoisen neliömatriisin <span class="math notranslate nohighlight">\(A\)</span> determinantti lasketaan komennolla det(A). WolframAlphassa toimii komento determinant.</p>
+<p>Mielivaltaisen kokoisen neliömatriisin voi kyllä laskea käsinkin, jos on tarpeeksi aikaa ja paperia. Matriisin osaa, joka jää näkyviin, kun jokin rivi ja sarake on peitetty, sanotaan alideterminantiksi. Kun lasketaan determinanttia <span class="math notranslate nohighlight">\(n \times n\)</span> –tyyppiselle matriisille, saadaan ensin <span class="math notranslate nohighlight">\(n\)</span> kappaletta <span class="math notranslate nohighlight">\((n-1) \times (n-1)\)</span> –tyyppisiä alideterminantteja. Näistä jokaisesta saadaan edelleen <span class="math notranslate nohighlight">\(n-1\)</span> kappaletta <span class="math notranslate nohighlight">\((n-2) \times (n-2)\)</span> –tyypin alideterminantteja. Edelleen saadaan pienempiä alideterminantteja. Lopputulos saadaan, kun alideterminantit ovat kutistuneet kokoon <span class="math notranslate nohighlight">\(2 \times 2\)</span>. Laskemalla nämä yhteen kertoimet huomioituna saadaan lopulta koko <span class="math notranslate nohighlight">\(n \times n\)</span> –tyyppisen matriisin determinantti.</p>
 </section>
 </section>
 

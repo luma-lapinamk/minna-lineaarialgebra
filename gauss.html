@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ominaisarvot ja -vektorit" href="ominaisarvot.html" />
-    <link rel="prev" title="Yhtälöryhmät" href="yhtaloryhmat.html" />
+    <link rel="prev" title="Yhtälöryhmien erikoistapauksia" href="yhtaloryhmat_erikois.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -199,8 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="yhtaloryhmat.html">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -220,12 +230,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+   Taloustiedettä matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
-   Lisää sovelluksia
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -434,7 +449,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="gaussin-eliminaatio">
 <h1>Gaussin eliminaatio<a class="headerlink" href="#gaussin-eliminaatio" title="Permalink to this headline">#</a></h1>
-<p>Yhtälöryhmien ratkaisu ei aina onnistu kerroinmatriisin käänteismatriisia hyödyntämällä, sillä käänteismatriisiahan ei aina ole olemassa. Tässä luvussa perehdytään sellaisiin menetelmiin, jotka toimivat kaikille lineaarisille yhtälöryhmille. Käytännössä tehtäviä ei toki tarvitse välttämättä ratkoa kynällä ja paperilla suoritetuilla välivaiheilla, mutta luvussa esitetyt käsitteet ovat osa insinöörin matemaattista yleissivistystä.</p>
+<p>Tässä luvussa perehdytään Gaussin eliminaatiomenetelmään, joka toimii kaikille lineaarisille yhtälöryhmille. Käytännössä tehtäviä ei toki tarvitse välttämättä ratkoa kynällä ja paperilla suoritetuilla välivaiheilla, mutta luvussa esitetyt käsitteet ovat osa insinöörin matemaattista yleissivistystä. Menetelmää käsitellään lähinnä laajan matematiikan opintojaksoilla.</p>
 <p>Gaussin eliminaatiomenetelmässä lähtökohta on se, että yhtälöryhmä on kirjoitettu matriisimuotoon. Esimerkiksi yhtälöryhmää</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}x+3y+4z=5\\ 3x+2y+7z=3\\ 2x-y+z=-4\end{cases}\end{equation}\)</span></p>
 <p>vastaavan matriisiyhtälön <span class="math notranslate nohighlight">\(AX=B\)</span> kerroinmatriisi <span class="math notranslate nohighlight">\(A\)</span>, tuntemattomat sisältävä vektori <span class="math notranslate nohighlight">\(X\)</span> ja oikeat puolet sisältävä vektori <span class="math notranslate nohighlight">\(B\)</span> olisivat</p>
@@ -456,7 +471,9 @@ title="Print to PDF"
 <p>Matriisit, jotka saadaan samasta matriisista edellisten toimenpiteiden avulla, ovat <em>yhtäpitäviä</em>, ja tätä yhtäpitävyyttä merkitään aaltoviivalla ~.</p>
 <p>Esimerkiksi <span class="math notranslate nohighlight">\(\begin{bmatrix} 2 &amp; 7 \\ 4 &amp; 3\end{bmatrix} \sim \begin{bmatrix} 2 &amp; 7 \\ 0 &amp; -11\end{bmatrix}\)</span>,</p>
 <p>sillä jälkimmäisen matriisin 2. rivi on saatu kertomalla 1. rivi luvulla -2 ja lisäämällä tämä rivi alkuperäisen matriisin 2. riviin.</p>
-<p><strong>Esim.</strong> Muunna porrasmuotoon edellä esitetty täydennetty kerroinmatriisi <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 3 &amp; 4 &amp; 5\\ 3 &amp; 2 &amp; 7 &amp; 3\\ 2 &amp; -1 &amp; 1 &amp; -4\end{bmatrix}\)</span>.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Muunna porrasmuotoon edellä esitetty täydennetty kerroinmatriisi <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 3 &amp; 4 &amp; 5\\ 3 &amp; 2 &amp; 7 &amp; 3\\ 2 &amp; -1 &amp; 1 &amp; -4\end{bmatrix}\)</span>.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Matriisin ensimmäiselle riville ei tarvitse tehdä mitään. Toiselle riville pitäisi saada ensimmäiseksi alkioksi nolla. Tämä onnistuu esimerkiksi sillä tavalla, että kerrotaan matriisin 1. rivi luvulla -3 ja lisätään se sitten matriisin 2. riviin, ja korvataan matriisin 2. rivi tällä summalla:</p>
@@ -474,6 +491,7 @@ title="Print to PDF"
 <p>Alimmalle riville saadaan nolla toiseksikin alkioksi, kun 2. rivi kerrotaan luvulla -1 ja lasketaan yhteen 3. rivin kanssa. Uusi alin rivi on siis</p>
 <p><span class="math notranslate nohighlight">\(\begin{bmatrix}0+0 &amp; 7-7 &amp; 5-7 &amp; 12-14\end{bmatrix} = \begin{bmatrix} 0 &amp; 0 &amp; -2 &amp; -2\end{bmatrix}\)</span>.</p>
 <p>Porrasmuotoinen täydennetty kerroinmatriisi on siis <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 3 &amp; 4 &amp; 5\\ 0 &amp; -7 &amp; -5 &amp; -12\\ 0 &amp; 0 &amp; -2 &amp; -2\end{bmatrix}\)</span>.</p>
+</div>
 </div>
 </section>
 <section id="ratkaisu-porrasmuodosta">
@@ -493,12 +511,14 @@ title="Print to PDF"
 <p><strong>3) Äärettömästi ratkaisuja</strong>:</p>
 <p>Matriisin alimmalta riviltä muodostuu yhtälö, jolla on äärettömän monta ratkaisua, ja tällöin koko yhtälöryhmälläkin on äärettömän monta ratkaisua. Esimerkki porrasmuotoisesta täydennetystä kerroinmatriisista, josta seuraa tällainen tilanne, on</p>
 <p><span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 2 &amp; -3 &amp; 9 \\ 0 &amp; 1 &amp; 1 &amp; 4 \\ 0 &amp; 0 &amp; 0 &amp; 0\end{bmatrix}\)</span>.</p>
-<p>Alimmalta riviltä saadaan yhtälö <span class="math notranslate nohighlight">\(0z=0\)</span>. Tämän yhtälön toteuttavat kaikki luvut <span class="math notranslate nohighlight">\(z\)</span>. Yleensä tällaista vapaata muuttujaa merkitään parametrina <span class="math notranslate nohighlight">\(t\)</span>. Tämä voidaan nyt sijoittaa toiselta riviltä muodostuvaan yhtälöön: <span class="math notranslate nohighlight">\(y+t=4\)</span>, josta saadaan <span class="math notranslate nohighlight">\(y=4-t\)</span>. Edelleen ylimmältä riviltä saadaan <span class="math notranslate nohighlight">\(x+2t-3t=9\)</span> eli <span class="math notranslate nohighlight">\(x+2(4-t)-3t=9 \leftrightarrow x+8-2t-3t=9 \leftrightarrow x=1+5t\)</span>. Yhtälöryhmän jokainen ratkaisu vastaa tiettyä parametrin <span class="math notranslate nohighlight">\(t\)</span> arvoa.</p>
+<p>Alimmalta riviltä saadaan yhtälö <span class="math notranslate nohighlight">\(0z=0\)</span>. Tämän yhtälön toteuttavat kaikki luvut <span class="math notranslate nohighlight">\(z\)</span>. Yleensä tällaista vapaata muuttujaa merkitään parametrina <span class="math notranslate nohighlight">\(t\)</span>. Tämä voidaan nyt sijoittaa toiselta riviltä muodostuvaan yhtälöön: <span class="math notranslate nohighlight">\(y+t=4\)</span>, josta saadaan <span class="math notranslate nohighlight">\(y=4-t\)</span>. Edelleen ylimmältä riviltä saadaan <span class="math notranslate nohighlight">\(x+2t-3t=9\)</span> eli <span class="math notranslate nohighlight">\(x+2(4-t)-3t=9 \Leftrightarrow x+8-2t-3t=9 \Leftrightarrow x=1+5t\)</span>. Yhtälöryhmän jokainen ratkaisu vastaa tiettyä parametrin <span class="math notranslate nohighlight">\(t\)</span> arvoa.</p>
 </section>
 <section id="gauss-jordan-eliminaatio">
 <h2>Gauss-Jordan -eliminaatio<a class="headerlink" href="#gauss-jordan-eliminaatio" title="Permalink to this headline">#</a></h2>
 <p>Gaussin eliminaatiossa käytettäviä laskutoimenpiteitä voidaan jatkaa vielä eteenpäin, kunnes täydennetty kerroinmatriisi muuttuu niinsanottuun <em>pelkistettyyn porrasmuotoon</em>. Tällaisessa muodossa jokaisen rivin ensimmäinen nollasta poikkeava alkio eli <em>porrasalkio</em> on suuruudeltaan yksi, ja kaikissa paitsi viimeisessä sarakkeessa kaikki muut paitsi porrasalkio ovat nollia. Tällaisen muunnoksen jälkeen yhtälöryhmän ratkaisut ovat suoraan luettavissa muodostuneen matriisin riveiltä. Toimenpiteen nimi on Gauss-Jordan -eliminaatio.</p>
-<p><strong>Esim.</strong> Muunna pelkistettyyn porrasmuotoon yhtälöryhmän</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Muunna pelkistettyyn porrasmuotoon yhtälöryhmän</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}x+2y+z=4\\ 3x+8y+7z=20\\ 2x+7y+9z=23\end{cases}\end{equation}\)</span></p>
 <p>täydennetty kerroinmatriisi <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 2 &amp; 1 &amp; 4 \\ 3 &amp; 8 &amp; 7 &amp; 20 \\ 2 &amp; 7 &amp; 9 &amp; 23 \end{bmatrix}\)</span>,</p>
 <p>ja tulkitse muodostuneesta matriisista yhtälöryhmän ratkaisu.</p>
@@ -517,6 +537,7 @@ title="Print to PDF"
 <p>Pelkistettyä porrasmuotoa varten pitäisi vielä saada 2. ja 3. sarakkeen alkioita nollaksi. Jatketaan alkeismuunnoksia:</p>
 <p><span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 2 &amp; 1 &amp; 4 \\ 0 &amp; 1 &amp; 2 &amp; 4 \\0 &amp; 0 &amp; 1 &amp; 3 \end{bmatrix} \sim \begin{bmatrix}1 &amp; 0 &amp; -3 &amp; -4 \\ 0 &amp; 1 &amp; 2 &amp; 4 \\0 &amp; 0 &amp; 1 &amp; 3 \end{bmatrix} \sim \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 5 \\ 0 &amp; 1 &amp; 2 &amp; 4 \\0 &amp; 0 &amp; 1 &amp; 3 \end{bmatrix} \sim \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 5 \\ 0 &amp; 1 &amp; 0 &amp; -2 \\0 &amp; 0 &amp; 1 &amp; 3 \end{bmatrix}\)</span></p>
 <p>Matriisista voidaan nyt lukea tuntemattomien arvot: 1. riviltä saadaan <span class="math notranslate nohighlight">\(x=5\)</span>, 2. riviltä <span class="math notranslate nohighlight">\(y=-2\)</span> ja 3. riviltä <span class="math notranslate nohighlight">\(z=3\)</span>.</p>
+</div>
 </div>
 </section>
 </section>
@@ -548,11 +569,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="yhtaloryhmat.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="yhtaloryhmat_erikois.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Yhtälöryhmät</p>
+            <p class="prev-next-title">Yhtälöryhmien erikoistapauksia</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="ominaisarvot.html" title="next page">

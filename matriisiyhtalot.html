@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Yhtälöryhmät" href="yhtaloryhmat.html" />
+    <link rel="next" title="Kerrataan yhtälöryhmiä" href="yhtaloryhmat_kertaus.html" />
     <link rel="prev" title="Käänteismatriisi" href="kaanteismatriisi.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -199,8 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="yhtaloryhmat.html">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1">
@@ -220,12 +230,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+   Taloustiedettä matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
-   Lisää sovelluksia
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -414,37 +429,56 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="matriisiyhtalot">
 <h1>Matriisiyhtälöt<a class="headerlink" href="#matriisiyhtalot" title="Permalink to this headline">#</a></h1>
-<p>Yhtälössä voi tuntemattomana joskus olla kokonainen matriisi. Matriiseja voi vähentää tai lisätä puolittain, kuten tavallisen yhtälön ratkaisussa voidaan tehdä reaaliluvuilla. Matriisiyhtälön voi myös kertoa tai jakaa puolittain jollakin luvulla.</p>
-<p><strong>Esim.</strong> Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(X+\begin{bmatrix}3&amp;2\\1&amp;5\end{bmatrix}=\begin{bmatrix}10&amp;6\\2&amp;0\end{bmatrix}\)</span>.</p>
+<p>Yhtälössä voi tuntemattomana joskus olla kokonainen matriisi eikä vain yksittäinen matriisin alkio. Jos tuntematon matriisi on yhtälössä kerrottu jollakin luvulla, tai jos siihen on lisätty tai siitä on vähennetty jokin tunnettu matriisi, yhtälö ratkeaa samoilla toimenpiteillä kuin tavalliset ensimmäisen asteen yhtälöt. Yhtälöön voi siis lisätä tai siitä voi vähentää puolittain jonkin matriisin, kuten tavallisen yhtälön ratkaisussa voidaan tehdä reaaliluvuilla. Matriisiyhtälön voi myös kertoa puolittain jollakin luvulla.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(X+\begin{bmatrix}3&amp;2\\1&amp;5\end{bmatrix}=\begin{bmatrix}10&amp;6\\2&amp;0\end{bmatrix}\)</span>.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Vähennetään yhtälön molemmilta puolilta <span class="math notranslate nohighlight">\(\begin{bmatrix}3&amp;2\\1&amp;5\end{bmatrix}\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(X=\begin{bmatrix}10&amp;6\\2&amp;0\end{bmatrix}-\begin{bmatrix}3&amp;2\\1&amp;5\end{bmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(X=\begin{bmatrix} 10-3&amp;6-2\\2-1&amp;0-5\end{bmatrix} = \begin{bmatrix}7&amp;4\\1&amp;-5\end{bmatrix}\)</span></p>
 </div>
-<p><strong>Esim.</strong> Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(3X=\begin{bmatrix}9&amp;24\\-3&amp;27\end{bmatrix}\)</span>.</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(3X=\begin{bmatrix}9&amp;24\\-3&amp;27\end{bmatrix}\)</span>.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p>Jaetaan puolittain luvulla 3, eli kerrotaan luvulla <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span>:</p>
+<p>Jaetaan yhtälön molemmat puolet luvulla 3, eli kerrotaan luvulla <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(X=\frac{1}{3} \begin{bmatrix}9&amp;24\\-3&amp;27\end{bmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(X=\begin{bmatrix}\frac{9}{3}&amp;\frac{24}{3} \\ -\frac{3}{3}&amp;\frac{27}{3}\end{bmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(X=\begin{bmatrix}3&amp;8\\-1&amp;9\end{bmatrix}\)</span></p>
 </div>
+</div>
 <section id="kaanteismatriisien-hyodyntaminen">
 <h2>Käänteismatriisien hyödyntäminen<a class="headerlink" href="#kaanteismatriisien-hyodyntaminen" title="Permalink to this headline">#</a></h2>
-<p>Jos tuntematon matriisi esiintyy yhtälössä kahden (tai useamman) matriisin tulossa, hyödynnetään käänteismatriiseja ja niiden ominaisuutta: <span class="math notranslate nohighlight">\(A^{-1}A=I, AA^{-1}I\)</span>. Matriisien jakolaskua ei ole määritelty, vaan sitä vastaa käänteismatriisilla kertominen.</p>
-<ul class="simple">
-<li><p>Tapaus 1: Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(AX=B\)</span>, missä <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> ovat tunnettuja matriiseja.</p></li>
-</ul>
-<p>Yhtälöä ei voi jakaa puolittain matriisilla <span class="math notranslate nohighlight">\(A\)</span>. Kerrotaan puolittain vasemmalta <span class="math notranslate nohighlight">\(A\)</span>:n käänteismatriisilla: <span class="math notranslate nohighlight">\(A^{-1}AX=A^{-1}B\)</span>. Yhtälö sievenee muotoon <span class="math notranslate nohighlight">\(IX=A^{-1}B\)</span> ja edelleen <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.</p>
-<ul class="simple">
-<li><p>Tapaus 2: Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(XA=B\)</span>, missä <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> ovat tunnettuja matriiseja.</p></li>
-</ul>
-<p>Yhtälö on nyt kerrottava puolittain oikealta <span class="math notranslate nohighlight">\(A\)</span>:n käänteismatriisilla: <span class="math notranslate nohighlight">\(XAA^{-1}=BA^{-1}\)</span>, joka sievenee muotoon <span class="math notranslate nohighlight">\(XI=BA^{-1}\)</span> ja edelleen <span class="math notranslate nohighlight">\(X=BA^{-1}\)</span>.</p>
-<ul class="simple">
-<li><p>Tapaus 3: Tuntematon matriisi <span class="math notranslate nohighlight">\(X\)</span> on yhtälössä tunnettujen matriisien <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> välissä. Tällöin voidaan yhtälöä kertoa tarpeen mukaan vasemmalta tai oikealta sopivilla käänteismatriiseilla <span class="math notranslate nohighlight">\(A^{-1}\)</span> ja <span class="math notranslate nohighlight">\(B^{-1}\)</span>.</p></li>
-</ul>
-<p><strong>Esim.</strong> Ratkaise <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(AXB=C\)</span>, jossa <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1&amp;2\\2&amp;2\end{bmatrix}, B=\begin{bmatrix}0&amp;1\\2&amp;3\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(C=\begin{bmatrix}10&amp;1\\100&amp;2\end{bmatrix}\)</span>.</p>
+<p>Jos tuntematon matriisi esiintyy yhtälössä kahden (tai useamman) matriisin tulossa, hyödynnetään käänteismatriiseja ja niiden ominaisuutta: <span class="math notranslate nohighlight">\(A^{-1}A=I, AA^{-1}I\)</span>. Matriisien jakolaskua ei ole määritelty, vaan sitä vastaa käänteismatriisilla kertominen. Se, miten käänteismatriisilla kertominen pitää suorittaa, riippuu siitä, millaisessa matriisitulossa tuntematon matriisi esiintyy.</p>
+<div class="tip admonition">
+<p class="admonition-title">Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(AX=B\)</span>, missä <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> ovat tunnettuja matriiseja.</p>
+<p>Kerrotaan puolittain vasemmalta <span class="math notranslate nohighlight">\(A\)</span>:n käänteismatriisilla: <span class="math notranslate nohighlight">\(A^{-1}AX=A^{-1}B\)</span>.</p>
+<p>Yhtälö sievenee muotoon <span class="math notranslate nohighlight">\(IX=A^{-1}B\)</span> ja edelleen <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span>.</p>
+<p>Octave-komento: X=inv(A)*B</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(XA=B\)</span>, missä <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> ovat tunnettuja matriiseja.</p>
+<p>Kerrotaan yhtälön puolittain oikealta <span class="math notranslate nohighlight">\(A\)</span>:n käänteismatriisilla: <span class="math notranslate nohighlight">\(XAA^{-1}=BA^{-1}\)</span>, joka sievenee muotoon <span class="math notranslate nohighlight">\(XI=BA^{-1}\)</span> ja edelleen <span class="math notranslate nohighlight">\(X=BA^{-1}\)</span>. Kertolasku pitää suorittaa molemmilla puolilla yhtälöä samalla tavalla: käänteismatriisi <span class="math notranslate nohighlight">\(B^{-1}\)</span> tulee kertolaskuun viimeiseksi!</p>
+<p>Octave-komento: X=B*inv(A)</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ratkaise matriisi <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(AXB=C\)</span>, missä <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> ja <span class="math notranslate nohighlight">\(C\)</span> ovat tunnettuja matriiseja.</p>
+<p>Yhtälön molemmat puolet pitää kertoa vasemmalta käänteismatriisilla <span class="math notranslate nohighlight">\(A^{-1}\)</span> ja oikealta käänteismatriisilla <span class="math notranslate nohighlight">\(B^{-1}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(A^{-1}AXBB^{-1}=A^{-1}CB^{-1}\)</span></p>
+<p>Käänteismatriisien ja vastaavien matriisien tulojen paikalle tulee yksikkömatriisi:</p>
+<p><span class="math notranslate nohighlight">\(IXI=A^{-1}CB^{-1}\)</span></p>
+<p>Yksikkömatriisin laskusääntöjen mukaan <span class="math notranslate nohighlight">\(IX=X\)</span> ja <span class="math notranslate nohighlight">\(XI=X\)</span>, joten ratkaisu on</p>
+<p><span class="math notranslate nohighlight">\(X=A^{-1}CB^{-1}\)</span></p>
+<p>Octave-komento: X=inv(A)*C*inv(B)</p>
+</div>
+<p>Näitä laskusääntöjä voi yhdistää matriisien yhteen- ja vähennyslaskuun sekä reaaliluvuilla kertomiseen seuraavien esimerkkien mukaisesti.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Ratkaise <span class="math notranslate nohighlight">\(X\)</span> yhtälöstä <span class="math notranslate nohighlight">\(AXB=C\)</span>, jossa <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1&amp;2\\2&amp;2\end{bmatrix}, B=\begin{bmatrix}0&amp;1\\2&amp;3\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(C=\begin{bmatrix}10&amp;1\\100&amp;2\end{bmatrix}\)</span>.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Yhtälö <span class="math notranslate nohighlight">\(AXB=C\)</span> on ensin kerrottava puolittain vasemmalta <span class="math notranslate nohighlight">\(A\)</span>:n käänteismatriisilla, siis: <span class="math notranslate nohighlight">\(A^{-1}AXB=A^{-1}C\)</span>.</p>
@@ -461,13 +495,10 @@ title="Print to PDF"
 <p><span class="math notranslate nohighlight">\(X = \begin{bmatrix}-1\cdot (-14)+1\cdot (-148)&amp;-1\cdot 5+1\cdot 50\\ 1\cdot (-14)+(-\frac{1}{2}\cdot (-148)&amp;1\cdot 5-\frac{1}{2}\cdot 50\end{bmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(X=\begin{bmatrix}-134&amp;45\\60&amp;-20\end{bmatrix}\)</span></p>
 </div>
-<p>Tietokoneella (Octave) yhtälöt ratkaistaisiin seuraavanlaisilla komennoilla:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(AX=B \rightarrow\)</span> komento X=inv(A)*B</p></li>
-<li><p><span class="math notranslate nohighlight">\(XA=B \rightarrow\)</span> komento X=B*inv(A)</p></li>
-<li><p><span class="math notranslate nohighlight">\(AXB=C \rightarrow\)</span> komento X=inv(A)*C*inv(B)</p></li>
-</ul>
-<p><strong>Esim.</strong> Ratkaise edellisen esimerkin matriisiyhtälö Octavella.</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Ratkaise edellisen esimerkin matriisiyhtälö Octavella.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Määritellään matriisi <span class="math notranslate nohighlight">\(A\)</span> komennolla: A=[1 2;2 2]</p>
@@ -477,9 +508,47 @@ title="Print to PDF"
 <p>Lasketaan tulos ja tallennetaan se nimellä <span class="math notranslate nohighlight">\(X\)</span> komennolla: X=inv(A)*C*inv(B)</p>
 <p><img alt="Matriisiyhtälö Octavella" src="_images/octave_yhtalo.png" /></p>
 </div>
-<p><strong>Esim.</strong> Eräs tapa koodata viesti salattuun muotoon on määritellä jokaista kirjainta vastaava luku sekä tietty salausmatriisi. Salausmatriisin on oltava säännöllinen neliömatriisi, ja siinä on oltava alkioita vähintään yhtä monta kuin salattavassa viestissä. Tutustu salauksen periaatteeseen esimerkin avulla.</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Ratkaise yhtälö <span class="math notranslate nohighlight">\(4X+\begin{bmatrix}10 &amp; 2 \\ 0 &amp; 7\end{bmatrix}=\begin{bmatrix}20 &amp; 30 \\ 35 &amp; 25 \end{bmatrix}\)</span>.</p>
 <div class="tip dropdown admonition">
-<p class="admonition-title">Viestin salaus</p>
+<p class="admonition-title">Ratkaisu</p>
+<p>Vähennetään aluksi yhtälön molemmilta puolilta matriisi <span class="math notranslate nohighlight">\(\begin{bmatrix}10 &amp; 2 \\ 0 &amp; 7\end{bmatrix}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(4X=\begin{bmatrix}20 &amp; 30 \\ 35 &amp; 25 \end{bmatrix}-\begin{bmatrix}10 &amp; 2 \\ 0 &amp; 7\end{bmatrix}\)</span></p>
+<p>Sievennetään oikea puoli:</p>
+<p><span class="math notranslate nohighlight">\(4X=\begin{bmatrix}10 &amp; 28 \\ 35 &amp; 18 \end{bmatrix}\)</span></p>
+<p>Kerrotaan molemmat puolet luvulla <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(X=\frac{1}{4}\begin{bmatrix}10 &amp; 28 \\ 35 &amp; 18 \end{bmatrix}\)</span></p>
+<p>Suoritetaan kertolaskut alkioittain:</p>
+<p><span class="math notranslate nohighlight">\(X=\begin{bmatrix}\frac{10}{4} &amp; \frac{28}{4} \\ \frac{35}{4} &amp; \frac{18}{4} \end{bmatrix}\)</span></p>
+<p>Lopputulos voidaan vielä sieventää:</p>
+<p><span class="math notranslate nohighlight">\(X=\begin{bmatrix}\frac{5}{2} &amp; 7 \\ \frac{35}{4} &amp; \frac{9}{2} \end{bmatrix}\)</span></p>
+<p>Jos yhtälö ratkaistaan Octavella, niin ensimmäistä vähennyslaskua ei tarvitse laskea välivaiheena. Sekä vähennyslaskun että neljäsosalla kertomisen voi kirjoittaa suoraan komentoon: X=1/4*([20 30; 35 25]-[10 2; 0 7])</p>
+<p>Toinen vaihtoehto on määritellä ensin laskussa esiintyvät matriisit, esimerkiksi A=[20 30; 35 25] ja B=[10 2; 0 7], ja sitten kirjoittaa komento muodossa X=1/4*(A-B).</p>
+</div>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Ratkaise yhtälö <span class="math notranslate nohighlight">\(X\begin{bmatrix}1 &amp; 2 \\ 3 &amp; 4\end{bmatrix}+\begin{bmatrix}1 &amp; 0 \\ 2 &amp; 1\end{bmatrix}=\begin{bmatrix}20 &amp; 30 \\ 35 &amp; 25 \end{bmatrix}\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Vähennetään ensin matriisi <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 0 \\ 2 &amp; 1\end{bmatrix}\)</span> yhtälön molemmilta puolilta:</p>
+<p><span class="math notranslate nohighlight">\(X\begin{bmatrix}1 &amp; 2 \\ 3 &amp; 4\end{bmatrix}=\begin{bmatrix}20 &amp; 30 \\ 35 &amp; 25 \end{bmatrix}-\begin{bmatrix}1 &amp; 0 \\ 2 &amp; 1\end{bmatrix}\)</span></p>
+<p>Sievennetään oikea puoli:</p>
+<p><span class="math notranslate nohighlight">\(X\begin{bmatrix}1 &amp; 2 \\ 3 &amp; 4\end{bmatrix}=\begin{bmatrix}19 &amp; 30 \\ 33 &amp; 24 \end{bmatrix}\)</span></p>
+<p>Kerrotaan molemmat puolet matriisin <span class="math notranslate nohighlight">\(\begin{bmatrix}1 &amp; 2 \\ 3 &amp; 4\end{bmatrix}\)</span> käänteismatriisilla siten, että käänteismatriisi jää kertolaskuun viimeiseksi. Yhtälön vasemmalla puolella matriisin ja käänteismatriisin tulo tuottaa yksikkömatriisin, ja koska <span class="math notranslate nohighlight">\(XI=X\)</span>, ratkaisuksi saadaan</p>
+<p><span class="math notranslate nohighlight">\(X=\begin{bmatrix}19 &amp; 30 \\ 33 &amp; 24 \end{bmatrix}\begin{bmatrix}1 &amp; 2 \\ 3 &amp; 4\end{bmatrix}^{-1}\)</span></p>
+<p>Käänteismatriisi on <span class="math notranslate nohighlight">\(-\frac{1}{2}\begin{bmatrix}4 &amp; -2 \\-3 &amp; 1\end{bmatrix}=\begin{bmatrix}-2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2}\end{bmatrix}\)</span>, joten vastaukseksi tulee</p>
+<p><span class="math notranslate nohighlight">\(X=\begin{bmatrix}19 &amp; 30 \\ 33 &amp; 24 \end{bmatrix}\begin{bmatrix}-2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2}\end{bmatrix}=\begin{bmatrix}7 &amp; 4 \\ -30 &amp; 21\end{bmatrix}\)</span></p>
+<p>Octavella yhtälö ratkeaisi komennolla X=([20 30; 35 25]-[1 0; 2 1])*inv([1 2; 3 4]).</p>
+</div>
+</div>
+<div class="admonition-salausmatriisit admonition">
+<p class="admonition-title">Salausmatriisit</p>
+<p>Viestien salaus on eräs esimerkki matriisiyhtälöjen ja käänteismatriisien hyödyntämisestä. Eräs tapa koodata viestejä salattuun muotoon on määritellä jokaista kirjainta vastaava luku sekä tietty salausmatriisi. Salausmatriisin on oltava säännöllinen neliömatriisi, ja siinä on oltava alkioita vähintään yhtä monta kuin salattavassa viestissä. Tutustu salauksen periaatteeseen esimerkin avulla.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Esimerkki</p>
 <p>Olkoon kirjainten ja lukujen vastaavuus seuraava:</p>
 <p><img alt="Kirjainten ja lukujen vastaavuus" src="_images/kirjaintaulukko.png" /></p>
 <p>Valitaan salausmatriisiksi <span class="math notranslate nohighlight">\(C=\begin{bmatrix}1&amp;2&amp;0\\2&amp;3&amp;1\\3&amp;0&amp;2\end{bmatrix}\)</span>.</p>
@@ -492,10 +561,11 @@ title="Print to PDF"
 <p>Tämä matriisi on nyt salattu viesti, joka voidaan lähettää eteenpäin.</p>
 <p>Vastaanottajalla on oltava hallussaan kirjainten ja numeroiden vastaavuustaulukko ja salausmatriisi <span class="math notranslate nohighlight">\(C\)</span>. Salausmatriisi, numeromuotoinen viesti ja salattu viesti muodostavat siis yhtälön <span class="math notranslate nohighlight">\(CA=S\)</span>, josta vastaanottaja tuntee matriisit <span class="math notranslate nohighlight">\(C\)</span> ja <span class="math notranslate nohighlight">\(S\)</span> ja haluaa ratkaista <span class="math notranslate nohighlight">\(A\)</span>:n.</p>
 <p>Koska käänteismatriisilla on ominaisuus <span class="math notranslate nohighlight">\(C^{-1}C=I\)</span>, niin matriisi <span class="math notranslate nohighlight">\(A\)</span> saadaan ratkaistua matriisista <span class="math notranslate nohighlight">\(CA\)</span> eli <span class="math notranslate nohighlight">\(S\)</span> kertomalla se vasemmalta salausmatriisin <span class="math notranslate nohighlight">\(C\)</span> käänteismatriisilla:</p>
-<p><span class="math notranslate nohighlight">\(C^{-1}CA=C^{-1}S \leftrightarrow IA=C^{-1}S \leftrightarrow A=C^{-1}S\)</span></p>
+<p><span class="math notranslate nohighlight">\(C^{-1}CA=C^{-1}S \Leftrightarrow IA=C^{-1}S \Leftrightarrow A=C^{-1}S\)</span></p>
 <p>Siis alkuperäinen viesti saadaan numeromuodossa laskemalla</p>
 <p><span class="math notranslate nohighlight">\(\begin{bmatrix}1.5&amp;-1&amp;0.5\\-0.25&amp;0.5&amp;-0.25\\-2.25&amp;1.5&amp;0.25\end{bmatrix}\begin{bmatrix}22&amp;32&amp;26\\37&amp;53&amp;70\\20&amp;14&amp;90\end{bmatrix} =\begin{bmatrix}6&amp;2&amp;14\\8&amp;15&amp;6\\1&amp;4&amp;24\end{bmatrix}\)</span></p>
 <p>ja voidaan edelleen muuntaa kirjainmuotoon taulukon avulla.</p>
+</div>
 </div>
 </section>
 </section>
@@ -534,10 +604,10 @@ title="Print to PDF"
             <p class="prev-next-title">Käänteismatriisi</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="yhtaloryhmat.html" title="next page">
+    <a class='right-next' id="next-link" href="yhtaloryhmat_kertaus.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Yhtälöryhmät</p>
+        <p class="prev-next-title">Kerrataan yhtälöryhmiä</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -199,8 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="yhtaloryhmat.html">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1">
@@ -220,12 +230,17 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="leontief.html">
-   Leontiefin panos-tuotos-malli
+   Taloustiedettä matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
-   Lisää sovelluksia
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -424,25 +439,50 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="kaanteismatriisi">
 <h1>Käänteismatriisi<a class="headerlink" href="#kaanteismatriisi" title="Permalink to this headline">#</a></h1>
-<p>Matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisi on sellainen matriisi <span class="math notranslate nohighlight">\(A^{-1}\)</span>, jolle pätee <span class="math notranslate nohighlight">\(AA^{-1}=I\)</span> ja <span class="math notranslate nohighlight">\(A^{-1}A=I\)</span>. Juuri tästä ominaisuudesta johtuen käänteismatriisit ovat tärkeitä työkaluja yhtälöryhmien ratkaisussa. Ominaisuus pätee myös toiseen suuntaan: jos matriisin <span class="math notranslate nohighlight">\(B\)</span> kertolasku matriisin <span class="math notranslate nohighlight">\(A\)</span> kanssa kummalta tahansa puolelta tuottaa tulokseksi yksikkömatriisin, niin matriisi <span class="math notranslate nohighlight">\(B\)</span> on matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisi ja voidaan merkitä <span class="math notranslate nohighlight">\(B=A^{-1}\)</span>.</p>
-<p><strong>Esim.</strong> Matriisi <span class="math notranslate nohighlight">\(B=\begin{bmatrix}2 &amp; -5 \\ -1 &amp; 3\end{bmatrix}\)</span> on matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3 &amp; 5 \\ 1 &amp; 2\end{bmatrix}\)</span> käänteismatriisi, sillä</p>
-<p><span class="math notranslate nohighlight">\(AB=\begin{bmatrix}3 &amp; 5 \\ 1 &amp; 2\end{bmatrix}\cdot\begin{bmatrix}2 &amp; -5 \\ -1 &amp; 3\end{bmatrix} = \begin{bmatrix}3\cdot 2 + 5\cdot (-1) &amp; 3\cdot (-5)+5\cdot 3 \\ 1\cdot 2 + 2\cdot (-1) &amp; 1\cdot (-5) + 2\cdot 3\end{bmatrix}=\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}\)</span>.</p>
+<p>Joillakin matriiseilla on olemassa niinsanottu käänteismatriisi. Matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisia merkitään yläindeksillä <span class="math notranslate nohighlight">\(A^{-1}\)</span>. Reaaliluvuilla sama merkintä tarkoittaa käänteislukua, mutta matriiseilla kyse ei kuitenkaan ole samanlaisesta laskutoimituksesta. Tässä kappaleessa opetellaan laskemaan pieniä käänteismatriiseja, ja myöhemmin niitä hyödynnetään yhtälöiden ratkaisussa.</p>
+<p>Matriisille ja sen käänteismatriisille pätevät säännöt <span class="math notranslate nohighlight">\(AA^{-1}=I\)</span> ja <span class="math notranslate nohighlight">\(A^{-1}A=I\)</span>. Ominaisuus pätee myös toiseen suuntaan: jos matriisin <span class="math notranslate nohighlight">\(B\)</span> kertolasku matriisin <span class="math notranslate nohighlight">\(A\)</span> kanssa kummalta tahansa puolelta tuottaa tulokseksi yksikkömatriisin, niin matriisi <span class="math notranslate nohighlight">\(B\)</span> on matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisi ja voidaan merkitä <span class="math notranslate nohighlight">\(B=A^{-1}\)</span>. Tämä matriisien ominaisuus on hyödyllinen yhtälöjen ja yhtälöryhmien ratkaisussa.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Osoita, että matriisi <span class="math notranslate nohighlight">\(B=\begin{bmatrix}2 &amp; -5 \\ -1 &amp; 3\end{bmatrix}\)</span> on matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3 &amp; 5 \\ 1 &amp; 2\end{bmatrix}\)</span> käänteismatriisi.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Lasketaan tulo <span class="math notranslate nohighlight">\(AB\)</span> ja todetaan, että tuloksena on yksikkömatriisi:</p>
+<p><span class="math notranslate nohighlight">\(AB=\begin{bmatrix}3 &amp; 5 \\ 1 &amp; 2\end{bmatrix}\begin{bmatrix}2 &amp; -5 \\ -1 &amp; 3\end{bmatrix} = \begin{bmatrix}3\cdot 2 + 5\cdot (-1) &amp; 3\cdot (-5)+5\cdot 3 \\ 1\cdot 2 + 2\cdot (-1) &amp; 1\cdot (-5) + 2\cdot 3\end{bmatrix}=\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}\)</span>.</p>
+<p>Harjoitustehtävänä voit laskea myös tulon <span class="math notranslate nohighlight">\(BA\)</span> ja todeta, että siitäkin tulee yksikkömatriisi, kuten pitääkin.</p>
+</div>
+</div>
 <section id="onko-matriisilla-kaanteismatriisia">
 <h2>Onko matriisilla käänteismatriisia?<a class="headerlink" href="#onko-matriisilla-kaanteismatriisia" title="Permalink to this headline">#</a></h2>
 <p>Kaikilla matriiseilla ei ole olemassa käänteismatriisia. Jotta käänteismatriisi voitaisiin laskea, matriisin <span class="math notranslate nohighlight">\(A\)</span> on oltava neliömatriisi. Käänteismatriisin olemassaololle on olemassa myös seuraava ehto:</p>
-<p>Käänteismatriisi on olemassa jos ja vain jos <span class="math notranslate nohighlight">\(\text{det}⁡A \neq 0\)</span>. Ilmaisu ”jos ja vain jos” tarkoittaa sitä, että syy ja seuraus pätevät molempiin suuntiin:</p>
+<p>Käänteismatriisi on olemassa jos ja vain jos <span class="math notranslate nohighlight">\(\det{⁡A} \neq 0\)</span>. Ilmaisu “jos ja vain jos” tarkoittaa sitä, että syy ja seuraus pätevät molempiin suuntiin:</p>
 <ul class="simple">
-<li><p>jos käänteismatriisi on olemassa, niin <span class="math notranslate nohighlight">\(\text{det} A \neq 0\)</span>,</p></li>
-<li><p>jos <span class="math notranslate nohighlight">\(\text{det}⁡ A \neq 0\)</span>, niin käänteismatriisi on olemassa.</p></li>
+<li><p>jos käänteismatriisi on olemassa, niin <span class="math notranslate nohighlight">\(\det{A} \neq 0\)</span>,</p></li>
+<li><p>jos <span class="math notranslate nohighlight">\(\det{A} \neq 0\)</span>, niin käänteismatriisi on olemassa.</p></li>
 </ul>
+<div class="tip dropdown admonition">
+<p class="admonition-title">“Jos ja vain jos”</p>
+<p>Matematiikassa ilmaisu “jos ja vain jos” toistuu muuallakin. Eräs esimerkki tästä on tulon nollasääntö: jos yksikin kertolaskun tekijöistä on nolla, niin laskun tuloskin on nolla, ja toisin päin.</p>
+<p>Kaikkiin laskusääntöihin syy ja seuraus eivät kuitenkaan päde molempiin suuntiin. Jos ilmauksen merkitystä on hankala sisäistää, voit ajatella ilmaisun molemmille puolille jotakin tutumpaa, esimerkiksi “menen nukkumaan, jos ja vain jos minua väsyttää”. Onkohan tämä totta, ja jos ei, niin millaisissa tilanteissa ei?</p>
+</div>
 <p>Jos neliömatriisilla on käänteismatriisi, niin matriisia sanotaan säännölliseksi. Jos neliömatriisilla ei ole käänteismatriisia, niin matriisia sanotaan singulaariseksi.</p>
-<p><strong>Esim.</strong> Matriisin <span class="math notranslate nohighlight">\(B=\begin{bmatrix}3 &amp; 1 \\ 6 &amp; 2 \end{bmatrix}\)</span> determinantti on <span class="math notranslate nohighlight">\(\text{det} B = 3\cdot 2 - 1\cdot 6 = 0\)</span>, joten matriisilla <span class="math notranslate nohighlight">\(B\)</span> ei ole käänteismatriisia. Matriisi <span class="math notranslate nohighlight">\(B\)</span> on singulaarinen.</p>
+<p>Esimerkiksi matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3 &amp; 1 \\ 6 &amp; 2 \end{bmatrix}\)</span> determinantti on <span class="math notranslate nohighlight">\(\det{A} = 3\cdot 2 - 1\cdot 6 = 0\)</span>, joten matriisilla <span class="math notranslate nohighlight">\(A\)</span> ei ole käänteismatriisia. Matriisi <span class="math notranslate nohighlight">\(A\)</span> on singulaarinen.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Millä ehdolla matriisilla <span class="math notranslate nohighlight">\(B=\begin{bmatrix}x &amp; 3 \\ x+1 &amp; 5\end{bmatrix}\)</span> on olemassa käänteismatriisi?</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Lasketaan matriisin <span class="math notranslate nohighlight">\(B\)</span> determinantti ja selvitetään, millä luvun <span class="math notranslate nohighlight">\(x\)</span> arvolla se ei ole nolla.</p>
+<p><span class="math notranslate nohighlight">\(\det{B}=x\cdot 5 -3\cdot (x+1) = 5x-3x-3=2x-3\)</span></p>
+<p><span class="math notranslate nohighlight">\(2x-3 \neq 0 \Leftrightarrow 2x \neq 3 \Leftrightarrow x \neq \frac{3}{2}\)</span></p>
+<p>Luku <span class="math notranslate nohighlight">\(x\)</span> voi siis olla mikä tahansa paitsi <span class="math notranslate nohighlight">\(\frac{3}{2}\)</span>. Jos <span class="math notranslate nohighlight">\(x=\frac{3}{2}\)</span>, niin matriisi <span class="math notranslate nohighlight">\(B\)</span> on singulaarinen.</p>
+</div>
+</div>
 </section>
 <section id="kaanteismatriisin-laskeminen">
 <h2>Käänteismatriisin laskeminen<a class="headerlink" href="#kaanteismatriisin-laskeminen" title="Permalink to this headline">#</a></h2>
 <p>Matriiseille, joiden tyyppi on <span class="math notranslate nohighlight">\(2 \times 2\)</span> ja joiden determinantti on erisuuri kuin nolla, voidaan laskea käänteismatriisi suoraviivaisesti. Merkitään nämä ehdot täyttävän matriisin <span class="math notranslate nohighlight">\(A\)</span> alkioita seuraavasti:</p>
-<p><span class="math notranslate nohighlight">\(A=\begin{bmatrix}a&amp;b\\c&amp;d \end{bmatrix}\)</span>.</p>
-<p>Tällöin käänteismatriisi on <span class="math notranslate nohighlight">\(A^{-1}=\frac{1}{ad-bd} \begin{bmatrix} d &amp; -b \\ -c &amp; a\end{bmatrix}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(A=\begin{bmatrix}a&amp;b\\c&amp;d \end{bmatrix}\)</span></p>
+<p>Tällöin käänteismatriisi on <span class="math notranslate nohighlight">\(A^{-1}=\frac{1}{\det{A}} \begin{bmatrix} d &amp; -b \\ -c &amp; a\end{bmatrix}\)</span> eli <span class="math notranslate nohighlight">\(A^{-1}=\frac{1}{ad-bd} \begin{bmatrix} d &amp; -b \\ -c &amp; a\end{bmatrix}\)</span></p>
 <p>Käänteismatriisissa siis vasemman yläkulman ja oikean alakulman alkiot vaihdetaan keskenään, ja loppujen etumerkki vaihtuu. Lisäksi käänteismatriisin alkiot jaetaan matriisin determinantilla.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Perustelu</p>
@@ -450,13 +490,16 @@ title="Print to PDF"
 <p><span class="math notranslate nohighlight">\(AA^{-1}=\frac{1}{ad-bc} \begin{bmatrix}a&amp;b\\c&amp;d\end{bmatrix} \begin{bmatrix}d&amp;-b\\-c&amp;a\end{bmatrix}=\frac{1}{ad-bc} \begin{bmatrix}ad-bc&amp;-ab+ab\\cd-cd&amp;-bc+ad\end{bmatrix}=\begin{bmatrix}1&amp;0\\0&amp;1\end{bmatrix}\)</span>.</p>
 <p>Myös kertolasku <span class="math notranslate nohighlight">\(A^{-1}A\)</span> tuottaa yksikkömatriisin.</p>
 </div>
-<p><strong>Esim.</strong> Määritä käänteismatriisi matriisille <span class="math notranslate nohighlight">\(B=\begin{bmatrix}3&amp;10\\1&amp;5\end{bmatrix}\)</span>, jos sellainen on olemassa.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Määritä käänteismatriisi matriisille <span class="math notranslate nohighlight">\(B=\begin{bmatrix}3&amp;10\\1&amp;5\end{bmatrix}\)</span>, jos sellainen on olemassa.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Matriisin <span class="math notranslate nohighlight">\(B\)</span> determinantti on <span class="math notranslate nohighlight">\(3\cdot 5-10\cdot 1=5 \neq 0\)</span>, joten käänteismatriisi on olemassa.</p>
 <p>Käänteismatriisi on <span class="math notranslate nohighlight">\(B^{-1}=\frac{1}{3\cdot 5-10\cdot 1} \begin{bmatrix} 5&amp;-10 \\ -1&amp;3 \end{bmatrix} = \frac{1}{5}\cdot  \begin{bmatrix} 5&amp;-10 \\ -1&amp; 3 \end{bmatrix} = \begin{bmatrix}1&amp;-2\\-\frac{1}{5} &amp; \frac{3}{5} \end{bmatrix}\)</span>.</p>
 </div>
-<p>Muille kuin <span class="math notranslate nohighlight">\(2 \times 2\)</span> –tyypin matriiseille käänteismatriisi on laskettava tietokoneella tai ns. vaakarivien alkeismuunnosten avulla. Menetelmä toki toimii myös <span class="math notranslate nohighlight">\(2\times 2\)</span> -tyypin matriiseille. Alkeismuunnoksia ovat</p>
+</div>
+<p>Muille kuin <span class="math notranslate nohighlight">\(2 \times 2\)</span> –tyypin matriiseille käänteismatriisi on laskettava tietokoneella tai niinsanottujen vaakarivien alkeismuunnosten avulla. Menetelmä toki toimii myös <span class="math notranslate nohighlight">\(2\times 2\)</span> -tyypin matriiseille. Alkeismuunnoksia ovat</p>
 <ul class="simple">
 <li><p>rivin kertominen jollakin nollasta poikkeavalla luvulla</p></li>
 <li><p>kahden nollasta poikkeavalla luvulla kerrotun rivin yhteenlasku</p></li>
@@ -464,7 +507,9 @@ title="Print to PDF"
 </ul>
 <p>Matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisin laskua varten rakennetaan uusi matriisi, jossa matriisi <span class="math notranslate nohighlight">\(A\)</span> ja yksikkömatriisi <span class="math notranslate nohighlight">\(I\)</span> ovat vierekkäin. Matriisin <span class="math notranslate nohighlight">\(A\)</span> paikalle pyritään alkeismuunnoksilla saamaan yksikkömatriisi, ja yksikkömatriisin paikalle muodostuu samalla matriisi <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
 <p>Octavella matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisi saadaan komennolla inv(A) tai A^-1. Tietokoneet käyttävät käänteismatriisin muodostamiseen erilaista menetelmää kuin tässä.</p>
-<p><strong>Esim.</strong> Laske matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3&amp;5\\1&amp;2\end{bmatrix}\)</span> käänteismatriisi alkeismuunnosten avulla.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Laske matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3&amp;5\\1&amp;2\end{bmatrix}\)</span> käänteismatriisi alkeismuunnosten avulla.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Muodostetaan matriisista <span class="math notranslate nohighlight">\(A\)</span> ja yksikkömatriisista uusi matriisi <span class="math notranslate nohighlight">\(B\)</span>:</p>
@@ -477,6 +522,17 @@ title="Print to PDF"
 <p>Korvataan matriisin <span class="math notranslate nohighlight">\(B\)</span> 1. rivi tällä rivillä, jolloin saadaan <span class="math notranslate nohighlight">\(B=\begin{bmatrix} 3&amp;0&amp;6&amp;-15 \\ 0&amp;-1&amp;1&amp;-3\end{bmatrix}\)</span>.</p>
 <p>Matriisin <span class="math notranslate nohighlight">\(B\)</span> 1. rivi on nyt jaettava luvulla 3 ja 2. rivi kerrottava luvulla -1: <span class="math notranslate nohighlight">\(B=\begin{bmatrix}1&amp;0&amp;2&amp;-5\\0&amp;1&amp;-1&amp;3\end{bmatrix}\)</span>.</p>
 <p>Nyt matriisin <span class="math notranslate nohighlight">\(B\)</span> ensimmäinen ja toinen sarake muodostavat yksikkömatriisin, ja samalla kolmanteen ja neljänteen sarakkeeseen on muodostunut matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisi: <span class="math notranslate nohighlight">\(A^{-1}=\begin{bmatrix}2&amp;-5\\-1&amp;3\end{bmatrix}\)</span>.</p>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Huomautus käänteismatriisin laskemisesta tietokoneella</p>
+<p>Tietokoneen käsittelevät lukuja eri tavalla kuin ihmiset. Joskus tietokoneen mielestä esimerkiksi ihmisen mielestä ilmiselvä luku 4 saattaakin olla 3.99999… tai vaikka 4.000000…00001. Tietokoneen muistissa luvut ovat <a class="reference external" href="https://fi.wikipedia.org/wiki/Liukuluku">liukulukuina</a>.</p>
+<p>Tästä syystä joskus esimerkiksi Octave voi olla eri mieltä siitä, onko matriisilla käänteismatriisia vai ei. Tämän sivun aiemmassa esimerkiksi todettiin, että matriisilla</p>
+<p><span class="math notranslate nohighlight">\(B=\begin{bmatrix}\frac{3}{2} &amp; 3 \\ {3}{2}+1 &amp; 5\end{bmatrix}\)</span></p>
+<p>ei ole käänteismatriisia, koska sen determinantti on</p>
+<p><span class="math notranslate nohighlight">\(\frac{3}{2}\cdot 5 - 3 \cdot (\frac{3}{2}+1) = \frac{15}{2}-\frac{9}{2}-\frac{6}{2}=0\)</span>.</p>
+<p>Kuitenkin kun Octaveen syöttää kyseisen matriisin, tietokone laskee sillekin käänteismatriisin. Käänteismatriisin luvut ovat kuitenkin hyvin suuria (merkintä e+15 tarkoittaa kerroin <span class="math notranslate nohighlight">\(10^{15}\)</span>). Tällaisessa tapauksessa käänteismatriisia ei pidä käyttää missään laskutoimituksissa. Oleellista on huomata virheilmoitus: matriisi on singulaarinen.</p>
+<p><img alt="Singulaarisen matriisin käänteismatriisi" src="_images/octave_singulaarinen.png" /></p>
 </div>
 </section>
 </section>

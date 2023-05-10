@@ -18,7 +18,7 @@ Vektorin muuttaminen komponenttimuodosta napakoordinaattimuotoon kannattaa aloit
 
 Jos vektorin $\vec{a}=a_x \vec{i}+a_y \vec{j}$ ja $x$-akselin välinen kulma on alle 90 astetta, eli vektorin kärki sijaitsee koordinaatiston 1. neljänneksessä, niin suuntakulma on $\alpha=\arctan{\frac{a_y}{a_x}}$. Esimerkiksi seuraavan kuvan vektorin $\vec{AB}=3\vec{i}+2\vec{j}$ ja $x$-akselin välinen kulma $\alpha$ saadaan ratkaistua seuraavasti:
 
-$\tan{\alpha}=\frac{2}{3} \leftrightarrow \alpha=\arctan⁡{\frac{2}{3}} \leftrightarrow \alpha \approx 33.69^{\circ}$.
+$\tan{\alpha}=\frac{2}{3} \Leftrightarrow \alpha=\arctan⁡{\frac{2}{3}} \Leftrightarrow \alpha \approx 33.69^{\circ}$.
 
 ![Yksinkertaisin napakoordinaattimuunnos](napa1.png "Yksinkertaisin napakoordinaattimuunnos")
 
