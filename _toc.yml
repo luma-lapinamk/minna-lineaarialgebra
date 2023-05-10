@@ -10,6 +10,7 @@ parts:
     - file: vektorit_laskut
     - file: pistetulo
     - file: projektio
+    - file: vektoriyhtalot
     - file: napa
     - file: ristitulo
     - file: geometriaa
