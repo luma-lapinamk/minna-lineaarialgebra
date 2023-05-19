@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lisää sovelluksia &#8212; Lineaarialgebra</title>
+    <title>Siirtymälaskuja matriiseilla &#8212; Lineaarialgebra</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,6 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Populaatiolaskentaa matriiseilla" href="leslie.html" />
     <link rel="prev" title="Leontiefin panos-tuotos-malli" href="leontief.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -136,13 +137,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="vektoriyhtalot.html">
-   Vektoriyhtälöitä
+  <a class="reference internal" href="projektio.html">
+   Vektoriprojektio ja projektiovektori
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="projektio.html">
-   Vektoriprojektio ja projektiovektori
+  <a class="reference internal" href="vektoriyhtalot.html">
+   Vektoriyhtälöitä
   </a>
  </li>
  <li class="toctree-l1">
@@ -169,12 +170,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit: perusteita
+   Mitä matriisit ovat?
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -198,8 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="yhtaloryhmat.html">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1">
@@ -224,7 +235,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Lisää sovelluksia
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -350,70 +366,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tilansiirtomatriisit">
-   Tilansiirtomatriisit
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#leslien-matriisit">
-   Leslien matriisit
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lisää sovelluksia</h1>
+                <h1>Siirtymälaskuja matriiseilla</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tilansiirtomatriisit">
-   Tilansiirtomatriisit
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#leslien-matriisit">
-   Leslien matriisit
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -421,11 +390,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lisaa-sovelluksia">
-<h1>Lisää sovelluksia<a class="headerlink" href="#lisaa-sovelluksia" title="Permalink to this headline">#</a></h1>
-<p>Matriiseja voidaan soveltaa monenlaisissa ennusteissa. Tarkastellaan tässä todennäköisyyslaskentaan liittyviä tilansiirtomatriiseja sekä populaatioennusteisiin liittyviä Leslien matriiseja.</p>
-<section id="tilansiirtomatriisit">
-<h2>Tilansiirtomatriisit<a class="headerlink" href="#tilansiirtomatriisit" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="siirtymalaskuja-matriiseilla">
+<h1>Siirtymälaskuja matriiseilla<a class="headerlink" href="#siirtymalaskuja-matriiseilla" title="Permalink to this headline">#</a></h1>
 <p>Matriisilaskenta toimii hyvin ongelmissa, joissa halutaan tietää, mitkä ovat joidenkin toisensa poissulkevien tapahtumien todennäköisyydet usean edeltävän vaiheen jälkeen, kun jokaisen tapahtuman todennäköisyys riippuu edellisestä tapahtumasta. Tällaista ”todennäköisyysketjua” sanotaan Markovin ketjuksi (<a class="reference external" href="https://fi.wikipedia.org/wiki/Andrei_Markov">Andrei Markov</a>).</p>
 <p>Tarkastellaan tapahtumia <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span>. Oletetaan, että ovat vaihtoehtoisia siten, että jompikumpi niistä tapahtuu varmasti ketjun jokaisessa vaiheessa. Vaiheet voivat olla vaikkapa peräkkäistä päiviä, ja tapahtumat voivat olla esimerkiksi sadesää ja poutainen sää.
 Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math notranslate nohighlight">\(T\)</span>, jota itsensä kanssa kertomalla päästään aina seuraavan vaiheen tapahtumien todennäköisyyksiin. Yksinkertaisessa esimerkissä tilansiirtomatriisi on seuraava:</p>
@@ -441,7 +407,9 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
 <p>Ketjun lähtötilannetta kuvaa matriisi <span class="math notranslate nohighlight">\(p_0=\begin{bmatrix} A_0 \\B_0\end{bmatrix}\)</span>, missä <span class="math notranslate nohighlight">\(A_0\)</span> ja <span class="math notranslate nohighlight">\(B_0\)</span> ovat sopivat alkutilanteet. Ne voivat olla todennäköisyyksiä tai lukumääriä. Esimerkiksi jos <span class="math notranslate nohighlight">\(A\)</span> kuvaa sadetta ja <span class="math notranslate nohighlight">\(B\)</span> poutaa, ja alkutilanteessa sataa, niin <span class="math notranslate nohighlight">\(A_0=1\)</span> ja <span class="math notranslate nohighlight">\(B_0=0\)</span>. Toisaalta <span class="math notranslate nohighlight">\(A_0\)</span> ja <span class="math notranslate nohighlight">\(B_0\)</span> voivat olla myös tilanteissa <span class="math notranslate nohighlight">\(A\)</span> tai <span class="math notranslate nohighlight">\(B\)</span> olevien yksilöiden lukumäärää: esimerkiksi kaupungissa tai maalla asuvien ihmisten määrää.</p>
 <p>Ketjun seuraava tilanne saadaan laskemalla <span class="math notranslate nohighlight">\(p_1=T p_0\)</span>. Yleisesti, kun siirtymä tilanteesta toiseen toistuu <span class="math notranslate nohighlight">\(n\)</span> kertaa, niin matriisi <span class="math notranslate nohighlight">\(p_n\)</span>, joka sisältää lukumäärät tai todennäköisyydet tapahtumille <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span>, saadaan laskutoimituksesta <span class="math notranslate nohighlight">\(p_n=T^n p_0\)</span>.</p>
 <p><strong>Huom!</strong> Matriisin potenssiinkorotus tarkoittaa samaa kuin lukujen potenssiinkorotus, eli matriisia kerrotaan itsellään. Matriisin alkioita ei siis koroteta yksittäin potenssiin <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p><strong>Esim.</strong> Eräällä paikkakunnalla tunnetaan kansanperinteestä, että jos tänään sataa, niin huomennakin sataa 60 % todennäköisyydellä. Jos tänään ei sada, niin huomenna sataa vain 30 % todennäköisyydellä. Millä todennäköisyydellä ylihuomenna sataa, jos tänään ei sada?</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Eräällä paikkakunnalla tunnetaan kansanperinteestä, että jos tänään sataa, niin huomennakin sataa 60 % todennäköisyydellä. Jos tänään ei sada, niin huomenna sataa vain 30 % todennäköisyydellä. Millä todennäköisyydellä ylihuomenna sataa, jos tänään ei sada?</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Alkutilanteessa ei sada, eli tilanne on <span class="math notranslate nohighlight">\(p_0=\begin{bmatrix}0 \\1 \end{bmatrix}\)</span>. Merkitään sadetta tapahtumana <span class="math notranslate nohighlight">\(A\)</span> ja poutaa tapahtumana <span class="math notranslate nohighlight">\(B\)</span>.</p>
@@ -456,7 +424,10 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
 <p>Sama vastaus saadaan suoraan laskemalla <span class="math notranslate nohighlight">\(p_2=T^2 p_0\)</span>.</p>
 <p>Octavella laskun voi suorittaa seuraavasti: T=[0.6 0.3;0.4 0.7], T^2*[0;1]</p>
 </div>
-<p><strong>Esim.</strong> Erään kaupungin keskustasta (A) muuttaa vuosittain lähiöihin (B) 5 % keskusta-alueen asukkaista, ja lähiöistä muuttaa keskustaan 3 % lähiöiden asukkaista. Nyt keskustassa asuu 100 000 ihmistä ja lähiöissä 150 000. Mitkä ovat keskustan ja lähiöiden asukasluvut</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Erään kaupungin keskustasta (A) muuttaa vuosittain lähiöihin (B) 5 % keskusta-alueen asukkaista, ja lähiöistä muuttaa keskustaan 3 % lähiöiden asukkaista. Nyt keskustassa asuu 100 000 ihmistä ja lähiöissä 150 000. Mitkä ovat keskustan ja lähiöiden asukasluvut</p>
 <p>a) 1 vuoden kuluttua,</p>
 <p>b) 10 vuoden kuluttua?</p>
 <div class="tip dropdown admonition">
@@ -471,55 +442,7 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
 <p><span class="math notranslate nohighlight">\(p_{10}=\begin{bmatrix} 0.95&amp;0.03 \\ 0.05&amp;0.97\end{bmatrix}^{10} \begin{bmatrix}100 000 \\ 150 000\end{bmatrix}=\begin{bmatrix} 96 465 \\ 153 540 \end{bmatrix}\)</span>.</p>
 <p>Lasku <span class="math notranslate nohighlight">\(T^{10}\)</span> on suoritettu tietokoneella.</p>
 </div>
-</section>
-<section id="leslien-matriisit">
-<h2>Leslien matriisit<a class="headerlink" href="#leslien-matriisit" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Leslie_matrix">Leslien matriisin</a> avulla voidaan ennustaa esimerkiksi tietyn alueen eläinmäärän kehitystä. Ennusteessa tehdään yksinkertaistettuja oletuksia populaation ekologiasta. Ennusteessa käytettävä Leslien matriisi sisältää tiedon siitä, kuinka suuri osuus tietyn ikäryhmän eläimistä säilyy hengissä seuraavaan ikäryhmään siirtymiseen asti, ja siitä, kuinka monta poikasta kyseisen ikäryhmän eläimet tuottavat.</p>
-<p><strong>Esim.</strong> Oletetaan, että kasvattamasi eläimet lisääntyvät ja pysyvät hengissä seuraavan taulukon mukaan:</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Ikä (vuosia)</p></th>
-<th class="head"><p>Poikasia keskim.</p></th>
-<th class="head"><p>Todennäk. selvitä seur. ikäryhmään</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(0 \leq x \lt 2\)</span></p></td>
-<td><p>0</p></td>
-<td><p>0.7</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(2 \leq x \lt 4\)</span></p></td>
-<td><p>0.5</p></td>
-<td><p>0.9</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(4 \leq x \lt 6\)</span></p></td>
-<td><p>1.1</p></td>
-<td><p>0.8</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(6 \leq x \lt 8\)</span></p></td>
-<td><p>1.3</p></td>
-<td><p>0.7</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(8 \leq x \lt 10\)</span></p></td>
-<td><p>0.8</p></td>
-<td><p>0.3</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(10 \leq x \lt 12\)</span></p></td>
-<td><p>0.4</p></td>
-<td><p>0</p></td>
-</tr>
-</tbody>
-</table>
-<p>Aloitat eläinten kasvatuksen ostamalla 40 kpl 2-vuotiaita eläimiä. Kuinka paljon ja minkä ikäisiä eläimiä sinulla on 10 vuoden päästä?</p>
-<p>Muodostetaan Leslien matriisi <span class="math notranslate nohighlight">\(L\)</span>, johon tulee ensimmäiselle riville poikasten määrät ja 2. riviltä alkaen lävistäjälle selviytymistodennäköisyydet. Kaikki muut alkiot ovat nollia. Alkuperäistä eläinmäärää kuvaa matriisi <span class="math notranslate nohighlight">\(E\)</span>, jonka rivit vastaavat ikäryhmiä ja alkiot kertovat eläinten määrän kyseisessä ikäryhmässä.</p>
-<p><span class="math notranslate nohighlight">\(L=\begin{bmatrix} 0&amp;0.5&amp;1.1&amp;1.3&amp;0.8&amp;0.4 \\ 0.7&amp;0&amp;0&amp;0&amp;0&amp;0 \\ 0&amp;0.9&amp;0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0.8&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0.7&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0&amp;0.3&amp;0 \end{bmatrix}, E=\begin{bmatrix}0\\40\\0\\0\\0\\0\end{bmatrix}\)</span></p>
-<p>Kahden vuoden kuluttua eläimiä on</p>
-<p><span class="math notranslate nohighlight">\(LE=\begin{bmatrix} 0&amp;0.5&amp;1.1&amp;1.3&amp;0.8&amp;0.4 \\ 0.7&amp;0&amp;0&amp;0&amp;0&amp;0 \\ 0&amp;0.9&amp;0&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0.8&amp;0&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0.7&amp;0&amp;0 \\ 0&amp;0&amp;0&amp;0&amp;0.3&amp;0 \end{bmatrix} \begin{bmatrix} 0\\40\\0\\0\\0\\0 \end{bmatrix} = \begin{bmatrix} 0.5\cdot 40 \\ 0 \\ 0.9⋅40 \\ 0 \\0 \\ 0 \end{bmatrix} = \begin{bmatrix} 20\\0\\36\\0\\0\\0 \end{bmatrix}\)</span>.</p>
-<p>Siis 40 alkuperäistä otusta on tuottanut 20 poikasta ikäryhmään 0-2 v, ja lisäksi 90 % eli 36 kpl alkuperäisistä eläimistä on siirtynyt seuraavaan ikäryhmään.</p>
-<p>Tilanne kymmenen vuoden kuluttua saadaan laskemalla (tietokoneella)</p>
-<p><span class="math notranslate nohighlight">\(L^5 E \approx \begin{bmatrix} 58 \\ 31 \\ 28 \\ 20 \\ 7 \\0\end{bmatrix}\)</span>.</p>
-<p>Tässä tietysti on oletettu, että eläimiä ei alkuhankinnan jälkeen ole ostettu tai myytykään. Huomaa myös, että tässä ikäluokkia käsitellään kahden vuoden jaksoina; siksi kymmenen vuotta vastaa viidenteen potenssiin korotusta.</p>
-</section>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -555,6 +478,13 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Leontiefin panos-tuotos-malli</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="leslie.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Populaatiolaskentaa matriiseilla</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

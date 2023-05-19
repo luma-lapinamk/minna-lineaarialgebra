@@ -1,8 +1,10 @@
 # Matriisiyhtälöt
 
-Yhtälössä voi tuntemattomana joskus olla kokonainen matriisi. Matriiseja voi vähentää tai lisätä puolittain, kuten tavallisen yhtälön ratkaisussa voidaan tehdä reaaliluvuilla. Matriisiyhtälön voi myös kertoa tai jakaa puolittain jollakin luvulla.
+Yhtälössä voi tuntemattomana joskus olla kokonainen matriisi eikä vain yksittäinen matriisin alkio. Jos tuntematon matriisi on yhtälössä kerrottu jollakin luvulla, tai jos siihen on lisätty tai siitä on vähennetty jokin tunnettu matriisi, yhtälö ratkeaa samoilla toimenpiteillä kuin tavalliset ensimmäisen asteen yhtälöt. Yhtälöön voi siis lisätä tai siitä voi vähentää puolittain jonkin matriisin, kuten tavallisen yhtälön ratkaisussa voidaan tehdä reaaliluvuilla. Matriisiyhtälön voi myös kertoa puolittain jollakin luvulla.
 
-**Esim.** Ratkaise matriisi $X$ yhtälöstä $X+\begin{bmatrix}3&2\\1&5\end{bmatrix}=\begin{bmatrix}10&6\\2&0\end{bmatrix}$.
+::::{admonition} Esimerkki
+
+Ratkaise matriisi $X$ yhtälöstä $X+\begin{bmatrix}3&2\\1&5\end{bmatrix}=\begin{bmatrix}10&6\\2&0\end{bmatrix}$.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -15,12 +17,16 @@ $X=\begin{bmatrix} 10-3&6-2\\2-1&0-5\end{bmatrix} = \begin{bmatrix}7&4\\1&-5\end
 
 :::
 
-**Esim.** Ratkaise matriisi $X$ yhtälöstä $3X=\begin{bmatrix}9&24\\-3&27\end{bmatrix}$.
+::::
+
+::::{admonition} Esimerkki
+
+Ratkaise matriisi $X$ yhtälöstä $3X=\begin{bmatrix}9&24\\-3&27\end{bmatrix}$.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
 
-Jaetaan puolittain luvulla 3, eli kerrotaan luvulla $\frac{1}{3}$:
+Jaetaan yhtälön molemmat puolet luvulla 3, eli kerrotaan luvulla $\frac{1}{3}$:
 
 $X=\frac{1}{3} \begin{bmatrix}9&24\\-3&27\end{bmatrix}$
 
@@ -30,21 +36,56 @@ $X=\begin{bmatrix}3&8\\-1&9\end{bmatrix}$
 
 :::
 
+::::
+
 ## Käänteismatriisien hyödyntäminen
 
-Jos tuntematon matriisi esiintyy yhtälössä kahden (tai useamman) matriisin tulossa, hyödynnetään käänteismatriiseja ja niiden ominaisuutta: $A^{-1}A=I, AA^{-1}I$. Matriisien jakolaskua ei ole määritelty, vaan sitä vastaa käänteismatriisilla kertominen.
+Jos tuntematon matriisi esiintyy yhtälössä kahden (tai useamman) matriisin tulossa, hyödynnetään käänteismatriiseja ja niiden ominaisuutta: $A^{-1}A=I, AA^{-1}I$. Matriisien jakolaskua ei ole määritelty, vaan sitä vastaa käänteismatriisilla kertominen. Se, miten käänteismatriisilla kertominen pitää suorittaa, riippuu siitä, millaisessa matriisitulossa tuntematon matriisi esiintyy.
 
-- Tapaus 1: Ratkaise matriisi $X$ yhtälöstä $AX=B$, missä $A$ ja $B$ ovat tunnettuja matriiseja.
+:::{admonition} Ratkaise matriisi $X$ yhtälöstä $AX=B$, missä $A$ ja $B$ ovat tunnettuja matriiseja.
+:class: tip
 
-Yhtälöä ei voi jakaa puolittain matriisilla $A$. Kerrotaan puolittain vasemmalta $A$:n käänteismatriisilla: $A^{-1}AX=A^{-1}B$. Yhtälö sievenee muotoon $IX=A^{-1}B$ ja edelleen $X=A^{-1}B$.
+Kerrotaan puolittain vasemmalta $A$:n käänteismatriisilla: $A^{-1}AX=A^{-1}B$.
 
-- Tapaus 2: Ratkaise matriisi $X$ yhtälöstä $XA=B$, missä $A$ ja $B$ ovat tunnettuja matriiseja.
+Yhtälö sievenee muotoon $IX=A^{-1}B$ ja edelleen $X=A^{-1}B$.
 
-Yhtälö on nyt kerrottava puolittain oikealta $A$:n käänteismatriisilla: $XAA^{-1}=BA^{-1}$, joka sievenee muotoon $XI=BA^{-1}$ ja edelleen $X=BA^{-1}$.
+Octave-komento: X=inv(A)\*B
 
-- Tapaus 3: Tuntematon matriisi $X$ on yhtälössä tunnettujen matriisien $A$ ja $B$ välissä. Tällöin voidaan yhtälöä kertoa tarpeen mukaan vasemmalta tai oikealta sopivilla käänteismatriiseilla $A^{-1}$ ja $B^{-1}$.
+:::
 
-**Esim.** Ratkaise $X$ yhtälöstä $AXB=C$, jossa $A=\begin{bmatrix}1&2\\2&2\end{bmatrix}, B=\begin{bmatrix}0&1\\2&3\end{bmatrix}$ ja $C=\begin{bmatrix}10&1\\100&2\end{bmatrix}$.
+:::{admonition} Ratkaise matriisi $X$ yhtälöstä $XA=B$, missä $A$ ja $B$ ovat tunnettuja matriiseja.
+:class: tip
+
+Kerrotaan yhtälön puolittain oikealta $A$:n käänteismatriisilla: $XAA^{-1}=BA^{-1}$, joka sievenee muotoon $XI=BA^{-1}$ ja edelleen $X=BA^{-1}$. Kertolasku pitää suorittaa molemmilla puolilla yhtälöä samalla tavalla: käänteismatriisi $B^{-1}$ tulee kertolaskuun viimeiseksi!
+
+Octave-komento: X=B\*inv(A)
+
+:::
+
+:::{admonition} Ratkaise matriisi $X$ yhtälöstä $AXB=C$, missä $A$, $B$ ja $C$ ovat tunnettuja matriiseja.
+:class: tip
+
+Yhtälön molemmat puolet pitää kertoa vasemmalta käänteismatriisilla $A^{-1}$ ja oikealta käänteismatriisilla $B^{-1}$:
+
+$A^{-1}AXBB^{-1}=A^{-1}CB^{-1}$
+
+Käänteismatriisien ja vastaavien matriisien tulojen paikalle tulee yksikkömatriisi:
+
+$IXI=A^{-1}CB^{-1}$
+
+Yksikkömatriisin laskusääntöjen mukaan $IX=X$ ja $XI=X$, joten ratkaisu on 
+
+$X=A^{-1}CB^{-1}$
+
+Octave-komento: X=inv(A)\*C\*inv(B)
+
+:::
+
+Näitä laskusääntöjä voi yhdistää matriisien yhteen- ja vähennyslaskuun sekä reaaliluvuilla kertomiseen seuraavien esimerkkien mukaisesti.
+
+::::{admonition} Esimerkki
+
+Ratkaise $X$ yhtälöstä $AXB=C$, jossa $A=\begin{bmatrix}1&2\\2&2\end{bmatrix}, B=\begin{bmatrix}0&1\\2&3\end{bmatrix}$ ja $C=\begin{bmatrix}10&1\\100&2\end{bmatrix}$.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -77,13 +118,11 @@ $X=\begin{bmatrix}-134&45\\60&-20\end{bmatrix}$
 
 :::
 
-Tietokoneella (Octave) yhtälöt ratkaistaisiin seuraavanlaisilla komennoilla:
+::::
 
-- $AX=B \rightarrow$ komento X=inv(A)\*B
-- $XA=B \rightarrow$ komento X=B\*inv(A)
-- $AXB=C \rightarrow$ komento X=inv(A)\*C\*inv(B)
+::::{admonition} Esimerkki
 
-**Esim.** Ratkaise edellisen esimerkin matriisiyhtälö Octavella.
+Ratkaise edellisen esimerkin matriisiyhtälö Octavella.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -102,9 +141,77 @@ Lasketaan tulos ja tallennetaan se nimellä $X$ komennolla: X=inv(A)\*C\*inv(B)
 
 :::
 
-**Esim.** Eräs tapa koodata viesti salattuun muotoon on määritellä jokaista kirjainta vastaava luku sekä tietty salausmatriisi. Salausmatriisin on oltava säännöllinen neliömatriisi, ja siinä on oltava alkioita vähintään yhtä monta kuin salattavassa viestissä. Tutustu salauksen periaatteeseen esimerkin avulla.
+::::
 
-:::{admonition} Viestin salaus
+::::{admonition} Esimerkki
+
+Ratkaise yhtälö $4X+\begin{bmatrix}10 & 2 \\ 0 & 7\end{bmatrix}=\begin{bmatrix}20 & 30 \\ 35 & 25 \end{bmatrix}$.
+
+:::{admonition} Ratkaisu
+:class: tip, dropdown
+
+Vähennetään aluksi yhtälön molemmilta puolilta matriisi $\begin{bmatrix}10 & 2 \\ 0 & 7\end{bmatrix}$:
+
+$4X=\begin{bmatrix}20 & 30 \\ 35 & 25 \end{bmatrix}-\begin{bmatrix}10 & 2 \\ 0 & 7\end{bmatrix}$
+
+Sievennetään oikea puoli:
+
+$4X=\begin{bmatrix}10 & 28 \\ 35 & 18 \end{bmatrix}$
+
+Kerrotaan molemmat puolet luvulla $\frac{1}{4}$:
+
+$X=\frac{1}{4}\begin{bmatrix}10 & 28 \\ 35 & 18 \end{bmatrix}$
+
+Suoritetaan kertolaskut alkioittain:
+
+$X=\begin{bmatrix}\frac{10}{4} & \frac{28}{4} \\ \frac{35}{4} & \frac{18}{4} \end{bmatrix}$
+
+Lopputulos voidaan vielä sieventää:
+
+$X=\begin{bmatrix}\frac{5}{2} & 7 \\ \frac{35}{4} & \frac{9}{2} \end{bmatrix}$
+
+Jos yhtälö ratkaistaan Octavella, niin ensimmäistä vähennyslaskua ei tarvitse laskea välivaiheena. Sekä vähennyslaskun että neljäsosalla kertomisen voi kirjoittaa suoraan komentoon: X=1/4*([20 30; 35 25]-[10 2; 0 7])
+
+Toinen vaihtoehto on määritellä ensin laskussa esiintyvät matriisit, esimerkiksi A=[20 30; 35 25] ja B=[10 2; 0 7], ja sitten kirjoittaa komento muodossa X=1/4*(A-B).
+
+:::
+
+::::
+
+::::{admonition} Esimerkki
+
+Ratkaise yhtälö $X\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}+\begin{bmatrix}1 & 0 \\ 2 & 1\end{bmatrix}=\begin{bmatrix}20 & 30 \\ 35 & 25 \end{bmatrix}$.
+
+:::{admonition} Ratkaisu
+:class: tip, dropdown
+
+Vähennetään ensin matriisi $\begin{bmatrix}1 & 0 \\ 2 & 1\end{bmatrix}$ yhtälön molemmilta puolilta:
+
+$X\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}=\begin{bmatrix}20 & 30 \\ 35 & 25 \end{bmatrix}-\begin{bmatrix}1 & 0 \\ 2 & 1\end{bmatrix}$
+
+Sievennetään oikea puoli:
+
+$X\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}=\begin{bmatrix}19 & 30 \\ 33 & 24 \end{bmatrix}$
+
+Kerrotaan molemmat puolet matriisin $\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}$ käänteismatriisilla siten, että käänteismatriisi jää kertolaskuun viimeiseksi. Yhtälön vasemmalla puolella matriisin ja käänteismatriisin tulo tuottaa yksikkömatriisin, ja koska $XI=X$, ratkaisuksi saadaan
+
+$X=\begin{bmatrix}19 & 30 \\ 33 & 24 \end{bmatrix}\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}^{-1}$
+
+Käänteismatriisi on $-\frac{1}{2}\begin{bmatrix}4 & -2 \\-3 & 1\end{bmatrix}=\begin{bmatrix}-2 & 1 \\ \frac{3}{2} & -\frac{1}{2}\end{bmatrix}$, joten vastaukseksi tulee
+
+$X=\begin{bmatrix}19 & 30 \\ 33 & 24 \end{bmatrix}\begin{bmatrix}-2 & 1 \\ \frac{3}{2} & -\frac{1}{2}\end{bmatrix}=\begin{bmatrix}7 & 4 \\ -30 & 21\end{bmatrix}$
+
+Octavella yhtälö ratkeaisi komennolla X=([20 30; 35 25]-[1 0; 2 1])\*inv([1 2; 3 4]).
+
+:::
+
+::::
+
+::::{admonition} Salausmatriisit
+
+Viestien salaus on eräs esimerkki matriisiyhtälöjen ja käänteismatriisien hyödyntämisestä. Eräs tapa koodata viestejä salattuun muotoon on määritellä jokaista kirjainta vastaava luku sekä tietty salausmatriisi. Salausmatriisin on oltava säännöllinen neliömatriisi, ja siinä on oltava alkioita vähintään yhtä monta kuin salattavassa viestissä. Tutustu salauksen periaatteeseen esimerkin avulla.
+
+:::{admonition} Esimerkki
 :class: tip, dropdown
 
 Olkoon kirjainten ja lukujen vastaavuus seuraava:
@@ -131,10 +238,13 @@ Vastaanottajalla on oltava hallussaan kirjainten ja numeroiden vastaavuustaulukk
 
 Koska käänteismatriisilla on ominaisuus $C^{-1}C=I$, niin matriisi $A$ saadaan ratkaistua matriisista $CA$ eli $S$ kertomalla se vasemmalta salausmatriisin $C$ käänteismatriisilla:
 
-$C^{-1}CA=C^{-1}S \leftrightarrow IA=C^{-1}S \leftrightarrow A=C^{-1}S$
+$C^{-1}CA=C^{-1}S \Leftrightarrow IA=C^{-1}S \Leftrightarrow A=C^{-1}S$
 
 Siis alkuperäinen viesti saadaan numeromuodossa laskemalla
 
 $\begin{bmatrix}1.5&-1&0.5\\-0.25&0.5&-0.25\\-2.25&1.5&0.25\end{bmatrix}\begin{bmatrix}22&32&26\\37&53&70\\20&14&90\end{bmatrix} =\begin{bmatrix}6&2&14\\8&15&6\\1&4&24\end{bmatrix}$
 
 ja voidaan edelleen muuntaa kirjainmuotoon taulukon avulla.
+
+:::
+::::

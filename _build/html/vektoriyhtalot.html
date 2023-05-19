@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Vektoriprojektio ja projektiovektori" href="projektio.html" />
-    <link rel="prev" title="Kahden vektorin pistetulo" href="pistetulo.html" />
+    <link rel="next" title="Mittaustuloksista vektoreiksi" href="napa.html" />
+    <link rel="prev" title="Vektoriprojektio ja projektiovektori" href="projektio.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -136,14 +136,14 @@ const thebe_selector_output = ".output, .cell_output"
    Kahden vektorin pistetulo
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Vektoriyhtälöitä
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="projektio.html">
    Vektoriprojektio ja projektiovektori
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Vektoriyhtälöitä
   </a>
  </li>
  <li class="toctree-l1">
@@ -170,12 +170,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit: perusteita
+   Mitä matriisit ovat?
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -199,8 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="yhtaloryhmat.html">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1">
@@ -226,6 +236,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
    Lisää sovelluksia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -539,7 +554,7 @@ Ratkaisun voi tarkistaakin WolframAlphalla: 10/9*[1,4]+(-23/9)*[2,-1].</p>
 </div>
 <div class="admonition-esimerkki admonition">
 <p class="admonition-title">Esimerkki</p>
-<p>Leija lentää tuulen mukana. Aluksi tuulee <span class="math notranslate nohighlight">\(m\)</span> sekuntia siten, että tuulen suunta ja nopeus määräytyvät vektorista <span class="math notranslate nohighlight">\(25 \vec{i} + 10 \vec{j}\)</span>. Sitten tuuli kääntyy vektorin <span class="math notranslate nohighlight">\(-5 \vec{i}+9\vec{j}\)</span>. Leija lentää tämän tuulen mukana <span class="math notranslate nohighlight">\(n\)</span> sekuntia. Lopulta leija päätyy paikkaan, jonka sijainnin lähtöpisteestä määrittää vektori <span class="math notranslate nohighlight">\(100 \vec{i}+120 \vec{j}\)</span>. Kuinka kauan leijan matka kesti?</p>
+<p>Leija lentää tuulen mukana. Aluksi tuulee <span class="math notranslate nohighlight">\(m\)</span> sekuntia siten, että tuulen suunta ja nopeus määräytyvät vektorista <span class="math notranslate nohighlight">\(25 \vec{i} + 10 \vec{j}\)</span>. Sitten tuuli kääntyy vektorin <span class="math notranslate nohighlight">\(-5 \vec{i}+9\vec{j}\)</span> suuntaiseksi. Leija lentää tämän tuulen mukana <span class="math notranslate nohighlight">\(n\)</span> sekuntia. Lopulta leija päätyy paikkaan, jonka sijainnin lähtöpisteestä määrittää vektori <span class="math notranslate nohighlight">\(100 \vec{i}+120 \vec{j}\)</span>. Kuinka kauan leijan matka kesti?</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Muodostetaan yhtälö:</p>
@@ -584,17 +599,17 @@ Ratkaisun voi tarkistaakin WolframAlphalla: 10/9*[1,4]+(-23/9)*[2,-1].</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="pistetulo.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="projektio.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Kahden vektorin pistetulo</p>
+            <p class="prev-next-title">Vektoriprojektio ja projektiovektori</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="projektio.html" title="next page">
+    <a class='right-next' id="next-link" href="napa.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Vektoriprojektio ja projektiovektori</p>
+        <p class="prev-next-title">Mittaustuloksista vektoreiksi</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

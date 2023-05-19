@@ -22,9 +22,12 @@ parts:
     - file: determinantti
     - file: kaanteismatriisi
     - file: matriisiyhtalot
+    - file: yhtaloryhmat_kertaus
     - file: yhtaloryhmat
+    - file: yhtaloryhmat_erikois
     - file: gauss
     - file: ominaisarvot
     - file: matriisit_geometria
     - file: leontief
     - file: matriisit_muut
+    - file: leslie

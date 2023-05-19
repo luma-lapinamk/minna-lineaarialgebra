@@ -1,5 +1,7 @@
 # Ominaisarvot ja -vektorit
 
+Tämän luvun sisältö kuuluu laajan matematiikan opintojaksoihin.
+
 Jos tyyppiä $n \times n$ oleva matriisi $A$ kerrotaan $n \times 1$ -tyyppisellä vektorilla $\vec{v}$ ja tulokseksi saadaan sama vektori kerrottuna jollakin luvulla $\lambda$, sanotaan että $\lambda$ on matriisin $A$ ominaisarvo ja $\vec{v}$ matriisin $A$ ominaisvektori. Yhtälönä tämä ilmaistaan seuraavasti: 
 
 $A\vec{v}=\lambda\vec{v}$.
@@ -10,13 +12,15 @@ Neliömatriisilla, jonka koko on $n \times $, on $n$ ominaisarvoa. Jokaista omin
 
 Matriisin ominaisarvo ja ominaisvektori löytyvät ratkaisemalla yhtälö $A\vec{v}=\lambda\vec{v}$:
 
-$A\vec{v}-\lambda\vec{v}=\vec{0} \leftrightarrow A\vec{v}-\lambda I_n \vec{v}=\vec{0} \leftrightarrow (A-\lambda I_n)\vec{v}=\vec{0}$
+$A\vec{v}-\lambda\vec{v}=\vec{0} \Leftrightarrow A\vec{v}-\lambda I_n \vec{v}=\vec{0} \Leftrightarrow (A-\lambda I_n)\vec{v}=\vec{0}$
 
 Tälle yhtälölle on olemassa triviaaliratkaisu $\vec{n}=\vec{0}$, sillä nollavektori kerrottuna millä tahansa sopivan kokoisella matriisilla tuottaa nollavektorin. Tässä tapauksessa emme ole kiinnostuneita tästä ratkaisusta. Toisena vaihtoehtona on selvittää äärettömän monta ratkaisua, joilla $\vec{n} \neq \vec{0}$.
 
 Yleisesti matriisiyhtälölle $M \vec{x} = \vec{y}$, missä $M$ on $n \times n$ -tyyppinen matriisi ja $\vec{x}$ ja $\vec{y}$ ovat $n \times 1$ -tyyppisiä vektoreita, on ratkaisuja ääretön määrä silloin, kun kerroinmatriisin $M$ determinantti on nolla. Tässä tapauksessa on siis ratkaistava yhtälö $\text{det}(A-\lambda I_n)=0$. Kyseisen yhtälön vasemmasta puolesta muodostuu matriisin _karakteristinen polynomi_. Käytännössä yhtälöstä tulee $n$. asteen yhtälö, jonka tuntemattomana on ominaisarvo $\lambda$. 
 
-**Esim.** Laske matriisin $A=\begin{bmatrix} 2 & 5 \\ 3 & 4\end{bmatrix}$ ominaisarvot.
+::::{admonition} Esimerkki
+
+Laske matriisin $A=\begin{bmatrix} 2 & 5 \\ 3 & 4\end{bmatrix}$ ominaisarvot.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -47,9 +51,13 @@ Matriisin $A$ ominaisarvot ovat siis $\lambda_1=7$ ja $\lambda_2=-1$.
 
 :::
 
+::::
+
 Kun matriisin ominaisarvot on löydetty, lasketaan ominaisarvoja vastaavat ominaisvektorit. Tämä onnistuu ratkaisemalla yhtälö $(A-\lambda I_n) \vec{v} = \vec{0}$. Tästä matriisiyhtälöstä muodostuu yhtälöryhmä, josta voidaan ratkaista ominaisvektorin komponentit.
 
-**Esim.** Laske matriisin $A=\begin{bmatrix} 2 & 5 \\ 3 & 4\end{bmatrix}$ ominaisvektorit. Matriisin $A$ ominaisarvot ovat $7$ ja $-1$.
+::::{admonition} Esimerkki
+
+Laske matriisin $A=\begin{bmatrix} 2 & 5 \\ 3 & 4\end{bmatrix}$ ominaisvektorit. Matriisin $A$ ominaisarvot ovat $7$ ja $-1$.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -85,3 +93,5 @@ Toisin sanoen ominaisvektoreita ovat kaikki ne vektorit, joissa jälkimmäinen k
 $\vec{v_2}=\begin{bmatrix} 5 \\ -3 \end{bmatrix}$ tai yksikkövektori $\vec{v_2}=\begin{bmatrix} 5/\sqrt{34} \\ -3/\sqrt{34} \end{bmatrix}$.  
 
 :::
+
+::::

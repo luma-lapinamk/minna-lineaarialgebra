@@ -1,6 +1,6 @@
 # Gaussin eliminaatio
 
-Yhtälöryhmien ratkaisu ei aina onnistu kerroinmatriisin käänteismatriisia hyödyntämällä, sillä käänteismatriisiahan ei aina ole olemassa. Tässä luvussa perehdytään sellaisiin menetelmiin, jotka toimivat kaikille lineaarisille yhtälöryhmille. Käytännössä tehtäviä ei toki tarvitse välttämättä ratkoa kynällä ja paperilla suoritetuilla välivaiheilla, mutta luvussa esitetyt käsitteet ovat osa insinöörin matemaattista yleissivistystä.
+Tässä luvussa perehdytään Gaussin eliminaatiomenetelmään, joka toimii kaikille lineaarisille yhtälöryhmille. Käytännössä tehtäviä ei toki tarvitse välttämättä ratkoa kynällä ja paperilla suoritetuilla välivaiheilla, mutta luvussa esitetyt käsitteet ovat osa insinöörin matemaattista yleissivistystä. Menetelmää käsitellään lähinnä laajan matematiikan opintojaksoilla.
 
 Gaussin eliminaatiomenetelmässä lähtökohta on se, että yhtälöryhmä on kirjoitettu matriisimuotoon. Esimerkiksi yhtälöryhmää
 
@@ -35,7 +35,9 @@ Esimerkiksi $\begin{bmatrix} 2 & 7 \\ 4 & 3\end{bmatrix} \sim \begin{bmatrix} 2 
 
 sillä jälkimmäisen matriisin 2. rivi on saatu kertomalla 1. rivi luvulla -2 ja lisäämällä tämä rivi alkuperäisen matriisin 2. riviin.
 
-**Esim.** Muunna porrasmuotoon edellä esitetty täydennetty kerroinmatriisi $\begin{bmatrix}1 & 3 & 4 & 5\\ 3 & 2 & 7 & 3\\ 2 & -1 & 1 & -4\end{bmatrix}$.
+::::{admonition} Esimerkki
+
+Muunna porrasmuotoon edellä esitetty täydennetty kerroinmatriisi $\begin{bmatrix}1 & 3 & 4 & 5\\ 3 & 2 & 7 & 3\\ 2 & -1 & 1 & -4\end{bmatrix}$.
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown
@@ -63,6 +65,8 @@ $\begin{bmatrix}0+0 & 7-7 & 5-7 & 12-14\end{bmatrix} = \begin{bmatrix} 0 & 0 & -
 Porrasmuotoinen täydennetty kerroinmatriisi on siis $\begin{bmatrix}1 & 3 & 4 & 5\\ 0 & -7 & -5 & -12\\ 0 & 0 & -2 & -2\end{bmatrix}$.
 
 :::
+
+::::
 
 ## Ratkaisu porrasmuodosta
 
@@ -96,13 +100,15 @@ Matriisin alimmalta riviltä muodostuu yhtälö, jolla on äärettömän monta r
 
 $\begin{bmatrix}1 & 2 & -3 & 9 \\ 0 & 1 & 1 & 4 \\ 0 & 0 & 0 & 0\end{bmatrix}$.
 
-Alimmalta riviltä saadaan yhtälö $0z=0$. Tämän yhtälön toteuttavat kaikki luvut $z$. Yleensä tällaista vapaata muuttujaa merkitään parametrina $t$. Tämä voidaan nyt sijoittaa toiselta riviltä muodostuvaan yhtälöön: $y+t=4$, josta saadaan $y=4-t$. Edelleen ylimmältä riviltä saadaan $x+2t-3t=9$ eli $x+2(4-t)-3t=9 \leftrightarrow x+8-2t-3t=9 \leftrightarrow x=1+5t$. Yhtälöryhmän jokainen ratkaisu vastaa tiettyä parametrin $t$ arvoa.
+Alimmalta riviltä saadaan yhtälö $0z=0$. Tämän yhtälön toteuttavat kaikki luvut $z$. Yleensä tällaista vapaata muuttujaa merkitään parametrina $t$. Tämä voidaan nyt sijoittaa toiselta riviltä muodostuvaan yhtälöön: $y+t=4$, josta saadaan $y=4-t$. Edelleen ylimmältä riviltä saadaan $x+2t-3t=9$ eli $x+2(4-t)-3t=9 \Leftrightarrow x+8-2t-3t=9 \Leftrightarrow x=1+5t$. Yhtälöryhmän jokainen ratkaisu vastaa tiettyä parametrin $t$ arvoa.
 
 ## Gauss-Jordan -eliminaatio
 
 Gaussin eliminaatiossa käytettäviä laskutoimenpiteitä voidaan jatkaa vielä eteenpäin, kunnes täydennetty kerroinmatriisi muuttuu niinsanottuun _pelkistettyyn porrasmuotoon_. Tällaisessa muodossa jokaisen rivin ensimmäinen nollasta poikkeava alkio eli _porrasalkio_ on suuruudeltaan yksi, ja kaikissa paitsi viimeisessä sarakkeessa kaikki muut paitsi porrasalkio ovat nollia. Tällaisen muunnoksen jälkeen yhtälöryhmän ratkaisut ovat suoraan luettavissa muodostuneen matriisin riveiltä. Toimenpiteen nimi on Gauss-Jordan -eliminaatio.
 
-**Esim.** Muunna pelkistettyyn porrasmuotoon yhtälöryhmän
+::::{admonition} Esimerkki
+
+Muunna pelkistettyyn porrasmuotoon yhtälöryhmän
 
 $\begin{equation}\begin{cases}x+2y+z=4\\ 3x+8y+7z=20\\ 2x+7y+9z=23\end{cases}\end{equation}$  
 
@@ -132,3 +138,5 @@ $\begin{bmatrix}1 & 2 & 1 & 4 \\ 0 & 1 & 2 & 4 \\0 & 0 & 1 & 3 \end{bmatrix} \si
 Matriisista voidaan nyt lukea tuntemattomien arvot: 1. riviltä saadaan $x=5$, 2. riviltä $y=-2$ ja 3. riviltä $z=3$.
 
 :::
+
+::::

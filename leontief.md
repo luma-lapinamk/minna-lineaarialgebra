@@ -1,4 +1,4 @@
-# Leontiefin panos-tuotos-malli
+# Taloustiedettä matriiseilla
 
 Eräs esimerkki matriisilaskennan sovelluksista on Leontiefin panos-tuotos-malli. Tämä taloustieteiden malli liittyy eri toimijoiden tuotantoon ja resurssien kulutukseen. 
 

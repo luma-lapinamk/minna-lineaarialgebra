@@ -203,7 +203,7 @@ Ratkaisun voi tarkistaakin WolframAlphalla: 10/9*[1,4]+(-23/9)*[2,-1].
 
 ::::{admonition} Esimerkki
 
-Leija lentää tuulen mukana. Aluksi tuulee $m$ sekuntia siten, että tuulen suunta ja nopeus määräytyvät vektorista $25 \vec{i} + 10 \vec{j}$. Sitten tuuli kääntyy vektorin $-5 \vec{i}+9\vec{j}$. Leija lentää tämän tuulen mukana $n$ sekuntia. Lopulta leija päätyy paikkaan, jonka sijainnin lähtöpisteestä määrittää vektori $100 \vec{i}+120 \vec{j}$. Kuinka kauan leijan matka kesti?
+Leija lentää tuulen mukana. Aluksi tuulee $m$ sekuntia siten, että tuulen suunta ja nopeus määräytyvät vektorista $25 \vec{i} + 10 \vec{j}$. Sitten tuuli kääntyy vektorin $-5 \vec{i}+9\vec{j}$ suuntaiseksi. Leija lentää tämän tuulen mukana $n$ sekuntia. Lopulta leija päätyy paikkaan, jonka sijainnin lähtöpisteestä määrittää vektori $100 \vec{i}+120 \vec{j}$. Kuinka kauan leijan matka kesti?
 
 :::{admonition} Ratkaisu
 :class: tip, dropdown

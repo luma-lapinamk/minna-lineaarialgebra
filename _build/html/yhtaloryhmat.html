@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Yhtälöryhmät &#8212; Lineaarialgebra</title>
+    <title>Yhtälöryhmästä matriisiyhtälö &#8212; Lineaarialgebra</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Gaussin eliminaatio" href="gauss.html" />
-    <link rel="prev" title="Matriisiyhtälöt" href="matriisiyhtalot.html" />
+    <link rel="next" title="Yhtälöryhmien erikoistapauksia" href="yhtaloryhmat_erikois.html" />
+    <link rel="prev" title="Kerrataan yhtälöryhmiä" href="yhtaloryhmat_kertaus.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -137,13 +137,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="vektoriyhtalot.html">
-   Vektoriyhtälöitä
+  <a class="reference internal" href="projektio.html">
+   Vektoriprojektio ja projektiovektori
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="projektio.html">
-   Vektoriprojektio ja projektiovektori
+  <a class="reference internal" href="vektoriyhtalot.html">
+   Vektoriyhtälöitä
   </a>
  </li>
  <li class="toctree-l1">
@@ -170,12 +170,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
-   Matriisit: perusteita
+   Mitä matriisit ovat?
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_laskut.html">
-   Matriisien peruslaskutoimitukset
+   Laskuja matriiseilla
   </a>
  </li>
  <li class="toctree-l1">
@@ -198,9 +198,19 @@ const thebe_selector_output = ".output, .cell_output"
    Matriisiyhtälöt
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Yhtälöryhmät
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
   </a>
  </li>
  <li class="toctree-l1">
@@ -226,6 +236,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_muut.html">
    Lisää sovelluksia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
   </a>
  </li>
 </ul>
@@ -374,28 +389,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sijoitusmenetelma">
-   Sijoitusmenetelmä
+  <a class="reference internal nav-link" href="#ratkaisu-kaanteismatriisin-avulla">
+   Ratkaisu käänteismatriisin avulla
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eliminaatiomenetelma">
-   Eliminaatiomenetelmä
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ratkaisujen-maara">
-   Ratkaisujen määrä
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#determinanttimenetelma-cramerin-saanto">
-   Determinanttimenetelmä (Cramerin sääntö)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#yhtaloryhma-matriisiyhtalona">
-   Yhtälöryhmä matriisiyhtälönä
+  <a class="reference internal nav-link" href="#cramerin-saanto">
+   Cramerin sääntö
   </a>
  </li>
 </ul>
@@ -407,7 +407,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Yhtälöryhmät</h1>
+                <h1>Yhtälöryhmästä matriisiyhtälö</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -418,28 +418,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sijoitusmenetelma">
-   Sijoitusmenetelmä
+  <a class="reference internal nav-link" href="#ratkaisu-kaanteismatriisin-avulla">
+   Ratkaisu käänteismatriisin avulla
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eliminaatiomenetelma">
-   Eliminaatiomenetelmä
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ratkaisujen-maara">
-   Ratkaisujen määrä
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#determinanttimenetelma-cramerin-saanto">
-   Determinanttimenetelmä (Cramerin sääntö)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#yhtaloryhma-matriisiyhtalona">
-   Yhtälöryhmä matriisiyhtälönä
+  <a class="reference internal nav-link" href="#cramerin-saanto">
+   Cramerin sääntö
   </a>
  </li>
 </ul>
@@ -452,107 +437,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="yhtaloryhmat">
-<h1>Yhtälöryhmät<a class="headerlink" href="#yhtaloryhmat" title="Permalink to this headline">#</a></h1>
-<p>Yhtälöparissa on kaksi yhtälöä ja kaksi tuntematonta. Yhtälöryhmissä yhtälöitä ja tuntemattomia on vielä useampia. Tarkoituksena on löytää tuntemattomille sellaiset arvot, että ne toteuttavat molemmat tai kaikki yhtälöt.</p>
-<p>Seuraavaksi esitellään perusalgebran menetelmiä yhtälöparien ratkaisuun. Sen jälkeen tutustutaan, miten yhtälöryhmiä voidaan tehokkaasti ratkoa matriisilaskennan avulla.</p>
-<p>Yhtälöparia, joka voidaan esittää muodossa</p>
-<p><span class="math notranslate nohighlight">\(\begin{equation}
-    \begin{cases}
-      a_1 x + b_1 y = c_1\\
-      a_2 x + b_2 y = c_2
-    \end{cases}\
-\end{equation}\)</span></p>
-<p>sanotaan lineaariseksi yhtälöpariksi. Lineaarinen yhtälöpari sisältää siis kaksi yhtälöä, jotka ovat ensimmäisen asteen yhtälöitä muuttujien <span class="math notranslate nohighlight">\(x\)</span> ja <span class="math notranslate nohighlight">\(y\)</span> suhteen. Lineaarinen yhtälöpari voidaan ratkaista sijoitusmenetelmällä tai eliminointimenetelmällä.</p>
-<section id="sijoitusmenetelma">
-<h2>Sijoitusmenetelmä<a class="headerlink" href="#sijoitusmenetelma" title="Permalink to this headline">#</a></h2>
-<p>Sijoitusmenetelmässä ratkaistaan jommastakummasta yhtälöstä toinen tuntematon. Saatu lauseke sijoitetaan toiseen yhtälöön tuntemattoman paikalle. Lopuksi ratkaistaan toinen tuntematon.</p>
-<p><strong>Esim.</strong> Ratkaise yhtälöpari <span class="math notranslate nohighlight">\(\begin{equation}
-    \begin{cases}
-      x - y = 2\\
-      2 x + 3 y = 9
-    \end{cases}\
-\end{equation}\)</span></p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>Vaihtoehtoja sijoitusmenetelmällä ratkaisun ensimmäiseen vaiheeseen on neljä: ratkaistaan ensimmäisestä yhtälöstä <span class="math notranslate nohighlight">\(x\)</span>, ensimmäisestä yhtälöstä <span class="math notranslate nohighlight">\(y\)</span>, toisesta yhtälöstä <span class="math notranslate nohighlight">\(x\)</span> tai toisesta yhtälöstä <span class="math notranslate nohighlight">\(y\)</span>.</p>
-<p>Jos esimerkiksi ratkaistaan ylemmästä yhtälöstä ensin <span class="math notranslate nohighlight">\(x=2+y\)</span> ja sijoitetaan se alempaan yhtälöön, saadaan</p>
-<p><span class="math notranslate nohighlight">\(2(2+y)+3y=9 \leftrightarrow  4+2y+3y=9 \leftrightarrow 5y=5 \leftrightarrow y=1\)</span>.</p>
-<p>Tämän avulla voidaan ratkaista vielä ensimmäisestä yhtälöstä <span class="math notranslate nohighlight">\(x=2+y=2+1=3\)</span>.</p>
-<p>Kaikilla muillakin esitetyillä tavoilla vastaukseksi tulee <span class="math notranslate nohighlight">\(x=3,y=1\)</span>.</p>
-</div>
-</section>
-<section id="eliminaatiomenetelma">
-<h2>Eliminaatiomenetelmä<a class="headerlink" href="#eliminaatiomenetelma" title="Permalink to this headline">#</a></h2>
-<p>Eliminaatiomenetelmässä molemmat yhtälöt kerrotaan puolittain jollakin nollasta poikkeavalla luvulla (kumpikin yhtälö eri luvulla). Sen jälkeen yhtälöt lasketaan puolittain yhteen. Kertolaskussa käytettävät kertoimet on valittava siten, että yhteenlaskussa jompikumpi muuttujista häviää – käytännössä siten, että joko muuttujan <span class="math notranslate nohighlight">\(x\)</span> tai muuttujen <span class="math notranslate nohighlight">\(y\)</span> kertoimista tulee toistensa vastalukuja.</p>
-<p><strong>Esim.</strong> Ratkaise yhtälöpari <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 2x+5y=12 \\ 3x+2y=7\end{cases} \end{equation}\)</span></p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>Voidaan kertoa ylempi yhtälö luvulla 3 ja alempi yhtälö luvulla -2:</p>
-<p><span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 3\cdot 2x+3\cdot 5y=3\cdot 12 \\ -2\cdot 3x+ (-2)\cdot 2y=-2\cdot 7\end{cases} \end{equation}\)</span></p>
-<p><span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 6x+15y=36 \\ -6x-4y=-14\end{cases} \end{equation}\)</span></p>
-<p>Laskemalla yhtälöt nyt yhteen (vasemmat puolet erikseen ja oikeat puolet erikseen) saadaan</p>
-<p><span class="math notranslate nohighlight">\(6x+15y-6x-4y=36-14\)</span></p>
-<p>eli sievennettynä</p>
-<p><span class="math notranslate nohighlight">\(11y=22\)</span></p>
-<p>josta ratkeaa</p>
-<p><span class="math notranslate nohighlight">\(y=2\)</span>.</p>
-<p>Nyt voidaan sijoittaa saatu tulos kumpaan tahansa alkuperäisistä yhtälöistä:</p>
-<p><span class="math notranslate nohighlight">\(2x+5\cdot 2=12 \leftrightarrow 2x+10=12 \leftrightarrow 2x=2 \leftrightarrow x=1\)</span></p>
-<p>tai</p>
-<p><span class="math notranslate nohighlight">\(3x+2\cdot 2=7 \leftrightarrow 3x+4=7 \leftrightarrow 3x=3 \leftrightarrow x=1\)</span>.</p>
-</div>
-</section>
-<section id="ratkaisujen-maara">
-<h2>Ratkaisujen määrä<a class="headerlink" href="#ratkaisujen-maara" title="Permalink to this headline">#</a></h2>
-<p>Yhtälöryhmällä on joskus äärettömän paljon tai ei ollenkaan ratkaisuja.</p>
-<p><strong>Esim.</strong> Ratkaise yhtälöpari <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 2x+y=5 \\ 4x+2y=10 \end{cases} \end{equation}\)</span>  eliminaatiomenetelmällä.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>Kertomalla ylempi yhtälö luvulla -2 saadaan <span class="math notranslate nohighlight">\(-4x-2y=-10\)</span>.</p>
-<p>Lasketaan yhteen tämä ja alin yhtälö, ja ratkaistaan <span class="math notranslate nohighlight">\(x\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(-4x-2y+4x+2y=-10+10 \leftrightarrow  0\cdot x=0\)</span></p>
-<p>Huomataan, että mikä tahansa <span class="math notranslate nohighlight">\(x\)</span>:n arvo toteuttaa yhtälön. Muuttujan <span class="math notranslate nohighlight">\(x\)</span> tilalle voidaan valita ns. parametri eli vapaasti valittava lukuarvo, jota merkitään <span class="math notranslate nohighlight">\(x=t \in \Re\)</span>. Tämä voidaan sijoittaa ylempään yhtälöön, jolloin saadaan <span class="math notranslate nohighlight">\(y=5-2t\)</span>. Yhtälöparin ratkaisu on siis <span class="math notranslate nohighlight">\(x=t, y=5-2t, t \in \Re\)</span>. Yhtälöparilla on äärettömän monta ratkaisua.</p>
-</div>
-<p><strong>Esim.</strong> Ratkaise yhtälöpari <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 2x+y=5 \\ 4x+y=11 \end{cases} \end{equation}\)</span> eliminaatiomenetelmällä.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>Jälleen ylemmästä yhtälöstä saadaan luvulla kertomalla <span class="math notranslate nohighlight">\(-4x-2y=-10\)</span>.</p>
-<p>Kun lasketaan se yhteen alemman yhtälön kanssa, saadaan:</p>
-<p><span class="math notranslate nohighlight">\(-4x-2y+4x+2y=-10+11 \leftrightarrow  0\cdot x=1\)</span>.</p>
-<p>Yhtälö ei toteudu millään luvulla <span class="math notranslate nohighlight">\(x\)</span>. Yhtälöparilla ei ole ratkaisua.</p>
-</div>
-</section>
-<section id="determinanttimenetelma-cramerin-saanto">
-<h2>Determinanttimenetelmä (Cramerin sääntö)<a class="headerlink" href="#determinanttimenetelma-cramerin-saanto" title="Permalink to this headline">#</a></h2>
-<p>Jos yhtälöpari on muotoa <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} ax+by=e \\ cx+dy=f \end{cases} \end{equation}\)</span> niin ratkaisut saadaan <span class="math notranslate nohighlight">\(2 \times 2\)</span> –tyyppisten determinanttien avulla.</p>
-<p>Tällöin yhtälöpari esitetään muodossa <span class="math notranslate nohighlight">\(\begin{bmatrix} a&amp;b \\ c&amp;d \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix}e \\ f\end{bmatrix}\)</span>.</p>
-<p>Ensimmäisen muuttujan <span class="math notranslate nohighlight">\(x\)</span> ratkaisemiseksi muokataan kerroinmatriisia korvaamalla ensimmäinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan matriisi</p>
-<p><span class="math notranslate nohighlight">\(\begin{bmatrix} e&amp;b \\ f&amp;d \end{bmatrix}\)</span>.</p>
-<p>Lasketaan tästä determinantti</p>
-<p><span class="math notranslate nohighlight">\(D_x=\begin{vmatrix} e&amp;b\\f&amp;d\end{vmatrix}=de-bf\)</span></p>
-<p>ja jaetaan vielä kerroinmatriisin determinantilla</p>
-<p><span class="math notranslate nohighlight">\(D=\begin{vmatrix}a&amp;b\\c&amp;d\end{vmatrix}=ad-bc\)</span>,</p>
-<p>jolloin saadaan vastaus: <span class="math notranslate nohighlight">\(x=\frac{D_x}{D}=\frac{de-bf}{ad-bc}\)</span>.</p>
-<p>Toisen muuttujan ratkaisemiseksi muokataan kerroinmatriisia korvaamalla toinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan</p>
-<p><span class="math notranslate nohighlight">\(\begin{bmatrix} a&amp;e \\ c&amp;f \end{bmatrix}\)</span>.</p>
-<p>Lasketaan tästä determinantti</p>
-<p><span class="math notranslate nohighlight">\(D_y = \begin{vmatrix} a&amp;e \\ c&amp;f \end{vmatrix}=af-ec\)</span></p>
-<p>ja jaetaan vielä kerroinmatriisin determinantilla</p>
-<p><span class="math notranslate nohighlight">\(D=\begin{vmatrix} a&amp;b \\ c&amp;d \end{vmatrix}=ad-bc\)</span>,</p>
-<p>jolloin saadaan vastaus: <span class="math notranslate nohighlight">\(y=\frac{D_y}{D}=\frac{af-ec}{ad-bc}\)</span>.</p>
-<p><strong>Esim.</strong> Ratkaistaan yhtälöpari <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 3x+2y=-1 \\ 2x+y=3\end{cases} \end{equation}\)</span> Cramerin menetelmällä.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>Lasketaan tarvittavat determinantit:</p>
-<p><span class="math notranslate nohighlight">\(D_x=\begin{vmatrix}-1&amp;2\\3&amp;1\end{vmatrix}=-1-6=-7\)</span>,</p>
-<p><span class="math notranslate nohighlight">\(D_y=\begin{vmatrix}3&amp;-1\\2&amp;3\end{vmatrix}=9-(-2)=11\)</span>,</p>
-<p><span class="math notranslate nohighlight">\(D=\begin{vmatrix}3&amp;2\\2&amp;1\end{vmatrix}=3-4=-1\)</span>.</p>
-<p>Vastauksiksi saadaan <span class="math notranslate nohighlight">\(x=\frac{-7}{-1}=7, y=-\frac{11}{1}=-11\)</span>.</p>
-</div>
-</section>
-<section id="yhtaloryhma-matriisiyhtalona">
-<h2>Yhtälöryhmä matriisiyhtälönä<a class="headerlink" href="#yhtaloryhma-matriisiyhtalona" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="yhtaloryhmasta-matriisiyhtalo">
+<h1>Yhtälöryhmästä matriisiyhtälö<a class="headerlink" href="#yhtaloryhmasta-matriisiyhtalo" title="Permalink to this headline">#</a></h1>
 <p>Lineaarinen yhtälöryhmä voidaan ratkaista helposti matriisilaskennan keinoin. Yhtälöryhmää</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation} \begin{cases}
 a_{11} x_1+a_{12} x_2+ \ldots +a_{1n} x_n=b_1 \\
@@ -563,22 +449,66 @@ a_{m1} x_1+a_{m2} x_2+ \ldots +a_{mn} x_n=b_m \end{cases} \end{equation}\)</span
 <p><span class="math notranslate nohighlight">\(A=\begin{bmatrix} a_{11}&amp;a_{12}&amp; \ldots &amp;a_{1n} \\ a_{21}&amp;a_{22}&amp; \ldots &amp;a_{2n}\\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1}&amp;a_{m2}&amp; \ldots &amp;a_{mn}\end{bmatrix}, X=\begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(B=\begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_m\end{bmatrix}\)</span></p>
 <p>sillä matriisien kertolaskun määritelmän perusteella pätee</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation} \begin{cases}
-a_{11}x_1+a_{12} x_2+ \ldots +a_{1n} x_n=b_1 \\ a_{21} x_1+a_{22} x_2+ \ldots +a_{2n} x_n=b_2 \\ \vdots \\ a_{m1} x_1+a_{m2} x_2+ \ldots +a_{mn} x_n=b_m \end{cases} \end{equation} \leftrightarrow AX=B\)</span>.</p>
-<p>Jos yhtälöitä ja tuntemattomia ei ole yhtä paljon (<span class="math notranslate nohighlight">\(m\neq n\)</span>), niin yhtälöryhmällä ei yleensä ole yksikäsitteistä ratkaisua. Jos taas yhtälöitä ja tuntemattomia on yhtä paljon (<span class="math notranslate nohighlight">\(m=n\)</span>), niin yhtälöryhmällä on yleensä, mutta ei kuitenkaan aina, yksikäsitteinen ratkaisu.</p>
-<p>Koska <span class="math notranslate nohighlight">\(A^{-1}A=I\)</span> ja <span class="math notranslate nohighlight">\(A^{-1}AX=IX=X\)</span>, niin tuntemattomat sisältävä matriisi saadaan kertomalla yhtälö <span class="math notranslate nohighlight">\(AX=B\)</span> puolittain vasemmalta matriisilla <span class="math notranslate nohighlight">\(A^{-1}\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(AX=B \leftrightarrow A^{-1}AX=A^{-1}B \leftrightarrow X=A^{-1}B\)</span>.</p>
-<p>Ratkaisu on olemassa jos ja vain jos kerroinmatriisilla <span class="math notranslate nohighlight">\(A\)</span> on olemassa käänteismatriisi, toisin sanoen <span class="math notranslate nohighlight">\(\text{det}~A =|A| \neq 0\)</span>.</p>
+a_{11}x_1+a_{12} x_2+ \ldots +a_{1n} x_n=b_1 \\ a_{21} x_1+a_{22} x_2+ \ldots +a_{2n} x_n=b_2 \\ \vdots \\ a_{m1} x_1+a_{m2} x_2+ \ldots +a_{mn} x_n=b_m \end{cases} \end{equation} \Leftrightarrow AX=B\)</span>.</p>
+<p>Usein tuntemattomia <span class="math notranslate nohighlight">\(x_1, x_2, \dots\)</span> merkitään myös kirjaimilla <span class="math notranslate nohighlight">\(x, y, \dots\)</span>. Tämä on tietysti mahdollista vain silloin, kun kirjaimet aakkosissa eivät lopu kesken!</p>
+<p>Jos yhtälöitä ja tuntemattomia ei ole yhtä paljon (<span class="math notranslate nohighlight">\(m\neq n\)</span>), niin yhtälöryhmällä ei yleensä ole yksikäsitteistä ratkaisua. Tällaisia tapauksia ei käsitellä tässä materiaalissa. Jos taas yhtälöitä ja tuntemattomia on yhtä paljon (<span class="math notranslate nohighlight">\(m=n\)</span>), niin yhtälöryhmällä voi olla yksi, nolla tai äärettömän monta ratkaisua. Tarkastellaan tässä luvussa yksinkertaisinta tapausta eli sitä, jossa löytyy täsmälleen yksi ratkaisu.</p>
+<p>Yhtälöryhmä ei välttämättä näytä samanlaiselta kuin yläreunan määritelmässä. Kirjaimia saattaa olla sekaisin eri puolilla yhtälöjä. Tällöin yhtälöjä pitää muokata. Kaikkien kirjainten pitää olla yhtälöiden vasemmalla puolella siten, että samojen kirjaimien kertoimet on yhdistetty. Jos vasemmalla puolella ei esiinny kirjainta, joka on kuitenkin muissa yhtälöissä, sen kertoimeksi voidaan kirjoittaa nolla. Vasemmalla puolella ei saa olla lukuja ilman kirjainkerrointa. Sen sijaan jokaisen yhtälön oikealla puolella tulee olla jokin luku - jos ei muuta, niin nolla.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Muodosta seuraavia yhtälöryhmiä vastaavat matriisiyhtälöt:</p>
+<p>a) <span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}2x+3y+4z=5\\-3x+2z=0\\x+2y+6z=0\end{cases}\end{equation}\)</span></p>
+<p>b) <span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}2x+5=4y\\x+3y=2x+6\end{cases}\end{equation}\)</span></p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>a) Ratkaistava matriisiyhtälö on <span class="math notranslate nohighlight">\(AX=B\)</span>.</p>
+<p>Matriisin <span class="math notranslate nohighlight">\(A\)</span> kerätään tuntemattomien kertoimet. Toisessa yhtälössä ei esiinny kirjain <span class="math notranslate nohighlight">\(y\)</span>, mikä tarkoittaa sitä, että sen paikalle kerroinmatriisiin tulee nolla. Matriisiin <span class="math notranslate nohighlight">\(B\)</span> kerätään yhtälöiden oikeat puolet. Yhtälöt ovat jo valmiiksi oikeassa esitysmuodossa.</p>
+<p>Siis <span class="math notranslate nohighlight">\(A=\begin{bmatrix}2 &amp; 3 &amp; 4 \\ -3 &amp; 0 &amp; 2 \\ 1 &amp; 2 &amp; 6\end{bmatrix}\)</span>, <span class="math notranslate nohighlight">\(X=\begin{bmatrix}x\\y\\z\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(B=\begin{bmatrix}5\\7\\0\end{bmatrix}\)</span>.</p>
+<p>b) Muokataan kumpaakin yhtälöä erikseen oikeaan esitysmuotoon.</p>
+<p>Ensimmäinen yhtälö: <span class="math notranslate nohighlight">\(2x+5=4y \Leftrightarrow 2x+5-4y=0 \Leftrightarrow 2x-4y=-5\)</span></p>
+<p>Toinen yhtälö: <span class="math notranslate nohighlight">\(x+3y=2x+6 \Leftrightarrow x-+3y-2x=6 \Leftrightarrow -x+3y=6\)</span></p>
+<p>Nyt yhtälöryhmä on saatu muotoon</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}2x+-4y=-5\\-x+3y=6\end{cases}\end{equation}\)</span></p>
+<p>ja tätä vastaa matriisiyhtälö <span class="math notranslate nohighlight">\(AX=B\)</span>, missä</p>
+<p><span class="math notranslate nohighlight">\(A=\begin{bmatrix}2 &amp; -4 \\ -1 &amp; 3\end{bmatrix}\)</span>, <span class="math notranslate nohighlight">\(X=\begin{bmatrix}x\\y\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(B=\begin{bmatrix}-5\\6\end{bmatrix}\)</span>.</p>
+</div>
+</div>
+<section id="ratkaisu-kaanteismatriisin-avulla">
+<h2>Ratkaisu käänteismatriisin avulla<a class="headerlink" href="#ratkaisu-kaanteismatriisin-avulla" title="Permalink to this headline">#</a></h2>
+<p>Matriisiyhtälö <span class="math notranslate nohighlight">\(AX=B\)</span> opittiin ratkaisemaan jo aiemmin. Koska <span class="math notranslate nohighlight">\(A^{-1}A=I\)</span> ja <span class="math notranslate nohighlight">\(A^{-1}AX=IX=X\)</span>, niin tuntemattomat sisältävä matriisi saadaan kertomalla yhtälö <span class="math notranslate nohighlight">\(AX=B\)</span> puolittain vasemmalta kerroinmatriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisilla:</p>
+<p><span class="math notranslate nohighlight">\(AX=B \Leftrightarrow A^{-1}AX=A^{-1}B \Leftrightarrow X=A^{-1}B\)</span>.</p>
+<p>Yhtälön ratkaisu tällä tavalla onnistuu, jos ja vain jos kerroinmatriisilla <span class="math notranslate nohighlight">\(A\)</span> on olemassa käänteismatriisi, toisin sanoen <span class="math notranslate nohighlight">\(\det{A} \neq 0\)</span>.</p>
 <p>Octavella yhtälöryhmän ratkaisu <span class="math notranslate nohighlight">\(X=A^{-1}B\)</span> saadaan komennolla: inv(A)*B</p>
-<p><strong>Esim.</strong> Ratkaise yhtälöryhmä <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 3x+5y=13\\x+2y=5 \end{cases} \end{equation}\)</span> matriisimuodossa.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Ratkaise yhtälöryhmä <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 3x+5y=13\\x+2y=5 \end{cases} \end{equation}\)</span> matriisimuodossa.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
 <p>Muuttujien kertoimista muodostuu matriisi <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3&amp;5\\1&amp;2\end{bmatrix}\)</span> ja yhtälöiden oikeista puolista matriisi <span class="math notranslate nohighlight">\(B=\begin{bmatrix}13\\5\end{bmatrix}\)</span>. Nyt yhtälöryhmä voidaan kirjoittaa muodossa <span class="math notranslate nohighlight">\(AX=B\)</span>, missä <span class="math notranslate nohighlight">\(X=\begin{bmatrix}x\\y\end{bmatrix}\)</span>.</p>
-<p>Matriisin <span class="math notranslate nohighlight">\(A\)</span> determinantti on <span class="math notranslate nohighlight">\(|A|=3\cdot 2-5\cdot 1=6-5=1\neq 0\)</span>, joten on olemassa <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
-<p>Muistetaan: jos matriisilla <span class="math notranslate nohighlight">\(A=\begin{bmatrix}a&amp;b\\c&amp;d\end{bmatrix}\)</span> on käänteismatriisi <span class="math notranslate nohighlight">\(A^{-1}\)</span>, käänteismatriisille pätee
-<span class="math notranslate nohighlight">\(A^{-1}=\frac{1}{ad-bc} \begin{bmatrix}d&amp;-b\\-c&amp;a\end{bmatrix}\)</span>.</p>
+<p>Matriisin <span class="math notranslate nohighlight">\(A\)</span> determinantti on <span class="math notranslate nohighlight">\(\det{A}=3\cdot 2-5\cdot 1=6-5=1\neq 0\)</span>, joten käänteismatriisi <span class="math notranslate nohighlight">\(A^{-1}\)</span> on olemassa.</p>
+<p>Kun matriisi on tyyppiä <span class="math notranslate nohighlight">\(2\times 2\)</span>, niin käänteismatriisi on <span class="math notranslate nohighlight">\(A^{-1}=\frac{1}{ad-bc} \begin{bmatrix}d&amp;-b\\-c&amp;a\end{bmatrix}\)</span>.</p>
 <p>Nyt siis <span class="math notranslate nohighlight">\(A^{-1}=\frac{1}{3\cdot 2-5 \cdot 1} \begin{bmatrix} 2&amp;-5 \\ -1&amp;3 \end{bmatrix}=1\cdot \begin{bmatrix} 2&amp;-5\\-1&amp;3\end{bmatrix}=\begin{bmatrix}2&amp;-5\\-1&amp;3\end{bmatrix}\)</span></p>
 <p>ja <span class="math notranslate nohighlight">\(X=A^{-1}B=\begin{bmatrix}2&amp;-5\\-1&amp;3\end{bmatrix} \begin{bmatrix} 13\\5\end{bmatrix}=\begin{bmatrix}2\cdot 13-5\cdot 5\\-1\cdot 13+3\cdot 5\end{bmatrix}=\begin{bmatrix}26-25\\-13+15\end{bmatrix}=\begin{bmatrix}1\\2\end{bmatrix}\)</span>.</p>
 <p>Ratkaisu on siis <span class="math notranslate nohighlight">\(x=1,y=2\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="cramerin-saanto">
+<h2>Cramerin sääntö<a class="headerlink" href="#cramerin-saanto" title="Permalink to this headline">#</a></h2>
+<p>Jos lineaariselle yhtälöryhmälle on olemassa yksi ratkaisu, se voidaan ratkaista myös matriisien determinanttien avulla. Menetelmää kutsutaan Cramerin säännöksi tai menetelmäksi. Tarkastellaan tässä yhtälöparia <span class="math notranslate nohighlight">\(\begin{bmatrix} a&amp;b \\ c&amp;d \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix}e \\ f\end{bmatrix}\)</span>.</p>
+<p>Ensimmäisen muuttujan <span class="math notranslate nohighlight">\(x\)</span> ratkaisemiseksi muokataan kerroinmatriisia korvaamalla ensimmäinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan matriisi <span class="math notranslate nohighlight">\(\begin{bmatrix} e&amp;b \\ f&amp;d \end{bmatrix}\)</span>.</p>
+<p>Lasketaan tästä determinantti <span class="math notranslate nohighlight">\(D_x=de-bf\)</span> ja jaetaan vielä kerroinmatriisin determinantilla <span class="math notranslate nohighlight">\(D=ad-bc\)</span>, jolloin saadaan vastaus: <span class="math notranslate nohighlight">\(x=\frac{D_x}{D}=\frac{de-bf}{ad-bc}\)</span>.</p>
+<p>Toisen muuttujan ratkaisemiseksi muokataan kerroinmatriisia korvaamalla toinen sarake yhtälöryhmän oikeat puolet sisältävällä matriisilla, jolloin saadaan <span class="math notranslate nohighlight">\(\begin{bmatrix} a&amp;e \\ c&amp;f \end{bmatrix}\)</span>. Lasketaan tästä determinantti <span class="math notranslate nohighlight">\(D_y = af-ec\)</span> ja jaetaan vielä kerroinmatriisin determinantilla <span class="math notranslate nohighlight">\(D=ad-bc\)</span>, jolloin saadaan vastaus: <span class="math notranslate nohighlight">\(y=\frac{D_y}{D}=\frac{af-ec}{ad-bc}\)</span>.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Ratkaise yhtälöpari <span class="math notranslate nohighlight">\(\begin{equation} \begin{cases} 3x+2y=-1 \\ 2x+y=3\end{cases} \end{equation}\)</span> Cramerin menetelmällä.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Lasketaan tarvittavat determinantit:</p>
+<p><span class="math notranslate nohighlight">\(D_x=\begin{vmatrix}-1&amp;2\\3&amp;1\end{vmatrix}=-1-6=-7\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(D_y=\begin{vmatrix}3&amp;-1\\2&amp;3\end{vmatrix}=9-(-2)=11\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(D=\begin{vmatrix}3&amp;2\\2&amp;1\end{vmatrix}=3-4=-1\)</span>.</p>
+<p>Vastauksiksi saadaan <span class="math notranslate nohighlight">\(x=\frac{-7}{-1}=7, y=-\frac{11}{1}=-11\)</span>.</p>
+</div>
 </div>
 </section>
 </section>
@@ -610,17 +540,17 @@ a_{11}x_1+a_{12} x_2+ \ldots +a_{1n} x_n=b_1 \\ a_{21} x_1+a_{22} x_2+ \ldots +a
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="matriisiyhtalot.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="yhtaloryhmat_kertaus.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Matriisiyhtälöt</p>
+            <p class="prev-next-title">Kerrataan yhtälöryhmiä</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="gauss.html" title="next page">
+    <a class='right-next' id="next-link" href="yhtaloryhmat_erikois.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Gaussin eliminaatio</p>
+        <p class="prev-next-title">Yhtälöryhmien erikoistapauksia</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
