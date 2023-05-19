@@ -30,3 +30,32 @@ Tilanne kymmenen vuoden kuluttua saadaan laskemalla (tietokoneella)
 $L^5 E \approx \begin{bmatrix} 58 \\ 31 \\ 28 \\ 20 \\ 7 \\0\end{bmatrix}$.
 
 Tässä tietysti on oletettu, että eläimiä ei alkuhankinnan jälkeen ole ostettu tai myytykään. Huomaa myös, että tässä ikäluokkia käsitellään kahden vuoden jaksoina; siksi kymmenen vuotta vastaa viidenteen potenssiin korotusta.
+
+::::{admonition} Esimerkki
+
+Erästä eläinpopulaatiota kuvaavan Leslien matriisin tiedetään olevan seuraavanlainen:
+
+$L=\begin{bmatrix}0 & 0.4 & 1.1 & 0.6 \\ 0.80 & 0 & 0 & 0 \\ 0 & 0.95 & 0 & 0 \\0 & 0 & 0.70 & 0\end{bmatrix}$
+
+ja lisäksi tiedetään, että eri ikäluokkiin kuuluvia eläimiä kolmen ikäluokkajakson jälkeen kuvaava matriisi on
+
+$M=\begin{bmatrix}60 \\ 50 \\ 45 \\ 15\end{bmatrix}$.
+
+Kuinka paljon eri ikäluokkiin kuului eläimiä tarkasteluajan alussa, siis millainen matriisi $E$ kuvasi alkutilannetta?
+
+:::{admonition} Ratkaisu
+:class: tip, dropdown
+
+Ratkaistava yhtälö on nyt $L^3E=M$. Matriisi $L$ ja siten myös matriisi $L^3$ on neliömatriisi, joten sille on mahdollista laskea käänteismatriisi (olettaen, että matriisin $L^3$ determinantti ei ole nolla). Niinpä yhtälö ratkeaa tavallisilla matriisiyhtälöiden ratkaisukeinoilla:
+
+$L^3E=M \Leftrightarrow E=(L^3)^{-1} M$
+
+Lasku kannattaa suorittaa tietokoneella. Octavella komento olisi: 
+
+L=[0 0.4 1.1 0.6;0.8 0 0 0; 0 0.95 0 0; 0 0 0.7 0], M=[60;50;45;15], E=inv(L^3)\*M
+
+Vastaukseksi tulee nuorimmasta vanhimpaan ikäryhmään noin 28, 44, 18 ja 36 yksilöä.
+
+:::
+
+::::

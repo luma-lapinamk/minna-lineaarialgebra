@@ -366,12 +366,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stabiloituminen">
+   Stabiloituminen
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -383,6 +407,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stabiloituminen">
+   Stabiloituminen
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -392,7 +429,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="siirtymalaskuja-matriiseilla">
 <h1>Siirtymälaskuja matriiseilla<a class="headerlink" href="#siirtymalaskuja-matriiseilla" title="Permalink to this headline">#</a></h1>
-<p>Matriisilaskenta toimii hyvin ongelmissa, joissa halutaan tietää, mitkä ovat joidenkin toisensa poissulkevien tapahtumien todennäköisyydet usean edeltävän vaiheen jälkeen, kun jokaisen tapahtuman todennäköisyys riippuu edellisestä tapahtumasta. Tällaista ”todennäköisyysketjua” sanotaan Markovin ketjuksi (<a class="reference external" href="https://fi.wikipedia.org/wiki/Andrei_Markov">Andrei Markov</a>).</p>
+<p>Matriisilaskenta toimii hyvin ongelmissa, joissa halutaan tietää, mitkä ovat joidenkin toisensa poissulkevien tapahtumien todennäköisyydet usean edeltävän vaiheen jälkeen, kun jokaisen tapahtuman todennäköisyys riippuu edellisestä tapahtumasta. Tällaista “todennäköisyysketjua” sanotaan Markovin ketjuksi (<a class="reference external" href="https://fi.wikipedia.org/wiki/Andrei_Markov">Andrei Markov</a>).</p>
 <p>Tarkastellaan tapahtumia <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span>. Oletetaan, että ovat vaihtoehtoisia siten, että jompikumpi niistä tapahtuu varmasti ketjun jokaisessa vaiheessa. Vaiheet voivat olla vaikkapa peräkkäistä päiviä, ja tapahtumat voivat olla esimerkiksi sadesää ja poutainen sää.
 Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math notranslate nohighlight">\(T\)</span>, jota itsensä kanssa kertomalla päästään aina seuraavan vaiheen tapahtumien todennäköisyyksiin. Yksinkertaisessa esimerkissä tilansiirtomatriisi on seuraava:</p>
 <p><span class="math notranslate nohighlight">\(T=\begin{bmatrix}P_{AA}&amp;P_{BA}\\P_{AB} &amp; P_{BB}\end{bmatrix}\)</span>,</p>
@@ -404,7 +441,7 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
 <li><p><span class="math notranslate nohighlight">\(P_{BB}\)</span> kuvaa todennäköisyyttä sille, että asia <span class="math notranslate nohighlight">\(B\)</span> tapahtuu vaiheessa 2, kun vaiheessa 1 on tapahtunut asia <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
 </ul>
 <p>Todennäköisyyslaskennassa tapahtumia kuvaavat todennäköisyydet ovat aina välillä <span class="math notranslate nohighlight">\(0 \ldots 1\)</span> siten, että mahdottoman tapahtuman todennäköisyys on nolla ja varman tapahtuman todennäköisyys on yksi. Todennäköisyys sille, että joko <span class="math notranslate nohighlight">\(A\)</span> tai <span class="math notranslate nohighlight">\(B\)</span> tapahtuu, on 1, sillä olemme olettaneet, että muitakaan vaihtoehtoja ei ole (esimerkiksi: jollakin todennäköisyydelle huomenna sataa ja jollakin todennäköisyydellä ei sada, mutta <em>varmasti</em> joko sataa tai ei sada). Tilansiirtomatriisissa tämä huomioidaan siten, että jokaisessa sarakkeessa alkioiden summan on oltava 1.</p>
-<p>Ketjun lähtötilannetta kuvaa matriisi <span class="math notranslate nohighlight">\(p_0=\begin{bmatrix} A_0 \\B_0\end{bmatrix}\)</span>, missä <span class="math notranslate nohighlight">\(A_0\)</span> ja <span class="math notranslate nohighlight">\(B_0\)</span> ovat sopivat alkutilanteet. Ne voivat olla todennäköisyyksiä tai lukumääriä. Esimerkiksi jos <span class="math notranslate nohighlight">\(A\)</span> kuvaa sadetta ja <span class="math notranslate nohighlight">\(B\)</span> poutaa, ja alkutilanteessa sataa, niin <span class="math notranslate nohighlight">\(A_0=1\)</span> ja <span class="math notranslate nohighlight">\(B_0=0\)</span>. Toisaalta <span class="math notranslate nohighlight">\(A_0\)</span> ja <span class="math notranslate nohighlight">\(B_0\)</span> voivat olla myös tilanteissa <span class="math notranslate nohighlight">\(A\)</span> tai <span class="math notranslate nohighlight">\(B\)</span> olevien yksilöiden lukumäärää: esimerkiksi kaupungissa tai maalla asuvien ihmisten määrää.</p>
+<p>Ketjun lähtötilannetta kuvaa matriisi <span class="math notranslate nohighlight">\(p_0=\begin{bmatrix} A_0 \\B_0\end{bmatrix}\)</span>, missä <span class="math notranslate nohighlight">\(A_0\)</span> ja <span class="math notranslate nohighlight">\(B_0\)</span> ovat sopivat alkutilanteet. Ne voivat olla todennäköisyyksiä tai lukumääriä. Esimerkiksi jos <span class="math notranslate nohighlight">\(A\)</span> kuvaa sadetta ja <span class="math notranslate nohighlight">\(B\)</span> poutaa, ja alkutilanteessa sataa, niin <span class="math notranslate nohighlight">\(A_0=1\)</span> ja <span class="math notranslate nohighlight">\(B_0=0\)</span>. Toisaalta <span class="math notranslate nohighlight">\(A_0\)</span> ja <span class="math notranslate nohighlight">\(B_0\)</span> voivat olla myös tilanteissa <span class="math notranslate nohighlight">\(A\)</span> tai <span class="math notranslate nohighlight">\(B\)</span> olevien yksilöiden lukumääriä: esimerkiksi kaupungissa tai maalla asuvien ihmisten määriä.</p>
 <p>Ketjun seuraava tilanne saadaan laskemalla <span class="math notranslate nohighlight">\(p_1=T p_0\)</span>. Yleisesti, kun siirtymä tilanteesta toiseen toistuu <span class="math notranslate nohighlight">\(n\)</span> kertaa, niin matriisi <span class="math notranslate nohighlight">\(p_n\)</span>, joka sisältää lukumäärät tai todennäköisyydet tapahtumille <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span>, saadaan laskutoimituksesta <span class="math notranslate nohighlight">\(p_n=T^n p_0\)</span>.</p>
 <p><strong>Huom!</strong> Matriisin potenssiinkorotus tarkoittaa samaa kuin lukujen potenssiinkorotus, eli matriisia kerrotaan itsellään. Matriisin alkioita ei siis koroteta yksittäin potenssiin <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <div class="admonition-esimerkki admonition">
@@ -443,6 +480,33 @@ Todennäköisyysketjuun rakennetaan ns. tilansiirtomatriisi <span class="math no
 <p>Lasku <span class="math notranslate nohighlight">\(T^{10}\)</span> on suoritettu tietokoneella.</p>
 </div>
 </div>
+<section id="stabiloituminen">
+<h2>Stabiloituminen<a class="headerlink" href="#stabiloituminen" title="Permalink to this headline">#</a></h2>
+<p>Tilasta toiseen siirtyminen voi stabiloitua eli vakiintua. Esimerkiksi muuttoliike maalta kaupunkiin ja toisin päin jatkuu, mutta eri asuinpaikkojen asukasmäärät eivät muutu, vaan tulijoita ja lähtijöitä on yhtä paljon. Oletetaan, että matriisi <span class="math notranslate nohighlight">\(X\)</span> kuvaa tilannetta jollakin hetkellä. Stabiloituneessa systeemissä tilanne ei muutu, vaikka suoritettaisiin vielä yksi tilansiirtomatriisin <span class="math notranslate nohighlight">\(T\)</span> määräämä siirtymä. Yhtälönä ilmaistuna siis <span class="math notranslate nohighlight">\(TX=X\)</span>.</p>
+<p>Kirjoitetaan edellinen yhtälö auki siten, että matriisi <span class="math notranslate nohighlight">\(X\)</span> on <span class="math notranslate nohighlight">\(X=\begin{bmatrix}x\\y\end{bmatrix}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}P_{AA}&amp;P_{BA}\\P_{AB} &amp; P_{BB}\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}x\\y\end{bmatrix}\)</span></p>
+<p>Kertolasku laskemalla yhtälö muuttuu seuraavaan muotoon:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}P_{AA}x+P_{BA}y \\ P_{AB}x+P_{BB}y \end{bmatrix}=\begin{bmatrix}x\\y\end{bmatrix}\)</span></p>
+<p>Nyt voidaan muodostaa yhtälöpari</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}P_{AA}x+P_{BA}y=x \\P_{AB}x+P_{BB}y=y\end{cases}\end{equation}\)</span></p>
+<p>Ensimmäisestä yhtälöstä saadaan <span class="math notranslate nohighlight">\(y=\frac{1-P_{AA}}{P_{BA}}x\)</span> eli toisin sanoen <span class="math notranslate nohighlight">\(y=\frac{P_{AB}}{P_{BA}}x\)</span>.</p>
+<p>Toisesta yhtälöstä saadaan <span class="math notranslate nohighlight">\(y=-\frac{P_{AB}}{P_{BB}-1}x\)</span> eli täsmälleen sama ratkaisu <span class="math notranslate nohighlight">\(y=\frac{P_{AB}}{P_{BA}}x\)</span>.</p>
+<p>Yhtälöt ovat siis samat, eli edellisellä yhtälöparilla ei voidakaan ratkaista lukuja <span class="math notranslate nohighlight">\(x\)</span> ja <span class="math notranslate nohighlight">\(y\)</span>, vaan pelkästään niiden keskinäinen suhde. Lukujen <span class="math notranslate nohighlight">\(x\)</span> ja <span class="math notranslate nohighlight">\(y\)</span> ratkaisuun tarvitaan lisäksi tieto, paljonko niiden summa on. Tilansiirtomatriiseja käytettäessä oletetaan nimittäin, että kokonaismäärä ei muutu.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Eräällä paikkakunnalla voi työskennellä joko teollisuudessa tai palvelualoilla. Työpaikkaa voi vaihtaa kerran vuodessa. Aluksi teollisuudessa on töissä 100 henkilöä ja palvelualoilla 300 henkilöä. Teollisuudesta palvelualoille vaihtaa vuosittain 30 % teollisuuden työntekijöistä, ja palvelualoista teollisuuteen 40 % palvelualojen työntekijöistä. Millaiseksi jakauma stabiloituu pitkän ajan kuluessa?</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Tilansiirtomatriisi on tässä tapauksessa <span class="math notranslate nohighlight">\(T=\begin{bmatrix}0.7 &amp; 0.4 \\ 0.3 &amp; 0.6\end{bmatrix}\)</span>, ja työntekijöitä on yhteensä <span class="math notranslate nohighlight">\(100+300=400\)</span>. Stabiloituneessa tilanteessa on voimassa seuraavat yhtälöt:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}y=\frac{0.3}{0.4}x \\ x+y=400\end{cases}\end{equation}\)</span></p>
+<p>Ensimmäinen yhtälö voidaan muokata muotoon <span class="math notranslate nohighlight">\(-\frac{0.3}{0.4}x+y=0\)</span>. Tämän jälkeen voidaan kirjoittaa yhtälöpari matriisiyhtälönä:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}-\frac{0.3}{0.4}&amp; 1 \\ 1&amp; 1\end{bmatrix}\begin{bmatrix}x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\400\end{bmatrix}\)</span></p>
+<p>josta ratkeaa</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}x \\ y \end{bmatrix} = \begin{bmatrix}-\frac{0.3}{0.4}&amp; 1 \\ 1 &amp;1\end{bmatrix}^{-1}\begin{bmatrix} 0 \\400\end{bmatrix}\)</span></p>
+<p>Octave-komento tähän laskuun on inv([-0.3/0.4 1; 1 1])*[0;400] ja vastaukseksi saadaan <span class="math notranslate nohighlight">\(x\approx 229\)</span> ja <span class="math notranslate nohighlight">\(y\approx 171\)</span>.</p>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

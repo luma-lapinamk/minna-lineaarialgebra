@@ -436,6 +436,22 @@ title="Print to PDF"
 <p>Tilanne kymmenen vuoden kuluttua saadaan laskemalla (tietokoneella)</p>
 <p><span class="math notranslate nohighlight">\(L^5 E \approx \begin{bmatrix} 58 \\ 31 \\ 28 \\ 20 \\ 7 \\0\end{bmatrix}\)</span>.</p>
 <p>Tässä tietysti on oletettu, että eläimiä ei alkuhankinnan jälkeen ole ostettu tai myytykään. Huomaa myös, että tässä ikäluokkia käsitellään kahden vuoden jaksoina; siksi kymmenen vuotta vastaa viidenteen potenssiin korotusta.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Erästä eläinpopulaatiota kuvaavan Leslien matriisin tiedetään olevan seuraavanlainen:</p>
+<p><span class="math notranslate nohighlight">\(L=\begin{bmatrix}0 &amp; 0.4 &amp; 1.1 &amp; 0.6 \\ 0.80 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0.95 &amp; 0 &amp; 0 \\0 &amp; 0 &amp; 0.70 &amp; 0\end{bmatrix}\)</span></p>
+<p>ja lisäksi tiedetään, että eri ikäluokkiin kuuluvia eläimiä kolmen ikäluokkajakson jälkeen kuvaava matriisi on</p>
+<p><span class="math notranslate nohighlight">\(M=\begin{bmatrix}60 \\ 50 \\ 45 \\ 15\end{bmatrix}\)</span>.</p>
+<p>Kuinka paljon eri ikäluokkiin kuului eläimiä tarkasteluajan alussa, siis millainen matriisi <span class="math notranslate nohighlight">\(E\)</span> kuvasi alkutilannetta?</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Ratkaistava yhtälö on nyt <span class="math notranslate nohighlight">\(L^3E=M\)</span>. Matriisi <span class="math notranslate nohighlight">\(L\)</span> ja siten myös matriisi <span class="math notranslate nohighlight">\(L^3\)</span> on neliömatriisi, joten sille on mahdollista laskea käänteismatriisi (olettaen, että matriisin <span class="math notranslate nohighlight">\(L^3\)</span> determinantti ei ole nolla). Niinpä yhtälö ratkeaa tavallisilla matriisiyhtälöiden ratkaisukeinoilla:</p>
+<p><span class="math notranslate nohighlight">\(L^3E=M \Leftrightarrow E=(L^3)^{-1} M\)</span></p>
+<p>Lasku kannattaa suorittaa tietokoneella. Octavella komento olisi:</p>
+<p>L=[0 0.4 1.1 0.6;0.8 0 0 0; 0 0.95 0 0; 0 0 0.7 0], M=[60;50;45;15], E=inv(L^3)*M</p>
+<p>Vastaukseksi tulee nuorimmasta vanhimpaan ikäryhmään noin 28, 44, 18 ja 36 yksilöä.</p>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
