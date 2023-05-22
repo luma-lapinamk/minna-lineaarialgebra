@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Laskuja matriiseilla &#8212; Lineaarialgebra</title>
+    <title>Vektorit ja tasot &#8212; Lineaarialgebra</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Matriisitulo" href="matriisitulo.html" />
-    <link rel="prev" title="Mitä matriisit ovat?" href="matriisit_perus.html" />
+    <link rel="next" title="Mitä matriisit ovat?" href="matriisit_perus.html" />
+    <link rel="prev" title="Vektorit ja suorat" href="suorat_vektoreilla.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
   Vektorilaskentaa
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="vektorit_perus.html">
    Mitä vektorit ovat?
@@ -166,8 +166,8 @@ const thebe_selector_output = ".output, .cell_output"
    Vektorit ja suorat
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="tasot_vektoreilla.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Vektorit ja tasot
   </a>
  </li>
@@ -177,14 +177,14 @@ const thebe_selector_output = ".output, .cell_output"
   Matriisit
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="matriisit_perus.html">
    Mitä matriisit ovat?
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_laskut.html">
    Laskuja matriiseilla
   </a>
  </li>
@@ -339,7 +339,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/matriisit_laskut.md"
+        <a href="_sources/tasot_vektoreilla.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -399,13 +399,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summa-ja-luvulla-kertominen">
-   Summa ja luvulla kertominen
+  <a class="reference internal nav-link" href="#tason-yhtalo">
+   Tason yhtälö
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matriisilaskut-tietokoneella">
-   Matriisilaskut tietokoneella
+  <a class="reference internal nav-link" href="#suoran-ja-tason-leikkauspiste">
+   Suoran ja tason leikkauspiste
   </a>
  </li>
 </ul>
@@ -417,7 +417,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Laskuja matriiseilla</h1>
+                <h1>Vektorit ja tasot</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -428,13 +428,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summa-ja-luvulla-kertominen">
-   Summa ja luvulla kertominen
+  <a class="reference internal nav-link" href="#tason-yhtalo">
+   Tason yhtälö
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matriisilaskut-tietokoneella">
-   Matriisilaskut tietokoneella
+  <a class="reference internal nav-link" href="#suoran-ja-tason-leikkauspiste">
+   Suoran ja tason leikkauspiste
   </a>
  </li>
 </ul>
@@ -447,69 +447,66 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="laskuja-matriiseilla">
-<h1>Laskuja matriiseilla<a class="headerlink" href="#laskuja-matriiseilla" title="Permalink to this headline">#</a></h1>
-<p>Matriisien peruslaskutoimituksiin kuuluvat matriisien yhteen- ja vähennyslasku sekä matriisin kertominen luvulla. Aivan kuten vektorienkin tapauksessa, matriisien kertominen toisella matriisilla on monimutkaisempi laskutoimitus ja käsitellään erikseen. Matriisien laskutoimitukset sujuvat helposti matriisilaskentaan erikoistuneella Octave-laskentaohjelmalla, johon myös tässä luvussa tutustutaan hieman. Laskentaan voi toki hyvin käyttää myös esimerkiksi Pythonin lineaarialgebran työkaluja.</p>
-<section id="summa-ja-luvulla-kertominen">
-<h2>Summa ja luvulla kertominen<a class="headerlink" href="#summa-ja-luvulla-kertominen" title="Permalink to this headline">#</a></h2>
-<p>Matriiseja voidaan laskea yhteen tai vähentää toisistaan, jos ne ovat samaa tyyppiä. Laskutoimitukset tehdään vastinalkioittain, eli kummankin matriisin samalla rivillä ja samassa sarakkeessa oleville alkioille. Matriisien <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> summan <span class="math notranslate nohighlight">\(C=A+B\)</span> alkio <span class="math notranslate nohighlight">\(C_{ij}\)</span> on siis matriisien <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> vastaavien alkioiden summa, <span class="math notranslate nohighlight">\(C_{ij}=A_{ij}+B_{ij}\)</span>. Vastaavasti erotukselle <span class="math notranslate nohighlight">\(C=A-B\)</span> pätee <span class="math notranslate nohighlight">\(C_{ij}=A_{ij}-B_{ij}\)</span>.</p>
-<p>Minkä tahansa kokoinen matriisi voidaan kertoa reaaliluvulla. Tällöin matriisin jokainen alkio kerrotaan kyseisellä luvulla. Matriisien jakaminen luvulla voidaan myös esittää kertolaskuna, jossa kertoimena on käänteisluku siitä luvusta, jolla matriisin alkiot jaetaan.
-Esimerkiksi jos matriisin <span class="math notranslate nohighlight">\(A\)</span> kaikki alkiot halutaan jakaa luvulla 4, niin tarvittava laskutoimitus on <span class="math notranslate nohighlight">\(\frac{1}{4} A\)</span>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="vektorit-ja-tasot">
+<h1>Vektorit ja tasot<a class="headerlink" href="#vektorit-ja-tasot" title="Permalink to this headline">#</a></h1>
+<p>Tasokin voidaan esittää vektorien avulla. Tason määrää jokin tasolla oleva piste <span class="math notranslate nohighlight">\((x_0,y_0,z_0)\)</span> sekä kaksi tason suuntaista, mutta keskenään erisuuntaista vektoria <span class="math notranslate nohighlight">\(\vec{u}=u_x \vec{i} + u_y \vec{j} + u_z \vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{v}=v_x \vec{i} + v_y \vec{j} + v_z \vec{k}\)</span>. Piste pitää nyt ilmaista kolmella koordinaatilla, sillä pistehän ei välttämättä ole “lattian tasossa”. Myös tason vektoreissa pitää olla kolme komponenttia, sillä taso voi hyvinkin olla vinossa, kuten kuvassa esitetty katto.</p>
+<p>Logiikka on siis sama kuin vektorien avulla esitetyissä suorissa: ensin valitaan jokin piste, joka varmasti on tasolla, ja sitten määritellään, mihin suuntaan liikkumalla tasolla pysytään. Nyt suuntia kuitenkin tarvitaan kaksi, tai muuten käveltäiisiin pelkästään viivaa pitkin tasolla. Kuvan tapauksessa vektorit ovat räystään ja katonharjan suuntaiset, mutta suunnat voisivat olla jotkin muutkin. Lisäksi on hyvä tietää, että yleisesti ottaen tasot oletetaan äärettömyyksiin asti jatkuviksi, toisin kuin katot. Katolla ei pysy, vaikka liikkuisi säntillisesti katon määrittävien vektorien suunnassa, jos liikkuu liian pitkälle.</p>
+<p><img alt="Tason vektorit katolla" src="_images/katto_vektorit.png" /></p>
+<p>Tason vektorit voidaan muodostaa, jos tunnetaan jotkin tasolla olevat pisteet <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> ja <span class="math notranslate nohighlight">\(C\)</span>. Tällöin vektoreiksi voidaan valita esimerkiksi <span class="math notranslate nohighlight">\(\vec{AB}\)</span> ja <span class="math notranslate nohighlight">\(\vec{AC}\)</span>. Tasolla olevan pisteen <span class="math notranslate nohighlight">\((x_0,y_0,z_0)\)</span> paikkavektori on <span class="math notranslate nohighlight">\(\vec{r_0}=x_0 \vec{i} + y_0 \vec{j} + z_0 \vec{k}\)</span>. Näistä vektoreista voidaan muodostaa vektorimuotoinen parametriesitys <span class="math notranslate nohighlight">\(\vec{r}\)</span> samalla tavalla kuin suorien tapauksessa:</p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=\vec{r_0}+s\vec{u}+t\vec{v}, s, r \in \Re\)</span>.</p>
+<p>Erona suoraan on vain se, että vapaasti valittavia kertoimia on nyt kaksi, siis <span class="math notranslate nohighlight">\(s\)</span> ja <span class="math notranslate nohighlight">\(t\)</span>. Vektorimuotoisesta parametriesityksestä voidaan muodostaa myös koordinaattimuotoinen parametriesitys:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}x=x_0+s u_x + t v_x \\ y=y_0 + s u_y + t v_y \\ z=z_0 + s u_z + t v_z \end{cases}\end{equation}\)</span></p>
 <div class="admonition-esimerkki admonition">
 <p class="admonition-title">Esimerkki</p>
-<p>Olkoon <span class="math notranslate nohighlight">\(A=\begin{bmatrix}2&amp;-3&amp;5\\0&amp;2&amp;1\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(B=\begin{bmatrix}1&amp;7&amp;2\\3&amp;-2&amp;4\end{bmatrix}\)</span>. Laske <span class="math notranslate nohighlight">\(A+B\)</span> ja <span class="math notranslate nohighlight">\(3A\)</span>.</p>
+<p>Eräällä tasolla ovat pisteet <span class="math notranslate nohighlight">\(A=(2,1,3)\)</span>, <span class="math notranslate nohighlight">\(B=(0,2,1)\)</span> ja <span class="math notranslate nohighlight">\(C=(3,2,-4)\)</span>. Muodosta tason vektori- ja koordinaattimuotoinen parametriesitys.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p><span class="math notranslate nohighlight">\(A+B=\begin{bmatrix}2+1&amp;-3+7&amp;5+2\\0+3&amp;2-2&amp;1+4\end{bmatrix}=\begin{bmatrix}3&amp;4&amp;7\\3&amp;0&amp;5\end{bmatrix}\)</span> ja</p>
-<p><span class="math notranslate nohighlight">\(3A=\begin{bmatrix}3\cdot 2&amp;3\cdot (-3)&amp;3\cdot 5\\3\cdot 0&amp;3\cdot 2&amp;3\cdot 1\end{bmatrix}=\begin{bmatrix}6&amp;9&amp;15\\0&amp;6&amp;3\end{bmatrix}\)</span>.</p>
+<p>Muodostetaan tason suuntaiset vektorit:</p>
+<p><span class="math notranslate nohighlight">\(\vec{AB}=(0-2)\vec{i}+(2-1)\vec{j}+(1-3)\vec{k}=-2\vec{i}+\vec{j}-2\vec{k}\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\vec{AC}=(3-2)\vec{i}+(2-1)\vec{j}+(-4-3)\vec{k}=\vec{i}+\vec{j}-7\vec{k}\)</span></p>
+<p>Vektoriksi <span class="math notranslate nohighlight">\(\vec{r_0}\)</span> käy minkä tahansa pisteen <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> tai <span class="math notranslate nohighlight">\(C\)</span> paikkavektori, esimerkiksi <span class="math notranslate nohighlight">\(\vec{OA}=2\vec{i}+\vec{j}+3\vec{k}\)</span>.</p>
+<p>Vektorimuotoinen parametriesitys <span class="math notranslate nohighlight">\(\vec{r}=\vec{r_0}+s\vec{u}+t\vec{v}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=2\vec{i}+\vec{j}+3\vec{k}+s(-2\vec{i}+\vec{j}-2\vec{k})+t(\vec{i}+\vec{j}-7\vec{k})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=2\vec{i}+\vec{j}+3\vec{k}-2s\vec{i}+s\vec{j}-2s\vec{k})+t\vec{i}+s\vec{j}-7t \vec{k}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=(2-2s+t)\vec{i}+(1+s+t)\vec{j}+(3-2s-7t)\vec{k}\)</span></p>
+<p>Koordinaattimuotoinen parametriesitys on</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}x=2-2s+t \\ y=1+s+t \\ z=3-2s-7t \end{cases}\end{equation}\)</span></p>
+<p>Nyt voitaisiin laskea tasolla olevia pisteitä <span class="math notranslate nohighlight">\((x,y,z)\)</span> valitsemalla jotkin arvot <span class="math notranslate nohighlight">\(s\)</span> ja <span class="math notranslate nohighlight">\(t\)</span>. Jos esimerkiksi <span class="math notranslate nohighlight">\(s=3\)</span> ja <span class="math notranslate nohighlight">\(t=1\)</span>, niin saadaan eräs tasolla oleva piste <span class="math notranslate nohighlight">\((2-6+1,1+3+1,3-6-7)=(-3,5,-10)\)</span>.</p>
 </div>
 </div>
-<p>Matriiseille on määritelty myös alkioittainen tulo eli Hadamardin tulo. Sitä merkitään matriisien välisellä ympyrällä <span class="math notranslate nohighlight">\(A\circ B\)</span>. Matriisien <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> alkioittaisen tulon <span class="math notranslate nohighlight">\(C= A \circ B\)</span> alkio <span class="math notranslate nohighlight">\(C_{ij}\)</span> on matriisien <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> vastaavien alkioiden tulo, <span class="math notranslate nohighlight">\(C_{ij}=A_{ij}\cdot B_{ij}\)</span>. Koska laskutoimitus tapahtuu vastinalkioittain, niin Hadamardin tulon voi laskea vain kahdelle samaa tyyppiä olevalle matriisille. Tätä laskutoimitusta tarvitaan melko harvoin. Yleisempi matriisien kertolasku, matriisitulo, opetellaan seuraavassa luvussa.</p>
+<section id="tason-yhtalo">
+<h2>Tason yhtälö<a class="headerlink" href="#tason-yhtalo" title="Permalink to this headline">#</a></h2>
+<p>Tasollekin voidaan muodostaa yhtälö. Tason yhtälön määrää tason määrittelevien vektorien ristitulo. Kyseessä on tason normaalivektori, eli vektori joka on kohtisuorassa kumpaakin vektoria <span class="math notranslate nohighlight">\(\vec{u}\)</span> ja <span class="math notranslate nohighlight">\(\vec{v}\)</span> vastaan. Jos ristitulosta muodostuva vektori kirjoitetaan <span class="math notranslate nohighlight">\(\vec{n} = n_x \vec{i} + n_y \vec{j} + n_z \vec{k}\)</span>, ja tasolta tiedetään mikä tahansa piste <span class="math notranslate nohighlight">\((x_0, y_0, z_0)\)</span>, niin tason yhtälö on</p>
+<p><span class="math notranslate nohighlight">\(n_x(x-x_0)+n_y(y-y_0)+n_z (z-z_0)=0\)</span></p>
 <div class="admonition-esimerkki admonition">
 <p class="admonition-title">Esimerkki</p>
-<p>Laske matriisien <span class="math notranslate nohighlight">\(A=\begin{bmatrix}2&amp;-3&amp;5\\0 &amp; 2 &amp; 1\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(B=\begin{bmatrix}1&amp;7&amp;2\\3 &amp; -2 &amp; 4\end{bmatrix}\)</span>  alkioittainen tulo.</p>
+<p>Taso kulkee pisteen <span class="math notranslate nohighlight">\((2,1,3)\)</span> kautta ja on vektorien <span class="math notranslate nohighlight">\(\vec{u}=-2\vec{i}+\vec{j}-2\vec{k}\)</span> ja <span class="math notranslate nohighlight">\(\vec{v}=\vec{i}+\vec{j}-7\vec{k}\)</span> suuntainen. Muodosta tason yhtälö.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Ratkaisu</p>
-<p><span class="math notranslate nohighlight">\(A \circ B=\begin{bmatrix}2\cdot 1 &amp; -3\cdot 7 &amp; 5\cdot 2\\0\cdot 3 &amp; 2\cdot(-2) &amp; 1\cdot 4 \end{bmatrix}=\begin{bmatrix}2 &amp; -21 &amp; 10\\0 &amp; -4 &amp; 4\end{bmatrix}\)</span></p>
-</div>
-</div>
-<div class="admonition-esimerkki admonition">
-<p class="admonition-title">Esimerkki</p>
-<p>Selvitä puuttuvat luvut seuraavista yhtälöistä:</p>
-<p>a) <span class="math notranslate nohighlight">\(\begin{bmatrix}2 &amp; 3\\ x &amp; 5\end{bmatrix}+2 \begin{bmatrix} 1 &amp; y \\ 4 &amp; 7\end{bmatrix}=\begin{bmatrix}a &amp; 10 \\ 11 &amp; b\end{bmatrix}\)</span></p>
-<p>b) <span class="math notranslate nohighlight">\(\begin{bmatrix}x &amp; 1\\ 4 &amp; y\end{bmatrix} \circ \begin{bmatrix} 2 &amp; 5 \\ 3 &amp; -2\end{bmatrix}=\begin{bmatrix}6 &amp; a \\ b &amp; 10\end{bmatrix}\)</span></p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Ratkaisu</p>
-<p>a) Sievennetään aluksi yhtälön vasen puoli:</p>
-<p><span class="math notranslate nohighlight">\(\begin{bmatrix}2 &amp; 3\\ x &amp; 5\end{bmatrix}+2 \begin{bmatrix} 1 &amp; y \\ 4 &amp; 6\end{bmatrix} = \begin{bmatrix}2 &amp; 3 \\ x &amp; 5\end{bmatrix}+\begin{bmatrix}2 &amp; 2y \\ 8 &amp; 14\end{bmatrix}= \begin{bmatrix}4 &amp; 3+2y \\ x+8 &amp; 19\end{bmatrix}\)</span></p>
-<p>Verrataan tätä yhtälön oikeaan puoleen:</p>
-<p><span class="math notranslate nohighlight">\(\begin{bmatrix}4 &amp; 3+2y \\ x+8 &amp; 19\end{bmatrix}=\begin{bmatrix}a &amp; 10 \\ 11 &amp; b\end{bmatrix}\)</span></p>
-<p>Koska matriisit ovat samat, niin vastinalkioiden pitää olla samat. Suoraan nähdään, että tulee olla <span class="math notranslate nohighlight">\(a=4\)</span> ja <span class="math notranslate nohighlight">\(b=19\)</span>. Loput tuntemattomat saadaan ratkaisemalla yhtälöt:</p>
-<p><span class="math notranslate nohighlight">\(3+2y=10 \Leftrightarrow 2y=7 \Leftrightarrow y=\frac{7}{2}\)</span></p>
-<p><span class="math notranslate nohighlight">\(x+8=11 \Leftrightarrow x=3\)</span></p>
-<p>b) Sievennetään jälleen ensin yhtälön vasen puoli:</p>
-<p><span class="math notranslate nohighlight">\(\begin{bmatrix}x &amp; 1\\ 4 &amp; y\end{bmatrix} \circ \begin{bmatrix} 2 &amp; 5 \\ 3 &amp; -2\end{bmatrix} = \begin{bmatrix}2x &amp; 3\cdot 5 \\ 4\cdot 2 &amp; -2y \end{bmatrix} = \begin{bmatrix}2x &amp; 5 \\ 12 &amp; -2y\end{bmatrix}\)</span></p>
-<p>Verrataan tätä yhtälön oikeaan puoleen:</p>
-<p><span class="math notranslate nohighlight">\(\begin{bmatrix}2x &amp; 5 \\ 12 &amp; -2y\end{bmatrix}=\begin{bmatrix}6 &amp; a \\ b &amp; 10\end{bmatrix}\)</span></p>
-<p>Koska matriisit ovat taas samat, niin vastinalkioiden pitää olla samat. Suoraan nähdään, että tulee olla <span class="math notranslate nohighlight">\(a=5\)</span> ja <span class="math notranslate nohighlight">\(b=12\)</span>. Loput tuntemattomat saadaan ratkaisemalla yhtälöt:</p>
-<p><span class="math notranslate nohighlight">\(2x=6 \Leftrightarrow x=3\)</span></p>
-<p><span class="math notranslate nohighlight">\(-2y=10 \Leftrightarrow y=-5\)</span></p>
+<p>Ristitulon voi laskea tietokoneella tai käsin ainakin kerrattuaan ristitulon laskusäännöt. Suuntavektorien ristitulo on <span class="math notranslate nohighlight">\(\vec{u} \times \vec{v} = -5\vec{i}-16\vec{j}-3\vec{k}\)</span>.</p>
+<p>Tason yhtälö on siis <span class="math notranslate nohighlight">\(-5(x-2)-16(y-1)-3 (z-3)=0\)</span>.</p>
+<p>Avataan sulut: <span class="math notranslate nohighlight">\(-5x+10-16y+16-3z+9=0\)</span></p>
+<p>Yhdistetään vakiot: <span class="math notranslate nohighlight">\(-5x-16y-3z+25=0\)</span></p>
 </div>
 </div>
 </section>
-<section id="matriisilaskut-tietokoneella">
-<h2>Matriisilaskut tietokoneella<a class="headerlink" href="#matriisilaskut-tietokoneella" title="Permalink to this headline">#</a></h2>
-<p>Tässä osiossa tutustutaan lyhyesti <a class="reference external" href="https://octave-online.net/">Octave</a>-laskentaympäristöön. Octavea voi käyttää selaimessa tai sen voi asentaa omalle tietokoneelle. Octaven käyttö on ilmaista. Se noudattaa pääosin samoja komentoja kuin erittäin laajasti käytetty <a class="reference external" href="https://se.mathworks.com/products/matlab.html">Matlab</a>.</p>
-<p>Octaveen voi syöttää matriiseja siten, että matriisin alkiot kirjoitetaan hakasulkuihin. Matriisin riviä vaihdetaan puolipisteellä. Samalla rivillä olevien alkioiden väliin laitetaan pilkku tai välilyönti. Matriisin transpoosi saadaan kirjoittamalla matriisin nimen perään merkin ‘, esimerkiksi matriisin <span class="math notranslate nohighlight">\(A\)</span> transpoosin <span class="math notranslate nohighlight">\(A^T\)</span> saa komennolla A’. Kun matriisille antaa jonkin nimen, sitä voi käyttää nimellä kutsumalla myöhemmissä laskutoimituksissa. Jos matriisien tyypit eivät ole keskenään yhteensopivia ja laskua ei voida suorittaa, Octave antaa virheilmotuksen.</p>
-<p><strong>Esim.</strong> Matriisien <span class="math notranslate nohighlight">\(A=\begin{bmatrix}1 &amp; 2 \\ 4 &amp; 1\end{bmatrix}\)</span> ja <span class="math notranslate nohighlight">\(B=\begin{bmatrix}6 &amp; 5 \\ 1 &amp; 3\end{bmatrix}\)</span> laskutoimituksia:</p>
-<p>Syötetään Octaveen matriisit komennolla: A=[1 2;4 1], B=[6 5;1 3]</p>
-<p>Lasketaan <span class="math notranslate nohighlight">\(A+B\)</span> komennolla: A+B</p>
-<p>Lasketaan <span class="math notranslate nohighlight">\(B^T-A\)</span> ja tallennetaan laskun tulos matriisiksi <span class="math notranslate nohighlight">\(C\)</span> komennolla: C=B’-A</p>
-<p><img alt="Octaven käyttö" src="_images/octave.png" /></p>
-<p><strong>Huom!</strong> Alkioittainen tulo <span class="math notranslate nohighlight">\(A\circ B\)</span> saadaan komennolla A.*B ja varsinainen matriisien kertolasku tapahtuu komennolla A*B</p>
-<p>Matriisit tallentuvat Octaven käytön ajaksi muistiin. Jos haluaa poistaa jonkin matriisin, se tapahtuu komennolla clear, esimerkiksi “clear a” poistaa matriisin <span class="math notranslate nohighlight">\(a\)</span>. Komento “clear” tai “clear all” poistaa muistista kaiken. Jos haluaa pyyhkiä taulun, jolla aiemmat laskutoimitukset näkyvät, se tapahtuu komennolla “clc”. Lähtökohtaisesti Octave tulostaa kaiken näkyviin. Jos haluaa vaikkapa tallentaa ison matriisin ilman, että se sotkee koko ruutua, tulee komennon perään laittaa puolipiste ; .</p>
-<p>Octavessa voi kirjoittaa komentosarjoja ottamalla käyttöön tekstieditorin. Se onnistuu kirjautumalla käyttäjäksi esim. Google-tilin kautta. Tällöin voi ensin kirjoittaa kaikki haluamansa laskutoimitukset dokumentiksi, jonka kaikki komennot sitten lopuksi suorittaa kerralla. Vaativampi laskenta ja datan käsittely kannattaa suorittaa juuri tällä tavalla.</p>
-<p><strong>Huom!</strong> Opintojaksosta riippuen oppitunneilla saatetaan harjoitella myös Pythonin käyttöä laskennan välineenä. Pythonissa laskutoimitusten logiikka on hieman erilaista kuin matematiikan käsitteissä. Esimerkiksi matriisien alkioita numeroidaan eri tavalla (rivien ja sarakkeiden laskeminen aloitetaan nollasta).</p>
+<section id="suoran-ja-tason-leikkauspiste">
+<h2>Suoran ja tason leikkauspiste<a class="headerlink" href="#suoran-ja-tason-leikkauspiste" title="Permalink to this headline">#</a></h2>
+<p>Suoraan ja tasoon liittyviä kaavoja voidaan toki yhdistääkin. Erityisesti suoran ja tason leikkauspiste saadaan suoran koordinaattimuotoisen parametriesityksen ja tason koordinaattimuotoisen yhtälön avulla. Käsitellään tässä kolmessa ulottuvuudessa määriteltyä suoraa.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Oletetaan, että suora on määritelty koordinaattimuotoisella parametriesityksellä:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases} x=1+2t, y=-1+t, z=2-t\end{cases}\end{equation}\)</span></p>
+<p>Oletetaan, myös, että tason yhtälö on <span class="math notranslate nohighlight">\(2x+3y+4z-10=0\)</span>.</p>
+<p>Leikkauspiste löytyy, kun suoran pisteet ovat samalla tason pisteitä. Sijoitetaan siis tason yhtälöön suoran pisteiden määritelmät:</p>
+<p><span class="math notranslate nohighlight">\(2(1+2t)+3(-1+t)+4(2-t)-10=0\)</span></p>
+<p>Sievennetään ja ratkaistaan <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(2+4t-3+3t+8-4t-10=0\)</span></p>
+<p><span class="math notranslate nohighlight">\(3t-3=0\)</span></p>
+<p><span class="math notranslate nohighlight">\(t=1\)</span></p>
+<p>Suora ja taso siis leikkaavat kun <span class="math notranslate nohighlight">\(t=1\)</span>. Tällöin koordinaatit ovat <span class="math notranslate nohighlight">\(x = 1 + 2 \cdot 1 = 3\)</span>, <span class="math notranslate nohighlight">\(y = −1 + 1 = 0\)</span>, <span class="math notranslate nohighlight">\(z = 2 − 1 = 1\)</span>. Leikkauspiste on siis (3,0,1).</p>
+</div>
+<p>Joskus leikkauspisteitä ei löydy ollenkaan ja joskus niitä löytyy äärettömän monta. Yhtään leikkauspistettä ei ole, kun suora ja taso ovat saman suuntaisia mutta eivät päällekkäin, esimerkiksi köydenvedossa kun narua vedetään kahdesta päästä samalla korkeudelta maanpinnasta. Kun köysi lasketaan vetoerien välissä lepäämään maahan, se osuu tasoon äärettömän monessa pisteessä.</p>
 </section>
 </section>
 
@@ -540,17 +537,17 @@ Esimerkiksi jos matriisin <span class="math notranslate nohighlight">\(A\)</span
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="matriisit_perus.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="suorat_vektoreilla.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Mitä matriisit ovat?</p>
+            <p class="prev-next-title">Vektorit ja suorat</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="matriisitulo.html" title="next page">
+    <a class='right-next' id="next-link" href="matriisit_perus.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Matriisitulo</p>
+        <p class="prev-next-title">Mitä matriisit ovat?</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

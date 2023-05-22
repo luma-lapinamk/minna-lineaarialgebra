@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Vektorit ja suorat &#8212; Lineaarialgebra</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vektorit ja tasot" href="tasot_vektoreilla.html" />
+    <link rel="prev" title="Geometriaa vektoreilla" href="geometriaa.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lineaarialgebra</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Alkusanat
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vektorilaskentaa
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_perus.html">
+   Mitä vektorit ovat?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_laskut.html">
+   Vektorien venyttelyä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pistetulo.html">
+   Kahden vektorin pistetulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="projektio.html">
+   Vektoriprojektio ja projektiovektori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektoriyhtalot.html">
+   Vektoriyhtälöitä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="napa.html">
+   Mittaustuloksista vektoreiksi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ristitulo.html">
+   Uusi vektori ristitulosta
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="geometriaa.html">
+   Geometriaa vektoreilla
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Vektorit ja suorat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tasot_vektoreilla.html">
+   Vektorit ja tasot
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Matriisit
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_perus.html">
+   Mitä matriisit ovat?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_laskut.html">
+   Laskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisitulo.html">
+   Matriisitulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="determinantti.html">
+   Determinantti
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kaanteismatriisi.html">
+   Käänteismatriisi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisiyhtalot.html">
+   Matriisiyhtälöt
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat.html">
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Gaussin eliminaatio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ominaisarvot.html">
+   Ominaisarvot ja -vektorit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_geometria.html">
+   Geometriaa matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leontief.html">
+   Taloustiedettä matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_muut.html">
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href="https://jupyterbook.org">Jupyter Book</a> voimaa
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/luma-lapinamk/minna-lineaarialgebra"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/suorat_vektoreilla.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parametriesitykset">
+   Parametriesitykset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#suoran-yhtalon-yleinen-muoto">
+   Suoran yhtälön yleinen muoto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#suoran-normaali">
+   Suoran normaali
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pisteen-etaisyys-suorasta">
+   Pisteen etäisyys suorasta
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Vektorit ja suorat</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parametriesitykset">
+   Parametriesitykset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#suoran-yhtalon-yleinen-muoto">
+   Suoran yhtälön yleinen muoto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#suoran-normaali">
+   Suoran normaali
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pisteen-etaisyys-suorasta">
+   Pisteen etäisyys suorasta
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="vektorit-ja-suorat">
+<h1>Vektorit ja suorat<a class="headerlink" href="#vektorit-ja-suorat" title="Permalink to this headline">#</a></h1>
+<p>Suoraa eli lineaarista polynomifunktiota käsitellään yleensä ns. suoran yhtälön <span class="math notranslate nohighlight">\(y=ax+b\)</span> avulla. Yhtälössä vakio <span class="math notranslate nohighlight">\(a\)</span> on nimeltään kulmakerroin ja <span class="math notranslate nohighlight">\(b\)</span> on leikkausvakio. Kulmakertoimen merkki kertoo suoran suunnan ja kulmakertoimen itseisarvo kertoo suoran jyrkkyyden. <a class="reference external" href="https://luma-lapinamk.github.io/minna-agt/lineaarinen.html">Täältä</a> voit kerrata suoran yhtälön. Tässä luvussa tarkastellaan suoria vektorilaskennan näkökulmasta. Vektorien avulla voidaan esittää myös kolmessa ulottuvuudessa määriteltyjä suoria. Tässä kuitenkin käsitellään vain kaksiuloitteisen koordinaatiston suoria.</p>
+<section id="parametriesitykset">
+<h2>Parametriesitykset<a class="headerlink" href="#parametriesitykset" title="Permalink to this headline">#</a></h2>
+<p>Muodostetaan aluksi suora vektorien avulla. Periaate on, että mennään ensiksi sopivan paikkavektorin <span class="math notranslate nohighlight">\(\vec{r_0}\)</span> avulla mihin tahansa pisteeseen, joka varmasti on suoralla. Sitten valitaan vektori, joka määrää suoran suunnan. Nimitetään tätä vektoria suoran suuntavektoriksi <span class="math notranslate nohighlight">\(\vec{s}\)</span>. Mihin tahansa suoran pisteeseen pääsee lineaarikombinaatiolla <span class="math notranslate nohighlight">\(\vec{r}=\vec{r_0}+t\vec{s}\)</span>, missä <span class="math notranslate nohighlight">\(t\)</span> on jokin reaaliluku. Tarvittavat vektorit on esitetty seuraavassa kuvassa.</p>
+<p><img alt="Suoran vektorimuotoinen parametriesitys" src="_images/vektorimuotoinen_parametriesitys.png" /></p>
+<p>Paikkavektori voidaan muodostaa, kun määritellään suoralta jokin piste <span class="math notranslate nohighlight">\((x_0,y_0)\)</span>. Tämän pisteen sijainti voidaan esittää paikkavektorilla <span class="math notranslate nohighlight">\(\vec{r_0}= r_{0x} \vec{i} + r_{0y} \vec{j}\)</span>. Esimerkiksi jos suora kulkee pisteen <span class="math notranslate nohighlight">\((3,4)\)</span> kautta, niin paikkavektoriksi valitaan <span class="math notranslate nohighlight">\(\vec{r_0}=3 \vec{i}+4\vec{j}\)</span>.</p>
+<p>Suuntavektorin kertoimien <span class="math notranslate nohighlight">\(s_x\)</span> ja <span class="math notranslate nohighlight">\(s_y\)</span> suhde määrittää suoran suunnan ja jyrkkyyden. Esimerkiksi jos haluamme suoran, jonka jyrkkyys vastaisi yhtälömuodossa esitetyn suoran <span class="math notranslate nohighlight">\(y=2x\)</span> kulmakerrointa, niin suuntavektorin pystysuuntaisen kertoimen <span class="math notranslate nohighlight">\(s_y\)</span> pitää olla kaksi kertaa niin suuri kuin vaakasuuntaisen kertoimen <span class="math notranslate nohighlight">\(s_x\)</span>. Mahdollisia suuntavektoreita on äärettömän monta, esimerkiksi <span class="math notranslate nohighlight">\(\vec{i}+2\vec{j}\)</span>, <span class="math notranslate nohighlight">\(2\vec{i}+4\vec{j}\)</span>, <span class="math notranslate nohighlight">\(5\vec{i}+10\vec{j}\)</span> jne.</p>
+<p>Suoran <strong>vektorimuotoinen parametriesitys</strong> saadaan kirjoittamalla lineaarikombinaatio <span class="math notranslate nohighlight">\(\vec{r}=\vec{r_0}+t\vec{s}\)</span>. Esimerkiksi jos edellisen esimerkin suoran suuntavektoriksi valitaan <span class="math notranslate nohighlight">\(\vec{i}+2\vec{j}\)</span>, niin tätä suoraa voidaan siis kuvata vektorina</p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=3\vec{i}+4\vec{j}+t(\vec{i}+2\vec{j})\)</span></p>
+<p>Sulut avaamalla saadaan vektori sievennettyä muotoon</p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=3\vec{i}+4\vec{j}+t\vec{i}+2t\vec{j}\)</span></p>
+<p>ja edelleen</p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=(3+t)\vec{i}+(4+2t)\vec{j}\)</span></p>
+<p>Suoran suuntavektorin ja suoralla olevan pisteen saa valita vapaasti. Suuntavektorien kertoimien suhteen vain pitää pysyä samana, ja valitun pisteen pitää varmasti olla suoralla. Tällöin kyseessä on esitystavasta riippumatta sama suora!</p>
+<p>Sana “parametri” viittaa vapaasti valittavaan lukuun <span class="math notranslate nohighlight">\(t\)</span>. Toisin sanoen, kun suoran määrittelee vektori <span class="math notranslate nohighlight">\(\vec{r}\)</span>, niin sillä suoralla pysytään millä tahansa luvun <span class="math notranslate nohighlight">\(t\)</span> arvolla.</p>
+<p>Edellisestä esitystavasta voidaan helposti muodostaa myös suoran <strong>koordinaattimuotoinen parametriesitys</strong>. Tässä esitysmuodossa kerätään <span class="math notranslate nohighlight">\(x\)</span>-koordinaatille ehdot vektorin <span class="math notranslate nohighlight">\(\vec{r}\)</span> vaakasuuntaisen komponentin kertoimesta, ja <span class="math notranslate nohighlight">\(y\)</span>-koordinaatille vastaavasti pystysuuntaisen komponentin kertoimesta. Esimerkin tapauksessa koordinaattimuotoinen parametriesitys on</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}x=3+t, \\ y=4+2t, t \in \Re\end{cases}\end{equation}\)</span></p>
+<p>Jokaista lukua <span class="math notranslate nohighlight">\(t\)</span> vastaa jokin piste <span class="math notranslate nohighlight">\((x,y)\)</span>, joka on koordinaattimuotoisen parametriesityksen määrittämällä suoralla. Esimerkiksi arvoa <span class="math notranslate nohighlight">\(t=0\)</span> vastaa piste <span class="math notranslate nohighlight">\((3,4)\)</span> ja arvoa <span class="math notranslate nohighlight">\(t=1\)</span> vastaa piste <span class="math notranslate nohighlight">\((3+1,4+2)=(4,6)\)</span>.</p>
+</section>
+<section id="suoran-yhtalon-yleinen-muoto">
+<h2>Suoran yhtälön yleinen muoto<a class="headerlink" href="#suoran-yhtalon-yleinen-muoto" title="Permalink to this headline">#</a></h2>
+<p>Koordinaattimuotoisesta parametriesityksestä voidaan muodostaa suoran yhtälö <span class="math notranslate nohighlight">\(y=ax+b\)</span>. Kyseessähän on yhtälöpari, jossa on kolme tuntematonta <span class="math notranslate nohighlight">\(x,y\)</span> ja <span class="math notranslate nohighlight">\(t\)</span>. Ratkaistaan <span class="math notranslate nohighlight">\(x\)</span>-koordinaatin lausekkeesta muuttuja <span class="math notranslate nohighlight">\(t\)</span> ja sijoitetaan ja <span class="math notranslate nohighlight">\(y\)</span>-koordinaatin lausekkeeseen. Tällöin saadaan muodostettua yhtälö, jossa <span class="math notranslate nohighlight">\(t\)</span> on eliminoitu, toisin sanoen <span class="math notranslate nohighlight">\(y\)</span> esitetään <span class="math notranslate nohighlight">\(x\)</span>:n avulla.</p>
+<p>Esimerkiksi edellisen suoran tapauksessa yhtälöstä <span class="math notranslate nohighlight">\(x=3+t\)</span> saadaan <span class="math notranslate nohighlight">\(t=x-3\)</span>. Sijoitetaan tämä yhtälöön <span class="math notranslate nohighlight">\(y=4+2t\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(y=4+2(x-3)\)</span></p>
+<p><span class="math notranslate nohighlight">\(y=4+2x-6\)</span></p>
+<p><span class="math notranslate nohighlight">\(y=2x-2\)</span></p>
+<p>Joissakin sovelluksissa käytännöllisempi esitystapa on suoran yhtälön niinsanottu <strong>yleinen muoto</strong>. Tätä esitystapaa varten “tavallista” suoran yhtälöä vain muokataan sillä tavalla, että yhtälön oikealla puolelle jää nolla ja sitten termit järjestellään aakkosjärjestykseen. Yhtälön yleistä muotoa merkitään tässä <span class="math notranslate nohighlight">\(Ax+By=C=0\)</span>, missä isot kirjaimet ovat merkkinä siinä, että yhtälössä esiintyvät kertoimet eivät ole samoja kuin muodossa <span class="math notranslate nohighlight">\(y=ax+b\)</span>.</p>
+<p>Edellisen esimerkin <span class="math notranslate nohighlight">\(y=2x-2\)</span> yleinen muoto olisi siis <span class="math notranslate nohighlight">\(-2x+y+2=0\)</span>. Toisaalta aivan samaa suoraa kuvaa myös esimerkiksi yhtälö <span class="math notranslate nohighlight">\(-4x+2y+4=0\)</span>, joka on saatu kertomalla yhtälön molemmat puolet luvulla 2.</p>
+<p>Seuraavissa esimerkeissä tarkastellaan samoja suoria eri tavoilla esitettynä.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Muodosta eri esitysmuodot suoralle, joka kulkee pisteen <span class="math notranslate nohighlight">\((6,6)\)</span> kautta ja on vektorin <span class="math notranslate nohighlight">\(4\vec{i}+6\vec{j}\)</span> suuntainen.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Suoralla olevan pisteen paikkavektori on <span class="math notranslate nohighlight">\(6\vec{i}+6\vec{j}\)</span>, joten suoran vektorimuotoinen parametriesitys on</p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=6\vec{i}+6\vec{j}+t(4\vec{i}+6\vec{j})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=6\vec{i}+6\vec{j}+4t\vec{i}+6t\vec{j}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=(6+4t)\vec{i}+(6+6t)\vec{j}\)</span></p>
+<p>Koordinaattimuotoiseksi parametriesitykseksi saadaan vektorin kertoimista</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}x=6+4t, \\ y=6+6t, t \in \Re\end{cases}\end{equation}\)</span></p>
+<p>Suoran yhtälöä varten ratkaistaan yhtälöstä <span class="math notranslate nohighlight">\(x=6+4t\)</span> parametri <span class="math notranslate nohighlight">\(t=\frac{x-6}{4}\)</span>, ja sijoitetaan se yhtälöön <span class="math notranslate nohighlight">\(y=6+6t\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(y=6+6\cdot \frac{x-6}{4}\)</span></p>
+<p><span class="math notranslate nohighlight">\(y=6+\frac{6}{4}x-\frac{36}{4}\)</span></p>
+<p><span class="math notranslate nohighlight">\(y=\frac{3}{2}x+3\)</span></p>
+<p>Edelleen suoran yhtälön yleinen muoto on <span class="math notranslate nohighlight">\(-\frac{3}{2}x+y-3=0\)</span>.</p>
+</div>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Muodosta eri esitysmuodot suoralle, jonka yhtälö on <span class="math notranslate nohighlight">\(5x-10y-15=0\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Aluksi kannattaa muokata yleisestä muodosta esitysmuoto <span class="math notranslate nohighlight">\(y=ax+b\)</span>, sillä se helpottaa vektorimuotoisen esityksen muodostamista. Ratkaistaan siis suoran yleisestä yhtälöstä <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(5x-10y-15=0\)</span></p>
+<p><span class="math notranslate nohighlight">\(-10y=-5x+15\)</span></p>
+<p><span class="math notranslate nohighlight">\(y=\frac{1}{2}x-\frac{3}{2}\)</span></p>
+<p>Vektorimuotoiseen parametriesitykseen tarvitaan jokin piste suoralta. Piste löytyy valitsemalla mikä tahansa luvun <span class="math notranslate nohighlight">\(x\)</span> arvo ja laskemalla sitä vastaava <span class="math notranslate nohighlight">\(y\)</span>:n arvo. Erityisen helppo valinta on <span class="math notranslate nohighlight">\(x=0\)</span>, jolloin <span class="math notranslate nohighlight">\(y=-\frac{3}{2}\)</span>. Paikkavektoriksi saadaan siis <span class="math notranslate nohighlight">\(r_0=0\vec{i}-\frac{3}{2}\vec{j}\)</span>.</p>
+<p>Suuntavektori saadaan suoran kulmakertoimesta. Koska tässä tapauksessa kulmakerroin on <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>, niin suuntavektorissa pystysuuntaisen komponentin kertoimen pitää olla puolet vaakasuuntaisesta. Sopiva suuntavektori on siis esimerkiksi <span class="math notranslate nohighlight">\(\vec{s}=\vec{i}+\frac{1}{2}\vec{j}\)</span>, mutta yhtä lailla esimerkiksi <span class="math notranslate nohighlight">\(\vec{s}=2 \vec{i}+\vec{j}\)</span> vie samaan suuntaan ja samalla vältytään murtolukukertoimelta.</p>
+<p>(Jos haluaa opetella ulkoa jonkin laskukaavan, niin eräs suoraa <span class="math notranslate nohighlight">\(y=ax+b\)</span> vastaava suuntavektori on muotoa <span class="math notranslate nohighlight">\(\vec{s}=\vec{i}+a\vec{j}\)</span>.)</p>
+<p>Vektorimuotoinen parametriesitys on siis</p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=\vec{r_0}+t\vec{s}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=-\frac{3}{2}\vec{j}+t(\vec{i}+\frac{1}{2}\vec{j})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=-\frac{3}{2}\vec{j}+t\vec{i}+\frac{1}{2}t\vec{j}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{r}=t\vec{i}+(\frac{1}{2}t-\frac{3}{2})\vec{j}\)</span></p>
+<p>Koordinaattimuotoinen parametriesitys on</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}\begin{cases}x=t, \\ y=\frac{1}{2}t-\frac{3}{2}, t \in \Re\end{cases}\end{equation}\)</span></p>
+</div>
+</div>
+</section>
+<section id="suoran-normaali">
+<h2>Suoran normaali<a class="headerlink" href="#suoran-normaali" title="Permalink to this headline">#</a></h2>
+<p>Oletetaan, että suoran <span class="math notranslate nohighlight">\(y_1=a_1 x + b_1\)</span> suuntavektori on <span class="math notranslate nohighlight">\(\vec{s_1}=\vec{i}+a_1 \vec{j}\)</span>, ja suoran <span class="math notranslate nohighlight">\(y_2=a_x 2 + b_2\)</span> suuntavektori on <span class="math notranslate nohighlight">\(\vec{s_2}=\vec{i}+a_2 \vec{j}\)</span>. Suora <span class="math notranslate nohighlight">\(y_2\)</span> on suoran <span class="math notranslate nohighlight">\(y_1\)</span> normaali, jos suorat leikkaavat toisensa kohtisuorasti. Vektorimatematiikan käsittein ilmaistuna tämä tarkoittaa sitä, että suorien suuntavektorit <span class="math notranslate nohighlight">\(\vec{s_1}\)</span> ja <span class="math notranslate nohighlight">\(\vec{s_2}\)</span> ovat kohtisuorassa. Vektorit ovat kohtisuorassa, jos ja vain jos niiden pistetulo on nolla, joten <span class="math notranslate nohighlight">\(\vec{s_1}\cdot \vec{s_2}=0\)</span>. Ehto on siis <span class="math notranslate nohighlight">\(1\cdot 1 + a_1 \cdot a_2=0\)</span>.</p>
+<p>Ehdosta saadaan ratkaisua <span class="math notranslate nohighlight">\(a_2=-\frac{1}{a_1}\)</span>. Saatiin siis suorien kulmakertoimille ehto, jonka perusteella suorat ovat toistensa normaaleja. Esimerkiksi suoran <span class="math notranslate nohighlight">\(y=3x+4\)</span> normaali on jokin suora <span class="math notranslate nohighlight">\(y=-\frac{1}{3}x+b\)</span>.</p>
+<p>Suorien kohtisuoruuteen ei liity mitään ehtoa leikkausvakiosta <span class="math notranslate nohighlight">\(b\)</span>. Jokaisella suoralla onkin äärettömän monta normaalia. Jos halutaan selvittää jonkin tietyn normaalin yhtälö, pitää tietää jokin piste jonka kautta normaali kulkee.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Muodosta suoralle <span class="math notranslate nohighlight">\(y=4x+5\)</span> normaali, joka kulkee pisteen <span class="math notranslate nohighlight">\((8,20)\)</span> kautta.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Normaali on muotoa <span class="math notranslate nohighlight">\(y=-\frac{1}{4}x+b\)</span>.</p>
+<p>Leikkausvakio on <span class="math notranslate nohighlight">\(b=y+\frac{1}{4}x\)</span>, ja sijoittamalla <span class="math notranslate nohighlight">\(x=8\)</span> ja <span class="math notranslate nohighlight">\(y=20\)</span> saadaan <span class="math notranslate nohighlight">\(b=20+\frac{1}{4}\cdot 8=20+2=22\)</span>.</p>
+<p>Kysytty normaalin yhtälö on siis <span class="math notranslate nohighlight">\(y=-\frac{1}{4}x+22\)</span>.</p>
+<p>Suoran <span class="math notranslate nohighlight">\(y=4x+5\)</span> leikkausvakiota <span class="math notranslate nohighlight">\(5\)</span> ei tarvittu mihinkään!</p>
+</div>
+</div>
+</section>
+<section id="pisteen-etaisyys-suorasta">
+<h2>Pisteen etäisyys suorasta<a class="headerlink" href="#pisteen-etaisyys-suorasta" title="Permalink to this headline">#</a></h2>
+<p>Vektorilaskennan yhteydessä opeteltiin vektoriprojektio, jonka avulla saatiin kohtisuora eli lyhin mahdollinen etäisyys jonkin pisteen ja vektorin välillä. Kun suora esitetään vektorina, voidaan vastaavasti laskea pisteen lyhin etäisyys suorasta. Laskukaavan johtaminen on pitkä ja on esitetty alla lisätietona. Laskukaavana pisteen <span class="math notranslate nohighlight">\((x_0,y_0)\)</span> etäisyys suoraan <span class="math notranslate nohighlight">\(Ay+Bx+C=0\)</span> on</p>
+<p><span class="math notranslate nohighlight">\(d=\frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}\)</span></p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Perustelu</p>
+<p>Tarkastellaan kuvan suoraa, jonka yhtälö on <span class="math notranslate nohighlight">\(Ax+By+C=0\)</span>. Tämä voidaan esittää myös muodossa <span class="math notranslate nohighlight">\(y=-\frac{A}{B}x+\frac{C}{B}\)</span>. Tällöin suoran suuntavektoriksi voidaan valita <span class="math notranslate nohighlight">\(\vec{s}=\vec{i}-\frac{A}{B}\vec{j}\)</span>.</p>
+<p>Muodostetaan vektori <span class="math notranslate nohighlight">\(\vec{d}\)</span> jostakin suoran pisteestä <span class="math notranslate nohighlight">\((x_1,y_1)\)</span> pisteeseen <span class="math notranslate nohighlight">\((x_0,y_0)\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\vec{d}=(x_0-x_1) \vec{i} + (y_0-y_1) \vec{j}\)</span></p>
+<p>Lisäksi tarvitaan suoran normaalivektori. Koska normaalivektorin ja suuntavektorin pistetulo on nolla, niin normaalivektori on <span class="math notranslate nohighlight">\(\vec{n}=\vec{i}+\frac{B}{A}\vec{j}\)</span>.</p>
+<p><img alt="Pisteen etäisyys suorasta" src="_images/pisteen_etaisyys_suorasta.jpg" /></p>
+<p>Vektorin <span class="math notranslate nohighlight">\(\vec{d}\)</span> pituus saadaan pistetulon geometrisesta määritelmästä: <span class="math notranslate nohighlight">\(\vec{n}\cdot \vec{d}=|\vec{n}||\vec{d}| \cos{\theta}\)</span>. Koska vektorit <span class="math notranslate nohighlight">\(\vec{n}\)</span> ja <span class="math notranslate nohighlight">\(\vec{d}\)</span> ovat yhdensuuntaisia (samansuuntaisia tai vastakkaissuuntaisia), niin niiden väliselle kulmalle pätee <span class="math notranslate nohighlight">\(\cos{\theta}=\pm 1\)</span>. Tällöin pistetulo voidaan kirjoittaa lyhyemmin <span class="math notranslate nohighlight">\(|\vec{n}\cdot \vec{d}|=|\vec{n}||\vec{d}|\)</span>.</p>
+<p>Yhtälöstä ratkeaa kysytty pituus <span class="math notranslate nohighlight">\(|\vec{d}|=\frac{|\vec{n}\cdot \vec{d}|}{|\vec{n}|}\)</span></p>
+<p>Sijoitetaan aiemmin määritellyt vektorit:</p>
+<p><span class="math notranslate nohighlight">\(|\vec{d}|=\frac{|(\vec{i}+\frac{B}{A}\vec{j})\cdot ((x_0-x_1) \vec{i} + (y_0-y_1) \vec{j})|}{|\vec{i}+\frac{B}{A}\vec{j}|}\)</span></p>
+<p>Sievennetään pistetulo ja normaalivektorin pituus:</p>
+<p><span class="math notranslate nohighlight">\(|\vec{d}|=\frac{|(x_0-x_1)+\frac{B}{A}(y_0-y_1)|}{|\sqrt{1^2+(\frac{B}{A})^2}}\)</span></p>
+<p>Muokataan normaalivektorin pituuden esitysmuotoa:</p>
+<p><span class="math notranslate nohighlight">\(|\vec{d}|=\frac{|(x_0-x_1)+\frac{B}{A}(y_0-y_1)|}{\sqrt{\frac{A^2+B^2}{A^2}}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(|\vec{d}|=\frac{|(x_0-x_1)+\frac{B}{A}(y_0-y_1)|}{\frac{1}{A}\sqrt{A^2+B^2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(|\vec{d}|=\frac{A|(x_0-x_1)+\frac{B}{A}(y_0-y_1)|}{\sqrt{A^2+B^2}}\)</span></p>
+<p>Lausekkeen osoittaja sievenee kertoimen <span class="math notranslate nohighlight">\(A\)</span> avulla:</p>
+<p><span class="math notranslate nohighlight">\(|\vec{d}|=\frac{|Ax_0-Ax_1+By_0-By_1|}{\sqrt{A^2+B^2}}\)</span></p>
+<p>Koska piste <span class="math notranslate nohighlight">\((x_1,y_1)\)</span> on suoralla, niin sille pätee <span class="math notranslate nohighlight">\(Ax_1+By_1+C=0\)</span>. Siis voidaan kirjoittaa <span class="math notranslate nohighlight">\(-Ax_1-By_1=C\)</span>, jolloin osoittaja sievenee seuraavasti:</p>
+<p><span class="math notranslate nohighlight">\(|\vec{d}|=\frac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}\)</span></p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Laske pisteen <span class="math notranslate nohighlight">\((3,5)\)</span> etäisyys suorasta <span class="math notranslate nohighlight">\(y=2x-4\)</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Suoran yhtälön yleinen muoto on <span class="math notranslate nohighlight">\(-2x+y+4=0\)</span>. Etäisyyden kaavan sijoitettavat kertoimet ovat siis <span class="math notranslate nohighlight">\(A=-2, B=1\)</span> ja <span class="math notranslate nohighlight">\(C=4\)</span>.</p>
+<p>Etäisyys on <span class="math notranslate nohighlight">\(d=\frac{|-2\cdot 3 + 1\cdot 5 + 4|}{\sqrt{(-2)^2+1^2}}=\frac{3}{\sqrt{5}}.\)</span></p>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="geometriaa.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Geometriaa vektoreilla</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="tasot_vektoreilla.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vektorit ja tasot</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By LUMA-tiimi, Lapin AMK / Minna Korhonen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
