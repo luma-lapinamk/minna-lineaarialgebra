@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Käänteismatriisi &#8212; Lineaarialgebra</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Matriisiyhtälöt" href="matriisiyhtalot.html" />
+    <link rel="prev" title="Determinantti" href="determinantti.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lineaarialgebra</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Alkusanat
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vektorilaskentaa
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_perus.html">
+   Mitä vektorit ovat?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_laskut.html">
+   Vektorien venyttelyä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pistetulo.html">
+   Kahden vektorin pistetulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="projektio.html">
+   Vektoriprojektio ja projektiovektori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektoriyhtalot.html">
+   Vektoriyhtälöitä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="napa.html">
+   Mittaustuloksista vektoreiksi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ristitulo.html">
+   Uusi vektori ristitulosta
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="geometriaa.html">
+   Geometriaa vektoreilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="suorat_vektoreilla.html">
+   Vektorit ja suorat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tasot_vektoreilla.html">
+   Vektorit ja tasot
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Matriisit
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_perus.html">
+   Mitä matriisit ovat?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_laskut.html">
+   Laskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisitulo.html">
+   Matriisitulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="determinantti.html">
+   Determinantti
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Käänteismatriisi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisiyhtalot.html">
+   Matriisiyhtälöt
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat.html">
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Gaussin eliminaatio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ominaisarvot.html">
+   Ominaisarvot ja -vektorit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_geometria.html">
+   Geometriaa matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leontief.html">
+   Taloustiedettä matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_muut.html">
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href="https://jupyterbook.org">Jupyter Book</a> voimaa
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/luma-lapinamk/minna-lineaarialgebra"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/kaanteismatriisi.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#onko-matriisilla-kaanteismatriisia">
+   Onko matriisilla käänteismatriisia?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kaanteismatriisin-laskeminen">
+   Käänteismatriisin laskeminen
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Käänteismatriisi</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#onko-matriisilla-kaanteismatriisia">
+   Onko matriisilla käänteismatriisia?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kaanteismatriisin-laskeminen">
+   Käänteismatriisin laskeminen
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="kaanteismatriisi">
+<h1>Käänteismatriisi<a class="headerlink" href="#kaanteismatriisi" title="Permalink to this headline">#</a></h1>
+<p>Joillakin matriiseilla on olemassa niinsanottu käänteismatriisi. Matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisia merkitään yläindeksillä <span class="math notranslate nohighlight">\(A^{-1}\)</span>. Reaaliluvuilla sama merkintä tarkoittaa käänteislukua, mutta matriiseilla kyse ei kuitenkaan ole samanlaisesta laskutoimituksesta. Tässä kappaleessa opetellaan laskemaan pieniä käänteismatriiseja, ja myöhemmin niitä hyödynnetään yhtälöiden ratkaisussa.</p>
+<p>Matriisille ja sen käänteismatriisille pätevät säännöt <span class="math notranslate nohighlight">\(AA^{-1}=I\)</span> ja <span class="math notranslate nohighlight">\(A^{-1}A=I\)</span>. Ominaisuus pätee myös toiseen suuntaan: jos matriisin <span class="math notranslate nohighlight">\(B\)</span> kertolasku matriisin <span class="math notranslate nohighlight">\(A\)</span> kanssa kummalta tahansa puolelta tuottaa tulokseksi yksikkömatriisin, niin matriisi <span class="math notranslate nohighlight">\(B\)</span> on matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisi ja voidaan merkitä <span class="math notranslate nohighlight">\(B=A^{-1}\)</span>. Tämä matriisien ominaisuus on hyödyllinen yhtälöjen ja yhtälöryhmien ratkaisussa.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Osoita, että matriisi <span class="math notranslate nohighlight">\(B=\begin{bmatrix}2 &amp; -5 \\ -1 &amp; 3\end{bmatrix}\)</span> on matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3 &amp; 5 \\ 1 &amp; 2\end{bmatrix}\)</span> käänteismatriisi.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Lasketaan tulo <span class="math notranslate nohighlight">\(AB\)</span> ja todetaan, että tuloksena on yksikkömatriisi:</p>
+<p><span class="math notranslate nohighlight">\(AB=\begin{bmatrix}3 &amp; 5 \\ 1 &amp; 2\end{bmatrix}\begin{bmatrix}2 &amp; -5 \\ -1 &amp; 3\end{bmatrix} = \begin{bmatrix}3\cdot 2 + 5\cdot (-1) &amp; 3\cdot (-5)+5\cdot 3 \\ 1\cdot 2 + 2\cdot (-1) &amp; 1\cdot (-5) + 2\cdot 3\end{bmatrix}=\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}\)</span>.</p>
+<p>Harjoitustehtävänä voit laskea myös tulon <span class="math notranslate nohighlight">\(BA\)</span> ja todeta, että siitäkin tulee yksikkömatriisi, kuten pitääkin.</p>
+</div>
+</div>
+<section id="onko-matriisilla-kaanteismatriisia">
+<h2>Onko matriisilla käänteismatriisia?<a class="headerlink" href="#onko-matriisilla-kaanteismatriisia" title="Permalink to this headline">#</a></h2>
+<p>Kaikilla matriiseilla ei ole olemassa käänteismatriisia. Jotta käänteismatriisi voitaisiin laskea, matriisin <span class="math notranslate nohighlight">\(A\)</span> on oltava neliömatriisi. Käänteismatriisin olemassaololle on olemassa myös seuraava ehto:</p>
+<p>Käänteismatriisi on olemassa jos ja vain jos <span class="math notranslate nohighlight">\(\det{⁡A} \neq 0\)</span>. Ilmaisu “jos ja vain jos” tarkoittaa sitä, että syy ja seuraus pätevät molempiin suuntiin:</p>
+<ul class="simple">
+<li><p>jos käänteismatriisi on olemassa, niin <span class="math notranslate nohighlight">\(\det{A} \neq 0\)</span>,</p></li>
+<li><p>jos <span class="math notranslate nohighlight">\(\det{A} \neq 0\)</span>, niin käänteismatriisi on olemassa.</p></li>
+</ul>
+<div class="tip dropdown admonition">
+<p class="admonition-title">“Jos ja vain jos”</p>
+<p>Matematiikassa ilmaisu “jos ja vain jos” toistuu muuallakin. Eräs esimerkki tästä on tulon nollasääntö: jos yksikin kertolaskun tekijöistä on nolla, niin laskun tuloskin on nolla, ja toisin päin.</p>
+<p>Kaikkiin laskusääntöihin syy ja seuraus eivät kuitenkaan päde molempiin suuntiin. Jos ilmauksen merkitystä on hankala sisäistää, voit ajatella ilmaisun molemmille puolille jotakin tutumpaa, esimerkiksi “menen nukkumaan, jos ja vain jos minua väsyttää”. Onkohan tämä totta, ja jos ei, niin millaisissa tilanteissa ei?</p>
+</div>
+<p>Jos neliömatriisilla on käänteismatriisi, niin matriisia sanotaan säännölliseksi. Jos neliömatriisilla ei ole käänteismatriisia, niin matriisia sanotaan singulaariseksi.</p>
+<p>Esimerkiksi matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3 &amp; 1 \\ 6 &amp; 2 \end{bmatrix}\)</span> determinantti on <span class="math notranslate nohighlight">\(\det{A} = 3\cdot 2 - 1\cdot 6 = 0\)</span>, joten matriisilla <span class="math notranslate nohighlight">\(A\)</span> ei ole käänteismatriisia. Matriisi <span class="math notranslate nohighlight">\(A\)</span> on singulaarinen.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Millä ehdolla matriisilla <span class="math notranslate nohighlight">\(B=\begin{bmatrix}x &amp; 3 \\ x+1 &amp; 5\end{bmatrix}\)</span> on olemassa käänteismatriisi?</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Lasketaan matriisin <span class="math notranslate nohighlight">\(B\)</span> determinantti ja selvitetään, millä luvun <span class="math notranslate nohighlight">\(x\)</span> arvolla se ei ole nolla.</p>
+<p><span class="math notranslate nohighlight">\(\det{B}=x\cdot 5 -3\cdot (x+1) = 5x-3x-3=2x-3\)</span></p>
+<p><span class="math notranslate nohighlight">\(2x-3 \neq 0 \Leftrightarrow 2x \neq 3 \Leftrightarrow x \neq \frac{3}{2}\)</span></p>
+<p>Luku <span class="math notranslate nohighlight">\(x\)</span> voi siis olla mikä tahansa paitsi <span class="math notranslate nohighlight">\(\frac{3}{2}\)</span>. Jos <span class="math notranslate nohighlight">\(x=\frac{3}{2}\)</span>, niin matriisi <span class="math notranslate nohighlight">\(B\)</span> on singulaarinen.</p>
+</div>
+</div>
+</section>
+<section id="kaanteismatriisin-laskeminen">
+<h2>Käänteismatriisin laskeminen<a class="headerlink" href="#kaanteismatriisin-laskeminen" title="Permalink to this headline">#</a></h2>
+<p>Matriiseille, joiden tyyppi on <span class="math notranslate nohighlight">\(2 \times 2\)</span> ja joiden determinantti on erisuuri kuin nolla, voidaan laskea käänteismatriisi suoraviivaisesti. Merkitään nämä ehdot täyttävän matriisin <span class="math notranslate nohighlight">\(A\)</span> alkioita seuraavasti:</p>
+<p><span class="math notranslate nohighlight">\(A=\begin{bmatrix}a&amp;b\\c&amp;d \end{bmatrix}\)</span></p>
+<p>Tällöin käänteismatriisi on <span class="math notranslate nohighlight">\(A^{-1}=\frac{1}{\det{A}} \begin{bmatrix} d &amp; -b \\ -c &amp; a\end{bmatrix}\)</span> eli <span class="math notranslate nohighlight">\(A^{-1}=\frac{1}{ad-bd} \begin{bmatrix} d &amp; -b \\ -c &amp; a\end{bmatrix}\)</span></p>
+<p>Käänteismatriisissa siis vasemman yläkulman ja oikean alakulman alkiot vaihdetaan keskenään, ja loppujen etumerkki vaihtuu. Lisäksi käänteismatriisin alkiot jaetaan matriisin determinantilla.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Perustelu</p>
+<p>Lasketaan tulo <span class="math notranslate nohighlight">\(AA^{-1}\)</span> ja todetaan, että tulos on yksikkömatriisi:</p>
+<p><span class="math notranslate nohighlight">\(AA^{-1}=\frac{1}{ad-bc} \begin{bmatrix}a&amp;b\\c&amp;d\end{bmatrix} \begin{bmatrix}d&amp;-b\\-c&amp;a\end{bmatrix}=\frac{1}{ad-bc} \begin{bmatrix}ad-bc&amp;-ab+ab\\cd-cd&amp;-bc+ad\end{bmatrix}=\begin{bmatrix}1&amp;0\\0&amp;1\end{bmatrix}\)</span>.</p>
+<p>Myös kertolasku <span class="math notranslate nohighlight">\(A^{-1}A\)</span> tuottaa yksikkömatriisin.</p>
+</div>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Määritä käänteismatriisi matriisille <span class="math notranslate nohighlight">\(B=\begin{bmatrix}3&amp;10\\1&amp;5\end{bmatrix}\)</span>, jos sellainen on olemassa.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Matriisin <span class="math notranslate nohighlight">\(B\)</span> determinantti on <span class="math notranslate nohighlight">\(3\cdot 5-10\cdot 1=5 \neq 0\)</span>, joten käänteismatriisi on olemassa.</p>
+<p>Käänteismatriisi on <span class="math notranslate nohighlight">\(B^{-1}=\frac{1}{3\cdot 5-10\cdot 1} \begin{bmatrix} 5&amp;-10 \\ -1&amp;3 \end{bmatrix} = \frac{1}{5}\cdot  \begin{bmatrix} 5&amp;-10 \\ -1&amp; 3 \end{bmatrix} = \begin{bmatrix}1&amp;-2\\-\frac{1}{5} &amp; \frac{3}{5} \end{bmatrix}\)</span>.</p>
+</div>
+</div>
+<p>Muille kuin <span class="math notranslate nohighlight">\(2 \times 2\)</span> –tyypin matriiseille käänteismatriisi on laskettava tietokoneella tai niinsanottujen vaakarivien alkeismuunnosten avulla. Menetelmä toki toimii myös <span class="math notranslate nohighlight">\(2\times 2\)</span> -tyypin matriiseille. Alkeismuunnoksia ovat</p>
+<ul class="simple">
+<li><p>rivin kertominen jollakin nollasta poikkeavalla luvulla</p></li>
+<li><p>kahden nollasta poikkeavalla luvulla kerrotun rivin yhteenlasku</p></li>
+<li><p>matriisin rivien vaihtaminen keskenään</p></li>
+</ul>
+<p>Matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisin laskua varten rakennetaan uusi matriisi, jossa matriisi <span class="math notranslate nohighlight">\(A\)</span> ja yksikkömatriisi <span class="math notranslate nohighlight">\(I\)</span> ovat vierekkäin. Matriisin <span class="math notranslate nohighlight">\(A\)</span> paikalle pyritään alkeismuunnoksilla saamaan yksikkömatriisi, ja yksikkömatriisin paikalle muodostuu samalla matriisi <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
+<p>Octavella matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisi saadaan komennolla inv(A) tai A^-1. Tietokoneet käyttävät käänteismatriisin muodostamiseen erilaista menetelmää kuin tässä.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Laske matriisin <span class="math notranslate nohighlight">\(A=\begin{bmatrix}3&amp;5\\1&amp;2\end{bmatrix}\)</span> käänteismatriisi alkeismuunnosten avulla.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Muodostetaan matriisista <span class="math notranslate nohighlight">\(A\)</span> ja yksikkömatriisista uusi matriisi <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(B=\begin{bmatrix} 3&amp;5&amp;1&amp;0\\ 1&amp;2&amp;0&amp;1 \end{bmatrix}\)</span></p>
+<p>Pyritään ensin saamaan 2. rivin 1. alkion tilalle 0. Kerrotaan 2. rivi luvulla -3, jolloin 2. riviksi saadaan <span class="math notranslate nohighlight">\(\begin{bmatrix}-3 &amp; -6 &amp; 0 &amp;-3\end{bmatrix}\)</span>.</p>
+<p>Laskemalla tämä yhteen matriisin <span class="math notranslate nohighlight">\(B\)</span> 1. rivin kanssa saadaan <span class="math notranslate nohighlight">\(\begin{bmatrix}3-3 &amp; 5-6 &amp; 1+0 &amp; 0-3\end{bmatrix}=\begin{bmatrix}0 &amp;-1&amp; 1 -3\end{bmatrix}\)</span>.</p>
+<p>Korvataan matriisin <span class="math notranslate nohighlight">\(B\)</span> toinen rivi yhteenlaskun tuloksella: <span class="math notranslate nohighlight">\(B=\begin{bmatrix}3&amp;5&amp;1&amp;0\\0&amp;-1&amp;1&amp;-3\end{bmatrix}\)</span></p>
+<p>Seuraavaksi pyritään asettamaan 1. rivin 2. alkio nollaksi. Kerrotaan nyt 2. rivi luvulla 5, jolloin 2. riviksi saadaan <span class="math notranslate nohighlight">\(\begin{bmatrix}0 &amp; -5 &amp; 5 &amp; -15\end{bmatrix}\)</span>.</p>
+<p>Lasketaan yhteen tämä sekä matriisin <span class="math notranslate nohighlight">\(B\)</span> 1. rivi, jolloin saadaan rivi <span class="math notranslate nohighlight">\(\begin{bmatrix}3+0 &amp; 5-5 &amp; 1+5 &amp; 0-15\end{bmatrix}=\begin{bmatrix}3 &amp; 0 &amp; 6 &amp;-15\end{bmatrix}\)</span>.</p>
+<p>Korvataan matriisin <span class="math notranslate nohighlight">\(B\)</span> 1. rivi tällä rivillä, jolloin saadaan <span class="math notranslate nohighlight">\(B=\begin{bmatrix} 3&amp;0&amp;6&amp;-15 \\ 0&amp;-1&amp;1&amp;-3\end{bmatrix}\)</span>.</p>
+<p>Matriisin <span class="math notranslate nohighlight">\(B\)</span> 1. rivi on nyt jaettava luvulla 3 ja 2. rivi kerrottava luvulla -1: <span class="math notranslate nohighlight">\(B=\begin{bmatrix}1&amp;0&amp;2&amp;-5\\0&amp;1&amp;-1&amp;3\end{bmatrix}\)</span>.</p>
+<p>Nyt matriisin <span class="math notranslate nohighlight">\(B\)</span> ensimmäinen ja toinen sarake muodostavat yksikkömatriisin, ja samalla kolmanteen ja neljänteen sarakkeeseen on muodostunut matriisin <span class="math notranslate nohighlight">\(A\)</span> käänteismatriisi: <span class="math notranslate nohighlight">\(A^{-1}=\begin{bmatrix}2&amp;-5\\-1&amp;3\end{bmatrix}\)</span>.</p>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Huomautus käänteismatriisin laskemisesta tietokoneella</p>
+<p>Tietokoneen käsittelevät lukuja eri tavalla kuin ihmiset. Joskus tietokoneen mielestä esimerkiksi ihmisen mielestä ilmiselvä luku 4 saattaakin olla 3.99999… tai vaikka 4.000000…00001. Tietokoneen muistissa luvut ovat <a class="reference external" href="https://fi.wikipedia.org/wiki/Liukuluku">liukulukuina</a>.</p>
+<p>Tästä syystä joskus esimerkiksi Octave voi olla eri mieltä siitä, onko matriisilla käänteismatriisia vai ei. Tämän sivun aiemmassa esimerkiksi todettiin, että matriisilla</p>
+<p><span class="math notranslate nohighlight">\(B=\begin{bmatrix}\frac{3}{2} &amp; 3 \\ {3}{2}+1 &amp; 5\end{bmatrix}\)</span></p>
+<p>ei ole käänteismatriisia, koska sen determinantti on</p>
+<p><span class="math notranslate nohighlight">\(\frac{3}{2}\cdot 5 - 3 \cdot (\frac{3}{2}+1) = \frac{15}{2}-\frac{9}{2}-\frac{6}{2}=0\)</span>.</p>
+<p>Kuitenkin kun Octaveen syöttää kyseisen matriisin, tietokone laskee sillekin käänteismatriisin. Käänteismatriisin luvut ovat kuitenkin hyvin suuria (merkintä e+15 tarkoittaa kerroin <span class="math notranslate nohighlight">\(10^{15}\)</span>). Tällaisessa tapauksessa käänteismatriisia ei pidä käyttää missään laskutoimituksissa. Oleellista on huomata virheilmoitus: matriisi on singulaarinen.</p>
+<p><img alt="Singulaarisen matriisin käänteismatriisi" src="_images/octave_singulaarinen.png" /></p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="determinantti.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Determinantti</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="matriisiyhtalot.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Matriisiyhtälöt</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By LUMA-tiimi, Lapin AMK / Minna Korhonen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

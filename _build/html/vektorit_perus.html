@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Mitä vektorit ovat? &#8212; Lineaarialgebra</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vektorien venyttelyä" href="vektorit_laskut.html" />
+    <link rel="prev" title="Alkusanat" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Lineaarialgebra</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Alkusanat
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vektorilaskentaa
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mitä vektorit ovat?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektorit_laskut.html">
+   Vektorien venyttelyä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pistetulo.html">
+   Kahden vektorin pistetulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="projektio.html">
+   Vektoriprojektio ja projektiovektori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="vektoriyhtalot.html">
+   Vektoriyhtälöitä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="napa.html">
+   Mittaustuloksista vektoreiksi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ristitulo.html">
+   Uusi vektori ristitulosta
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="geometriaa.html">
+   Geometriaa vektoreilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="suorat_vektoreilla.html">
+   Vektorit ja suorat
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tasot_vektoreilla.html">
+   Vektorit ja tasot
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Matriisit
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_perus.html">
+   Mitä matriisit ovat?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_laskut.html">
+   Laskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisitulo.html">
+   Matriisitulo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="determinantti.html">
+   Determinantti
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kaanteismatriisi.html">
+   Käänteismatriisi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisiyhtalot.html">
+   Matriisiyhtälöt
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_kertaus.html">
+   Kerrataan yhtälöryhmiä
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat.html">
+   Yhtälöryhmästä matriisiyhtälö
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="yhtaloryhmat_erikois.html">
+   Yhtälöryhmien erikoistapauksia
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Gaussin eliminaatio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ominaisarvot.html">
+   Ominaisarvot ja -vektorit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_geometria.html">
+   Geometriaa matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leontief.html">
+   Taloustiedettä matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matriisit_muut.html">
+   Siirtymälaskuja matriiseilla
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="leslie.html">
+   Populaatiolaskentaa matriiseilla
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            <a href="https://jupyterbook.org">Jupyter Book</a> voimaa
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/luma-lapinamk/minna-lineaarialgebra"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/vektorit_perus.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merkintatapoja">
+   Merkintätapoja
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kantavektorit">
+   Kantavektorit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#siirtymavektorit">
+   Siirtymävektorit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vektorien-yhteen-ja-vahennyslasku">
+   Vektorien yhteen- ja vähennyslasku
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vektorien-muodostaminen">
+   Vektorien muodostaminen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paikkavektorit">
+   Paikkavektorit
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mitä vektorit ovat?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merkintatapoja">
+   Merkintätapoja
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kantavektorit">
+   Kantavektorit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#siirtymavektorit">
+   Siirtymävektorit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vektorien-yhteen-ja-vahennyslasku">
+   Vektorien yhteen- ja vähennyslasku
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vektorien-muodostaminen">
+   Vektorien muodostaminen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paikkavektorit">
+   Paikkavektorit
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="mita-vektorit-ovat">
+<h1>Mitä vektorit ovat?<a class="headerlink" href="#mita-vektorit-ovat" title="Permalink to this headline">#</a></h1>
+<p>Tällä opintojaksolla otetaan matematiikan uudeksi työvälineeksi vektorit. Vektoreita käytetään muuallakin kuin matematiikassa, ja siksi niiden opiskelusta voi olla hyötyä. Fysiikassa vektorilla voidaan kuvata suuretta, jolla on sekä suuruus että suunta. Esimerkiksi kun autolla ajetaan nopeudella 80 km/h itään, niin nopeuden suuruus (vauhti) on 80 km/h ja suunta itään. Vektoreilla käsitellään myös monimutkaisempia fysiikan käsitteitä, esimerkiksi maapallon oman magneettikentän suuruus ja suunta vaihtelevat eri puolilla maapalloa ja myös ajallisesti. Myös rakennustekniikan lujuuslaskennassa vektorit ovat tarpeellisia. Vektoreille on käyttöä myös data-analytiikassa ja koneoppimisessa. Tällöin datapisteitä, esimerkiksi kyselytutkimuksen eri kysymysten vastauksia, voidaan käsitellä vektorimuotoon muunnettuina.</p>
+<p>Tässä materiaalissa  vektoreita käytetään apuna geometrian ongelmissa. Tällöin vektorien ajatellaan olevan tason tai avaruuden pisteiden välisiä janoja. Tällaisen vektorin pituus on sama kuin lyhin etäisyys kyseisten pisteiden välillä. Vektorin suunta määritellään suhteessa käytössä olevaan koordinaatistoon, esimerkiksi kulmana <span class="math notranslate nohighlight">\((x,y)\)</span>-koordinaatiston <span class="math notranslate nohighlight">\(x\)</span>-akselista mitattuna.</p>
+<p>Vektoreiden avulla voidaan ratkaista esimerkiksi seuraavanlaisia, kuvassa esitettyjä ongelmia:</p>
+<p><img alt="Ongelmia, joita voi ratkaista vektoreilla" src="_images/vektori_ongelmia.png" /></p>
+<ul class="simple">
+<li><p>Miten selvitän etäisyyden <span class="math notranslate nohighlight">\(AD\)</span>, kun täytyy kulkea pisteiden <span class="math notranslate nohighlight">\(B\)</span> ja <span class="math notranslate nohighlight">\(C\)</span> kautta?</p></li>
+<li><p>Mihin kohtaan tietä on lyhin matka sähkölinjalta pisteestä <span class="math notranslate nohighlight">\(P\)</span> ?</p></li>
+<li><p>Kuinka suuri kulma muodostuu lattian keskeltä seinien keskelle vedettyjen suorien välille?</p></li>
+</ul>
+<p>Tämänkaltaiset ongelmat ratkeavat yleensä myös ilman vektoreita, käyttäen esimerkiksi suorakulmaisen kolmion trigonometriaa. Vektorien avulla ratkaisu on kuitenkin todennäköisesti lyhyempi, ja tulosten laskeminen onnistuu helposti tietokoneella.</p>
+<section id="merkintatapoja">
+<h2>Merkintätapoja<a class="headerlink" href="#merkintatapoja" title="Permalink to this headline">#</a></h2>
+<p>Vektoria merkitään jollakin kirjaimella siten, että merkinnän päällä on viiva tai nuoli, esim. <span class="math notranslate nohighlight">\(\vec{v}\)</span>. Tässä oppimateriaalissa merkintänä toimii nuoli, mutta käsin laskettaessa viiva on helpompi ja yhtä hyvä merkintätapa. Vektorin merkkinä voi olla myös lihavointi, esim. vektori <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>.</p>
+<p>Jos vektori yhdistää jotkin tason tai avaruuden pisteet, niin vektoria usein merkitään sen alku- ja loppupisteen kirjaimilla, esim. pisteiden <span class="math notranslate nohighlight">\(A\)</span> ja <span class="math notranslate nohighlight">\(B\)</span> välillä on vektori <span class="math notranslate nohighlight">\(\vec{AB}\)</span> tai <span class="math notranslate nohighlight">\(\mathbf{AB}\)</span>.</p>
+</section>
+<section id="kantavektorit">
+<h2>Kantavektorit<a class="headerlink" href="#kantavektorit" title="Permalink to this headline">#</a></h2>
+<p>Edellä mainittiin, että vektoreita voidaan käyttää yhdistämään avaruuden pisteitä. Tarkastellaan aluksi kolmiulotteista avaruutta. Esitetään pisteet kolmiulotteisessa suorakulmaisessa koordinaatistossa eli <span class="math notranslate nohighlight">\((x,y,z)\)</span>-koordinaatistossa. Tällöin jokaisen pisteen paikan määrittelevät näiden kolmen koordinaatin lukuarvot. Paperille piirrettynä <span class="math notranslate nohighlight">\(x\)</span>-akseli kulkisi vasemmalta oikealle ja <span class="math notranslate nohighlight">\(y\)</span>-akseli ylhäältä alas. Kolmas <span class="math notranslate nohighlight">\(z\)</span>-akseli osoittaisi paperista katsojan silmään. Koordinaatistoa voi ajatella myös niin (kuten edellisen kuvan oikeassa reunassa), että huoneen lattialistat kulkevat <span class="math notranslate nohighlight">\(x\)</span>- ja <span class="math notranslate nohighlight">\(z\)</span>- akselia pitkin, ja kohti kattoa vie <span class="math notranslate nohighlight">\(y\)</span>-akseli.</p>
+<p>Usein kirjallisuudessa koordinaatistossa esitetään toisin päin kierrettynä, kuten seuraavassa kuvassa. Akselien keskinäiset suunnat ovat kuitenkin aina samat riippumatta siitä, miten päin käännettynä koordinaatisto esitetään. Akselien suuntiin on olemassa ns. oikean käden sääntö. Laita oikea käsi nyrkkiin ja käännä nyrkki kämmenpuoli itseäsi kohti. Avaa peukalo ja etusormi L:n muotoiseen asentoon. Peukalo vastaa <span class="math notranslate nohighlight">\(x\)</span>-akselia ja etusormi <span class="math notranslate nohighlight">\(y\)</span>-akselia. Kun ojennat keskisormesi itseäsi päin, se vastaa <span class="math notranslate nohighlight">\(z\)</span>-akselia.</p>
+<p>Jokaista näistä koordinaatiston suunnista vastaa oma pieni vektori, ns. kantavektori. Niitä merkitään <span class="math notranslate nohighlight">\(\vec{i}\)</span>, <span class="math notranslate nohighlight">\(\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{k}\)</span>. Jokaisen vektorin pituus on sama kuin koordinaatiston perusyksikkö, esimerkiksi jos koordinaatiston mittayksikkö on metri, niin kantavektorien pituus on 1 metri. Tällä opintojaksolla, ja muutenkin yleisesti kirjallisuudessa, kantavektorien <span class="math notranslate nohighlight">\(\vec{i}\)</span>, <span class="math notranslate nohighlight">\(\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{k}\)</span> suunnat ovat samat kuin <span class="math notranslate nohighlight">\(x\)</span>-akselin, <span class="math notranslate nohighlight">\(y\)</span>-akselin ja <span class="math notranslate nohighlight">\(z\)</span>-akselin suunnat.</p>
+<p><img alt="Kolmiulotteinen koordinaatisto" src="_images/3d_koordinaatisto.png" /></p>
+</section>
+<section id="siirtymavektorit">
+<h2>Siirtymävektorit<a class="headerlink" href="#siirtymavektorit" title="Permalink to this headline">#</a></h2>
+<p>Kun siirrytään pisteestä toiseen, niin siirtymiseen tarvittava vektori eli siirtymävektori muodostetaan lineaarikombinaationa kantavektoreista. Lineaarikombinaatio tarkoittaa sitä, että eri suuntaiset kantavektorit lasketaan yhteen joillakin reaalilukukertoimilla painotettuna. Tällöin vektorille <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> muodostuu merkintätapa <span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i} + a_y \vec{j} + a_z \vec{k}\)</span>. Eräs mahdollinen merkintätapa on myös <span class="math notranslate nohighlight">\(\vec{a}=(a_x,a_y,a_z)\)</span>, mutta tällöin täytyy olla tarkkana siitä, onko kyseessä vektori (jonka tunnistaa yläviivasta) vai koordinaatiston piste.</p>
+<p>Kantavektoreita kertoimineen sanotaan vektorin komponenteiksi. Tason, eli kaksiulotteisen suorakulmaisen koordinaatiston, vektoreille riittää merkitä <span class="math notranslate nohighlight">\(x\)</span>- ja <span class="math notranslate nohighlight">\(y\)</span>-suuntaiset komponentit.</p>
+<p>Laskukaava pisteiden <span class="math notranslate nohighlight">\(A=(x_a,y_a,z_a)\)</span> ja <span class="math notranslate nohighlight">\(B=(x_b,y_b,z_b)\)</span> väliselle vektorille on <span class="math notranslate nohighlight">\(\vec{AB}=(x_b-x_a) \vec{i} + (y_b-y_a) \vec{j} + (z_b-z_a) \vec{k}\)</span>. Toisin sanoen vektorin komponenttien kertoimet saadaan, kun vähennetään päätepisteen koordinaateista lähtöpisteen koordinaatit. Kaavaa ei kannata opetella ulkoa, sillä sen voi aina järkeilläkin: vähennyslaskut vastaavat sitä, kuinka monta yksikköä pitää siirtyä eri suunnissa, että päästään haluttuun paikkaan!</p>
+<p><img alt="Pisteiden välinen vektori" src="_images/ab_helppo.png" /></p>
+<p><strong>Esim.</strong> Vektoria, joka kuvaa siirtymää ”neljä askelta oikealle ja kaksi askelta alas” pisteestä <span class="math notranslate nohighlight">\(A\)</span> pisteeseen <span class="math notranslate nohighlight">\(B\)</span>, voidaan merkitä seuraavasti: <span class="math notranslate nohighlight">\(\vec{AB}=4\vec{i} - 2\vec{j}\)</span> tai <span class="math notranslate nohighlight">\(\vec{AB}=(4,-2)\)</span>. Vektorin komponentit ovat <span class="math notranslate nohighlight">\(4\vec{i}\)</span> ja <span class="math notranslate nohighlight">\(-2\vec{j}\)</span>.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Esitä siirtymä koordinaatiston pisteestä <span class="math notranslate nohighlight">\((2,4,6)\)</span> pisteeseen <span class="math notranslate nohighlight">\((5,-1,7)\)</span> vektorina.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Voidaan päätellä:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span>-suunnassa pitää siirtyä 3 askelta, jotta <span class="math notranslate nohighlight">\(x\)</span>-koordinaatti muuttuu arvosta 2 arvoon 5.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span>-suunnassa pitää siirtyä 5 askelta taaksepäin, siis lukuarvona -5, jotta <span class="math notranslate nohighlight">\(y\)</span>-koordinaatti muuttuu arvosta 4 arvoon -1.</p></li>
+<li><p><span class="math notranslate nohighlight">\(z\)</span>-suunnassa pitää siirtyä 1 askel eteenpäin, jotta <span class="math notranslate nohighlight">\(z\)</span>-koordinaatti muuttuu arvosta 6 arvoon 7.</p></li>
+</ul>
+<p>Vektori on siis <span class="math notranslate nohighlight">\(\vec{AB}=3 \vec{i} -5 \vec{j} + {k}\)</span>.</p>
+<p>Vektori voidaan muodostaa myös suoraan laskukaavalla:</p>
+<p><span class="math notranslate nohighlight">\(\vec{AB}=(5-3) \vec{i} + (-1-4) \vec{j} + (7-6) \vec{k}\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="vektorien-yhteen-ja-vahennyslasku">
+<h2>Vektorien yhteen- ja vähennyslasku<a class="headerlink" href="#vektorien-yhteen-ja-vahennyslasku" title="Permalink to this headline">#</a></h2>
+<p>Vektorien yhteenlaskua voi ajatella peräkkäisinä siirtyminä eri vektoreilla. Peräkkäiset siirtymiset voi hahmottaa kahdella eri tavalla:</p>
+<ul class="simple">
+<li><p>liikutaan ensin vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> määräämä siirtymä, ja sitten vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> määräämä siirtymä</p></li>
+<li><p>liikutaan ensin vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> määräämä vaakasuurtainen siirtymä <span class="math notranslate nohighlight">\(a_x \vec{i}\)</span> ja heti perään vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> määräämä vaakasuuntainen siirtymä <span class="math notranslate nohighlight">\(b_x \vec{i}\)</span>, ja sitten peräkkäin molemmat pystysuuntaiset siirtymät <span class="math notranslate nohighlight">\(a_y \vec{j}\)</span> ja <span class="math notranslate nohighlight">\(b_y \vec{j}\)</span></p></li>
+</ul>
+<p>Lopputulos kummallakin tavalla ajateltuna on sama, eli vaakasuuntainen siirtymä on vektorien vaakasuuntaisten siirtymisen summa, ja pystysuuntainen siirtymä on vektorien pystysuuntaisten siirtymien summa. Yhteenlasku tehdään siis komponenteittain: kantavektorien avulla esitetyt vektorit lasketaan yhteen siten, että samojen kantavektorien kertoimet lasketaan yhteen. Siis jos</p>
+<p><span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i} + a_y \vec{j} +a_z \vec{k}\)</span>, ja <span class="math notranslate nohighlight">\(b=b_x \vec{i} +b_y \vec{j} +b_z \vec{k}\)</span>, niin</p>
+<p><span class="math notranslate nohighlight">\(\vec{a}+\vec{b}=(a_x + b_x) \vec{i}+(a_y + b_y)\vec{j}+(a_z + b_z)\vec{k}\)</span>.</p>
+<p>Seuraavassa kuvassa on esitetty vektorien <span class="math notranslate nohighlight">\(\vec{a}=3\vec{i}+2\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{b}=4\vec{i}-\vec{j}\)</span> summa kahdella eri tavalla ajateltuna. Kummallakin tavalla vektorien summaksi saadaan</p>
+<p><span class="math notranslate nohighlight">\(\vec{a}+\vec{b}=(3 +4) \vec{i}+(2 - 1)\vec{j}=7 \vec{i}+\vec{j}\)</span></p>
+<p><img alt="Vektorien yhteenlasku" src="_images/siirtyma_vaihtoehdot.png" /></p>
+<p>Vektorien vähennyslasku <span class="math notranslate nohighlight">\(\vec{a}-\vec{b}\)</span> tarkoittaa geometrisesti sitä, että ensin tehdään vektorin <span class="math notranslate nohighlight">\(\vec{a}\)</span> määräämä siirtymä ja sitten vektorin <span class="math notranslate nohighlight">\(\vec{b}\)</span> määräämä siirtymä, mutta tämä suoritetaan takaperin, juuri päinvastaiseen suuntaan kuin minne vektori <span class="math notranslate nohighlight">\(\vec{b}\)</span> osoittaa. Laskukaava muodostuu samalla tavalla kuin edellä, siis jos</p>
+<p><span class="math notranslate nohighlight">\(\vec{a}=a_x \vec{i} + a_y \vec{j} +a_z \vec{k}\)</span>, ja <span class="math notranslate nohighlight">\(b=b_x \vec{i} +b_y \vec{j} +b_z \vec{k}\)</span>, niin</p>
+<p><span class="math notranslate nohighlight">\(\vec{a}-\vec{b}=(a_x - b_x) \vec{i}+(a_y - b_y)\vec{j}+(a_z - b_z)\vec{k}\)</span>.</p>
+<p>Vektorien yhteen- ja vähennyslaskut onnistuvat helposti esimerkiksi <a class="reference external" href="https://www.wolframalpha.com/">WolframAlpha-laskimella</a>. Vektorit syötetään laskimeen siten, että kantavektorien kertoimet luetellaan pilkulla erotettuna hakasuluissa. Esimerkiksi vektori <span class="math notranslate nohighlight">\(2\vec{i}-3\vec{j}\)</span> kirjoitetaan [3,1].</p>
+<p>Tietokoneella laskettaessa yhteen- tai vähennyslaskun vektoreissa pitää olla yhtä monta komponenttia, toisin sanoen kaksiulotteisen tason ja kolmiulotteisen avaruuden vektoreita ei voi laskea yhteen tai vähentää toisistaan. Ongelma poistuu, kun merkitsee puuttuvan kertoimen paikalle nollan. Esimerkiksi vektorit <span class="math notranslate nohighlight">\(2\vec{i}+3\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{i}+4\vec{j}+5\vec{k}\)</span> voi laskea yhteen komennolla [2,3,0]+[1,4,5].</p>
+</section>
+<section id="vektorien-muodostaminen">
+<h2>Vektorien muodostaminen<a class="headerlink" href="#vektorien-muodostaminen" title="Permalink to this headline">#</a></h2>
+<p>Vektorien tärkeä ominaisuus on, että ne kuvaavat lyhintä mahdollista siirtymää pisteiden välillä. Käytännössä siirtymä voidaan tehdä monen välivaiheen kautta ja erilaisia reittejä pitkin. Esimerkiksi ruokapöydästä vessaan pääsee varmasti monella eri tavalla, jopa siten, että käy välillä laittamassa saunan lämpiämään toisella puolella taloa. Silti on olemassa vain yksi lyhin mahdollinen reitti vessaan. Vektorimatematiikan näkökulmasta se saattaa tosin kulkea seinän läpi. (Jos sinulla on kotona laattalattia, voit ajatella laattoja yksikkövektoreina ja harjoitella vektorien muodostamista niiden avulla.)</p>
+<p>Monessa geometrian tai vaikkapa fysiikan ongelmassa voi olla hyödyksi, että vektorien avulla saadaan esitettyä lopputulos tiiviissä, yksikäsitteisessä muodossa riippumatta siitä, millä tavalla on ongelmaa käsitellyt. Tutki seuraavaa esimerkkiä eri tavalla muodostetuista, mutta täsmälleen samoista vektoreista.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Muodosta vektori pisteestä <span class="math notranslate nohighlight">\(A\)</span> pisteeseen <span class="math notranslate nohighlight">\(B\)</span> kahta eri reittiä pitkin, liikkuen seinien suuntaisesti. Huoneen pituus on 6 m, leveys 4 m ja korkeus 3 m. Kuvassa on annettu kaksi mahdollista reittiä.</p>
+<p><img alt="Vektorin muodostaminen eri tavoin" src="_images/seinia_pitkin.png" /></p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Reitti 1 (yhtenäinen viiva):</p>
+<p><span class="math notranslate nohighlight">\(\vec{AB}=−3\vec{k}+4\vec{i}+3\vec{j}−\vec{i}+\vec{k}=3\vec{i}+3\vec{j}−2\vec{k}\)</span></p>
+<p>Reitti 2 (katkoviiva):</p>
+<p><span class="math notranslate nohighlight">\(\vec{AB}=−2\vec{i}+3\vec{j}−3\vec{k}+5\vec{i}+\vec{k}=3\vec{i}+3\vec{j}−2\vec{k}\)</span></p>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Huomautus</p>
+<p>Vektoreista <span class="math notranslate nohighlight">\(\vec{i}\)</span>, <span class="math notranslate nohighlight">\(\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{k}\)</span> voidaan muodostaa yhdistelmiä, joilla pääsee siirtymään mistä tahansa suorakulmaisen koordinaatiston pisteestä mihin tahansa toiseen pisteeseen. Esimerkiksi tietokonepelissä voisi olla sellainen ominaisuus, että liikkuminen ei tapahdukaan askel kerrallaan eteen, taakse tai jommalle kummalle sivulle, vaan esimerkiksi viistosti loikkimalla kuten shakkipelin ratsulla.</p>
+<p>Tarkastellaan siirtymää kaksiulotteisessa koordinaatistossa. Valitaan vektoreiksi, joiden avulla liikutaan, <span class="math notranslate nohighlight">\(\vec{v_1}=\frac{1}{\sqrt{2}}\vec{i}-\frac{1}{\sqrt{2}}\vec{j}\)</span> ja <span class="math notranslate nohighlight">\(\vec{v_2}=\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}\)</span>. (Kertoimiksi on valittu hankalat näköiset luvut siksi, että niiden avulla vektorin pituudeksi muodostuu tasan 1. Pituuden laskeminen opetellaan toisaalla.)</p>
+<p>Nyt esimerkiksi pisteestä <span class="math notranslate nohighlight">\((0,0)\)</span> pääsee pisteeseen <span class="math notranslate nohighlight">\((3,1)\)</span> liikkumalla <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> kertaa vektorin <span class="math notranslate nohighlight">\(\vec{v_1}\)</span> suunnassa ja <span class="math notranslate nohighlight">\(2\sqrt{2}\)</span> kertaa vektorin <span class="math notranslate nohighlight">\(v_2\)</span> suunnassa:</p>
+<p><span class="math notranslate nohighlight">\(0 \vec{i} + 0 \vec{j} + \sqrt{2} \left(\frac{1}{\sqrt{2}}\vec{i}-\frac{1}{\sqrt{2}}\vec{j}\right) + 2\sqrt{2}\left(\frac{1}{\sqrt{2}}\vec{i}+\frac{1}{\sqrt{2}}\vec{j}\right)\)</span></p>
+<p><span class="math notranslate nohighlight">\(= \vec{i} - \vec{j} + 2 \vec{i} + 2\vec{j} = 3 \vec{i} + \vec{j}\)</span>.</p>
+<p>Tässä esimerkissä tarvittiin vektorin kertomista luvulla. Sitä käsitellään toisaalla tässä oppimateriaalissa.</p>
+</div>
+</section>
+<section id="paikkavektorit">
+<h2>Paikkavektorit<a class="headerlink" href="#paikkavektorit" title="Permalink to this headline">#</a></h2>
+<p>Pisteen paikkaa koordinaatistossa voidaan kuvata paikkavektorilla. Se on erityistapaus siirtymävektorista, sillä se tarkoittaa siirtymävektoria pisteestä <span class="math notranslate nohighlight">\(O=(0,0,0)\)</span> annettuun pisteeseen. Tällöin vektorin komponenteiksi tulevat pisteen koordinaatit. Esimerkiksi pisteen <span class="math notranslate nohighlight">\(A=(4,2,1)\)</span> paikkavektori on <span class="math notranslate nohighlight">\(\vec{OA}=4 \vec{i} + 2\vec{j} + \vec{k}\)</span>.</p>
+<p>Kun koordinaatistossa siirrytään pisteestä toiseen, niin päätepisteen paikkavektori saadaan lisäämällä lähtöpisteen paikkavektoriin siirtymävektori.</p>
+<div class="admonition-esimerkki admonition">
+<p class="admonition-title">Esimerkki</p>
+<p>Henkilö siirtyy kaksiulotteisen koordinaatiston pisteestä <span class="math notranslate nohighlight">\(A=(1030,550)\)</span> siirtymävektorin <span class="math notranslate nohighlight">\(\vec{AB}=-564 \vec{i}-205 \vec{j}\)</span> verran. Mihin pisteeseen <span class="math notranslate nohighlight">\(B\)</span> hän päätyy?</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Ratkaisu</p>
+<p>Pistettä <span class="math notranslate nohighlight">\(A\)</span> vastaava paikkavektori on <span class="math notranslate nohighlight">\(\vec{OA}=1030 \vec{i}+550 \vec{j}\)</span>.</p>
+<p>Päätepisteen paikkavektori on</p>
+<p><span class="math notranslate nohighlight">\(\vec{OB}=\vec{OA}+\vec{AB}=(1030+(-564)) \vec{i} +(550+(-205)) \vec{j}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\vec{OB}=466 \vec{i}+345 \vec{j}\)</span>.</p>
+<p>Päätepisteen koordinaatit ovat siis <span class="math notranslate nohighlight">\(B=(466,345)\)</span>.</p>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Alkusanat</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="vektorit_laskut.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vektorien venyttelyä</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By LUMA-tiimi, Lapin AMK / Minna Korhonen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
