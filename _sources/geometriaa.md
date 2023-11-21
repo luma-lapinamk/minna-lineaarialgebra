@@ -122,7 +122,7 @@ Oheisessa suuntaissärmiössä kärkipisteiden koordinaatit ovat $A=(1,1,1), B=(
 :::{admonition} Ratkaisu
 :class: tip, dropdown
 
-Valitaan sivuvektoreiksi $\vec{AB}=4\vec{i}+0\vec{j}+\vec{k}$, $\vec{AC}=2\vec{i}+6\vec{j}+3\vec{k}$, $\vec{AD}=\vec{i}+\vec{j}+8\vec{k}$. Huomionarvoista on, että neljä pistettä ja kolme vektoria todella riittävät määritellään kyseisen kappaleen yksikäsitteisesti.
+Valitaan sivuvektoreiksi $\vec{AB}=4\vec{i}+0\vec{j}+\vec{k}$, $\vec{AC}=2\vec{i}+6\vec{j}+3\vec{k}$, $\vec{AD}=\vec{i}+\vec{j}+8\vec{k}$. Neljä pistettä ja kolme vektoria todella riittävät määrittelemään kyseisen kappaleen yksikäsitteisesti.
 
 Lasketaan skalaarikolmituloa $(\vec{AB}\times \vec{AC})\cdot \vec{AD}$ varten ristitulo $\vec{AB}\times \vec{AC}$:
 

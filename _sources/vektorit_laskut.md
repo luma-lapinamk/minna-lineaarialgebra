@@ -136,9 +136,7 @@ b) $2\vec{A}-\vec{B}=(2\cdot 2 \vec{i} +2 \cdot 8 \vec{j})-(-3 \vec{i} + \vec{j}
 
 c) $|3\vec{A}|=|3 \cdot 2 \vec{i}+3 \cdot 8 \vec{j}|=|6 \vec{i}+24\vec{j}|=\sqrt{6^2+24^2}=\sqrt{612}\approx 24.7$
 
-Huom! Luvulla kerrotun vektorin pituus ei ole sama kuin vektorin pituus samalla luvulla kerrottuna!
-
-d) $|\vec{A}-\vec{B}|=|(2—3) \vec{i}+(8-1) \vec{j}|=|5 \vec{i} +7 \vec{j}|=\sqrt{5^2+7^2}=\sqrt{74} \approx 8.6$
+d) $|\vec{A}-\vec{B}|=|(2-(-3)) \vec{i}+(8-1) \vec{j}|=|5 \vec{i} +7 \vec{j}|=\sqrt{5^2+7^2}=\sqrt{74} \approx 8.6$
 
 Huom! Vektorien erotuksen pituus ei ole sama kuin vektorien pituuksien erotus!
 
